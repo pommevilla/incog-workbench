@@ -1,0 +1,26 @@
+#! /usr/bin/env Rscript
+
+# TODO: ensure that quarto is installed
+# Releases are here: https://github.com/quarto-dev/quarto-cli/releases
+
+# install latex
+system2("quarto", c("install", "tinytex"))
+
+# ensure that rmarkdown is installed
+if (!require("rmarkdown"))
+  install.packages("rmarkdown", repos = "https://cran.rstudio.com")
+
+# remove existing _book
+unlink('_book', recursive = TRUE)
+
+# render all formats
+system2("quarto", c("render", "--to", "all"))
+
+# build zipfile for transfer
+oldwd <- setwd('_book')
+on.exit(setwd(oldwd), add = TRUE)
+book_files <- list.files(recursive = TRUE)
+zip('../rstudio-server-pro-${CPACK_PACKAGE_VERSION}-admin-guide.zip', book_files)
+
+
+

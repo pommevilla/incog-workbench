@@ -1,0 +1,244 @@
+---
+knit: quarto render
+---
+
+# Hardening
+
+RStudio uses secure defaults wherever possible, but for maximal security hardening it's necessary to use values that make stronger assumptions or require additional configuration. This section of the Administration Guide demonstrates the use of these more secure configuration values and describes other security considerations. 
+
+A summary of these recommendations in the form of a set of example configuration files is presented at the end of this section: [Example Secure Configuration]
+
+## Set up SSL {.pro-header}
+
+A secure installation of RStudio encrypts network traffic using SSL. SSL doesn't come pre-configured since it requires certificates signed by a Certificate Authority (CA) trusted by all parties. 
+
+### Use SSL for Web Users
+
+If your configuration of RStudio is accessed directly by end users, see the [SSL Configuration] section, which describes how you can ensure that HTTPS is used when RStudio is accessed via a web browser. Note that this does not apply if you are terminating SSL upstream, for example when you are using nginx or Apache in front of RStudio as described in [Running with a Proxy] and handling SSL there.
+
+### Use SSL for the Job Launcher
+
+Ensure that communication with the Job Launcher is encrypted by setting `launcher-use-ssl=1` as follows:
+
+*/etc/rstudio/rserver.conf*
+
+```ini
+launcher-use-ssl=1
+```
+
+Note that additional configuration for the Job Launcher is required to make it possible to connect to it over SSL. See [Job Launcher Configuration] for details. Example Launcher configuration:
+
+*/etc/rstudio/launcher.conf*
+
+```ini
+enable-ssl=1
+certificate-file=/var/certs/your_domain_name.crt
+certificate-key-file=/var/certs/your_domain_name.key  
+```
+
+### Restrict TLS Versions
+
+RStudio Workbench supports many different SSL protocols for compatibility with older browsers, but several are no longer considered secure. We recommend disabling support for all SSL protocols except the most recent two, TLS 1.2 and 1.3. See the [SSL Protocols] section for more details.
+
+*/etc/rstudio/rserver.conf*
+
+```ini
+ssl-protocols=TLSv1.2 TLSv1.3
+```
+
+### Use HTTP Strict Transport Security (HSTS)
+
+When configured with SSL, RStudio Workbench uses HTTP Strict Transport Security automatically. This is a security setting that forces the browser to always use HTTPS when connecting to RStudio Workbench. We recommend including the maximum age to 1 year, and extending coverage to subdomains. 
+
+*/etc/rstudio/rserver.conf*
+
+```ini
+ssl-hsts-max-age=31536000
+ssl-hsts-include-subdomains=1
+```
+
+This ensures that the browser will not connect via HTTP to the domain running RStudio Server (and any of its subdomains) for one year.
+
+### Using SSL with RStudio Server Open Source
+
+RStudio Workbench has built-in SSL and HTTPS controls as described in this section. However, much of the same advice applies if you are securing an installation of the Open Source edition of RStudio Server; you can run RStudio Server behind a reverse proxy such as Nginx and perform SSL termination upstream.
+
+## Browser Security
+
+This section summarizes the recommendations in the [Access and Security] section.
+
+### Enable Origin Checks
+
+To help mitigate against CSRF attacks, RStudio can automatically reject any request that originated from a domain it doesn't recognize. To enable this check, add the following configuration:
+
+*/etc/rstudio/rserver.conf*
+
+```ini
+www-enable-origin-check=1
+www-allow-origin=mysubdomain.mydomain.com
+```
+
+The `www-allow-origin` setting is optional, but is helpful when RStudio is running behind a proxy. See [Additional Security Considerations] for details.
+
+### Disable Frame Embedding
+
+By default, RStudio does not permit frame embedding (that is, it will not load inside another web page's `<frameset>` or `<iframe>`). No change is necessary to enforce this, but you can request it explicitly as follows:
+
+*/etc/rstudio/rserver.conf*
+
+```ini
+www-frame-origin=none
+```
+
+### Set SameSite Cookie Header
+
+RStudio does not set the `SameSite` cookie header by default (see [Same Site cookies] for details). We recommend setting it explicitly. 
+
+*/etc/rstudio/rserver.conf*
+
+```ini
+www-same-site=lax
+```
+
+## R Session Security
+
+RStudio includes a number of options which can help harden the surface of the RStudio IDE itself. The settings in this section all apply to the IDE's user interface for R sessions. 
+
+Remember that RStudio is an interface to R itself, which has a variety of tools that can access the file system and shell as the user themselves. Follow security best practices by relying on operating system-level permissions, not front end restrictions, to guard access to sensitive content and files.
+
+### Limit Idle Time
+
+By default, RStudio allows users to be idle for up to an hour before automatically signing them out. If your users work with sensitive data, you may wish to decrease this.
+
+*/etc/rstudio/rserver.conf*
+
+```
+auth-timeout-minutes=20
+```
+
+See [Inactivity Timeout] for details.
+
+### Restrict System Directory Access
+
+RStudio can optionally prevent users from browsing to system directories; see [Restricted Directories] for details. Enable this feature as follows:
+
+
+*/etc/rstudio/rsession.conf*
+
+```ini
+restrict-directory-view=1
+```
+
+### Disable External Publishing {.pro-header}
+
+RStudio includes support for publishing to several external services, including RPubs and Shinyapps.io. If your users work with sensitive information, you should disable publishing to these services as follows:
+
+*/etc/rstudio/rsession.conf*
+
+```ini
+allow-external-publish=0
+```
+
+### Disable Other Features {.pro-header}
+
+The are a few other features you should consider disabling. We have not included them in our [Example Secure Configuration] because they can impede productivity for end users.
+
+- **Disable shell access** (`allow-shell=0`); disables the Terminal tab used to execute system commands
+- **Disable file downloads** (`allow-file-downloads=0`); disables downloading files using the Files pane
+- **Disable file uploads** (`allow-file-uploads=0`); disables uploading files using the Files pane
+- **Disable package installation** (`allow-package-installation=0`); disables the user interface for installing R packages
+
+Note that regardless of the values of these settings, users can execute system commands, install packages, and upload and download content using R itself.
+
+## Other
+
+### Encrypt Database Password
+
+When using PostgreSQL as a database provider, ensure that you're using an encrypted database password as described in [PostgreSQL password encryption].
+
+*/etc/rstudio/database.conf*
+
+```ini
+# Generated by rstudio-server encrypt-password
+password=ThX7skaB8VhMRk7jQr1J3lS0fk+GLmXDp3JIVcHwPiK1CMixSIEsNTt3cNBYj9Rx
+```
+
+### Enforce Group Requirement
+
+By default, anyone who can successfully authenticate on the system can use the IDE. You can get more control over who's able to log into the system by creating a group such as `rstudio-users` and instructing RStudio to limit access to that group.
+
+
+*/etc/rstudio/rserver.conf*
+
+```ini
+auth-required-user-group=rstudio-users
+```
+
+## Example Secure Configuration
+
+This section aggregates all of the security recommendations from the above sections. Note, again, that some adjustment is likely to be necessary depending on your environment; for example, this set of configuration values presumes that SSL termination is happening in RStudio, that RStudio is the only application running on its domain, and that it is never embedded in another page.
+
+Therefore, use these files as a starting point rather than copying and pasting them into your own system.
+
+*/etc/rstudio/rsession.conf*
+
+```ini
+# Disable publishing to RPubs and shinyapps.io
+allow-external-publish=0
+
+# Prevent exploration of system directories
+restrict-directory-view=1
+```
+
+*/etc/rstudio/rserver.conf*
+
+```ini
+# Limit access to those users to whom it's been explicitly granted via group membership
+auth-required-user-group=rstudio-users
+
+# Sign users out after 20 minutes of inactivity (default is 60)
+auth-timeout-minutes=20
+
+# Use HTTPS when connecting to web browsers
+ssl-enabled=1
+ssl-certificate=/var/certs/your_domain_name.crt
+ssl-certificate-key=/var/certs/your_domain_name.key  
+
+# Limit SSL protocol versions to modern TLS
+ssl-protocols=TLSv1.2 TLSv1.3
+
+# Increase HTTP Strict Transport Security to 1 year and include subdomains
+ssl-hsts-max-age=31536000
+ssl-hsts-include-subdomains=1
+
+# Enable origin checks on all HTTP requests (CSRF defense)
+www-enable-origin-check=1
+
+# Ensure that the domain on which RStudio is hosted is permitted as an origin
+www-allow-origin=mysubdomain.mydomain.com
+
+# Ensure the SameSite attribute is set on all cookies
+www-same-site=lax
+
+# Disallow embedding on other pages
+www-frame-origin=none
+
+# Use HTTPS when connecting to the Job Launcher
+launcher-use-ssl=1
+```
+
+*/etc/rstudio/launcher.conf*
+
+```ini
+enable-ssl=1
+certificate-file=/var/certs/your_domain_name.crt
+certificate-key-file=/var/certs/your_domain_name.key  
+```
+
+*/etc/rstudio/database.conf*
+
+```ini
+# Generated by rstudio-server encrypt-password
+password=ThX7skaB8VhMRk7jQr1J3lS0fk+GLmXDp3JIVcHwPiK1CMixSIEsNTt3cNBYj9Rx
+```
+

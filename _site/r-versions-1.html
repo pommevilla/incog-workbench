@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>RStudio Workbench Administration – r-versions-1</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007ba5; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #007ba5; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #007ba5; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="site_libs/quarto-nav/headroom.min.js"></script>
+  <meta name="quarto:offset" content=".">
+  <script src="site_libs/quarto-search/autocomplete.min.js"></script>
+  <script src="site_libs/quarto-search/fuse.min.js"></script>
+  <script src="site_libs/quarto-search/quarto-search.js"></script>
+  <script src="site_libs/quarto-html/quarto.js"></script>
+  <script src="site_libs/quarto-html/popper.min.js"></script>
+  <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="site_libs/quarto-html/clipboard.min.js"></script>
+  <script src="site_libs/quarto-html/anchor.min.js"></script>
+  <script src="site_libs/quarto-html/quarto-html.js"></script>
+  <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="site_libs/quarto-html/quarto-css-variables.css" rel="stylesheet">
+  <script src="site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-20375833-3', 'auto', {'allowLinker': true});
+  ga('require', 'linker');
+  ga('linker:autoLink', ['rstudio.com', 'rstudio.github.io', 'rviews.rstudio.com', 'community.rstudio.com', 'rpubs.rstudio.com', 'environments.rstudio.com', 'rstudio.org', 'dailies.rstudio.com', 'pages.rstudio.com', 'db.rstudio.com', 'solutions.rstudio.com', 'docs.rstudio.com', 'spark.rstudio.com', 'shiny.rstudio.com', 'education.rstudio.com', 'rstudio.cloud', 'shinyapps.io', 'team-admin.rstudio.com', 'blog.rstudio.com', 'support.rstudio.com', 'blogs.rstudio.com', 'keras.rstudio.com', 'swag.rstudio.com', 'tensorflow.rstudio.com', 'packagemanager.rstudio.com'] );
+  ga('send', 'pageview');
+  </script>
+  <!-- End Google Analytics -->
+  <style type="text/css">
+    .quarto-layout-panel > figure {
+      width: 100%;
+    }
+    .quarto-layout-panel > figure > figcaption,
+    .quarto-layout-panel > .panel-caption {
+      margin-top: 10pt;
+    }
+    .quarto-layout-row {
+      display: flex;
+      align-items: flex-start;
+    }
+    .quarto-layout-valign-top {
+      align-items: flex-start;
+    }
+    .quarto-layout-valign-bottom {
+      align-items: flex-end;
+    }
+    .quarto-layout-valign-center {
+      align-items: center;
+    }
+    .quarto-layout-cell {
+      position: relative;
+      margin-right: 20px;
+    }
+    .quarto-layout-cell:last-child {
+      margin-right: 0;
+    }
+    .quarto-layout-cell figure,
+    .quarto-layout-cell > p {
+      margin: 0.2em;
+    }
+    .quarto-layout-cell img {
+      max-width: 100%;
+    }
+    .quarto-layout-cell .html-widget {
+      width: 100% !important;
+    }
+    .quarto-layout-cell div figure p {
+      margin: 0;
+    }
+    .quarto-layout-cell figure {
+      display: inline-block;
+      margin-inline-start: 0;
+      margin-inline-end: 0;
+    }
+    .quarto-layout-cell table {
+       display: inline-table;
+    }
+    .quarto-layout-cell-subref figcaption {
+      text-align: center;
+      font-style: italic;
+    }
+    .quarto-figure {
+      position: relative;
+    }
+    .quarto-figure > figure {
+      width: 100%;
+    }
+    .quarto-figure-left > figure > p {
+     text-align: left;
+    }
+    .quarto-figure-center > figure > p {
+      text-align: center;
+    }
+    .quarto-figure-right > figure > p {
+      text-align: right;
+    }
+    figure > p:empty {
+      display: none;
+    }
+    figure > p:first-child {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    figure > figcaption {
+      margin-top: 0.5em;
+    }
+  </style>
+  <style type="text/css">
+    details {
+      margin-bottom: 1em;
+    } 
+    details[show] {
+      margin-bottom: 0;
+    }
+
+    .quarto-unresolved-ref {
+      font-weight: 600;
+    }
+
+    .quarto-cover-image {
+      max-width: 35%;
+      float: right;
+      margin-left: 30px;
+    }
+
+    .cell-output-display {
+      overflow-x: auto;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+  <link rel="stylesheet" href="styles/guide.css">
+</head>
+<body>
+<div id="quarto-search-results"></div>
+<header id="quarto-header" class="headroom fixed-top">
+<nav class="quarto-secondary-nav py-2 d-lg-none d-md-block " data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <div class="container-fluid d-flex justify-content-between">
+    <h1 class="quarto-secondary-nav-title mb-0 fs-3 d-inline"></h1>
+    <button type="button" class="quarto-btn-toggle btn d-lg-none py-0 px-1 d-inline-block border-0 ">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+  </div>
+</nav>
+</header>
+ <!-- /navbar/sidebar -->
+<div class="container-fluid quarto-container d-flex flex-column page-layout-article">
+<div class="row flex-fill" id="quarto-content">
+  <div id="quarto-sidebar" class="col col-12 col-lg-3 d-lg-flex px-0 pt-0 sidebar collapse sidebar-navigation">
+    <nav class="me-lg-auto py-2 docked  overflow-scroll">
+  <div class="px-3 pt-lg-2 mt-1 text-left">
+    <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+  </div>
+    <div class="d-flex px-3 mt-2 flex-shrink-0 align-items-center">
+      <div class="sidebar-search">
+      <form class="d-flex mb-0">
+  <input id="quarto-search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+      </div>
+    </div>
+  <div class="sidebar-menu-container"> 
+  <ul class="list-unstyled mt-3 px-3">
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./index_splits/index.sub_00.html" class="">Getting Started</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#gettingstarted-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="gettingstarted-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./index_splits/index.sub_01.html" class="">Introduction</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./index_splits/index.sub_02.html" class="">Installation</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./index_splits/index.sub_03.html" class="">Management Script</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./index_splits/index.sub_04.html" class="">Activation</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./index_splits/index.sub_05.html" class="">Accessing the Server</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./index_splits/index.sub_06.html" class="">Community Resources</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./index_splits/index.sub_07.html" class="">Professional Support</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./server-management_splits/server-management.sub_00.html" class="">Server Management</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="servermanagement-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./server-management_splits/server-management.sub_01.html" class="">Core Administrative Tasks</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./server-management_splits/server-management.sub_02.html" class="">Logging</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./server-management_splits/server-management.sub_03.html" class="">Administrative Dashboard</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./server-management_splits/server-management.sub_04.html" class="">Automated Crash Reporting</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./authenticating-users_splits/authenticating-users.sub_00.html" class="">Authenticating Users</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#authenticatingusers-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="authenticatingusers-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_01.html" class="">User Provisioning</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_02.html" class="">PAM Basics</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_03.html" class="">Authentication Migration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_04.html" class="">PAM Authentication</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_05.html" class="">Restricting Access to Specific Users</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_06.html" class="">SAML Single Sign-On Authentication</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_07.html" class="">OpenID Connect Authentication</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_08.html" class="">Proxied Authentication</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_09.html" class="">Google Accounts (deprecated)</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_10.html" class="">Customizing the Sign-In Page</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_11.html" class="">Authorization Timeout</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./access-and-security_splits/access-and-security.sub_00.html" class="">Access and Security</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="accessandsecurity-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_01.html" class="">Network Port and Address</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_02.html" class="">IP Access Rules</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_03.html" class="">Frame Origin</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_04.html" class="">Same Site cookies</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_05.html" class="">Compatibility with Safari 13+</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_06.html" class="">Additional Security Considerations</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_07.html" class="">Additional Headers</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_08.html" class="">Secure Sockets (SSL)</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_09.html" class="">SSL Ports</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_10.html" class="">Cookies</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_11.html" class="">Server Permissions</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_12.html" class="">Running with a Proxy</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./r-sessions_splits/r-sessions.sub_00.html" class="">R Sessions</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#rsessions-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="rsessions-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_01.html" class="">R Executable and Libraries</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_02.html" class="">Session Startup Scripts</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_03.html" class="">User and Group Profiles</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_04.html" class="">Multiple R Sessions</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_05.html" class="">PAM Sessions</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_06.html" class="">Kerberos</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_07.html" class="">Directory Management</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_08.html" class="">Workspace Management</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_09.html" class="">First Project Template</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_10.html" class="">Project Sharing</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_11.html" class="">Package Installation</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_12.html" class="">Feature Limits</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_13.html" class="">Notifications</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_14.html" class="">RStudio Connect Server</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_15.html" class="">Terminal WebSockets</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_16.html" class="">Customizing Session Settings</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./r-versions-1_splits/r-versions-1.sub_00.html" class="">R Versions</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#rversions-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="rversions-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./r-versions-1_splits/r-versions-1.sub_01.html" class="">Overview</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-versions-1_splits/r-versions-1.sub_02.html" class="">Installing R</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-versions-1_splits/r-versions-1.sub_03.html" class="">Configuring the Default Version of R</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-versions-1_splits/r-versions-1.sub_04.html" class="">Using Multiple Versions of R Concurrently</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-versions-1_splits/r-versions-1.sub_05.html" class="">Managing Upgrades of R</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-versions-1_splits/r-versions-1.sub_06.html" class="">Session Initialization</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./load-balancing_splits/load-balancing.sub_00.html" class="">Load Balancing</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#loadbalancing-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="loadbalancing-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./load-balancing_splits/load-balancing.sub_01.html" class="">Overview</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./load-balancing_splits/load-balancing.sub_02.html" class="">Load Balancing vs. Job Launcher</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./load-balancing_splits/load-balancing.sub_03.html" class="">Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./load-balancing_splits/load-balancing.sub_04.html" class="">Access and Availability</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./load-balancing_splits/load-balancing.sub_05.html" class="">Balancing Methods</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./auditing-and-monitoring_splits/auditing-and-monitoring.sub_00.html" class="">Auditing and Monitoring</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#auditingandmonitoring-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="auditingandmonitoring-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./auditing-and-monitoring_splits/auditing-and-monitoring.sub_01.html" class="">Auditing Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./auditing-and-monitoring_splits/auditing-and-monitoring.sub_02.html" class="">Monitoring Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./auditing-and-monitoring_splits/auditing-and-monitoring.sub_03.html" class="">Server Health Checks</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./license-management_splits/license-management.sub_00.html" class="">License Management</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#licensemanagement-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="licensemanagement-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./license-management_splits/license-management.sub_01.html" class="">Product Activation</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./license-management_splits/license-management.sub_02.html" class="">License Details</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./license-management_splits/license-management.sub_03.html" class="">Connectivity Requirements</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./license-management_splits/license-management.sub_04.html" class="">Evaluations</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./license-management_splits/license-management.sub_05.html" class="">Floating Licensing</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./license-management_splits/license-management.sub_06.html" class="">Userspace Licensing</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./data-connectivity_splits/data-connectivity.sub_00.html" class="">Data Connectivity</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#dataconnectivity-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="dataconnectivity-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./data-connectivity_splits/data-connectivity.sub_01.html" class="">Connectivity using ODBC</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./data-connectivity_splits/data-connectivity.sub_02.html" class="">Connectivity using R Packages</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./data-connectivity_splits/data-connectivity.sub_03.html" class="">Snippet Files</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./job-launcher_splits/job-launcher.sub_00.html" class="">Job Launcher</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#joblauncher-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="joblauncher-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./job-launcher_splits/job-launcher.sub_01.html" class="">Overview</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./job-launcher_splits/job-launcher.sub_02.html" class="">Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./job-launcher_splits/job-launcher.sub_03.html" class="">Running the Launcher</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./job-launcher_splits/job-launcher.sub_04.html" class="">Load Balancing</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./job-launcher_splits/job-launcher.sub_05.html" class="">Creating plugins</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./job-launcher_splits/job-launcher.sub_06.html" class="">Troubleshooting</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./tutorial-api_splits/tutorial-api.sub_00.html" class="">Tutorial API</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#tutorialapi-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="tutorialapi-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./tutorial-api_splits/tutorial-api.sub_01.html" class="">Overview</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./tutorial-api_splits/tutorial-api.sub_02.html" class="">Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./tutorial-api_splits/tutorial-api.sub_03.html" class="">Interface</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./tutorial-api_splits/tutorial-api.sub_04.html" class="">Tutorial API Methods</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./tutorial-api_splits/tutorial-api.sub_05.html" class="">Tutorial API Callbacks</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./jupyter-sessions_splits/jupyter-sessions.sub_00.html" class="">Jupyter Sessions</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#jupytersessions-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="jupytersessions-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./jupyter-sessions_splits/jupyter-sessions.sub_01.html" class="">Overview</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./jupyter-sessions_splits/jupyter-sessions.sub_02.html" class="">Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./jupyter-sessions_splits/jupyter-sessions.sub_03.html" class="">Troubleshooting</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./vscode-sessions-preview_splits/vscode-sessions-preview.sub_00.html" class="">VS Code Sessions</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#vscodesessions-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="vscodesessions-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./vscode-sessions-preview_splits/vscode-sessions-preview.sub_01.html" class="">Overview</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./vscode-sessions-preview_splits/vscode-sessions-preview.sub_02.html" class="">Installation</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./vscode-sessions-preview_splits/vscode-sessions-preview.sub_03.html" class="">Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./vscode-sessions-preview_splits/vscode-sessions-preview.sub_04.html" class="">Multiple Sessions</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./vscode-sessions-preview_splits/vscode-sessions-preview.sub_05.html" class="">Troubleshooting</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./database_splits/database.sub_00.html" class="">Database</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#database-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="database-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./database_splits/database.sub_01.html" class="">Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./database_splits/database.sub_02.html" class="">Migration</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./hardening_splits/hardening.sub_00.html" class="">Hardening</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="hardening-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./hardening_splits/hardening.sub_01.html" class="">Set up SSL</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./hardening_splits/hardening.sub_02.html" class="">Browser Security</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./hardening_splits/hardening.sub_03.html" class="">R Session Security</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./hardening_splits/hardening.sub_04.html" class="">Other</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./hardening_splits/hardening.sub_05.html" class="">Example Secure Configuration</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <li class="sidebar-item">
+  <a href="./session-user-settings_splits/session-user-settings.sub_00.html" class="">Session User Settings</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./rstudio-ide-commands_splits/rstudio-ide-commands.sub_00.html" class="">R Studio IDE Commands</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./r-package-dependencies_splits/r-package-dependencies.sub_00.html" class="">R Package Dependencies</a>
+</li>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./rstudio-server-configuration_splits/rstudio-server-configuration.sub_00.html" class="">R Studio Configuration</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#rstudioconfiguration-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="rstudioconfiguration-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./rstudio-server-configuration_splits/rstudio-server-configuration.sub_01.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./rstudio-server-configuration_splits/rstudio-server-configuration.sub_02.html" class="">rsession.conf</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  </ul>
+  </div>
+</nav>
+  </div>
+  <div class="col mx-auto col-sm-12 col-md-11 col-lg-9 px-lg-4">
+<main>
+<section id="r-versions" class="level1 pro-header">
+<h1 class="pro-header">R Versions</h1>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>RStudio Workbench enables users and administrators to have very fine-grained control over which versions of R are used in various contexts. Capabilities include:</p>
+<ul>
+<li><p>Administrators can install several versions of R and specify a global default version as well as per-user or per-group default versions.</p></li>
+<li><p>Users can switch between any of the available versions of R as they like.</p></li>
+<li><p>Users can specify that individual R projects remember their last version of R and always use that version until explicitly migrated to a new version.</p></li>
+</ul>
+<p>Flexible control over R versions makes it much easier to provide upgraded versions of R for users (or individual projects) that require them; while at the same time not disrupting work that requires continued use of older versions.</p>
+</section>
+<section id="installing-r" class="level2">
+<h2 class="anchored" data-anchor-id="installing-r">Installing R</h2>
+<p>We recommend installing multiple versions of R because an environment with multiple versions of R helps provide a stable, reproducible environment for your R developers.</p>
+<p>Install R using the directions at <a href="https://docs.rstudio.com/resources/install-r/" class="uri">https://docs.rstudio.com/resources/install-r/</a>.</p>
+<section id="recommended-installation-directories" class="level3">
+<h3 class="anchored" data-anchor-id="recommended-installation-directories">Recommended Installation Directories</h3>
+<p>RStudio Workbench automatically scans for versions of R at the following locations:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib/R</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib64/R</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/local/lib/R</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/local/lib64/R</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/local/lib/R</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/local/lib64/R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In addition, RStudio Workbench scans all subdirectories of the following directories within <code>/opt</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/R</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/local/R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For example, any of the following installed versions of R will be automatically detected by RStudio Workbench:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/R/3.1.0</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/R/3.2.0</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/local/R/3.1.0</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/local/R/3.2.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you have versions of R located at other places in the file system, RStudio Workbench can still utilize them. However, you’ll need to explicitly specify their location in a configuration file (this is covered in more detail in the [Using Multiple Versions] section).</p>
+</section>
+</section>
+<section id="configuring-the-default-version-of-r" class="level2">
+<h2 class="anchored" data-anchor-id="configuring-the-default-version-of-r">Configuring the Default Version of R</h2>
+<p>When multiple versions of R are installed you will need to specify which version is the default one for new R sessions. This can be done automatically via the system PATH. However, several other mechanisms are provided when more flexibility is required.</p>
+<section id="single-default-version-of-r" class="level3">
+<h3 class="anchored" data-anchor-id="single-default-version-of-r">Single Default Version of R</h3>
+<p>RStudio uses the version of R pointed to by the output of the following command:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> which R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>which</code> command performs a search for the R executable using the system PATH. RStudio will therefore by default bind to the same version that is run when R is executed from a terminal.</p>
+<p>For versions of R installed by system package managers this will be <code>/usr/lib/R</code>. For versions of R installed from source this will typically (but not always) be <code>/usr/local/lib/R</code>.</p>
+<p>If you want to override which version of R is used, then you can use the <code>rsession-which-r</code> setting. For example:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-which-r</span><span class="ot">=</span><span class="st">/usr/local/lib/R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Note:</strong> This change will not take effect until the server is restarted.</p>
+</section>
+<section id="default-version-per-user-or-group" class="level3">
+<h3 class="anchored" data-anchor-id="default-version-per-user-or-group">Default Version Per User or Group</h3>
+<p>You can use the [User and Group Profiles] feature to specify distinct default versions of R for various users and groups. For example, the following profile configuration uses R 3.1.0 as the system default, R 3.2.0 for the <code>powerusers</code> group, and R 3.0.2 for the user <code>jsmith</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[*]</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">r-version </span><span class="ot">=</span><span class="st"> /opt/R/</span><span class="dv">3</span><span class="st">.</span><span class="fl">1.0</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">[@powerusers]</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="dt">r-version </span><span class="ot">=</span><span class="st"> /opt/R/</span><span class="dv">3</span><span class="st">.</span><span class="fl">2.0</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">[jsmith]</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="dt">r-version </span><span class="ot">=</span><span class="st"> /opt/R/</span><span class="dv">3</span><span class="st">.</span><span class="fl">0.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that <code>r-version</code> specifies the full path to the directory where R is installed.</p>
+</section>
+<section id="user-configurable-default-version" class="level3">
+<h3 class="anchored" data-anchor-id="user-configurable-default-version">User Configurable Default Version</h3>
+<p>Users can also configure their own default version of R. This is done using the <strong>General</strong> pane of the <strong>Global Options</strong> dialog:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/SetDefaultRVersion.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Set Default R Version</figcaption><p></p>
+</figure>
+</div>
+<p>See the <a href="#disabling-use-of-multiple-versions">Disabling Use of Multiple Versions</a> section for details on how to disable version switching entirely either system-wide or on a per-user or per-group basis.</p>
+</section>
+</section>
+<section id="using-multiple-versions-of-r-concurrently" class="level2">
+<h2 class="anchored" data-anchor-id="using-multiple-versions-of-r-concurrently">Using Multiple Versions of R Concurrently</h2>
+<section id="determining-available-versions" class="level3">
+<h3 class="anchored" data-anchor-id="determining-available-versions">Determining Available Versions</h3>
+<p>RStudio Workbench scans for and automatically discovers versions of R in the following locations:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib/R</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib64/R</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/local/lib/R</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/local/lib64/R</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/local/lib/R</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/local/lib64/R</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/R/*</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/local/R/*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is described in more detail in the <a href="#recommended-installation-directories">Recommended Installation Directories</a> section. If you have installed versions of R in alternate locations, you can list them within the <code>/etc/rstudio/r-versions</code> configuration file. For example:</p>
+<p><em>/etc/rstudio/r-versions</em></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">/opt/R-3.2.1</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">/opt/R-devel-3.3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In addition, any version of R referenced in an <code>r-version</code> directive within [User and Group Profiles] is also recognized.</p>
+<p>In order to be usable, the R home path must be readable by the RStudio server account (usually <code>rstudio-server</code>; see [Access and Security] for details).</p>
+<section id="version-scan-report" class="level4">
+<h4 class="anchored" data-anchor-id="version-scan-report">Version Scan Report</h4>
+<p>At startup, RStudio Workbench collects information about each available R version as described above, and writes a report to the following file in JSON format:</p>
+<pre><code>/var/lib/rstudio-server/r-versions</code></pre>
+<p>This file is later read by the various RStudio processes responsible for displaying and switching between R versions. If you aren’t seeing the R versions look and work as you expect, the content of this file can give you some insight into RStudio’s understanding of your system’s configuration. If you’re unable to resolve the issue, include the contents of the file when submitting a support ticket to <a href="mailto:support@rstudio.com" class="email">support@rstudio.com</a>.</p>
+<p>Note that the JSON format of the <code>r-versions</code> file is subject to change between RStudio versions, so avoid reading or using it in automated tooling.</p>
+<p>The <code>r-versions</code> file must be available on all nodes that run R sessions. We don’t generally recommend changing its location, but if you need to do so in order to mount it on R session nodes, you can do via the <code>r-versions-path</code> option as in the following example:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">r-versions-path</span><span class="ot">=</span><span class="st">/mnt/config/rstudio-server/r-versions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="extended-r-version-definitions" class="level4">
+<h4 class="anchored" data-anchor-id="extended-r-version-definitions">Extended R Version Definitions</h4>
+<p>The <code>/etc/rstudio/r-versions</code> file allows you to specify extended information for a particular R Version, providing you:</p>
+<ul>
+<li>The ability to specify additional environment variables to set</li>
+<li>An optional preload script to run</li>
+<li>An optional environment module to load (more info <a href="https://en.wikipedia.org/wiki/Environment_Modules_(software)">here</a>)</li>
+<li>A user-friendly label name for the version that is displayed in the UI</li>
+</ul>
+<p>To specify extended format information, modify the <code>/etc/rstudio/r-versions</code> file to consist of multiple R entries separated by a blank line. The following table lists the fields that are available for each R entry in the file.</p>
+<table class="table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 71%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Path</td>
+<td>(Required if Module not specified, see <a href="#modules">Modules</a>) The root directory of the location of the R installation.</td>
+</tr>
+<tr class="even">
+<td>Label</td>
+<td>(Optional) The user-friendly name for the R version that will be displayed to users in the UI.</td>
+</tr>
+<tr class="odd">
+<td>Module</td>
+<td>(Optional) The name of an environment module to load for the R version. This is loaded by running the command <code>module load [module]</code> after sourcing the user’s .bashrc file.</td>
+</tr>
+<tr class="even">
+<td>Script</td>
+<td>(Optional) A script to run once the environment has been loaded but before the session process has been launched.</td>
+</tr>
+<tr class="odd">
+<td>Repo</td>
+<td>(Optional) A string representing a CRAN Repository URL, or the path to a repos.conf file which lists multiple package repositories. See [CRAN Repositories] for more information.</td>
+</tr>
+<tr class="even">
+<td>Library</td>
+<td>(Optional) A <code>:</code> separated list of directories which house the desired R packages for the particular R version. Overrides the <code>R_LIBS_SITE</code> environment variable. This will be combined with <code>R_LIBS_USER</code> when forming the R library paths. Most R installations use a default site library located at <code>$R_HOME/site-library</code>, so you may need to include the default site library path directories when setting this field.</td>
+</tr>
+</tbody>
+</table>
+<p>An example <code>/etc/rstudio/r-versions</code> file is shown below.</p>
+<p><em>/etc/rstudio/r-versions</em></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Path: /opt/R/R-2.15.3</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">Label: My special R Version</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="dt">Module: testmodule</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="dt">Script: ~/rload.sh</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="dt">Repo: https://cran.ms.unimelb.edu.au/</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="dt">Library: /share/packages/R-2.15.3</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="dt">Path: /opt/R/R-2.15.3-alternate</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="dt">Label: My special R Version 2</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="dt">Module: r/latest</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="dt">Label: Latest version of R</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="dt">/opt/misc/R/SpecialR1</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="dt">/opt/misc/R/SpecialR2</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="dt">/opt/mic/R/AltnerateR</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It is important that each entry consists of the fields as specified above. Each field must go on its own line. There should be no empty lines between field definitions.</p>
+<p>Each R entry must be separated by one full blank line (two new-line <code>\n</code> characters). If only the path is being specified, with no label, script, or module, you may simply list the path to the installation (as in previous versions). Paths are not separated by a blank line, but they must be separate from extended definitions by a blank line (as in the above example).</p>
+<section id="modules" class="level5">
+<h5 class="anchored" data-anchor-id="modules">Modules</h5>
+<p>By setting the name of a module in an environment definition, that version of R will be loaded entirely by module. When a module is defined and the <code>Path</code> is not specified, the default <code>R</code> binary on the path will be used once the module is loaded. Otherwise, if <code>Path</code> is specified, that specific binary will be used.</p>
+<p>If you do not specify a <code>Path</code> to the R installation, you must ensure that RStudio Workbench can load the module by specifying the location of the module shell initialization script for <code>sh</code>. For example:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">modules-bin-path</span><span class="ot">=</span><span class="st">/usr/local/Modules/</span><span class="dv">3</span><span class="st">.</span><span class="fl">2.9</span><span class="st">/init/sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Failure to do so will result in RStudio Workbench being unable to verify the version, which will cause it to be unavailable for use.</p>
+</section>
+</section>
+<section id="reloading-configuration" class="level4">
+<h4 class="anchored" data-anchor-id="reloading-configuration">Reloading Configuration</h4>
+<p>In order for the changes to the <code>/etc/rstudio/r-versions</code> file to be detected, you must either restart RStudio (via <code>sudo rstudio-server restart</code>) or send the <code>SIGHUP</code> message to the <code>rserver</code> process. This can be done using <code>kill -s SIGHUP</code> to the server process, or via the <code>reload</code> command:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">sudo rstudio-server reload</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="excluding-versions" class="level4">
+<h4 class="anchored" data-anchor-id="excluding-versions">Excluding Versions</h4>
+<p>If you have versions of R on your system that would normally be picked up by automatic scanning but which you’d like to exclude, the most straightforward thing to do is to disable R version scanning altogether and explicitly specify all versions you’d like to use in <code>/etc/rstudio/r-versions</code>. For example:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">r-versions-scan</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="switching-between-versions" class="level3">
+<h3 class="anchored" data-anchor-id="switching-between-versions">Switching Between Versions</h3>
+<p>To switch between versions of R you use the version menu near the top right of the IDE:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/SwitchVersions.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Switching Versions</figcaption><p></p>
+</figure>
+</div>
+<p>After switching, the specified version will be used for the duration of the current session (see the section on [Multiple R Sessions] for more details on the lifetime of sessions). Newly created R sessions will continue to use whatever default R version has been configured for the user.</p>
+<section id="preserving-versions-for-projects" class="level4">
+<h4 class="anchored" data-anchor-id="preserving-versions-for-projects">Preserving Versions for Projects</h4>
+<p>It’s often useful to preserve the version used within an R project irrespective of whatever the current default R version is for a user. This is in fact the behavior by default for RStudio projects however can be changed from the <strong>General</strong> pane of the <strong>Global Options</strong> dialog.</p>
+<p>This configuration enables users to easily migrate projects one-by-one to a new version of R after it’s been confirmed that all the code continues to work as expected under the new version.</p>
+</section>
+</section>
+<section id="disabling-use-of-multiple-versions" class="level3">
+<h3 class="anchored" data-anchor-id="disabling-use-of-multiple-versions">Disabling Use of Multiple Versions</h3>
+<p>If you want to prevent users from being able to change R versions entirely you can use the <code>r-versions-multiple</code> option:</p>
+<p><strong>/etc/rstudio/rserver.conf</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">r-versions-multiple</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also configure this on a per-user or per-group basis by specifying the <code>r-versions-multiple</code> option within [User and Group Profiles].</p>
+</section>
+</section>
+<section id="managing-upgrades-of-r" class="level2">
+<h2 class="anchored" data-anchor-id="managing-upgrades-of-r">Managing Upgrades of R</h2>
+<p>There are various ways to handle upgrades to new versions of R ranging from allowing each user to control exactly when they upgrade all the way to forcing everyone to upgrade all at once.</p>
+<p>By combining the various options described above you can create a highly customized upgrade policy that reflects both your internal policies and the preferences of your users.</p>
+<section id="user-controlled-migration" class="level3">
+<h3 class="anchored" data-anchor-id="user-controlled-migration">User Controlled Migration</h3>
+<p>The most conservative approach is to start with a default version of R and preserve that default for the lifetime of the server. In this configuration you can continue to install new versions of R as they are released however users won’t ever run those new versions unless they make an explicit gesture to do so. See the <a href="#user-configurable-default-version">User Configurable Default Version</a> and <a href="#switching-between-versions">Switching Between Versions</a> sections for details on how users can explicitly switch versions.</p>
+</section>
+<section id="partial-migration" class="level3">
+<h3 class="anchored" data-anchor-id="partial-migration">Partial Migration</h3>
+<p>If your posture towards new R versions is that you’d like users to migrate to the new version(s) as quickly as is convenient you can be more aggressive in how you introduce them. In this scenario you might use the <a href="#default-version-per-user-or-group">Default Version Per User or Group</a> feature to migrate a portion of new users immediately but preserve older versions for those who request it.</p>
+<p>Note that in this scenario R projects will still preserve their previous R version so long as users have enabled the option described in <a href="#preserving-versions-for-projects">Preserving Versions for Projects</a>.</p>
+</section>
+<section id="full-migration" class="level3">
+<h3 class="anchored" data-anchor-id="full-migration">Full Migration</h3>
+<p>The most aggressive approach is to force all users to upgrade to the new R version immediately (this is essentially what happens in the open-source version of RStudio Server). To implement this you’d set a <a href="#single-default-version-of-r">Single Default Version of R</a> as well as disabling the use multiple versions as described in <a href="#disabling-use-of-multiple-versions">Disabling Use of Multiple Versions</a>.</p>
+<p>Note that via [User and Group Profiles] you could also have a subset of R users that are always fully migrated to new versions while preserving user controlled migration or partial migration for others.</p>
+</section>
+</section>
+<section id="session-initialization" class="level2">
+<h2 class="anchored" data-anchor-id="session-initialization">Session Initialization</h2>
+<p>In the preceding sections, we described how to allow the server to discover multiple versions of R to be used by the user. The R environment is loaded before the session begins execution, and several files are executed along the way that can cause problems with your R Environment if any variables are incorrectly set.</p>
+<p>When a session is launched, the following steps occur:</p>
+<ol type="1">
+<li>If the file <code>/etc/rstudio/rsession-profile</code> exists, it is sourced.</li>
+<li>If the R Version being loaded specifies a module to load, the user’s <code>~/.bashrc</code> file is sourced and the module is loaded using the <code>module load</code> command.</li>
+<li>If the R version being loaded specifies a prelauch script to run, it is sourced.</li>
+<li>A bash login shell is created, which sources the <code>~/.bash_profile</code>, <code>~/.bash_login</code> or the <code>~/.profile</code> script, whichever is found first to exist (in that order).</li>
+<li>The session is launched with the environment constructed in steps 1-4.</li>
+</ol>
+<p>As you can see, there are many different scripts which can affect the R environment which gets initialized when starting a new session, so play close attention to how these scripts could be affecting your particular environment.</p>
+<!-- -->
+</section>
+</section>
+</main>
+<div class="page-navigation page-navigation-docked">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</div>
+</div> <!-- /main column -->
+</div> <!-- /row -->
+</div> <!-- /container fluid -->
+
+
+</body></html>

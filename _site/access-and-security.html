@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>RStudio Workbench Administration – access-and-security</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007ba5; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #007ba5; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #007ba5; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="site_libs/quarto-nav/headroom.min.js"></script>
+  <meta name="quarto:offset" content=".">
+  <script src="site_libs/quarto-search/autocomplete.min.js"></script>
+  <script src="site_libs/quarto-search/fuse.min.js"></script>
+  <script src="site_libs/quarto-search/quarto-search.js"></script>
+  <script src="site_libs/quarto-html/quarto.js"></script>
+  <script src="site_libs/quarto-html/popper.min.js"></script>
+  <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="site_libs/quarto-html/clipboard.min.js"></script>
+  <script src="site_libs/quarto-html/anchor.min.js"></script>
+  <script src="site_libs/quarto-html/quarto-html.js"></script>
+  <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="site_libs/quarto-html/quarto-css-variables.css" rel="stylesheet">
+  <script src="site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-20375833-3', 'auto', {'allowLinker': true});
+  ga('require', 'linker');
+  ga('linker:autoLink', ['rstudio.com', 'rstudio.github.io', 'rviews.rstudio.com', 'community.rstudio.com', 'rpubs.rstudio.com', 'environments.rstudio.com', 'rstudio.org', 'dailies.rstudio.com', 'pages.rstudio.com', 'db.rstudio.com', 'solutions.rstudio.com', 'docs.rstudio.com', 'spark.rstudio.com', 'shiny.rstudio.com', 'education.rstudio.com', 'rstudio.cloud', 'shinyapps.io', 'team-admin.rstudio.com', 'blog.rstudio.com', 'support.rstudio.com', 'blogs.rstudio.com', 'keras.rstudio.com', 'swag.rstudio.com', 'tensorflow.rstudio.com', 'packagemanager.rstudio.com'] );
+  ga('send', 'pageview');
+  </script>
+  <!-- End Google Analytics -->
+  <style type="text/css">
+    details {
+      margin-bottom: 1em;
+    } 
+    details[show] {
+      margin-bottom: 0;
+    }
+
+    .quarto-unresolved-ref {
+      font-weight: 600;
+    }
+
+    .quarto-cover-image {
+      max-width: 35%;
+      float: right;
+      margin-left: 30px;
+    }
+
+    .cell-output-display {
+      overflow-x: auto;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+  <link rel="stylesheet" href="styles/guide.css">
+</head>
+<body>
+<div id="quarto-search-results"></div>
+<header id="quarto-header" class="headroom fixed-top">
+<nav class="quarto-secondary-nav py-2 d-lg-none d-md-block " data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <div class="container-fluid d-flex justify-content-between">
+    <h1 class="quarto-secondary-nav-title mb-0 fs-3 d-inline"></h1>
+    <button type="button" class="quarto-btn-toggle btn d-lg-none py-0 px-1 d-inline-block border-0 ">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+  </div>
+</nav>
+</header>
+ <!-- /navbar/sidebar -->
+<div class="container-fluid quarto-container d-flex flex-column page-layout-article">
+<div class="row flex-fill" id="quarto-content">
+  <div id="quarto-sidebar" class="col col-12 col-lg-3 d-lg-flex px-0 pt-0 sidebar collapse sidebar-navigation">
+    <nav class="me-lg-auto py-2 docked  overflow-scroll">
+  <div class="px-3 pt-lg-2 mt-1 text-left">
+    <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+  </div>
+    <div class="d-flex px-3 mt-2 flex-shrink-0 align-items-center">
+      <div class="sidebar-search">
+      <form class="d-flex mb-0">
+  <input id="quarto-search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+      </div>
+    </div>
+  <div class="sidebar-menu-container"> 
+  <ul class="list-unstyled mt-3 px-3">
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./index_splits/index.sub_00.html" class="">Getting Started</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#gettingstarted-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="gettingstarted-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./index_splits/index.sub_01.html" class="">Introduction</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./index_splits/index.sub_02.html" class="">Installation</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./index_splits/index.sub_03.html" class="">Management Script</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./index_splits/index.sub_04.html" class="">Activation</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./index_splits/index.sub_05.html" class="">Accessing the Server</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./index_splits/index.sub_06.html" class="">Community Resources</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./index_splits/index.sub_07.html" class="">Professional Support</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./server-management_splits/server-management.sub_00.html" class="">Server Management</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="servermanagement-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./server-management_splits/server-management.sub_01.html" class="">Core Administrative Tasks</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./server-management_splits/server-management.sub_02.html" class="">Logging</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./server-management_splits/server-management.sub_03.html" class="">Administrative Dashboard</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./server-management_splits/server-management.sub_04.html" class="">Automated Crash Reporting</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./authenticating-users_splits/authenticating-users.sub_00.html" class="">Authenticating Users</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#authenticatingusers-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="authenticatingusers-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_01.html" class="">User Provisioning</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_02.html" class="">PAM Basics</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_03.html" class="">Authentication Migration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_04.html" class="">PAM Authentication</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_05.html" class="">Restricting Access to Specific Users</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_06.html" class="">SAML Single Sign-On Authentication</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_07.html" class="">OpenID Connect Authentication</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_08.html" class="">Proxied Authentication</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_09.html" class="">Google Accounts (deprecated)</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_10.html" class="">Customizing the Sign-In Page</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./authenticating-users_splits/authenticating-users.sub_11.html" class="">Authorization Timeout</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./access-and-security_splits/access-and-security.sub_00.html" class="">Access and Security</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="accessandsecurity-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_01.html" class="">Network Port and Address</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_02.html" class="">IP Access Rules</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_03.html" class="">Frame Origin</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_04.html" class="">Same Site cookies</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_05.html" class="">Compatibility with Safari 13+</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_06.html" class="">Additional Security Considerations</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_07.html" class="">Additional Headers</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_08.html" class="">Secure Sockets (SSL)</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_09.html" class="">SSL Ports</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_10.html" class="">Cookies</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_11.html" class="">Server Permissions</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./access-and-security_splits/access-and-security.sub_12.html" class="">Running with a Proxy</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./r-sessions_splits/r-sessions.sub_00.html" class="">R Sessions</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#rsessions-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="rsessions-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_01.html" class="">R Executable and Libraries</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_02.html" class="">Session Startup Scripts</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_03.html" class="">User and Group Profiles</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_04.html" class="">Multiple R Sessions</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_05.html" class="">PAM Sessions</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_06.html" class="">Kerberos</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_07.html" class="">Directory Management</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_08.html" class="">Workspace Management</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_09.html" class="">First Project Template</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_10.html" class="">Project Sharing</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_11.html" class="">Package Installation</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_12.html" class="">Feature Limits</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_13.html" class="">Notifications</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_14.html" class="">RStudio Connect Server</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_15.html" class="">Terminal WebSockets</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-sessions_splits/r-sessions.sub_16.html" class="">Customizing Session Settings</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./r-versions-1_splits/r-versions-1.sub_00.html" class="">R Versions</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#rversions-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="rversions-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./r-versions-1_splits/r-versions-1.sub_01.html" class="">Overview</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-versions-1_splits/r-versions-1.sub_02.html" class="">Installing R</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-versions-1_splits/r-versions-1.sub_03.html" class="">Configuring the Default Version of R</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-versions-1_splits/r-versions-1.sub_04.html" class="">Using Multiple Versions of R Concurrently</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-versions-1_splits/r-versions-1.sub_05.html" class="">Managing Upgrades of R</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./r-versions-1_splits/r-versions-1.sub_06.html" class="">Session Initialization</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./load-balancing_splits/load-balancing.sub_00.html" class="">Load Balancing</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#loadbalancing-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="loadbalancing-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./load-balancing_splits/load-balancing.sub_01.html" class="">Overview</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./load-balancing_splits/load-balancing.sub_02.html" class="">Load Balancing vs. Job Launcher</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./load-balancing_splits/load-balancing.sub_03.html" class="">Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./load-balancing_splits/load-balancing.sub_04.html" class="">Access and Availability</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./load-balancing_splits/load-balancing.sub_05.html" class="">Balancing Methods</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./auditing-and-monitoring_splits/auditing-and-monitoring.sub_00.html" class="">Auditing and Monitoring</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#auditingandmonitoring-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="auditingandmonitoring-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./auditing-and-monitoring_splits/auditing-and-monitoring.sub_01.html" class="">Auditing Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./auditing-and-monitoring_splits/auditing-and-monitoring.sub_02.html" class="">Monitoring Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./auditing-and-monitoring_splits/auditing-and-monitoring.sub_03.html" class="">Server Health Checks</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./license-management_splits/license-management.sub_00.html" class="">License Management</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#licensemanagement-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="licensemanagement-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./license-management_splits/license-management.sub_01.html" class="">Product Activation</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./license-management_splits/license-management.sub_02.html" class="">License Details</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./license-management_splits/license-management.sub_03.html" class="">Connectivity Requirements</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./license-management_splits/license-management.sub_04.html" class="">Evaluations</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./license-management_splits/license-management.sub_05.html" class="">Floating Licensing</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./license-management_splits/license-management.sub_06.html" class="">Userspace Licensing</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./data-connectivity_splits/data-connectivity.sub_00.html" class="">Data Connectivity</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#dataconnectivity-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="dataconnectivity-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./data-connectivity_splits/data-connectivity.sub_01.html" class="">Connectivity using ODBC</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./data-connectivity_splits/data-connectivity.sub_02.html" class="">Connectivity using R Packages</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./data-connectivity_splits/data-connectivity.sub_03.html" class="">Snippet Files</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./job-launcher_splits/job-launcher.sub_00.html" class="">Job Launcher</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#joblauncher-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="joblauncher-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./job-launcher_splits/job-launcher.sub_01.html" class="">Overview</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./job-launcher_splits/job-launcher.sub_02.html" class="">Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./job-launcher_splits/job-launcher.sub_03.html" class="">Running the Launcher</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./job-launcher_splits/job-launcher.sub_04.html" class="">Load Balancing</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./job-launcher_splits/job-launcher.sub_05.html" class="">Creating plugins</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./job-launcher_splits/job-launcher.sub_06.html" class="">Troubleshooting</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./tutorial-api_splits/tutorial-api.sub_00.html" class="">Tutorial API</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#tutorialapi-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="tutorialapi-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./tutorial-api_splits/tutorial-api.sub_01.html" class="">Overview</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./tutorial-api_splits/tutorial-api.sub_02.html" class="">Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./tutorial-api_splits/tutorial-api.sub_03.html" class="">Interface</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./tutorial-api_splits/tutorial-api.sub_04.html" class="">Tutorial API Methods</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./tutorial-api_splits/tutorial-api.sub_05.html" class="">Tutorial API Callbacks</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./jupyter-sessions_splits/jupyter-sessions.sub_00.html" class="">Jupyter Sessions</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#jupytersessions-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="jupytersessions-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./jupyter-sessions_splits/jupyter-sessions.sub_01.html" class="">Overview</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./jupyter-sessions_splits/jupyter-sessions.sub_02.html" class="">Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./jupyter-sessions_splits/jupyter-sessions.sub_03.html" class="">Troubleshooting</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./vscode-sessions-preview_splits/vscode-sessions-preview.sub_00.html" class="">VS Code Sessions</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#vscodesessions-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="vscodesessions-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./vscode-sessions-preview_splits/vscode-sessions-preview.sub_01.html" class="">Overview</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./vscode-sessions-preview_splits/vscode-sessions-preview.sub_02.html" class="">Installation</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./vscode-sessions-preview_splits/vscode-sessions-preview.sub_03.html" class="">Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./vscode-sessions-preview_splits/vscode-sessions-preview.sub_04.html" class="">Multiple Sessions</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./vscode-sessions-preview_splits/vscode-sessions-preview.sub_05.html" class="">Troubleshooting</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./database_splits/database.sub_00.html" class="">Database</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#database-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="database-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./database_splits/database.sub_01.html" class="">Configuration</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./database_splits/database.sub_02.html" class="">Migration</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./hardening_splits/hardening.sub_00.html" class="">Hardening</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="hardening-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./hardening_splits/hardening.sub_01.html" class="">Set up SSL</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./hardening_splits/hardening.sub_02.html" class="">Browser Security</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./hardening_splits/hardening.sub_03.html" class="">R Session Security</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./hardening_splits/hardening.sub_04.html" class="">Other</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./hardening_splits/hardening.sub_05.html" class="">Example Secure Configuration</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+      <li class="sidebar-item">
+  <a href="./session-user-settings_splits/session-user-settings.sub_00.html" class="">Session User Settings</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./rstudio-ide-commands_splits/rstudio-ide-commands.sub_00.html" class="">R Studio IDE Commands</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./r-package-dependencies_splits/r-package-dependencies.sub_00.html" class="">R Package Dependencies</a>
+</li>
+      <ul class="list-unstyled sidebar-section depth1">
+    <li class="">
+        <div class="me-auto ">
+          <div class="d-inline-flex w-100 sidebar-section-item">
+            <div class="sidebar-section-link me-auto ">
+            <a href="./rstudio-server-configuration_splits/rstudio-server-configuration.sub_00.html" class="">R Studio Configuration</a>
+            </div>
+            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#rstudioconfiguration-collapse" aria-expanded="true">
+              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            </a>
+            </div>
+        </div>
+      <div class="collapse  show" id="rstudioconfiguration-collapse">
+        <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="./rstudio-server-configuration_splits/rstudio-server-configuration.sub_01.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./rstudio-server-configuration_splits/rstudio-server-configuration.sub_02.html" class="">rsession.conf</a>
+</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  </ul>
+  </div>
+</nav>
+  </div>
+  <div class="col mx-auto col-sm-12 col-md-11 col-lg-9 px-lg-4">
+<main>
+<section id="access-and-security" class="level1">
+<h1>Access and Security</h1>
+<section id="network-port-and-address" class="level2">
+<h2 class="anchored" data-anchor-id="network-port-and-address">Network Port and Address</h2>
+<p>After initial installation RStudio accepts connections on port 8787. If you wish to listen on a different another port you can modify the <code>www-port</code> option. For example:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">www-port</span><span class="ot">=</span><span class="dv">80</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>By default RStudio binds to address 0.0.0.0 (accepting connections from any remote IP). You can modify this behavior using the <code>www-address</code> option. For example:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">www-address</span><span class="ot">=</span><span class="dv">127</span><span class="st">.</span><span class="dv">0</span><span class="st">.</span><span class="fl">0.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that changes to the configuration will not take effect until the server is restarted.</p>
+</section>
+<section id="ip-access-rules" class="level2 pro-header">
+<h2 class="pro-header anchored" data-anchor-id="ip-access-rules">IP Access Rules</h2>
+<p>RStudio Workbench can be configured to deny access to specific IP addresses or ranges of addresses. Access rules are defined in the configuration file <code>/etc/rstudio/ip-rules</code></p>
+<p>Access rules are established using the <code>allow</code> and <code>deny</code> directives and are processed in order, with the first matching rule governing whether a given address is allowed or denied. For example, to allow only clients within the <code>192.168.1.0/24</code> subnet but also deny access to <code>192.168.1.10</code> you would use these rules:</p>
+<p><em>/etc/rstudio/ip-rules</em></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">deny    192.168.1.10</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">allow   192.168.1.0/24</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">deny    all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>All clients outside of the specified subset are denied access because of the <code>deny all</code> rule at the end of the configuration.</p>
+<p>Note that changes to the configuration will not take effect until the server is restarted.</p>
+</section>
+<section id="frame-origin" class="level2">
+<h2 class="anchored" data-anchor-id="frame-origin">Frame Origin</h2>
+<p>For security reasons, RStudio will not load inside a browser frame (such as a frameset or IFrame) by default. You can modify this behavior by using the <code>www-frame-origin</code> option. For example, if you would like to host RStudio inside a browser frame at <code>example.com</code>, you can tell RStudio to allow this as follows:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">www-frame-origin</span><span class="ot">=</span><span class="st">example.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There are several special values available for the <code>www-frame-origin</code> option:</p>
+<table class="table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 71%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>none</code></td>
+<td>The default; do not allow RStudio to load in any frame.</td>
+</tr>
+<tr class="even">
+<td><code>same</code></td>
+<td>Allow RStudio to load in a frame if it has the same origin (host and port) as RStudio.</td>
+</tr>
+<tr class="odd">
+<td><code>any</code></td>
+<td>Allow RStudio to load in a frame from any origin (not recommended)</td>
+</tr>
+<tr class="even">
+<td><em>my-domain.com</em></td>
+<td>Allow RStudio to load in a frame at <em>my-domain.com</em></td>
+</tr>
+</tbody>
+</table>
+<p>To interact programmatically with RStudio in an IFrame, see the [Tutorial API].</p>
+</section>
+<section id="same-site-cookies" class="level2">
+<h2 class="anchored" data-anchor-id="same-site-cookies">Same Site cookies</h2>
+<p>Most browsers have adopted recently a new attribute for cookies called <code>SameSite</code> which enforces additional security requirements around the cookie. RStudio does not define this attribute by default but you can use the option <code>www-same-site</code> for that purpose.</p>
+<p>For example, the value <code>SameSite=None</code> is required by certain browsers (i.e.&nbsp;Chrome 84+) for embedding sites into an IFrame or frameset. To ensuring the delivery of RStudio cookies in this scenario, use the value <code>www-same-site=none</code>.</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">www-same-site</span><span class="ot">=</span><span class="st">none</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>SameSite=None</code> is insufficient without SSL enabled and may still prevent RStudio from working over non-SSL connections.</p>
+</div>
+</div>
+<p>Some browsers will not behave as expected in the presence of the <code>SameSite=None</code>; Safari 12 on MacOS 10.14 and iOS 12.x or older notably will not work. To workaround these limitations, RStudio will emit a pair of cookies, one with <code>SameSite=None</code> for standard-conforming browsers and a “legacy” cookie without <code>SameSite</code> for non-conforming browsers.</p>
+<p>You also can use the value <code>www-same-site=lax</code> to mark cookies as <code>SameSite=Lax</code> what effectively prohibits the use of RStudio embedded into an IFrame or frameset on compliant browsers by blocking all RStudio cookies.</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">www-same-site</span><span class="ot">=</span><span class="st">lax</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="compatibility-with-safari-13" class="level2">
+<h2 class="anchored" data-anchor-id="compatibility-with-safari-13">Compatibility with Safari 13+</h2>
+<p>Starting in Safari 13, if you are loading RStudio inside a browser frame on a completely different domain all cookies will be blocked because those will be considered third-party cookies.</p>
+<p>Embedding RStudio in a subdomain of the main site causes its cookies to be considered first-party, allowing RStudio to work.</p>
+<p>Alternatively, you can place RStudio in the same domain as the main wrapping site but under a different URL path. This requires using a proxy in front of both the main site and RStudio. See <a href="#running-with-a-proxy">Running with a Proxy</a> below for more information.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the near future, most browsers vendors plan to apply the same restrictions to cookies in some degree.</p>
+</div>
+</div>
+</section>
+<section id="additional-security-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="additional-security-considerations">Additional Security Considerations</h2>
+<p>To help mitigate against CSRF attacks, RStudio can automatically reject any request originating from an <code>Origin</code> or <code>Referer</code> that does not match the <code>Host</code>, <code>X-Forwarded-Host</code>, <code>Forwarded: host</code> or <code>X-RStudio-Request</code> headers. To enable this check, add the following configuration:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">www-enable-origin-check</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In some cases, such as if running behind a proxy that you cannot modify, this check may be too strict, and can prevent access to RStudio, causing requests to return a 400 status. In such cases, it is recommended that you disable the check. Origin checking is currently disabled by default, but will likely be enabled by default in a future version of RStudio.</p>
+<p>You may wish to consider some origins to be safe in all cases, causing RStudio to consider such <code>Origin</code> or <code>Referer</code> values to be allowed instead of being rejected, even if they do not match a Host header. To specify such origins, add each of them as a <code>www-allow-origin</code> setting in <code>rserver.conf</code>. For example:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">www-allow-origin</span><span class="ot">=</span><span class="st">mysubdomain.mydomain.com</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">www-allow-origin</span><span class="ot">=</span><span class="st">*.mydomain2.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that wildcards (<code>*</code>) are accepted and will match any character, including hostname separators. For instance, the previous example of <code>*.mydomain2.com</code> will match both <code>foo.bar.mydomain2.com</code> and <code>foo.mydomain2.com</code>.</p>
+</section>
+<section id="additional-headers" class="level2">
+<h2 class="anchored" data-anchor-id="additional-headers">Additional Headers</h2>
+<p>In some cases, you may need to have RStudio set additional headers on client responses. To do this, simply specify <code>server-add-header</code> for each header that you need to add, in the form <code>Header Name:Header Value</code>. For example, to have the server set a few extra custom headers:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">server-add-header</span><span class="ot">=</span><span class="st">X-Header</span><span class="dv">-1</span><span class="st">:Value </span><span class="dv">1</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">server-add-header</span><span class="ot">=</span><span class="st">X-Header</span><span class="dv">-2</span><span class="st">:Value </span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="secure-sockets-ssl" class="level2 pro-header">
+<h2 class="pro-header anchored" data-anchor-id="secure-sockets-ssl">Secure Sockets (SSL)</h2>
+<section id="ssl-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="ssl-configuration">SSL Configuration</h3>
+<p>If your RStudio Workbench is running on a public network then configuring it to use SSL (Secure Sockets Layer) encryption is strongly recommended. You can do this via the <code>ssl-enabled</code> setting along with related settings that specify the location of your SSL certificate and key. For example:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-enabled</span><span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-certificate</span><span class="ot">=</span><span class="st">/var/certs/your_domain_name.crt</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-certificate-key</span><span class="ot">=</span><span class="st">/var/certs/your_domain_name.key  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>.crt</code> file should be encoded in the PEM format; that is, the first line should read <code>-----BEGIN CERTIFICATE-----</code>, and the contents should be base64-encoded data. If your certificate is in another format, such as DER or PKCS, use the <code>openssl</code> command-line tool to convert it to PEM. For example:</p>
+<pre><code>openssl x509 -inform DER -outform PEM -text -in your_domain_name.der -out your_domain_name.crt</code></pre>
+<p>It’s important when installing the certificate <code>.crt</code> file that you concatenate together any intermediate certificates (i.e.&nbsp;the generic one from your certificate authority) with the certificate associated with your domain name. For example you could use a shell command of this form to concatenate the CA intermediate certificate to your domain name’s certificate:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat certificate-authority.crt <span class="op">&gt;&gt;</span> your_domain_name.crt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The resulting file should then be specified in the <code>ssl-certificate</code> option.</p>
+<p>It’s also important to ensure that the file permissions on your SSL certificate key are as restrictive as possible so it can’t be read by ordinary users. The file should typically be owned by the <code>root</code> user and be set as owner readable and writable. For example:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo chmod 600 /var/certs/your_domain_name.key </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ssl-protocols" class="level3">
+<h3 class="anchored" data-anchor-id="ssl-protocols">SSL Protocols</h3>
+<p>By default RStudio Workbench supports the TLSv1, TLSv1.1, TLSv1.2, and TLSv1.3 protocols for SSL. The list of supported protocols can configured via the <code>ssl-protocols</code> option. For example, to use only the TLSv1.1 and TLSv1.2 protocols you would use:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ssl-protocols=TLSv1.1</span> TLSv1.2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The list of supported protocols is space delimited (as illustrated above). Valid protocol values are: <code>SSLv2</code>, <code>SSLv3</code>, <code>TLSv1</code>, <code>TLSv1.1</code>, <code>TLSv1.2</code>, and <code>TLSv1.3</code>.</p>
+<p>Note that not all protocols may be available on your system; TLS 1.1 and 1.2 require OpenSSL 1.0.1, and TLS 1.3 requires OpenSSL 1.1.1 built with TLS 1.3 support.</p>
+</section>
+</section>
+<section id="ssl-ports" class="level2 pro-header">
+<h2 class="pro-header anchored" data-anchor-id="ssl-ports">SSL Ports</h2>
+<p>When RStudio Workbench is configured to use SSL the default behavior with respect to ports is:</p>
+<ol type="1">
+<li>SSL is bound to port 443 (enabling access using the standard https protocol within the browser)</li>
+<li>The server also listens on port 80 and redirects all requests to port 443 (allowing users to specify the domain without the https protocol and be automatically redirected to the secure port)</li>
+</ol>
+<p>However, if SSL is bound to another port (using the <code>www-port</code> option) then the automatic redirect behavior is not enabled. It’s also possible to disable automatic SSL redirects entirely using the <code>ssl-redirect-http</code> option as follows:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-redirect-http</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that changes to the configuration will not take effect until the server is restarted.</p>
+<section id="strict-transport-security" class="level3">
+<h3 class="anchored" data-anchor-id="strict-transport-security">Strict Transport Security</h3>
+<p>When SSL is enabled, RStudio Workbench sends an HTTP Strict Transport Security (HSTS) header, <code>Strict-Transport-Security</code>, by default on outbound responses. This header tells the browser to forbid all HTTP connections to the domain for a period of time.</p>
+<p>RStudio Workbench sets this period of time to 1 day (84600 seconds) by default, because if HTTPS issues arise it can be difficult to address them when the browser is locked to HTTPS because of HSTS. Once you are confident that your HTTPS setup is correct, you can increase the period by specifying the desired number of seconds in the <code>ssl-hsts-max-age</code> option. For example, to lock browsers to HTTPS for one year:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-hsts-max-age</span><span class="ot">=</span><span class="dv">31536000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If all subdomains of the server on which RStudio Workbench is hosted support HSTS, you can extend HSTS protection to them as well with the <code>ssl-hsts-include-subdomains</code> option. This doesn’t happen by default since RStudio Workbench does not know what other services it’s sharing a domain with, but it’s a recommended security best practice, so you should turn it on if you can.</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-hsts-include-subdomains</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, we do not recommend disabling HSTS, but if you need to, you can do so by setting <code>ssl-hsts=0</code>.</p>
+</section>
+</section>
+<section id="cookies" class="level2">
+<h2 class="anchored" data-anchor-id="cookies">Cookies</h2>
+<p>By default, when RStudio Workbench is configured with SSL, all authorization cookies are marked with the <code>secure</code> cookie attribute. If you wish to use your own SSL termination but force RStudio to mark cookies as <code>secure</code>, you can add the following configuration option:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-cookies-force-secure</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="server-permissions" class="level2">
+<h2 class="anchored" data-anchor-id="server-permissions">Server Permissions</h2>
+<section id="server-account" class="level3">
+<h3 class="anchored" data-anchor-id="server-account">Server Account</h3>
+<p>RStudio runs as the system root user during startup and then drops this privilege and runs as a more restricted user. RStudio then re-assumes root privilege for a brief instant when creating R sessions on behalf of users (the server needs to call <code>setresuid</code> when creating the R session, and this call requires root privilege).</p>
+<p>The user account that RStudio runs under in the normal course of operations is <code>rstudio-server</code>. This account is automatically added to the system during installation and is created as a system rather than end user account (i.e.&nbsp;the <code>--system</code> flag is passed to <code>useradd</code>).</p>
+<section id="alternate-server-account" class="level4">
+<h4 class="anchored" data-anchor-id="alternate-server-account">Alternate Server Account</h4>
+<p>You can configure RStudio so that it will run from an alternate account with the following steps:</p>
+<ol type="1">
+<li>Create a new system user (if the one you want to use doesn’t already exist)</li>
+<li>Assign this user to the <code>server-user</code> option in the <code>/etc/rstudio/rserver.conf</code> configuration file (see example below)</li>
+<li>Restart RStudio</li>
+</ol>
+<p>For example, to shutdown the server and create a new system user named <code>rs-user</code> you’d use the following commands:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> rstudio-server stop</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> useradd <span class="at">--system</span> rs-user</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then edit the <code>/etc/rstudio/rserver.conf</code> configuration file as follows:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">server-user</span><span class="ot">=</span><span class="st">rs-user</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, restart RStudio to begin running under the new user:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> rstudio-server start</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="umask" class="level3">
+<h3 class="anchored" data-anchor-id="umask">umask</h3>
+<p>By default, RStudio sets its umask to <code>022</code> on startup. If you don’t want this behavior, for instance because you’d prefer the server process to use the default umask set in init, it can be disabled as follows:</p>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">server-set-umask</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="running-with-a-proxy" class="level2">
+<h2 class="anchored" data-anchor-id="running-with-a-proxy">Running with a Proxy</h2>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<p>If you are running RStudio behind a proxy server you need be sure to configure the proxy server so that it correctly handles all traffic to and from RStudio.</p>
+<p>Beyond the normal reverse proxy configuration you’d apply for any HTTP server application, you also need to ensure that websockets are forwarded correctly between the proxy server and RStudio to ensure that all RStudio functions work correctly. In particular, they’re needed to ensure that Shiny applications run from within the IDE work properly - if not, you may find that Shiny applications “gray out” and close without you being able to interact with them.</p>
+<p>It’s also important to ensure that your reverse proxy uses a relatively lenient connection timeout; we recommend 60 seconds. Several components of RStudio use <a href="https://en.wikipedia.org/wiki/Push_technology#Long_polling">HTTP Long Polling</a> to push information to the browser; a connection timeout of 30 seconds or fewer will result in HTTP 504 (gateway timeout) errors from the reverse proxy.</p>
+<p>This section describes how to correctly configure a reverse proxy with <a href="http://nginx.org/en/">Nginx</a> and <a href="http://httpd.apache.org/">Apache</a>.</p>
+</section>
+<section id="nginx-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="nginx-configuration">Nginx Configuration</h3>
+<p>On Debian or Ubuntu a version of Nginx that supports reverse-proxying can be installed using the following command:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install nginx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>On CentOS or Red Hat you can install Nginx using the following command:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> yum install nginx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To enable an instance of Nginx running on the same server to act as a front-end proxy to RStudio you would add commands like the following to your <code>nginx.conf</code> file. Note that you must add code to proxy websockets in order to correctly display Shiny apps and R Markdown Shiny documents in RStudio. Also note that if you are proxying to a server on a different machine you need to replace references to <code>localhost</code> with the correct address of the server where you are hosting RStudio.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>http {</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  map <span class="sc">$</span>http_upgrade <span class="sc">$</span>connection_upgrade {</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    default upgrade;</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">''</span>      close;</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  server {</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    listen <span class="dv">80</span>;</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    location <span class="sc">/</span> {</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>      proxy_pass http<span class="sc">:</span><span class="er">//</span>localhost<span class="sc">:</span><span class="dv">8787</span>;</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>      proxy_redirect http<span class="sc">:</span><span class="er">//</span>localhost<span class="sc">:</span><span class="dv">8787</span><span class="sc">/</span> <span class="er">$</span>scheme<span class="sc">:</span><span class="er">//$</span>host<span class="sc">/</span>;</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>      proxy_http_version <span class="fl">1.1</span>;</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>      proxy_set_header Upgrade <span class="sc">$</span>http_upgrade;</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>      proxy_set_header Connection <span class="sc">$</span>connection_upgrade;</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>      proxy_read_timeout 20d;</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Use preferably</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>      proxy_set_header X<span class="sc">-</span>RStudio<span class="sc">-</span>Request <span class="sc">$</span>scheme<span class="sc">:</span><span class="er">//$</span>host<span class="sc">:</span><span class="er">$</span>server_port<span class="sc">$</span>request_uri;</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>      <span class="co"># OR existing X-Forwarded headers</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>      proxy_set_header X<span class="sc">-</span>Forwarded<span class="sc">-</span>Host <span class="sc">$</span>host;</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>      proxy_set_header X<span class="sc">-</span>Forwarded<span class="sc">-</span>Proto <span class="sc">$</span>scheme;</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>      <span class="co"># OR alternatively the Forwarded header (just an example)</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>      proxy_set_header Forwarded <span class="st">"host=$host:$server_port;proto=$scheme;"</span>;</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you want to serve RStudio from a custom path (e.g.&nbsp;/rstudio) you would edit your <code>nginx.conf</code> file as shown below:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>http {</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  map <span class="sc">$</span>http_upgrade <span class="sc">$</span>connection_upgrade {</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    default upgrade;</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">''</span>      close;</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  server {</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    listen <span class="dv">80</span>;</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    location <span class="sc">/</span>rstudio<span class="sc">/</span> {</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>      rewrite <span class="sc">^</span><span class="er">/</span>rstudio<span class="sc">/</span>(.<span class="sc">*</span>)<span class="sc">$</span> <span class="er">/$</span><span class="dv">1</span> <span class="cf">break</span>;</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>      proxy_pass http<span class="sc">:</span><span class="er">//</span>localhost<span class="sc">:</span><span class="dv">8787</span>;</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>      proxy_http_version <span class="fl">1.1</span>;</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>      proxy_set_header Upgrade <span class="sc">$</span>http_upgrade;</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>      proxy_set_header Connection <span class="sc">$</span>connection_upgrade;</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>      proxy_read_timeout 20d;</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Use preferably</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>      proxy_set_header X<span class="sc">-</span>RStudio<span class="sc">-</span>Request <span class="sc">$</span>scheme<span class="sc">:</span><span class="er">//$</span>host<span class="sc">:</span><span class="er">$</span>server_port<span class="sc">$</span>request_uri;</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>      proxy_set_header X<span class="sc">-</span>RStudio<span class="sc">-</span>Root<span class="sc">-</span>Path <span class="sc">/</span>rstudio</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>      <span class="co"># OR let the proxy rewrite the root path</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>      proxy_redirect http<span class="sc">:</span><span class="er">//</span>localhost<span class="sc">:</span><span class="dv">8787</span><span class="sc">/</span> <span class="er">$</span>scheme<span class="sc">:</span><span class="er">//$</span>host<span class="sc">/</span>rstudio<span class="sc">/</span>;</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>      proxy_cookie_path <span class="sc">/</span> <span class="er">/</span>rstudio;</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>      <span class="co"># OR existing X-Forwarded headers</span></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>      proxy_set_header X<span class="sc">-</span>Forwarded<span class="sc">-</span>Host <span class="sc">$</span>host;</span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>      proxy_set_header X<span class="sc">-</span>Forwarded<span class="sc">-</span>Proto <span class="sc">$</span>scheme;</span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>      <span class="co"># OR alternatively the Forwarded header (just an example)</span></span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>      proxy_set_header Forwarded <span class="st">"host=$host:$server_port;proto=$scheme;"</span>;</span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>    }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The header <code>X-RStudio-Root-Path</code> and the configuration option <code>www-root-path</code> server the same purpose. If either is set RStudio will always return cookies and redirects for the correct path, without requiring rewrite assistance from the proxy. The header value has precedence over the configuration value.</p>
+</div>
+</div>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dt">www-root-path</span><span class="ot">=</span><span class="st">/rstudio</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After adding these entries you’ll then need to restart Nginx so that the proxy settings take effect:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> /etc/init.d/nginx restart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that RStudio needs the <code>X-RStudio-Request</code>, <code>X-Forwarded-[Host|Port|Proto]</code>, or <code>Forwarded</code> headers set for various security reasons, and nginx does not supply this header by default. It must contain the original <code>Host</code> value of the request, which is usually set to <code>$host</code> in the nginx configuration file.</p>
+<p>In some cases, such as when streaming job statuses from the launcher, the default response buffering in nginx can be too slow for delivering real-time updates, especially when configured to use SSL. If job output streams are not working properly from the home page, we recommend disabling response buffering by adding the following line under the <code>server</code> directive:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>server {</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ... follows previous configuration</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  proxy_buffering off;</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="apache-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="apache-configuration">Apache Configuration</h3>
+<p>To enable an instance of Apache running on the same server to act as a front-end proxy to RStudio you need to use the <code>mod_proxy</code> and <code>mod_proxy_wstunnel</code> modules. The steps for enabling this module vary across operating systems so you should consult your distribution’s Apache documentation for details. Apache as reverse proxy already includes <code>X-Forwarded-Host</code> (with port) and <code>X-Forwarded-Proto</code> by default.</p>
+<p>On Debian and Ubuntu systems Apache can be installed with <code>mod_proxy</code> using the following commands:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install apache2</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install libapache2-mod-proxy-html</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install libxml2-dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then, to update the Apache configuration files to activate <code>mod_proxy</code> you execute the following commands:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> a2enmod proxy</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> a2enmod proxy_http</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> a2enmod proxy_wstunnel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>On CentOS and RedHat systems Apache can be installed with <code>mod_proxy</code> and <code>mod_proxy_wstunnel</code> by following the instructions here:</p>
+<p><a href="http://httpd.apache.org/docs/2.4/platform/rpm.html" class="uri">http://httpd.apache.org/docs/2.4/platform/rpm.html</a></p>
+<p>By default with Apache 2.4, <code>mod_proxy</code> and <code>mod_proxy_wstunnel</code> should be enabled. You can check this by opening the file <code>/etc/httpd/conf.modules.d/00-proxy.conf</code> and making sure the following lines are included and not commented out:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode apache"><code class="sourceCode apache"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>LoadModule<span class="st"> proxy_module modules/mod_proxy.so</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>LoadModule<span class="st"> proxy_wstunnel_module modules/mod_proxy_wstunnel.so</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Once you have enabled <code>mod_proxy</code> and <code>mod_proxy_wstunnel</code> in your Apache installation you need to add the required proxy commands to your <code>VirtualHost</code> definition. Note that you will also need to include code to correctly proxy websockets in order to correctly proxy Shiny apps and R Markdown documents within RStudio. Also note that if you are proxying to a server on a different machine you need to replace references to <code>localhost</code> with the correct address of the server where you are hosting RStudio.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode apache"><code class="sourceCode apache"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;VirtualHost</span><span class="at"> *:80</span><span class="fu">&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">&lt;Proxy</span><span class="at"> *</span><span class="fu">&gt;</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    Allow<span class="st"> from localhost</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">&lt;/Proxy&gt;</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">RewriteEngine</span><span class="ch"> </span><span class="kw">on</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  RewriteCond<span class="st"> %{HTTP:Upgrade} =websocket</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  RewriteRule<span class="st"> /(.*)     ws://localhost:8787/$1  [P,L]</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>  RewriteCond<span class="st"> %{HTTP:Upgrade} !=websocket</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  RewriteRule<span class="st"> /(.*)     http://localhost:8787/$1 [P,L]</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>  ProxyPass<span class="st"> / http://localhost:8787/</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>  ProxyPassReverse<span class="st"> / http://localhost:8787/</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use preferably this (store variable values with dummy rewrite rules)</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>  RewriteRule<span class="st"> . - [E=req_scheme:%{REQUEST_SCHEME}]</span></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>  RewriteRule<span class="st"> . - [E=http_host:%{HTTP_HOST}]</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>  RewriteRule<span class="st"> . - [E=req_uri:%{REQUEST_URI}]</span></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>  RequestHeader<span class="st"> set X-RStudio-Request "%{req_scheme}e://%{http_host}e%{req_uri}e"</span></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>  <span class="ex">ProxyRequests</span><span class="ch"> </span><span class="kw">Off</span></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;/VirtualHost&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that if you want to serve RStudio from a custom path (e.g.&nbsp;/rstudio) you would replace the directives described above to:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode apache"><code class="sourceCode apache"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">RewriteEngine</span><span class="ch"> </span><span class="kw">on</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>RewriteCond<span class="st"> %{HTTP:Upgrade} =websocket</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>RewriteRule<span class="st"> /rstudio/(.*)     ws://localhost:8787/$1  [P,L]</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>RewriteCond<span class="st"> %{HTTP:Upgrade} !=websocket</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>RewriteRule<span class="st"> /rstudio/(.*)     http://localhost:8787/$1 [P,L]</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>ProxyPass<span class="st"> /rstudio/ http://localhost:8787/</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Use preferably this (store variable values with dummy rewrite rules)</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>RewriteRule<span class="st"> . - [E=req_scheme:%{REQUEST_SCHEME}]</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>RewriteRule<span class="st"> . - [E=http_host:%{HTTP_HOST}]</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>RewriteRule<span class="st"> . - [E=req_uri:%{REQUEST_URI}]</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>RequestHeader<span class="st"> set X-RStudio-Request "%{req_scheme}e://%{http_host}e%{req_uri}e"</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>RequestHeader<span class="st"> set X-RStudio-Root-Path "/rstudio"</span></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Or alternatively</span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>ProxyPassReverse<span class="st"> /rstudio/ http://localhost:8787/</span></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>ProxyPassReverseCookiePath<span class="st">  "/"  "/rstudio"</span></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a><span class="ex">ProxyRequests</span><span class="ch"> </span><span class="kw">Off</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The header <code>X-RStudio-Root-Path</code> and the configuration option <code>www-root-path</code> server the same purpose. If either is set RStudio will always return cookies and redirects for the correct path, without requiring rewrite assistance from the proxy. The header value has precedence over the configuration value.</p>
+</div>
+</div>
+<p><em>/etc/rstudio/rserver.conf</em></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dt">www-root-path</span><span class="ot">=</span><span class="st">/rstudio</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, after you’ve completed all of the above steps you’ll then need to restart Apache so that the proxy settings take effect:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> /etc/init.d/apache2 restart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="rstudio-configuration" class="level3 pro-header">
+<h3 class="pro-header anchored" data-anchor-id="rstudio-configuration">RStudio Configuration</h3>
+<p>If your RStudio Workbench and proxy server are running on the same machine you can also change the port RStudio Workbench listens on from 0.0.0.0 (all remote clients) to 127.0.0.1 (only the localhost). This ensures that the only way to connect to RStudio is through the proxy server. You can do this by adding the <code>www-address</code> entry to the <strong><code>/etc/rstudio/rserver.conf</code></strong> file as follows:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dt">www-address</span><span class="ot">=</span><span class="dv">127</span><span class="st">.</span><span class="dv">0</span><span class="st">.</span><span class="fl">0.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that you may need to create this config file if it doesn’t already exist.</p>
+</section>
+<section id="custom-paths-and-path-rewriting-proxies" class="level3">
+<h3 class="anchored" data-anchor-id="custom-paths-and-path-rewriting-proxies">Custom Paths and Path-Rewriting Proxies</h3>
+<p>In the examples above we have configurations where RStudio is served by the proxy under a custom <code>/rstudio</code> path. This is called a path-rewriting proxy setup.</p>
+<p>RStudio can use different combinations of HTTP headers and/or options to determine its location when path-rewriting in is use:</p>
+<ul>
+<li>Use <code>X-RStudio-Request</code> if possible. This way RStudio knows exacly the address presented in the user’s browser.
+<ul>
+<li>Otherwise, you must use <code>X-Forwarded-*</code> family of headers or the <code>Forwarded</code> header.</li>
+</ul></li>
+<li>Use <code>X-RStudio-Root-Path</code> if possible. This way RStudio knows which portion of the path was added by the proxy.
+<ul>
+<li>Alternatively, use the option <code>www-root-path</code> for the same effect.</li>
+<li>Otherwise, you must use additional options in your proxy configuration to adjust redirects and cookies for the right path.</li>
+</ul></li>
+</ul>
+<p>The most reliable configuration is using <code>X-RStudio-Request</code> and <code>X-RStudio-Root-Path</code> defined as in the examples above. There’s little involvement of the proxy when using these headers.</p>
+<p>If you have little experience with proxies but still want to use a custom path, we recommend using the <code>www-root-path</code> option in RStudio and at least the headers <code>X-Forwarded-Host</code> and <code>X-Forwarded-Proto</code>.</p>
+<p>Finally, if you want the proxy to have total control of custom path then define the rewrite rules yourself directly in the proxy configuration based on the alternatives suggested in the example above. In this case, do not use the option <code>www-root-path</code> or the header <code>X-RStudio-Root-Path</code>.</p>
+</section>
+<section id="customizing-default-proxy" class="level3 pro-header">
+<h3 class="pro-header anchored" data-anchor-id="customizing-default-proxy">Customizing Default Proxy</h3>
+<p>RStudio Workbench exposes itself over TCP by means of an nginx proxy instance that runs as the <code>rserver-http</code> process on the local machine. In some cases, this proxy instance may need to be customized.</p>
+<p>In order to customize it, you can create any of the following three files. Each file modifies the nginx configuration at <code>/var/lib/rstudio-server/conf/rserver-http.conf</code> in the following way:</p>
+<ul>
+<li><code>/etc/rstudio/nginx.http.conf</code> - allows you to add additional nginx directives under the root <code>http</code> node, and should be used for altering basic HTTP settings</li>
+<li><code>/etc/rstudio/nginx.server.conf</code> - allows you to add additional nginx directives under the <code>server</code> node, and should be used for altering basic server settings</li>
+<li><code>/etc/rstudio/nginx.site.conf</code> - allows you to add additional nginx directives under the <code>location /</code> node, and should be used for altering responses sent from RStudio</li>
+</ul>
+<p>Simply add the desired nginx configuration in the files above to modify the desired section - the contents of each file is copied into the <code>rserver-http.conf</code> template verbatim. Then, restart <code>rstudio-server</code> for the changes to take effect.</p>
+<p>In most cases, you should not need to create these files and modify the nginx template that is provided.</p>
+<!-- -->
+</section>
+</section>
+</section>
+</main>
+<div class="page-navigation page-navigation-docked">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</div>
+</div> <!-- /main column -->
+</div> <!-- /row -->
+</div> <!-- /container fluid -->
+
+
+</body></html>

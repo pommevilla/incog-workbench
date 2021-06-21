@@ -1,0 +1,8 @@
+--- 
+title: "RStudio Workbench"
+date: "`r Sys.Date()`"
+---
+
+One plus two is `r 1 + 2`.
+
+Today's date is `r Sys.Date()`.

@@ -1,0 +1,178 @@
+--- 
+title: "RStudio Workbench `r params$version`"
+subtitle: "Administration Guide"
+date: "`r Sys.Date()`"
+geometry: margin=1in
+params:
+  version: 99.9.9-9
+---
+
+# Getting Started
+
+## Introduction
+
+RStudio Server enables you to provide a browser based interface (the RStudio IDE) to a version of R running on a remote Linux server. Deploying R and RStudio on a server has a number of benefits, including:
+
+- The ability to access R sessions from any computer in any location;
+- Easy sharing of code, data, and other files with colleagues;
+- Allowing multiple users to share access to the more powerful compute resources (memory, processors, etc.) available on a well equipped server; and
+- Centralized installation and configuration of R, R packages, TeX, and other supporting libraries.
+
+This manual describes *RStudio Workbench*, which adds many enhancements to the open-source version of RStudio Server, including:
+
+- The ability to run multiple concurrent RStudio IDE sessions per-user.
+- Flexible use of multiple versions of R on the same server.
+- The ability to run sessions on external cluster nodes, such as Kubernetes or Slurm.
+- Support for Jupyter, JupyterLab, and VS Code editor sessions.
+- Project sharing for easy collaboration within workgroups.
+- Load balancing for increased capacity and higher availability.
+- An administrative dashboard that provides insight into active sessions, server health, and monitoring of system-wide and per-user performance and resource metrics;
+- Authentication using system accounts, ActiveDirectory, LDAP, SAML, OpenID, or Google Accounts;
+- Full support for PAM (including PAM sessions for dynamically provisioning user resources);
+- Ability to establish per-user or per-group CPU priorities and memory limits;
+- HTTP enhancements including support for SSL and keep-alive for improved performance;
+- Ability to restrict access to the server by IP;
+- Customizable server health checks; and
+- Suspend, terminate, or assume control of user sessions; Impersonate users for assistance and troubleshooting.
+
+The documentation applies to both RStudio Server (Open Source) and RStudio Workbench (Pro), unless the section is specifically marked `Pro`, in which case it only applies to RStudio Workbench.
+
+## Installation
+
+### Prerequisites
+
+#### System and Platform Requirements
+
+RStudio Workbench runs on most modern Linux distributions, and can be accessed in most modern browsers. See the following link for detailed information on supported server and browser platforms as well as recommended minimal CPU, RAM, and disk storage requirements.
+
+[RStudio Workbench System Requirements](https://docs.rstudio.com/rsp/requirements/)
+
+#### R Versions
+
+RStudio requires a previous installation of R version 3.0.1 or higher; see below for instructions on installing R on your specific Linux distribution.
+
+We recommend installing multiple versions of R. An environment with multiple versions of R helps you provide a stable, reproducible environment for your R developers. Install R using the directions at <https://docs.rstudio.com/resources/install-r/>.
+
+#### User Home Directories
+
+RStudio interacts frequently with user home directories. If you mount home directories with NFS, we recommend using the `async` mount option along with a modern, high-throughput network connection that can support many simultaneous clients. If you'd like your users to be able to share their projects with each other, see the section on [Project Sharing] for additional NFS requirements.
+
+::: {.callout-note}
+Due to its high latencies, we strongly discourage the use of EFS (Elastic File System) for home and shared directories within AWS. If EFS is used, RStudio will experience highly degraded performance. We recommend using a traditional NFSv3 or NFSv4 mount instead.
+:::
+
+#### Database Connectivity
+
+Since version 1.4, RStudio also requires database connectivity. In most cases, no additional configuration is needed - a SQLite database will be created and used automatically. However, if you are running a load-balanced setup, you will be required to set up a PostgreSQL database for RStudio Workbench to connect to; if one is not configured, the service will refuse to start. If you are using load balancing, make sure that you have an available PostgreSQL database to use **before** installation! See the [Database] section for more information.
+
+## Management Script
+
+RStudio management tasks are performed using the `rstudio-server` utility (installed under `/usr/sbin`). This utility enables the stopping, starting, and restarting of the server, enumeration and suspension of user sessions, taking the server offline, as well as the ability to hot upgrade a running version of the server.
+
+For example, to restart the server you can use the following command:
+
+```bash
+$ sudo rstudio-server restart
+```
+
+Note that on some systems (including RedHat/CentOS 5 and SLES 11) the `sudo` utility doesn't have the `/usr/sbin` directory in it's path by default. For these systems you can use a full path to the management script. For example:
+
+```bash
+$ sudo /usr/sbin/rstudio-server restart
+```
+
+## Activation {.pro-header}
+
+After completing the installation steps described in the previous section you may need to activate the product before using it. Alternatively, if you haven't previously installed RStudio Workbench on a system then it will run in evaluation mode for a period of time before requiring activation. To determine the current license status of your system you can use the following command:
+
+```bash
+$ sudo rstudio-server license-manager status
+```
+
+To activate the product you obtain a product key and then use the following commands:
+
+```bash
+$ sudo rstudio-server license-manager activate <product-key>
+$ sudo rstudio-server restart
+```
+
+Note that you need to restart the server in order for licensing changes to take effect.
+
+Additional details on license management (including discussions of offline activation and activating through a proxy server) can be found in the [License Management] section.
+
+## Accessing the Server
+
+### Logging In 
+
+By default RStudio runs on port 8787 and accepts connections from all remote clients. After installation you should therefore be able to navigate a web browser to the following address to access the server:
+
+```html
+http://<server-ip>:8787
+```
+
+RStudio will prompt for a username and password and will authenticate access using the PAM authentication scheme configured for the server. Some notes related to user authentication:
+
+- RStudio will not permit logins by system users (those with ids < 100).
+- By default on Debian/Ubuntu the system default PAM profile (`/etc/pam.d/other`) will be used (this can be customized by creating an RStudio PAM profile at `/etc/pam.d/rstudio`).
+- By default on RedHat/CentOS and SLES an RStudio PAM profile (`/etc/pam.d/rstudio`) that authenticates using the system username/password database will be used (this can be customized by editing the profile as appropriate).
+- User credentials are encrypted using RSA as they travel over the network.
+
+Additional details on customizing RStudio authentication are provided in [Authenticating Users]. Details on customizing the port and enabling SSL are covered in [Access and Security].
+
+### Troubleshooting Problems
+
+If you are unable to access the server after installation, you should run the `verify-installation` command to output additional diagnostics:
+
+```bash
+$ sudo rstudio-server verify-installation
+```
+
+This command will start the server and run and connect to an R session. Note that this will test the correct installation of RStudio and ensure that it can connect to a locally installed version of R. However, it won't test whether networking or authentication problems are preventing access to the server. 
+
+If problems persist, you can consult the system log to see if there are additional messages there. On Debian/Ubuntu systems this will typically be located at:
+
+```html
+/var/log/syslog
+```
+
+On RedHat/CentOS systems this will typically be located at:
+
+```html
+/var/log/messages
+```
+
+For RStudio Workbench, you can also consult the server log to see if there are any errors reported there. This log is located at:
+
+```html
+/var/lib/rstudio-server/monitor/log/rstudio-server.log
+```
+
+## Community Resources
+
+RStudio provides a community website where open-source RStudio users can go to get help with issues related to RStudio Server, R, R code, and the various R packages available in the R ecosystem. If you have such an issue, please visit <https://community.rstudio.com> and post a message on the community forum, where other users and RStudio employees can help you.
+
+## Professional Support {.pro-header}
+
+RStudio provides email support to our professional products customers to help troubleshoot issues and answer questions about the software. To focus on building the best products, RStudio does not provide installation or professional services. If you require such assistance, please refer to our certified partners. For more information about the support we provide, please see the [Support Agreement](https://rstudio.com/about/support-agreement).
+
+RStudio support is limited to our professional products. If your question is related to the open-source RStudio Server, R, R code, or specific R packages, please visit <https://community.rstudio.com>.
+
+If your question is related to RStudio Workbench, you can open a support ticket by:
+
+1. Running the diagnostics script:
+   ```
+   sudo rstudio-server run-diagnostics
+   ```
+   
+   ::: {.callout-note}
+   If you have not been able to download the software, skip this step.
+   :::
+
+
+1. Email <support@rstudio.com> with:
+ - Your name and company
+ - What you are trying to do
+ - What you have tried
+ - Any errors you have received
+ - The diagnostics file produced from step 1
+
