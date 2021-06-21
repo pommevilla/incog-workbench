@@ -15,7 +15,7 @@ auth-saml=1
 **Once you enable authentication with SAML that becomes the exclusive means of authentication (you can't concurrently use both PAM and SAML authentication).**
 
 ::: {.callout-important}
-SAML authentication still requires [PAM Sessions] and `sssd` to automatically create local system accounts. Without them, local system accounts have to be provisioned manually one-by-one.
+SAML authentication still requires [PAM Sessions](../r_sessions/pam_sessions.qmd) and `sssd` to automatically create local system accounts. Without them, local system accounts have to be provisioned manually one-by-one.
 :::
 
 
@@ -181,7 +181,7 @@ These key pair files are similar to the ones used for SSL/TLS. However, for secu
 
 This example allows the creation of a simple self-signed public certificate and private key pair that can be used for encryption for the server "localhost" (you should use your server public facing hostname instead):
 
-```
+```ini
 openssl req -x509 -newkey rsa:2048 -keyout saml.key -out saml.cert -days 365 -nodes -subj "/CN=localhost"
 ```
 
@@ -230,7 +230,7 @@ These key pair files are similar to the ones used for SSL/TLS. However, for secu
 
 This example allows the creation of a simple self-signed public certificate and private key pair that can be used for encryption for the server "localhost" (you should use your server public facing hostname instead):
 
-```
+```ini
 openssl req -x509 -newkey rsa:2048 -keyout saml.key -out saml.cert -days 365 -nodes -subj "/CN=localhost"
 ```
 
@@ -245,7 +245,7 @@ Notably, certain functionalities are currently absent:
 
 ### Proxy Considerations
 
-If you are running RStudio behind a proxy, you will need to configure your proxy in a way that RStudio can tell the SAML IdP to redirect back to the correct location. There are number of options to choose from as described in [Running with a Proxy].
+If you are running RStudio behind a proxy, you will need to configure your proxy in a way that RStudio can tell the SAML IdP to redirect back to the correct location. There are number of options to choose from as described in [Running with a Proxy](../access_and_security/running_with_a_proxy.html).
 
 The use of the `X-RStudio-Request` header in your proxy is recommended and the only method which works behind a path-rewriting proxy. In this case, the proxy must set the `X-RStudio-Request` header to the exact complete URL as requested by the browser. For example if your proxy was set up to serve RStudio requests at `https://testdomain.com/rstudio/` and an incoming request for `/home` came in, your proxy should set `X-RStudio-Request: https://testdomain.com/rstudio/home` which would allow RStudio to know about the added path prefix `/rstudio`.
 

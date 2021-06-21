@@ -17,5 +17,5 @@ There are several special values available for the `www-frame-origin` option:
 | `any`                | Allow RStudio to load in a frame from any origin (not recommended) |
 | *my-domain.com*      | Allow RStudio to load in a frame at *my-domain.com* |
 
-To interact programmatically with RStudio in an IFrame, see the [Tutorial API].
+To interact programmatically with RStudio in an IFrame, see the [Tutorial API](../tutorial_api/tutorial_api.html).
 

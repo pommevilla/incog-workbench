@@ -2,7 +2,7 @@
 
 ### Job Launcher Configuration
 
-Before the Job Launcher can be run, it must be properly configured via the config file `/etc/rstudio/launcher.conf`; see the [Job Launcher documentation](https://docs.rstudio.com/job-launcher/99.9.9/index.html) for supported configuration options. If the Launcher was installed with RStudio Workbench, a default working configuration that uses the Local plugin is installed for your convenience.
+Before the Job Launcher can be run, it must be properly configured via the config file `/etc/rstudio/launcher.conf`; see the [Job Launcher documentation](https://docs.rstudio.com/job-launcher/1.4.1717-3/index.html) for supported configuration options. If the Launcher was installed with RStudio Workbench, a default working configuration that uses the Local plugin is installed for your convenience.
 
 The Launcher configuration parameter `admin-group` should be configured to the group value of the RStudio Workbench server user, specified in the `server-user` configuration parameter in `rserver.conf` (which defaults to  rstudio-server). This makes the server user a Job Launcher admin, which is necessary to properly launch sessions on behalf of other users.
 
@@ -69,7 +69,7 @@ Additionally, both the RStudio Workbench and Job Launcher root certificates need
 
 #### Job Launcher and PAM Sessions
 
-PAM Sessions work slightly differently when used with Launcher sessions. See [PAM Sessions with the Job Launcher] for more information.
+PAM Sessions work slightly differently when used with Launcher sessions. See [PAM Sessions with the Job Launcher](../r_sessions/pam_sessions.qmd#pam-sessions-with-the-job-launcher) for more information.
 
 #### Authentication
 
@@ -77,7 +77,7 @@ RStudio Workbench authenticates with the Job Launcher via the `secure-cookie-key
 
 To do this, create a secure cookie key file on one of the nodes like so:
 
-```
+```bash
 # generate secure-cookie-key as a simple UUID
 sudo sh -c "echo `uuid` > /etc/rstudio/secure-cookie-key"
 
@@ -91,7 +91,7 @@ The path to the `secure-cookie-key` file can be changed, but it is not recommend
 
 **/etc/rstudio/rserver.conf** and **/etc/rstudio/launcher.conf**
 
-```
+```bash
 secure-cookie-key-file=/path/to/secure-cookie-key
 ```
 
@@ -99,7 +99,7 @@ When running Launcher sessions in a load balanced RStudio deployment, sessions d
 
 In order to create the RSA files, run the following commands:
 
-```
+```bash
 sudo openssl genpkey -algorithm RSA -out /etc/rstudio/launcher.pem -pkeyopt rsa_keygen_bits:2048
 sudo openssl rsa -in /etc/rstudio/launcher.pem -pubout > /etc/rstudio/launcher.pub
 sudo chmod 0600 /etc/rstudio/launcher.pem"
@@ -111,7 +111,7 @@ Once the files are created, simply copy them to each RStudio node in your cluste
 
 #### Launcher Sessions
 
-It is recommended that you configure the Shared Storage path (see [Shared Storage] for configuration) in a location that will be reachable both by the RStudio Workbench instance and each Launcher Session in order to support various RStudio features. Failure to do so could cause subtle, unintended issues.
+It is recommended that you configure the Shared Storage path (see [Shared Storage](../r_sessions/project_sharing.qmd#shared-storage) for configuration) in a location that will be reachable both by the RStudio Workbench instance and each Launcher Session in order to support various RStudio features. Failure to do so could cause subtle, unintended issues.
 
 See the [Launcher Mounts] section for more details about how to configure this correctly with [Containerized Sessions].
 
@@ -121,13 +121,13 @@ In order to run your R sessions in containers, you will need a Docker image that
 
 For example, to get the RHEL6 image, you would run:
 
-```
+```bash
 docker pull rstudio/r-session-complete:centos7
 ```
 
 After pulling the desired image, you will need to create your own Dockerfile that extends from the r-session-complete image and adds whatever versions of R you want to be available to your users, as well as adding any R packages that they will need. For example, your Dockerfile should look similar to the following:
 
-```
+```bash
 FROM rstudio/r-session-complete:centos7
 
 # install desired versions of R

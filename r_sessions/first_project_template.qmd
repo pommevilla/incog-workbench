@@ -16,9 +16,9 @@ The project file must be named the same as the directory it is contained in. For
 
 If you copy an existing project to be used as a project template, ensure that you delete the RStudio metadata folders and files contained within the project directory. You will want to ensure you delete the following:
 
-`.Rproj.user`
-`.Rhistory`
-`.RData`
+- `.Rproj.user`
+- `.Rhistory`
+- `.RData`
 
 If you are creating the project template for the first time, the project (.Rproj) file must contain the version specifier at a minimum. For example:
 

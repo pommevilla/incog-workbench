@@ -60,7 +60,7 @@ Or a [Prometheus](https://prometheus.io/docs/introduction/overview/) endpoint. P
 
 */etc/rstudio/health-check*
 
-```
+```bash
 # HELP active_sessions health_check metric Active RStudio sessions
 # TYPE active_sessions gauge
 active_sessions #active-sessions#

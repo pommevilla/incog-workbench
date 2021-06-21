@@ -1,10 +1,14 @@
 --- 
-title: "RStudio Workbench {{< var version >}}"
+title: "RStudio Workbench `r params$version`"
 subtitle: "Administration Guide"
 date: "`r Sys.Date()`"
+params:
+	version: 99.9.9-9
 ---
 
 # Getting Started
+
+The third number is `r 1 + 2`
 
 ## Introduction
 

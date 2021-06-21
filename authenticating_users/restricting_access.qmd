@@ -12,7 +12,7 @@ You change the minimum user id by specifying the `auth-minimum-user-id` option. 
 auth-minimum-user-id=100
 ```
 
-Note that it's possible that your PAM configuration is also applying a constraint on user-ids (see the [Default PAM Configuration] section above for an example). In this case you should ensure that the `auth-minimum-user-id` is consistent with the value specified in your PAM configuration.
+Note that it's possible that your PAM configuration is also applying a constraint on user-ids (see the [Default PAM Configuration](pam_authentication.qmd#default-pam-configuration) section above for an example). In this case you should ensure that the `auth-minimum-user-id` is consistent with the value specified in your PAM configuration.
 
 If your users are using very large UIDs (above 1048575/0xFFFFF), it is *strongly* recommended to set the `auth-minimum-user-id` value to enable RStudio to make better assumptions when mapping user identifiers to projects.
 

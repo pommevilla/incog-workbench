@@ -28,6 +28,6 @@ crash-handling-enabled=1
 
 In some cases, you may be unable to automatically upload crash dumps to the crash reporting service because of lack of internet connectivity or simply because you want to manually upload crash dumps. RStudio allows you to manually upload crash dumps at any time by invoking the following command:
 
-```
+```ini
 rstudio-server upload-minidump /path/to/minidump
 ```

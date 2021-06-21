@@ -1,6 +1,5 @@
 project:
   type: site
-  output_dir: _site
 
 execute:
   freeze: true
@@ -33,7 +32,7 @@ site:
           - getting_started/community_resources.qmd
           - getting_started/professional_support.qmd
       - section: "Server Management"
-        href: server_management/server-management.qmd
+        href: server_management/server_management.qmd
         contents:
           - server_management/core_administrative_tasks.qmd
           - server_management/logging.qmd
@@ -54,7 +53,7 @@ site:
           - authenticating_users/customizing_signin.qmd
           - authenticating_users/authorization_timeout.qmd
       - section: "Access and Security"
-        href: access_and_security/access-and-security.qmd
+        href: access_and_security/access_and_security.qmd
         contents:
           - access_and_security/network_port_and_address.qmd
           - access_and_security/ip_access_rules.qmd
@@ -156,13 +155,13 @@ site:
           - database/configuration.qmd
           - database/migration.qmd
       - section: "Hardening"
-        href: hardening_splits/hardening.qmd
+        href: hardening/hardening.qmd
         contents:
-          - hardening_splits/set_up_ssl.qmd
-          - hardening_splits/browser_security.qmd
-          - hardening_splits/r_session_security.qmd
-          - hardening_splits/other.qmd
-          - hardening_splits/example_secure_configuration.qmd
+          - hardening/set_up_ssl.qmd
+          - hardening/browser_security.qmd
+          - hardening/r_session_security.qmd
+          - hardening/other.qmd
+          - hardening/example_secure_configuration.qmd
       - section: "Session User Settings"
         href: session_user_settings/session_user_settings.qmd
       - section: "R Studio IDE Commands"
@@ -172,8 +171,8 @@ site:
       - section: "R Studio Configuration"
         href: rstudio_server_configuration/rstudio_server_configuration.qmd
         contents:
-          - rstudio-server-configuration_splits/rserver_conf.qmd
-          - rstudio-server-configuration_splits/rsession_conf.qmd
+          - rstudio_server_configuration/rserver_conf.qmd
+          - rstudio_server_configuration/rsession_conf.qmd
 
 
 number-depth: 2

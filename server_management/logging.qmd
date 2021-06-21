@@ -65,7 +65,7 @@ In order to reload the logging settings during run-time of a process, simply sen
 
 For example, to send the `SIGHUP` signal to the `rserver` process after changing the configuration file:
 
-```
+```bash
 pidof rserver | sudo xargs kill -s SIGHUP
 ```
 

@@ -6,8 +6,8 @@ It is possible to migrate between the supported authentication mechanisms.
 
 Your local system accounts currently used with PAM can be used for Single Sing-On (SSO) authentication with SAML or OpenID. Ensure that:
 
-- The existing PAM configuration is configured for [PAM & Provisioning], as suggested above.
-- RStudio is configured with [PAM Sessions] if your local system accounts are maintained by `sssd`.
+- The existing PAM configuration is configured for [PAM & Provisioning](pam_basics.qmd#pam-provisioning), as suggested above.
+- RStudio is configured with [PAM Sessions](../r_sessions/pam_sessions.qmd) if your local system accounts are maintained by `sssd`.
 - RStudio is configured with the appropriate SSO authentication mechanism.
 - The configured SAML attribute or OpenID claim for username from your Identity Management system matches the names of your **existing** local system accounts.
 
@@ -24,7 +24,7 @@ Since all other authentication methods already leverage PAM in some degree, ther
 
 Your local system accounts currently used with Proxied authentication can be used for Single Sing-On (SSO) authentication with SAML or OpenID. Ensure that:
 
-- If RStudio is placed under a different path by the proxy (e.g., `example.com/rstudio`), be sure to check the "Proxy Considerations" sections under [SAML Single Sign-On Authentication] or [OpenID Connect Authentication] for additional options your proxy or RStudio configuration may need.
+- If RStudio is placed under a different path by the proxy (e.g., `example.com/rstudio`), be sure to check the "Proxy Considerations" sections under [SAML Single Sign-On Authentication](saml_sso.qmd) or [OpenID Connect Authentication](openid_connect_authentication.qmd) for additional options your proxy or RStudio configuration may need.
 - RStudio is configured with the appropriate SSO authentication mechanism.
 - The configured SAML attribute or OpenID claim for username match the names of your **existing** local system accounts as they were sent by the proxy in the HTTP header for username.
 

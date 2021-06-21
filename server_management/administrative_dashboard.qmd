@@ -62,7 +62,7 @@ Note that as with the admin groups above, you can specify a single group as the 
 admin-superuser-group=rstudio-superuser-admins,domain-admins
 ```
 
-Changes to the configuration will not take effect until the server is restarted. Admin superusers can also be added via the command line. See [Adding users to the user database].
+Changes to the configuration will not take effect until the server is restarted. Admin superusers can also be added via the command line. See [Adding users to the user database](core_administrative_tasks.qmd#adding-users-to-the-user-database).
 
 #### User Impersonation Restrictions
 
@@ -86,5 +86,5 @@ If you have been granted a license which has a limit on the total number of user
 
 If this occurs, please contact [sales@rstudio.com](mailto:sales@rstudio.com) to purchase additional users.
 
-For more information on licensing, see [License Management].
+For more information on licensing, see [License Management](../license_management/license_management.qmd).
 

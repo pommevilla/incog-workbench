@@ -129,7 +129,7 @@ The password encryption uses the `secure-cookie-key` value. By default RStudio g
 
 The same key value must be used for both encryption and decryption. If the key value used to encrypt the PostgreSQL password changes, the password must be re-encrypted with the new key and updated in `/etc/rstudio/database.conf`.
 
-If preparing RStudio configuration files on one system for deployment on other system(s), you must manually generate a key and store it in `/etc/rstudio/secure-cookie-key`, then encrypt the password again, update `/etc/rstudio/database.conf`, and ensure this `secure-cookie-key` file is deployed along with other RStudio configuration files. The technique for creating this file is described in [Generating a Key].
+If preparing RStudio configuration files on one system for deployment on other system(s), you must manually generate a key and store it in `/etc/rstudio/secure-cookie-key`, then encrypt the password again, update `/etc/rstudio/database.conf`, and ensure this `secure-cookie-key` file is deployed along with other RStudio configuration files. The technique for creating this file is described in [Generating a Key](../load_balancing/configuration.qmd#generating-a-key).
 
 #### PostgreSQL Connection Testing and Troubleshooting
 

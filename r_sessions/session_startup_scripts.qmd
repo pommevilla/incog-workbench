@@ -4,8 +4,8 @@ When an R session starts up, the following scripts are run:
 
 1. Any PAM session modules [Pro]{.pro-feature}
 2. The `/etc/rstudio/rsession-profile` script [Pro]{.pro-feature}
-3. The environment module for the R version in use, if any; see [Extended R Version Definitions] [Pro]{.pro-feature}
-4. The prelaunch script for the R version in use, if any; see [Extended R Version Definitions] [Pro]{.pro-feature}
+3. The environment module for the R version in use, if any; see [Extended R Version Definitions](../r_versions/using_multiple_versions_of_r.qmd#extended-r-version-definitions) [Pro]{.pro-feature}
+4. The prelaunch script for the R version in use, if any; see [Extended R Version Definitions](../r_versions/using_multiple_versions_of_r.qmd#extended-r-version-definitions) [Pro]{.pro-feature}
 5. System and user shell profile scripts, such as `.bash_profile` [Pro]{.pro-feature}
 6. The R session itself, inside any supervisor specified by `rsession-exec-command` [Pro]{.pro-feature}
 7. `.Rprofile` and other R initialization scripts; see [Initialization at the Start of a Session](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Startup.html) for details

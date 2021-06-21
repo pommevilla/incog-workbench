@@ -19,9 +19,9 @@ There are several requirements for nodes within RStudio clusters:
    Due to high latencies, use of EFS (Elastic File System) for home directories     within AWS is strongly discouraged. If EFS is used, RStudio will experience highly degraded performance. We recommend using a traditional NFSv3 or NFSv4 mount instead.
    :::
 
-6. An explicit server-wide shared storage path also must be defined. See the [Shared Storage] section for additional details. 
+6. An explicit server-wide shared storage path also must be defined. See the [Shared Storage](../r_sessions/project_sharing.qmd#shared-storage) section for additional details. 
 
-7. RStudio must be configured to use a [PostgreSQL] database, and an empty database must be present for RStudio to write important cross-node state. If you have previously run RStudio with a [SQLite] database, it is strongly advised that you execute the database [Migration] to the PostgreSQL database first. For more information, see [Database].
+7. RStudio must be configured to use a [PostgreSQL](../database/configuration.qmd#postgresql) database, and an empty database must be present for RStudio to write important cross-node state. If you have previously run RStudio with a [SQLite](../database/configuration.qmd#sqlite) database, it is strongly advised that you execute the database [Migration](../database/migration.qmd#migration) to the PostgreSQL database first. For more information, see [Database](../database/database.qmd).
 
 ### Defining Nodes
 
@@ -79,7 +79,7 @@ This is the recommended method, but any mechanism that generates a unique, rando
 
 You do not need to generate a `secure-cookie-key` file on each server; generate it once, and copy it to each node along with the rest of the `/etc/rstudio` directory.
 
-This secure cookie key will also be used for encrypting and decrypting the PostgreSQL database password, if applicable. See [PostgreSQL Password Encryption] for more details.
+This secure cookie key will also be used for encrypting and decrypting the PostgreSQL database password, if applicable. See [PostgreSQL Password Encryption](../database/configuration.qmd#postgresql-password-encryption) for more details.
 
 #### Key File Location
 
@@ -104,7 +104,7 @@ For convenience, this path will often be located on the same volume used for sha
 
 If you are running RStudio Workbench load balancing in addition to using Launcher sessions, you will need to ensure that the `/etc/rstudio/launcher.pub` and `/etc/rstudio/launcher.pem` files match on all Workbench nodes in the cluster. Failure to do so will prevent users from being able to connect to their sessions from Workbench nodes other than where their sessions were initiated.
 
-For more information, see [RStudio Workbench Integration].
+For more information, see [RStudio Workbench Integration](../job_launcher/configuration.html#rstudio-workbench-integration).
 
 ### File Locking
 
@@ -133,7 +133,7 @@ The second and subsequent nodes you execute the utility will attempt to acquire 
 Your filesystem appears to support link-based locks.
 ```
 
-In this example, advisory locks are not supported (because both nodes were able to acquire an advisory lock), but link-based locks are. See [[Lock Configuration]] for more information on configuring lock types.
+In this example, advisory locks are not supported (because both nodes were able to acquire an advisory lock), but link-based locks are. See [Lock Configuration] for more information on configuring lock types.
 
 If you interrupt the first node (e.g. via Ctrl+C) the lock will be released and you can then acquire it from the other nodes.
 

@@ -3,7 +3,7 @@
 By default, RStudio authenticates users via the Linux standard PAM API. PAM itself is typically configured by default to authenticate against the system user database (`/etc/passwd`) however it can also be configured to authenticate against a wide variety of other systems including Active Directory, LDAP, and Kerberos.
 
 ::: {.callout-note}
-PAM can be used for both authentication as well as to tailor the environment for users with [PAM sessions]. This section only describes PAM for the purposes of authentication
+PAM can be used for both authentication as well as to tailor the environment for users with [PAM sessions](../r_sessions/pam_sessions.qmd). This section only describes PAM for the purposes of authentication
 :::
 
 ### Default PAM Configuration

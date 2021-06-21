@@ -70,7 +70,7 @@ The recommended SSL configuration depends on which access topology you've deploy
 
 #### Single Node Routing
 
-For a Single Node Routing deployment, you would configure each node of the cluster to use SSL as described in the [Secure Sockets (SSL)] section. The nodes will then use SSL for both external and intra-machine communication.
+For a Single Node Routing deployment, you would configure each node of the cluster to use SSL as described in the [Secure Sockets (SSL)](../access_and_security/secure_sockets.qmd) section. The nodes will then use SSL for both external and intra-machine communication.
 
 ::: {.callout-note}
 In this configuration, you must ensure that your `load-balancer` file lists the hostname in the same format listed on host's SSL certificate in the Common Name (CN) or Subject Alternative Name (SAN) field, so that the nodes are able to validate each others' certificates when connecting.

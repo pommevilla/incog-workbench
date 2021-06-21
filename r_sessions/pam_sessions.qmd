@@ -20,7 +20,7 @@ Some `sssd` configuration additionally require PAM account verification as `root
 
 The behavior that RStudio Workbench requires is essentially the same as that of the `su` command (impersonation of a user without a password). Therefore by default RStudio Workbench uses the `/etc/pam.d/su` profile for running R sessions.
 
-The session PAM profile itself is also run whenever the user accesses the home page. Regardless of where the session actually runs (such as on another machine if using [Job Launcher] sessions), the PAM profile is executed on the RStudio Workbench instance itself when opened via the home page.
+The session PAM profile itself is also run whenever the user accesses the home page. Regardless of where the session actually runs (such as on another machine if using [Job Launcher](../job_launcher/job_launcher.html) sessions), the PAM profile is executed on the RStudio Workbench instance itself when opened via the home page.
 
 #### Creating a Custom Profile
 
@@ -72,7 +72,7 @@ auth-pam-sessions-use-password=1
 ```
 
 ::: {.callout-note}
-This setting is only available when using [PAM authentication].
+This setting is only available when using [PAM authentication](../authenticating_users/pam_authentication.html).
 :::
 
 In this scenario you should remove the `auth sufficient pam_rootok.so` directive and replace it with whatever authentication directives apply in your environment. You can then employ the `use_first_pass` directive to forward the password as necessary to other modules.
@@ -114,9 +114,9 @@ By default, RStudio Workbench does not close PAM sessions when their associated 
 
 It is however possible to manually close the PAM session associated with an R session by force suspending it. This can be accomplished in one of two ways:
 
-- By pressing the **Suspend** button on the *Sessions* page of the [Administrative Dashboard].
+- By pressing the **Suspend** button on the *Sessions* page of the [Administrative Dashboard](../server_management/administrative_dashboard.qmd).
 
-- By executing a `force-suspend` or `force-suspend-all` command as described in [Suspending Sessions].
+- By executing a `force-suspend` or `force-suspend-all` command as described in [Suspending Sessions](../server_management/core_administrative_tasks.qmd#suspending-sessions).
 
 If you prefer that PAM sessions be closed whenever their associated R session exits you can use the `auth-pam-sessions-close` setting. For example:
 
@@ -126,11 +126,11 @@ If you prefer that PAM sessions be closed whenever their associated R session ex
 auth-pam-sessions-close=1
 ```
 
-Note that if you specify this setting be aware that depending upon what resources are managed by your PAM sessions it may be incompatible with users running multiple concurrent R sessions (because for example a drive might be unmounted from underneath a running session). In this case you may wish to disable support for multiple R sessions (see the section on [Multiple R Sessions] for details on how to do this).
+Note that if you specify this setting be aware that depending upon what resources are managed by your PAM sessions it may be incompatible with users running multiple concurrent R sessions (because for example a drive might be unmounted from underneath a running session). In this case you may wish to disable support for multiple R sessions (see the section on [Multiple R Sessions](multiple_r_sessions.qmd) for details on how to do this).
 
 ### PAM Sessions with the Job Launcher
 
-When launching sessions via the [Job Launcher], you must also configure PAM on any Launcher nodes (for Local or Slurm plugins) and within any containers used (if using Kubernetes). That's because PAM sessions are needed at the point where the R session is run, which for Launcher means some machine/container other than the one where RStudio Workbench is running. The PAM configuration is still required at the RStudio Workbench machine for authentication purposes.
+When launching sessions via the [Job Launcher](../job_launcher/job_launcher.qmd), you must also configure PAM on any Launcher nodes (for Local or Slurm plugins) and within any containers used (if using Kubernetes). That's because PAM sessions are needed at the point where the R session is run, which for Launcher means some machine/container other than the one where RStudio Workbench is running. The PAM configuration is still required at the RStudio Workbench machine for authentication purposes.
 
 Launcher session PAM profiles run with different permissions at different stages of the session launch pipeline. When a user visits the RStudio home page  for the first time, their PAM session is initiated with root privilege, allowing the session to rely on `pam_rootok.so`, as discussed in the previous sections, and it is opened on the RStudio Workbench instance itself. However, Job Launcher sessions themselves *never* have true root privilege (unlike traditional session launches which have `root` privileges during early initialization), and thus cannot rely on `pam_rootok.so`. Their PAM sessions are opened on the actual instance where the session is running (e.g. a Kubernetes or Slurm node).
 
@@ -140,7 +140,7 @@ It is generally sufficient to simply do all your necessary setup, such as user d
 When Kerberos or LDAP/Active Diretory are required for PAM sessions, individual Launcher nodes or Kubernetes containers will have to either join the Kerberos domain or be configured to use `sssd` for obtaining LDAP/AD users and groups.
 :::
 
-When forwarding credentials over a TCP connection, we require that Job Launcher connections be secured with SSL to prevent leaking of the credentials. Therefore, if `auth-pam-sessions-use-password` is set for Launcher sessions, you will also need to set `launcher-use-ssl` and configure the Job Launcher to use SSL (see the Job Launcher [SSL Considerations] section for more info).
+When forwarding credentials over a TCP connection, we require that Job Launcher connections be secured with SSL to prevent leaking of the credentials. Therefore, if `auth-pam-sessions-use-password` is set for Launcher sessions, you will also need to set `launcher-use-ssl` and configure the Job Launcher to use SSL (see the Job Launcher [SSL Considerations](../job_launcher/configuration.qmd#ssl-considerations) section for more info).
 
 The following sample configuration demonstrates forwarding of PAM user credentials to Job Launcher sessions. This is only recommended if it is absolutely necessary to start PAM sessions whenever Launcher sessions are started, and it is not sufficient to simply start a PAM session whenever the user accesses the homepage for the first time:
 

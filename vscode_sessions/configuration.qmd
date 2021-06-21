@@ -73,7 +73,7 @@ Whenever a VS Code session is launched, RStudio automatically merges the user se
 
 If you installed VS Code via the `sudo rstudio-server install-vs-code` command, a simple template is created for you automatically which instructs VS Code to use the bash shell by default and to disable automatic extension updates. The generated file looks like the following:
 
-\*\*/etc/rstudio/vscode-user-settings.json
+**/etc/rstudio/vscode-user-settings.json**
 
 ``` {.json}
 {
@@ -87,7 +87,7 @@ If you installed VS Code via the `sudo rstudio-server install-vs-code` command, 
 
 When creating containerized VS Code sessions via the Job Launcher, you will need to specify mount points as appropriate to mount the users' home drives and any other desired paths. In order for sessions to run properly within containers, it is **required** to mount the home directories into the containers.
 
-For more information, see [Launcher Mounts]. Note that you can specify the `Workbench` with `VS Code` to configure mount entries that should only be mounted for VS Code sessions.
+For more information, see [Launcher Mounts](../job_launcher/configuration.qmd#launcher-mounts). Note that you can specify the `Workbench` with `VS Code` to configure mount entries that should only be mounted for VS Code sessions.
 
 ::: {.callout-note}
 Only a user's home folder is visible within VS Code sessions. To access other folders, create symbolic links to them within the home folder.
@@ -99,7 +99,7 @@ When running VS Code sessions in containers, such as by using the Kubernetes Job
 
 1)  `code-server` 3.9.3 binary
 2)  RStudio Workbench session binaries
-3)  If creating container users (see [Server Configuration]), you must have the `libuser1-dev` or `libuser-devel` packages, depending on your platform to install the libuser library and development tools.
+3)  If creating container users (see [Server Configuration](../job_launcher/configuration.qmd#server-configuration)), you must have the `libuser1-dev` or `libuser-devel` packages, depending on your platform to install the libuser library and development tools.
 
 For ease of use, it is recommended that you use the [`r-session-complete` Docker image](https://hub.docker.com/r/rstudio/r-session-complete) as a base for any VS Code session images you intend to create.
 

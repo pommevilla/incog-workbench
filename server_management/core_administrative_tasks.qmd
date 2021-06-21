@@ -118,7 +118,7 @@ HTTP_PROXY=http://192.168.1.1
 XDG_DATA_HOME=/mnt/storage/$USER
 ```
 
-The `env-vars` file is reloaded, and the environment variables set again, when the server process receives a `SIGHUP` signal. See [Reloading Configuration] for an example.
+The `env-vars` file is reloaded, and the environment variables set again, when the server process receives a `SIGHUP` signal. See [Reloading Configuration](../r_versions/using_multiple_versions_of_r.qmd#reloading-configuration) for an example.
 
 ::: {.callout-note}
 This technique cannot be used to set the specific environment variables `XDG_CONFIG_DIRS` or `RSTUDIO_CONFIG_DIR`, because those variables control where configuration files are loaded from, and `env-vars` is *itself* a configuration file. Use your system's service manage to set those variables as described in [Alternate Configuration File Location].
@@ -163,12 +163,12 @@ Alternately, you can send a `SIGHUP` to the `rserver` process, using a command l
 
 Note that most configuration values cannot be applied without a full restart. The following are the values and settings that will be reloaded when you send `SIGHUP` or execute the `reload` command:
 
-1. **Logging configuration** (`logging.conf`), as described in [Logging].
+1. **Logging configuration** (`logging.conf`), as described in [Logging](logging.qmd).
 2. **Environment variables** (`env-vars`), as described in [Setting Environment Variables].
-3. **Load balancing settings** (`load-balancer`), as described in [Load Balancing].
-4. **nginx configuration** (`nginx.*.conf`), as described in [Customizing Default Proxy].
-5. **Custom R version settings** (`r-versions`), as described in [Extended R Version Definitions].
-6. **Product license data**, as described in [License Management].
+3. **Load balancing settings** (`load-balancer`), as described in [Load Balancing](../job_launcher/load_balancing.qmd).
+4. **nginx configuration** (`nginx.*.conf`), as described in [Customizing Default Proxy](../access_and_security/running_with_a_proxy.qmd#customizing-default-proxy).
+5. **Custom R version settings** (`r-versions`), as described in [Extended R Version Definitions](../r_versions/using_multiple_versions_of_r.html#extended-r-version-definitions).
+6. **Product license data**, as described in [License Management](../license_management/license_management.qmd).
 
 ### Managing Active Sessions
 
@@ -242,7 +242,7 @@ $ sudo rstudio-server add-user <username> <0 or 1>
 Specifying a 0 in the above command will add the user without admin privilege; specify a 1 to grant admin privilege.
 
 ::: {.callout-note}
-Users set as administrators in this way will be `Admin Superusers`. See [Administrator Superusers].
+Users set as administrators in this way will be `Admin Superusers`. See [Administrator Superusers](administrative_dashboard.qmd#administrator-superusers).
 :::
 
 ### Changing the admin status of a user {.pro-header}

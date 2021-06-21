@@ -6,7 +6,7 @@ By default, user authorization will expire after 60 minutes of inactivity, requi
 
 */etc/rstudio/rserver.conf*
 
-```
+```ini
 auth-timeout-minutes=20
 ```
 

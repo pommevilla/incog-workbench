@@ -35,5 +35,5 @@ For example, any of the following installed versions of R will be automatically 
 /opt/local/R/3.2.0
 ```
 
-If you have versions of R located at other places in the file system, RStudio Workbench can still utilize them.  However, you'll need to explicitly specify their location in a configuration file (this is covered in more detail in the [Using Multiple Versions] section).
+If you have versions of R located at other places in the file system, RStudio Workbench can still utilize them.  However, you'll need to explicitly specify their location in a configuration file (this is covered in more detail in the [Using Multiple Versions](using_multiple_versions_of_r.qmd) section).
 

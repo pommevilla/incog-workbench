@@ -26,7 +26,7 @@ account    required       pam_sss.so
 session    requisite      pam_sss.so
 ```
 
-In addition to modifying the main PAM profile, you will also need to create a custom PAM session profile for RStudio (as described in [Creating a Custom Profile]). This needs to include the appropriate `pam_sss` directives. For example:
+In addition to modifying the main PAM profile, you will also need to create a custom PAM session profile for RStudio (as described in [Creating a Custom Profile](pam_sessions.qmd#creating-a-custom-profile)). This needs to include the appropriate `pam_sss` directives. For example:
 
 */etc/pam.d/rstudio-session*
 
@@ -94,7 +94,7 @@ sudo rstudio-server restart
 
 ### Testing and Troubleshooting
 
-After making the required configuration changes you should test your updated PAM configuration in isolation from RStudio using the `pamtester` utility as described in [Diagnosing PAM Authentication Problems]. The following command will test both authentication as well as issuing of Kerberos tickets:
+After making the required configuration changes you should test your updated PAM configuration in isolation from RStudio using the `pamtester` utility as described in [Diagnosing PAM Authentication Problems](../authenticating_users/pam_authentication.qmd#diagnosing-pam-authentication-problems). The following command will test both authentication as well as issuing of Kerberos tickets:
 
 ```bash
 sudo /usr/lib/rstudio-server/bin/pamtester --verbose \

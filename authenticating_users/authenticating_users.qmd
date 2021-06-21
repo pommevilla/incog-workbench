@@ -12,14 +12,14 @@ Here are the various authentication mechanisms supported by RStudio:
 
 | Authentication                                   | RStudio Configuration                                                         |
 |--------------------------------------------------|-------------------------------------------------------------------------------|
-| Local Accounts | [PAM Authentication] (via `pam_unix`) |
-| LDAP or Active Directory | [PAM Authentication] (via `pam_sss` or `pam_ldap` in older systems) |
-| Kerberos | [PAM Authentication] (via `pam_sss` or `pam_krb5` in older systems) |
-| Web Single Sign-On (SSO) | [SAML Single Sign-On Authentication] or [OpenID Connect Authentication] |
+| Local Accounts | [PAM Authentication](pam_authentication.qmd) (via `pam_unix`) |
+| LDAP or Active Directory | [PAM Authentication](pam_authentication.qmd) (via `pam_sss` or `pam_ldap` in older systems) |
+| Kerberos | [PAM Authentication](pam_authentication.qmd) (via `pam_sss` or `pam_krb5` in older systems) |
+| Web Single Sign-On (SSO) | [SAML Single Sign-On Authentication](saml_sso.qmd) or [OpenID Connect Authentication](openid_connect_authentication.qmd) |
 | Others (client-server, e.g., RADIUS) | As supported by various [PAM modules](http://www.linux-pam.org/Linux-PAM-html/Linux-PAM_SAG.html) |
-| Others (browser-based, e.g., Kerberos [SPNEGO](https://en.wikipedia.org/wiki/SPNEGO) SSO) | [Proxied Authentication] |
+| Others (browser-based, e.g., Kerberos [SPNEGO](https://en.wikipedia.org/wiki/SPNEGO) SSO) | [Proxied Authentication](proxied_authentication.qmd) |
 
 ::: {.callout-note}
-SAML, OpenID, and Proxied authentication still require [PAM Sessions] to automatically create local system accounts. Without it, local system accounts have to be provisioned manually one-by-one.
+SAML, OpenID, and Proxied authentication still require [PAM Sessions](../r_sessions/pam_sessions.qmd) to automatically create local system accounts. Without it, local system accounts have to be provisioned manually one-by-one.
 :::
 

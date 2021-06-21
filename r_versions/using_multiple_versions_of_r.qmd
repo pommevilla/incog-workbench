@@ -15,7 +15,7 @@ RStudio Workbench scans for and automatically discovers versions of R in the fol
 /opt/local/R/*
 ```
 
-This is described in more detail in the [Recommended Installation Directories] section. If you have installed versions of R in alternate locations, you can list them within the `/etc/rstudio/r-versions` configuration file. For example:
+This is described in more detail in the [Recommended Installation Directories](installing_r.qmd#recommended-installation-directories) section. If you have installed versions of R in alternate locations, you can list them within the `/etc/rstudio/r-versions` configuration file. For example:
 
 */etc/rstudio/r-versions*
 
@@ -24,9 +24,9 @@ This is described in more detail in the [Recommended Installation Directories] s
 /opt/R-devel-3.3
 ```
 
-In addition, any version of R referenced in an `r-version` directive within [User and Group Profiles] is also recognized.
+In addition, any version of R referenced in an `r-version` directive within [User and Group Profiles](../r_sessions/user_and_group_profiles.qmd) is also recognized.
 
-In order to be usable, the R home path must be readable by the RStudio server account (usually `rstudio-server`; see [Access and Security] for details).
+In order to be usable, the R home path must be readable by the RStudio server account (usually `rstudio-server`; see [Access and Security](../access_and_security/access_and_security.qmd) for details).
 
 #### Version Scan Report
 
@@ -66,7 +66,7 @@ To specify extended format information, modify the `/etc/rstudio/r-versions` fil
 | Label                | (Optional) The user-friendly name for the R version that will be displayed to users in the UI. |
 | Module               | (Optional) The name of an environment module to load for the R version. This is loaded by running the command `module load [module]` after sourcing the user's .bashrc file. |
 | Script               | (Optional) A script to run once the environment has been loaded but before the session process has been launched. |
-| Repo                 | (Optional) A string representing a CRAN Repository URL, or the path to a repos.conf file which lists multiple package repositories. See [CRAN Repositories] for more information. |
+| Repo                 | (Optional) A string representing a CRAN Repository URL, or the path to a repos.conf file which lists multiple package repositories. See [CRAN Repositories](../r_sessions/package_installation.qmd#cran-repositories) for more information. |
 | Library              | (Optional) A `:` separated list of directories which house the desired R packages for the particular R version. Overrides the `R_LIBS_SITE` environment variable. This will be combined with `R_LIBS_USER` when forming the R library paths. Most R installations use a default site library located at `$R_HOME/site-library`, so you may need to include the default site library path directories when setting this field. |
 
 An example `/etc/rstudio/r-versions` file is shown below.
@@ -133,9 +133,9 @@ r-versions-scan=0
 
 To switch between versions of R you use the version menu near the top right of the IDE:
 
-![Switching Versions](images/SwitchVersions.png)
+![Switching Versions](../images/SwitchVersions.png)
 
-After switching, the specified version will be used for the duration of the current session (see the section on [Multiple R Sessions] for more details on the lifetime of sessions). Newly created R sessions will continue to use whatever default R version has been configured for the user.
+After switching, the specified version will be used for the duration of the current session (see the section on [Multiple R Sessions](../r_sessions/multiple_r_sessions.html) for more details on the lifetime of sessions). Newly created R sessions will continue to use whatever default R version has been configured for the user.
 
 #### Preserving Versions for Projects
 

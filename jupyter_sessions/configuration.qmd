@@ -59,7 +59,7 @@ notebook-version=6.2.0
 
 When creating containerized Jupyter sessions via the Job Launcher, you will need to specify mount points as appropriate to mount the users' home drives and any other desired paths. In order for sessions to run properly within containers, it is **required** to mount the home directories into the containers.
 
-For more information, see [Launcher Mounts]. Note that you can specify the `Workbench` with either `JupyterLab` or `Jupyter Notebook` to configure mount entries that should only be mounted for JupyterLab and Jupyter Notebook sessions, respectively.
+For more information, see [Launcher Mounts](../job_launcher/configuration.qmd#launcher-mounts). Note that you can specify the `Workbench` with either `JupyterLab` or `Jupyter Notebook` to configure mount entries that should only be mounted for JupyterLab and Jupyter Notebook sessions, respectively.
 
 ::: {.callout-note}
 If you are using NFSv3 for the shared storage for user home directories, you will need to set the `local_lock=all` NFS setting in /etc/fstab in order for Jupyter sessions to work properly. Failure to do this will cause Jupyter sessions to hang. For this reason, we strongly recommend the use of NFSv4 for Jupyter sessions. See the [NFS documentation](https://linux.die.net/man/5/nfs) for information on NFS settings.
@@ -77,7 +77,7 @@ When running Jupyter sessions in containers, such as by using the Kubernetes Job
 1) Python 2.7 or Python 3.x
 2) JupyterLab and/or Jupyter Notebook installation
 3) RStudio session binaries
-4) If creating container users (see [Server Configuration]), you must have the `libuser1-dev` or `libuser-devel` packages, depending on your platform to install the libuser library and development tools. 
+4) If creating container users (see [Server Configuration](../job_launcher/configuration.qmd#server-configuration)), you must have the `libuser1-dev` or `libuser-devel` packages, depending on your platform to install the libuser library and development tools. 
 
 For ease of use, it is recommended that you use the `r-session-complete` Docker image as a base for any Jupyter session images you intend to create. This will allow you to use that one base image to provide Jupyter itself and a default version of Python, which you can extend if necessary to add/modify Jupyter versions or add additional versions of Python if desired. See [Docker Hub](https://hub.docker.com/r/rstudio/r-session-complete) for more information.
 

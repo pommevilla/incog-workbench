@@ -42,8 +42,9 @@ If you plan to use Project Sharing with NFS-mounted volumes, there are several c
 
 Project Sharing works with versions 3 and 4 of the NFS protocol. However, some additional configuration may be necessary depending on the NFS version and underlying filesystem. To determine your NFS client version, run the following command on your RStudio Workbench instance:
 
-    $ nfsstat -m
-
+```bash
+$ nfsstat -m
+```
 You should see `vers=3.0` in the output if you're using NFSv3, and `vers=4.0` if you're using NFSv4. Extra RStudio configuration is required for NFSv4 clients (see below).
 
 ##### NFSv3
@@ -56,7 +57,9 @@ On most systems this is the default, so you need only ensure that `noacl` is not
 
 To test for POSIX compatible ACLs, you can use the `setfacl` command as follows:
 
-    setfacl -m u:user2:x /home/user1/project
+```bash
+setfacl -m u:user2:x /home/user1/project
+```
 
 where `/home/user1/project` is the full path to a directory owned by `user1`, and `user2` is another valid user on the system.
 
@@ -76,11 +79,15 @@ Version 4 of the NFS protocol uses a very different permissions and ACL model fr
 
 To test NFSv4 ACL support, you can use the `nfs4_setfacl` command as follows:
 
-    nfs4_setfacl -a A::user2@domain:rax /home/user1/project
+```bash
+nfs4_setfacl -a A::user2@domain:rax /home/user1/project
+```
 
 where `/home/user1/project` is the full path to a directory owned by `user1`, `user2` is another valid user on the system, and `domain` is your system's user domain. Verify that this command succeeds, and that the new ACL entry for `user2@domain` is visible when you retrieve it:
 
-    nfs4_getfacl /home/user1/project
+```bash
+nfs4_getfacl /home/user1/project
+```
 
 This presumes that your environment supports using user/domain pairs as security principals. While most environments do, there are two different ways to specify security principals in NFSv4 ACLs: by **user name and domain** (preferred) or **user ID**. RStudio can use either, but you'll need to choose one appropriate for your network environment. If unsure, examine the output of the `nfs4_getfacl` operation described above. The security principal (the part after e.g., `A::` on each line) will be displayed as either a large integer (UID) or in `username@domain` format.
 
@@ -134,7 +141,9 @@ You can read more about user enumeration in the [sssd FAQ](https://docs.pagure.o
 
 To use Project Sharing, a directory must be specified to which all users on the server can read and write. It must also have the [sticky bit](https://en.wikipedia.org/wiki/Sticky_bit) set, so that users cannot remove each others' content. In a single-server installation, RStudio uses this location by default:
 
-    /var/lib/rstudio-server/shared-storage
+```bash
+/var/lib/rstudio-server/shared-storage
+```
 
 In a load-balanced configuration, however, RStudio does not provide a default, so it is necessary to provision a path both visible to and writable by all users on the system (typically on the same filesystem on which home directories are mounted). This path can be supplied to RStudio Workbench via the `server-shared-storage-path` option, for example:
 
@@ -148,11 +157,11 @@ The `server-shared-storage-path` option (described above) configures the path us
 
 ##### Launcher Considerations
 
-When configuring RStudio Workbench to work with the RStudio Job Launcher, it is recommended to configure the [Shared Storage] path in a location that will be reachable both by the RStudio Workbench instance and each Launcher Session. See the [Launcher Sessions] section for more details.
+When configuring RStudio Workbench to work with the RStudio Job Launcher, it is recommended to configure the [Shared Storage] path in a location that will be reachable both by the RStudio Workbench instance and each Launcher Session. See the [Launcher Sessions](../job_launcher/configuration.qmd#launcher-sessions) section for more details.
 
 #### Proxy Settings
 
-If you are running RStudio Workbench with a proxy, you'll need to make sure that your proxy is correctly configured to pass websocket connections through in order for all Project Sharing features to work. See the [Running with a Proxy] section for more on this.
+If you are running RStudio Workbench with a proxy, you'll need to make sure that your proxy is correctly configured to pass websocket connections through in order for all Project Sharing features to work. See the [Running with a Proxy](../access_and_security/running_with_a_proxy.qmd) section for more on this.
 
 ### Disabling Project Sharing
 

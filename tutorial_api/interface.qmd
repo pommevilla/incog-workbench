@@ -25,5 +25,5 @@ The third argument is a callback that will be invoked once the RStudio API is re
 
 2. More conservatively, create the IFrame, then create the object, then provide the src to the IFrame (this is however almost certainly not necessary and #1 should suffice). 
 
-The fourth argument is a callback that will be invoked when certain events described below in [Tutorial API Callbacks] are emitted by the IDE. These are only emitted if `tutorial-api-parent-notify-enabled=1` was set as described earlier. The response will be a text string in JSON format, as described below in [Tutorial API Callbacks].
+The fourth argument is a callback that will be invoked when certain events described below in [Tutorial API Callbacks](tutorial_api_callbacks.qmd) are emitted by the IDE. These are only emitted if `tutorial-api-parent-notify-enabled=1` was set as described earlier. The response will be a text string in JSON format, as described below in [Tutorial API Callbacks](tutorial_api_callbacks.qmd).
 

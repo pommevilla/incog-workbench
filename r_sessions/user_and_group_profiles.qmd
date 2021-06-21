@@ -204,7 +204,7 @@ r-version = /opt/R/3.2.0
 
 Note that `r-version` specifies the full path to the directory where R is installed.
 
-See the [R Versions] chapter for additional details on running multiple versions of R on a single server.
+See the [R Versions](../r_versions/r_versions.html) chapter for additional details on running multiple versions of R on a single server.
 
 This setting only applies to the RStudio IDE, and does not apply to Jupyter or VS Code.
 

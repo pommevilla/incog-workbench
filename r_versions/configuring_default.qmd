@@ -29,7 +29,7 @@ rsession-which-r=/usr/local/lib/R
 
 ### Default Version Per User or Group
 
-You can use the [User and Group Profiles] feature to specify distinct default versions of R for various users and groups. For example, the following profile configuration uses R 3.1.0 as the system default, R 3.2.0 for the `powerusers` group, and R 3.0.2 for the user `jsmith`:
+You can use the [User and Group Profiles](../r_sessions/user_and_group_profiles.html) feature to specify distinct default versions of R for various users and groups. For example, the following profile configuration uses R 3.1.0 as the system default, R 3.2.0 for the `powerusers` group, and R 3.0.2 for the user `jsmith`:
 
 ```ini
 [*]
@@ -48,7 +48,7 @@ Note that `r-version` specifies the full path to the directory where R is instal
 
 Users can also configure their own default version of R. This is done using the **General** pane of the **Global Options** dialog:
 
-![Set Default R Version](images/SetDefaultRVersion.png)
+![Set Default R Version](../images/SetDefaultRVersion.png)
 
-See the [Disabling Use of Multiple Versions] section for details on how to disable version switching entirely either system-wide or on a per-user or per-group basis.
+See the [Disabling Use of Multiple Versions](using_multiple_versions_of_r.qmd#disabling-use-of-multiple-versions) section for details on how to disable version switching entirely either system-wide or on a per-user or per-group basis.
 

@@ -14,7 +14,7 @@ ssl-certificate-key=/var/certs/your_domain_name.key
 
 The `.crt` file should be encoded in the PEM format; that is, the first line should read `-----BEGIN CERTIFICATE-----`, and the contents should be base64-encoded data. If your certificate is in another format, such as DER or PKCS, use the `openssl` command-line tool to convert it to PEM. For example:
 
-```
+```ini
 openssl x509 -inform DER -outform PEM -text -in your_domain_name.der -out your_domain_name.crt
 ```
 

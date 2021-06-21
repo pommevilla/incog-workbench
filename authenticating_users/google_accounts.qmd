@@ -14,12 +14,12 @@ In order to use Google Accounts with RStudio Workbench you need to register your
 
 Once you've created a project you go to the *Credentials* area of *APIs and auth* and choose to **Create New Client ID**:
 
-![Create Client Id](images/CreateClientID.png)
+![Create Client Id](../images/CreateClientID.png)
 
 
 You'll then be presented with a dialog used to create a new client ID:
 
-![Create Client Id](images/CreateClientIDDialog.png)
+![Create Client Id](../images/CreateClientIDDialog.png)
 
 You should select "Web application" as the application type and provide two URLs that correspond to the server you are deploying on. The screenshot above uses `https://www.example.com` as the host, you should substitute your own domain and port (if not using a standard one like 80 or 443) in your configuration.
 
@@ -97,7 +97,7 @@ Note that changes to the `google-accounts` configuration file take effect immedi
 
 ### Proxy Considerations
 
-If you are running RStudio behind a proxy, you will need to configure your proxy in a way that RStudio can tell the Google Web Services to redirect back to the correct location. There are number of options to choose from as described in [Running with a Proxy].
+If you are running RStudio behind a proxy, you will need to configure your proxy in a way that RStudio can tell the Google Web Services to redirect back to the correct location. There are number of options to choose from as described in [Running with a Proxy](../access_and_security/running_with_a_proxy.qmd).
 
 The use of the `X-RStudio-Request` header in your proxy is recommended and the only method which works behind a path-rewriting proxy. In this case, the proxy must set the `X-RStudio-Request` header to the exact complete URL as requested by the browser. For example if your proxy was set up to serve RStudio requests at `https://testdomain.com/rstudio/` and an incoming request for `/home` came in, your proxy should set `X-RStudio-Request: https://testdomain.com/rstudio/home` which would allow RStudio to know about the added path prefix `/rstudio`.
 

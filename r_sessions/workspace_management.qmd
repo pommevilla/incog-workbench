@@ -54,7 +54,7 @@ You can also specify that R sessions should never be suspended by setting the `s
 session-timeout-minutes=0
 ```
 
-You can also set session timeouts on a per-user or per-group basis, see the [User and Group Profiles] section for details.
+You can also set session timeouts on a per-user or per-group basis, see the [User and Group Profiles](user_and_group_profiles.qmd) section for details.
 
 If you simply want the session process to quit (and lose all unsaved work in the process) instead of suspending to disk, you can turn the `session-timeout-suspend` option off, like so:
 
@@ -67,7 +67,7 @@ The above example will quit idle sessions after 90 minutes, discarding any unsav
 
 #### Forcing Suspends
 
-You can force the suspend of individual sessions or even all sessions on the server. You can do this directly from the main page of the [Administrative Dashboard] or from the system shell as follows:
+You can force the suspend of individual sessions or even all sessions on the server. You can do this directly from the main page of the [Administrative Dashboard](../server_management/administrative_dashboard.qmd) or from the system shell as follows:
 
 ```bash
 $ sudo rstudio-server force-suspend-session <pid>
@@ -148,7 +148,7 @@ By default, RStudio stores each user's state in their home directory, in the fol
 ~/.local/share/rstudio
 ```
 
-This folder contains information on all of a user's active RStudio sessions, including all of the session data when the session is suspended. It also includes various internal RStudio state. Deleting it will result in a factory-fresh RStudio experience for the user, with the exception of their per-user settings (which are described in [Customizing Session Settings]).
+This folder contains information on all of a user's active RStudio sessions, including all of the session data when the session is suspended. It also includes various internal RStudio state. Deleting it will result in a factory-fresh RStudio experience for the user, with the exception of their per-user settings (which are described in [Customizing Session Settings](customizing_session_settings.html)).
 
 Because this folder can include arbitrary amounts of suspended session data, it can become very large. We recommend ensuring that each user has sufficient disk space quota to store suspended sessions along with the data for their R projects, and using other controls to clean up old data (such as `session-timeout-kill-hours`)
 

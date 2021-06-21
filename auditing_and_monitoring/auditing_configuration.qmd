@@ -34,7 +34,7 @@ The R console activity for each user is written into individual files within the
 | type    | Console action type (prompt, input, output, or error).    |
 | data    | Console data associated with this action (e.g. output text).  |
 
-The `session_id` field refers to a concurrent R session as described in the section on [Multiple R Sessions] (i.e. it can span multiple projects and/or pids).
+The `session_id` field refers to a concurrent R session as described in the section on [Multiple R Sessions](../r_sessions/multiple_r_sessions.qmd) (i.e. it can span multiple projects and/or pids).
 
 The default format for the log file is CSV (Comma Separated Values). It's also possible to write the data to [Newline Delimited JSON](http://ndjson.org/) by using the `audit-r-console-format` option. For example:
 

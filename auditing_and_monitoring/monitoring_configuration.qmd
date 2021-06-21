@@ -2,7 +2,7 @@
 
 ### System and Per-User Resources
 
-RStudio Workbench monitors the use of resources (CPU, memory, etc.) on both a per-user and system wide basis. By default, monitoring data is written to a set of RRD ([http://oss.oetiker.ch/rrdtool/](http://oss.oetiker.ch/rrdtool/)) files and can be viewed using the [Administrative Dashboard]. 
+RStudio Workbench monitors the use of resources (CPU, memory, etc.) on both a per-user and system wide basis. By default, monitoring data is written to a set of RRD ([http://oss.oetiker.ch/rrdtool/](http://oss.oetiker.ch/rrdtool/)) files and can be viewed using the [Administrative Dashboard](../server_management/administrative_dashboard.qmd). 
 
 The storage of system monitoring data requires about 20MB of disk space and the storage of user monitoring data requires about 3.5MB per user. This data is stored by default at `/var/lib/rstudio-server/monitor`. If you have a large number of users you may wish to specify an alternate volume for monitoring data. You can do this using the `monitor-data-path` setting. For example:
 

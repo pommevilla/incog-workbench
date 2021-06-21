@@ -20,7 +20,7 @@ auth-proxy-sign-in-url=http://example.com/sign-in
 **Once you enable authentication with a proxy, that becomes the exclusive means of authentication (you can't concurrently use both PAM and proxied authentication).**
 
 ::: {.callout-important}
-Proxied authentication still requires [PAM Sessions] and `sssd` to automatically create local system accounts. Without them, local system accounts have to be provisioned manually one-by-one.
+Proxied authentication still requires [PAM Sessions](../r_sessions/pam_sessions.html) and `sssd` to automatically create local system accounts. Without them, local system accounts have to be provisioned manually one-by-one.
 :::
 
 
@@ -136,7 +136,7 @@ After restarting RStudio the following file will contain a record of each HTTP r
 
 The log file will contain entries that look like this:
 
-```
+```bash
 127.0.0.1 - - [29/Jun/2015:06:30:41 -0400] "GET /s/f01ddf8222bea98a/ HTTP/1.1"
 200 91 "http://localhost:8787/s/f01ddf8222bea98a/" "Mozilla/5.0 (X11; Linux x86_64)
 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.125 Safari/537.36" "jsmith"
