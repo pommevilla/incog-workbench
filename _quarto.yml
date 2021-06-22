@@ -2,7 +2,7 @@ project:
   type: site
 
 execute:
-  freeze: true
+  freeze: auto
 
 site:
   title: "RStudio Workbench Administration"

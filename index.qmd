@@ -6,8 +6,6 @@ date: "`r Sys.Date()`"
 
 # Getting Started
 
-The third number is `r 1 + 2`
-
 ## Introduction
 
 RStudio Server enables you to provide a browser based interface (the RStudio IDE) to a version of R running on a remote Linux server. Deploying R and RStudio on a server has a number of benefits, including:

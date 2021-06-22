@@ -1,7 +1,0 @@
-```{r}
-radius <- 3
-```
-
-## Circle
-
-The radius of the circle is `r radius`.
