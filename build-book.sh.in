@@ -1,11 +1,9 @@
 #! /usr/bin/env Rscript
 
-# install latex
-#system2("quarto", c("install", "tinytex"))
 
 # ensure that rmarkdown is installed
-#if (!require("rmarkdown"))
-#  install.packages("rmarkdown", repos = "https://cran.rstudio.com")
+if (!require("rmarkdown"))
+  install.packages("rmarkdown", repos = "https://cran.rstudio.com")
 
 # remove existing _book
 unlink('_site', recursive = TRUE)

@@ -2,10 +2,11 @@ project:
   type: site
 
 execute:
-  freeze: auto
+  freeze: true
 
 site:
   title: "RStudio Workbench Administration"
+  subtitle: "Version ${CPACK_PACKAGE_VERSION}"
   downloads: [docx, pdf, epub]
   sharing: [twitter, facebook, linkedin]
   page-navigation: true

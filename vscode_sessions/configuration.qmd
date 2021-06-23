@@ -70,8 +70,8 @@ Whenever a VS Code session is launched, RStudio automatically merges the user se
 
 If you installed VS Code via the `sudo rstudio-server install-vs-code` command, a simple template is created for you automatically which instructs VS Code to use the bash shell by default and to disable automatic extension updates. The generated file looks like the following:
 
+*/etc/rstudio/vscode-user-settings.json*
 ``` {.json}
-# /etc/rstudio/vscode-user-settings.json
 {
       "terminal.integrated.shell.linux": "/bin/bash",
       "extensions.autoUpdate": false,

@@ -34,8 +34,8 @@ It documents all of the preferences, shows data types and allowable values, and 
 
 By default, RStudio Workbench only shows the home page (session overview) to users who have multiple sessions running. If you'd like it to be shown to all users regardless of the number of running sessions, set it in the global user preferences file as follows:
 
+*/etc/rstudio/rstudio-prefs.json*
 ```json
-# /etc/rstudio/rstudio-prefs.json
 {
     "show_user_home_page": "always"
 }
