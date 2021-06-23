@@ -22,10 +22,6 @@ jobs:
 
         sudo dpkg -i $(ls quarto*deb)
 
-    - name: "Install reticulate"
-      run: |
-        Rscript -e "install.packages('rmarkdown')"
-
     - name: "Quarto env"
       run: |
         quarto env
