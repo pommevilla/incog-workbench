@@ -7,7 +7,6 @@ _book
 rsconnect
 CMake*
 Makefile
-_quarto.yml
 _bookdown.yml
 cover.tex
 build-book.sh
