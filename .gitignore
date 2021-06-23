@@ -18,5 +18,5 @@ _main.html
 
 .quarto/
 *_cache/
-
+_site
 /.quarto/
