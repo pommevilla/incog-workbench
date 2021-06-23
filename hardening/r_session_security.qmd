@@ -8,9 +8,8 @@ Remember that RStudio is an interface to R itself, which has a variety of tools 
 
 By default, RStudio allows users to be idle for up to an hour before automatically signing them out. If your users work with sensitive data, you may wish to decrease this.
 
-*/etc/rstudio/rserver.conf*
-
-```
+```ini
+# /etc/rstudio/rserver.conf
 auth-timeout-minutes=20
 ```
 
@@ -20,10 +19,8 @@ See [Inactivity Timeout](../authenticating_users/authorization_timeout.qmd#inact
 
 RStudio can optionally prevent users from browsing to system directories; see [Restricted Directories](../r_sessions/directory_management.qmd#restricted-directories) for details. Enable this feature as follows:
 
-
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 restrict-directory-view=1
 ```
 
@@ -31,9 +28,8 @@ restrict-directory-view=1
 
 RStudio includes support for publishing to several external services, including RPubs and Shinyapps.io. If your users work with sensitive information, you should disable publishing to these services as follows:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 allow-external-publish=0
 ```
 

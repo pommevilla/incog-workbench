@@ -2,9 +2,8 @@
 
 In some cases, you may need to have RStudio set additional headers on client responses. To do this, simply specify `server-add-header` for each header that you need to add, in the form `Header Name:Header Value`. For example, to have the server set a few extra custom headers:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 server-add-header=X-Header-1:Value 1
 server-add-header=X-Header-2:Value 2
 ```

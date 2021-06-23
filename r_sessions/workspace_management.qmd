@@ -12,9 +12,8 @@ The default global setting is `ask` and the default project-level setting is der
 
 The default global setting can also be changed via the `session-save-action-default` configuration parameter in the `rsession.conf` config file. For example, to change the default value to `no` you would use this:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 session-save-action-default=no
 ```
 
@@ -28,9 +27,8 @@ When R sessions have been idle (no processing or user interaction) for a specifi
 
 To configure the amount of idle time to wait before suspending sessions you can use the `session-timeout-minutes` setting in the `/etc/rstudio/rsession.conf` file. For example:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 session-timeout-minutes=360
 ```
 
@@ -48,9 +46,8 @@ There are some conditions where an R session will not be suspended, these includ
 
 You can also specify that R sessions should never be suspended by setting the `session-timeout-minutes` to zero. For example:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 session-timeout-minutes=0
 ```
 
@@ -80,10 +77,8 @@ By default the `Rprofile.site` and `.Rprofile` files are not re-run when a sessi
 
 In some configurations it might be desirable to force the re-execution of profile files. There is an end user option that controls this on the *General* options pane which defaults to false. However, server administrators may wish to ensure that this option defaults to true. To do this you use the `session-rprofile-on-resume-default` option. For example:
 
-
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 session-rprofile-on-resume-default=1
 ```
 
@@ -95,10 +90,8 @@ By default, when sessions are quit or suspended, child processes created in the 
 
 For example, to quit child processes when the session exits:
 
-
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 session-quit-child-processes-on-exit=1
 ```
 
@@ -110,16 +103,17 @@ To configure the amount of time to wait before forcefully killing and destroying
 
 This setting should only be used to ensure that any sessions that users have forgotten about are destroyed, reclaiming valuable disk space.
 
+::: {.callout-important}
 **Sessions can be destroyed while important computations are executing**.
 The user whose session is cleaned will also lose all unsaved code and data.
+:::
 
 This setting can also be used in conjunction with `session-timeout-minutes`, allowing already suspended sessions to be cleaned up.
 
 For example:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 session-timeout-kill-hours=48
 ```
 
@@ -144,7 +138,7 @@ See <https://stat.ethz.ch/R-manual/R-devel/library/base/html/save.html> for addi
 
 By default, RStudio stores each user's state in their home directory, in the following folder:
 
-```
+```bash
 ~/.local/share/rstudio
 ```
 
@@ -204,5 +198,5 @@ If `RSTUDIO_DATA_HOME` and `XDG_DATA_HOME` are both set, `RSTUDIO_DATA_HOME` tak
 
 #### Job Launcher Mounts
 
-Finally, if you are using containerized sessions with the Job Launcher, and you mount RStudio's user state data to a folder outside their home directory, you must ensure that directory is mounted into the containers in addition to the home directory itself. See [Launcher Mounts] for more information about mounting folders into containerized sessions.
+Finally, if you are using containerized sessions with the Job Launcher, and you mount RStudio's user state data to a folder outside their home directory, you must ensure that directory is mounted into the containers in addition to the home directory itself. See [Launcher Mounts](../job_launcher/configuration.qmd#launcher-mounts) for more information about mounting folders into containerized sessions.
 

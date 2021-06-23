@@ -4,17 +4,15 @@
 
 RStudio Workbench can be optionally configured to audit all R console activity by writing console input and output to a central location (the `/var/lib/rstudio-server/audit/r-console` directory by default). This feature can be enabled using the `audit-r-console` setting. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 audit-r-console=input
 ```
 
 This will audit all R console *input*. If you wish to record both console input and output then you can use the `all` setting. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 audit-r-console=all
 ```
 
@@ -48,9 +46,8 @@ Note that when using the JSON format the entire file is not a valid JSON object 
 
 You can customize both the location where audit data is written as well as the maximum amount of data to log per-user (by default this is 50 MB). To specify the root directory for audit data you use the `audit-data-path` setting. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 audit-data-path=/audit-data
 ```
 
@@ -58,25 +55,23 @@ Note that this path affects the location of both R console auditing and R sessio
 
 To specify the maximum amount of data to write to an individual user's R console log file you use the `audit-r-console-user-limit-mb` setting. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 audit-r-console-user-limit-mb=100
 ```
 
 The default maximum R console log file size is 50 megabytes per-user. To configure no limit to the size of files which can be written you set the value to `0`, for example:
 
-*/etc/rstudio/rserver.conf*
 
 ```ini
+# /etc/rstudio/rserver.conf
 audit-r-console-user-limit-mb=0
 ```
 
 If you wish for RStudio to automatically roll the log files once the maximum size is reached, set the `audit-r-console-user-limit-months` setting. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 audit-r-console-user-limit-months=2
 ```
 
@@ -88,9 +83,8 @@ Note that if the month limit is not set, then log files will not be rolled autom
 
 RStudio Workbench can be optionally configured to write an audit log of session related events (e.g. login/logout, session start/suspend/exit) to a central location (the `/var/lib/rstudio-server/audit/r-sessions` directory by default). This feature can be enabled using the `audit-r-sessions` setting. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 audit-r-sessions=1
 ```
 
@@ -144,9 +138,8 @@ Note that when using the JSON format the entire file is not a valid JSON object 
 
 You can customize both the location where audit data is written as well as the maximum amount of R session event data to log (by default this is 1 GB). To specify the root directory for audit data you use the `audit-data-path` setting. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 audit-data-path=/audit-data
 ```
 
@@ -154,25 +147,22 @@ Note that this path affects the location of both R console auditing and R sessio
 
 To specify the maximum amount of R session event data to log you use the `audit-r-sessions-limit-mb` setting. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 audit-r-sessions-limit-mb=2048
 ```
 
 The default maximum R session event log file size is 1 GB (1024 MB). To configure no limit to the size of files which can be written you set the value to `0`, for example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 audit-r-sessions-limit-mb=0
 ```
 
 If you wish for RStudio to automatically roll the log files once the maximum size is reached, set the `audit-r-sessions-limit-months` setting. The default is set to 13 months. To set it manually, for example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 audit-r-sessions-limit-months=13
 ```
 

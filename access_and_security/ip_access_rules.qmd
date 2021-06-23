@@ -4,9 +4,8 @@ RStudio Workbench can be configured to deny access to specific IP addresses or r
 
 Access rules are established using the `allow` and `deny` directives and are processed in order, with the first matching rule governing whether a given address is allowed or denied. For example, to allow only clients within the `192.168.1.0/24` subnet but also deny access to `192.168.1.10` you would use these rules:
 
-*/etc/rstudio/ip-rules*
-
 ```ini
+# /etc/rstudio/ip-rules
 deny    192.168.1.10
 allow   192.168.1.0/24
 deny    all

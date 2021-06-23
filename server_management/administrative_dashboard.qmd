@@ -23,17 +23,17 @@ http://<server-address>/admin
 
 The administrative dashboard is disabled by default. To enable it you set the `admin-enabled` option. You can also specify that only users of certain group have access to the dashboard using the `admin-group` option. For example:
 
-*/etc/rstudio/rserver.conf*
+
 
 ```ini
+# /etc/rstudio/rserver.conf
 admin-enabled=1
 admin-group=rstudio-admins
 ```
 You can specify a single group as the above example does or a comma-delimited list of groups. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 admin-group=server-admins,rstudio-admins,domain-admins
 ```
 
@@ -49,16 +49,18 @@ You can further designate a certain user or group of users as administrative "su
 
 Administrative superusers do not have root privilege on the system, but rather have a narrow set of delegated privileges that are useful in managing and supporting the server. You can define the users with this privilege using the `admin-superuser-group` setting. For example:
 
-*/etc/rstudio/rserver.conf*
+
 
 ```ini
+# /etc/rstudio/rserver.conf
 admin-superuser-group=rstudio-superuser-admins
 ```
 Note that as with the admin groups above, you can specify a single group as the above example does or a comma-delimited list of groups. For example:
 
-*/etc/rstudio/rserver.conf*
+
 
 ```ini
+# /etc/rstudio/rserver.conf
 admin-superuser-group=rstudio-superuser-admins,domain-admins
 ```
 
@@ -66,15 +68,14 @@ Changes to the configuration will not take effect until the server is restarted.
 
 #### User Impersonation Restrictions
 
-Note that the ability to login as other users and assume control of existing sessions is not available if you are authenticating with [SAML SSO], [Google Accounts] or proxied authentication. This is because these authentication mechanisms use a different user-identity mechanism which isn't compatible with the way that user session impersonation is implemented.
+Note that the ability to login as other users and assume control of existing sessions is not available if you are authenticating with [SAML SSO](../authenticating_users/saml_sso.qmd), [Google Accounts](../authenticating_users/google_accounts.qmd) or proxied authentication. This is because these authentication mechanisms use a different user-identity mechanism which isn't compatible with the way that user session impersonation is implemented.
 
 ### Server Log Time Zone
 
 You can control the time zone in which the server logs are displayed in the admin dashboard by the use of the `admin-monitor-log-use-server-time-zone` option. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 admin-monitor-log-use-server-time-zone=1
 ```
 

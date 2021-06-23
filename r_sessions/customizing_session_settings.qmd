@@ -34,9 +34,8 @@ It documents all of the preferences, shows data types and allowable values, and 
 
 By default, RStudio Workbench only shows the home page (session overview) to users who have multiple sessions running. If you'd like it to be shown to all users regardless of the number of running sessions, set it in the global user preferences file as follows:
 
-*/etc/rstudio/rstudio-prefs.json*
-
 ```json
+# /etc/rstudio/rstudio-prefs.json
 {
     "show_user_home_page": "always"
 }
@@ -46,9 +45,8 @@ By default, RStudio Workbench only shows the home page (session overview) to use
 
 You can install global snippets files for all users in the `/etc/rstudio/snippets` folder. For example, if you'd like to create a snippet `lib` for an R library call:
 
-*/etc/rstudio/snippets/r.snippets*
-
 ```ini
+# /etc/rstudio/snippets/r.snippets
 snippet lib
 	library(${1:package})
 ```
@@ -64,8 +62,9 @@ Note that RStudio will not merge snippet files, which implies the following:
 
 RStudio typically opens new documents with completely blank contents. You can, however, define the contents of the blank document by creating a file named `default.X` in `/etc/rstudio/templates`, where `X` is the file extension you wish to customize. For example, to start all R scripts with a standard comment header users can fill out, you could use the following:
 
-*/etc/rstudio/templates/default.R*
+
 ```R
+# /etc/rstudio/templates/default.R
 # -------------------------------------
 # Script:
 # Author:

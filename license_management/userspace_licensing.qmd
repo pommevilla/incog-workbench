@@ -20,7 +20,7 @@ Next, disable the standard system-level licensing mode by deleting the "verify" 
 $ sudo rm /var/lib/rstudio-server/verify
 ```
 
-Initialize the license system in userspace mode. Note this command must **not** be run elevated, but as the RStudio server account (normally `rstudio-server`) as described in [Server Account].
+Initialize the license system in userspace mode. Note this command must **not** be run elevated, but as the RStudio server account (normally `rstudio-server`) as described in [Server Account](../access_and_security/server_permissions.qmd#server-account).
 
 ```bash
 $ rstudio-server license-manager initialize --userspace

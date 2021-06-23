@@ -25,13 +25,15 @@ Method                   | Description                                          
 `openProj(projFile, [callerID])` | Open an existing project, can specify existing .Rproj, or just the folder. | Yes
 `getState([callerID])` | Request info on current RStudio IDE state. | Yes
 
-### Example Calls
+## Example Calls
 Here are some sample JavaScript calls, followed by the response JSON.
 
-#### Clone project from github and open it (with callerID = 'abcd')
+### Clone project from github and open it (with callerID = 'abcd')
+
 ```js
 createProjFromGit('https://github.com/rstudio/rstudioapi', 'rstudioapi', '~/R', 'abcd');
 ```
+
 ```json
 {
   "message":"success",
@@ -41,10 +43,12 @@ createProjFromGit('https://github.com/rstudio/rstudioapi', 'rstudioapi', '~/R', 
 }
 ```
 
-#### Create an new project but don't create a git repo (no callerID)
+### Create an new project but don't create a git repo (no callerID)
+
 ```js
 createNewProj('myproj', '~/R', false);
 ```
+
 ```json
 {
   "message":"success",
@@ -53,10 +57,12 @@ createNewProj('myproj', '~/R', false);
 }
 ```
 
-#### Try to open a project that doesn't exist
+### Try to open a project that doesn't exist
+
 ```js
 openProj('~/myproj', 'abcd');
 ```
+
 ```json
 {
   "message":"error",

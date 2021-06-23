@@ -12,9 +12,8 @@ The logging configuration file is located at `/etc/rstudio/logging.conf`. It all
 
 For example:
 
-*/etc/rstudio/logging.conf*
-
 ```ini
+# /etc/rstudio/logging.conf
 [*]
 log-level=info
 logger-type=syslog
@@ -31,9 +30,7 @@ log-file-mode=600
 
 This configuration specifies that by default, all logging should be sent to `syslog` at `info` level or higher. Debug logging is enabled for the `rserver` binary specifically, where logs are written to file with a maximum log file size of 10MB, in the default `/var/log/rstudio-server` directory. File locking logging is also specifically redirected to a different logging directory, `/var/log/file-locking`, with a specific file creation mode of `600`. All logging sections named `file-locking` which occur in the `rserver` process will be logged to file, whereas the same logging sections in other binaries will continue to be logged to `syslog`.
 
-The following settings may be specified:
-
-*/etc/rstudio/logging.conf*
+The following settings may be specified in `/etc/rstudio/logging.conf`:
 
 Config Option            | Description                                                                                        | Default Value
 ------------------------ | -------------------------------------------------------------------------------------------------- | -------------------------

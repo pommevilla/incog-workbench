@@ -4,9 +4,8 @@
 
 You may wish to periodically poll RStudio Workbench to ensure that it's still responding to requests as well as to examine various indicators of server load. You can enable a health check endpoint using the `server-health-check-enabled` setting. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 server-health-check-enabled=1
 ```
 
@@ -42,9 +41,8 @@ load-average: #load-average#
 
 You can customize this template to return an alternate format (e.g. XML or JSON) that is parse-able by an external monitoring system. To do this you simply create a template and copy it to **`/etc/rstudio/health-check`** For example, an XML format:
 
-*/etc/rstudio/health-check*
-
 ```xml
+<!--/etc/rstudio/health-check-->
 <?xml version="1.0" encoding="UTF-8"?>
 <health-check>
   <active-sessions>#active-sessions#</active-sessions>
@@ -58,9 +56,8 @@ You can customize this template to return an alternate format (e.g. XML or JSON)
 
 Or a [Prometheus](https://prometheus.io/docs/introduction/overview/) endpoint. Prometheus is an open-source systems monitoring and alerting toolkit with a custom input format:
 
-*/etc/rstudio/health-check*
-
 ```bash
+# /etc/rstudio/health-check
 # HELP active_sessions health_check metric Active RStudio sessions
 # TYPE active_sessions gauge
 active_sessions #active-sessions#

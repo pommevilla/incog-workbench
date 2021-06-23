@@ -29,9 +29,8 @@ session-cull-connected | Whether or not to cull sessions that have a browser con
 
 For example, your `jupyter.conf` file might look like the following:
 
-**/etc/rstudio/jupyter.conf**
-
 ```ini
+# /etc/rstudio/jupyter.conf
 jupyter-exe=/usr/bin/jupyter
 labs-enabled=1
 notebooks-enabled=1
@@ -48,9 +47,8 @@ If you are running Jupyter in a remote cluster like Kubernetes, you will need to
 
 You should specify a full Jupyter 3-part version number like so:
 
-**/etc/rstudio/jupyter.conf**
-
 ```ini
+# /etc/rstudio/jupyter.conf
 lab-version=3.0.6
 notebook-version=6.2.0
 ```

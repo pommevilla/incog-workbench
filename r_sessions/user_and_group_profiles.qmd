@@ -23,9 +23,8 @@ Profiles are defined within the file `/etc/rstudio/profiles`. Note that this fil
 
 Here's an example profiles file that illustrates each of these types:
 
-*/etc/rstudio/profiles*
-
 ```ini
+# /etc/rstudio/profiles
 [*]
 cpu-affinity = 1-4
 max-processes = 800
@@ -86,7 +85,7 @@ You can also specify that R sessions should never be suspended by setting the `s
 session-timeout-minutes=0
 ```
 
-This setting only applies to the RStudio IDE, and does not apply to Jupyter or VS Code. Session timeout can be configured for Jupyter sessions via the `session-cull` setting - see [Jupyter configuration] for more details. There is currently no mechanism for timing out VS Code sessions.
+This setting only applies to the RStudio IDE, and does not apply to Jupyter or VS Code. Session timeout can be configured for Jupyter sessions via the `session-cull` setting - see [Jupyter configuration](../jupyter_sessions/configuration.qmd) for more details. There is currently no mechanism for timing out VS Code sessions.
 
 ### Session Timeout Kill
 
@@ -97,9 +96,7 @@ This setting should only be used to ensure that any sessions that users have for
 **Sessions can be destroyed while important computations are executing**.
 The user whose session is cleaned will also lose all unsaved code and data.
 
-This setting can also be used in conjunction with `session-timeout-minutes`, allowing already suspended sessions to be cleaned up.
-
-For example:
+This setting can also be used in conjunction with `session-timeout-minutes`, allowing already suspended sessions to be cleaned up. For example:
 
 ```ini
 session-timeout-kill-hours=48
@@ -107,7 +104,7 @@ session-timeout-kill-hours=48
 
 The default value if none is explicitly specified is 0 hours, meaning sessions will never be killed and destroyed automatically. The supplied value should be an integer representing the amount of hours a session can go without user interaction before being killed.
 
-This setting only applies to the RStudio IDE, and does not apply to Jupyter or VS Code. Session timeout can be configured for Jupyter sessions via the `session-cull` setting - see [Jupyter configuration] for more details. There is currently no mechanism for timing out VS Code sessions.
+This setting only applies to the RStudio IDE, and does not apply to Jupyter or VS Code. Session timeout can be configured for Jupyter sessions via the `session-cull` setting - see [Jupyter configuration](../jupyter_sessions/configuration.qmd) for more details. There is currently no mechanism for timing out VS Code sessions.
 
 #### Interaction with session-timeout-minutes
 

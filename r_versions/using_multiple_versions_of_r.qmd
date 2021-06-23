@@ -17,9 +17,8 @@ RStudio Workbench scans for and automatically discovers versions of R in the fol
 
 This is described in more detail in the [Recommended Installation Directories](installing_r.qmd#recommended-installation-directories) section. If you have installed versions of R in alternate locations, you can list them within the `/etc/rstudio/r-versions` configuration file. For example:
 
-*/etc/rstudio/r-versions*
-
 ```ini
+# /etc/rstudio/r-versions
 /opt/R-3.2.1
 /opt/R-devel-3.3
 ```
@@ -42,9 +41,8 @@ Note that the JSON format of the `r-versions` file is subject to change between 
 
 The `r-versions` file must be available on all nodes that run R sessions. We don't generally recommend changing its location, but if you need to do so in order to mount it on R session nodes, you can do via the `r-versions-path` option as in the following example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 r-versions-path=/mnt/config/rstudio-server/r-versions
 ```
 
@@ -71,9 +69,8 @@ To specify extended format information, modify the `/etc/rstudio/r-versions` fil
 
 An example `/etc/rstudio/r-versions` file is shown below.
 
-*/etc/rstudio/r-versions*
-
 ```ini
+; /etc/rstudio/r-versions
 Path: /opt/R/R-2.15.3
 Label: My special R Version
 Module: testmodule
@@ -102,9 +99,8 @@ By setting the name of a module in an environment definition, that version of R 
 
 If you do not specify a `Path` to the R installation, you must ensure that RStudio Workbench can load the module by specifying the location of the module shell initialization script for `sh`. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 modules-bin-path=/usr/local/Modules/3.2.9/init/sh
 ```
 
@@ -123,9 +119,8 @@ sudo rstudio-server reload
 
 If you have versions of R on your system that would normally be picked up by automatic scanning but which you'd like to exclude, the most straightforward thing to do is to disable R version scanning altogether and explicitly specify all versions you'd like to use in `/etc/rstudio/r-versions`. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 r-versions-scan=0
 ```
 
@@ -147,9 +142,8 @@ This configuration enables users to easily migrate projects one-by-one to a new 
 
 If you want to prevent users from being able to change R versions entirely you can use the `r-versions-multiple` option:
 
-**/etc/rstudio/rserver.conf**
-
 ```ini
+# /etc/rstudio/rserver.conf
 r-versions-multiple=0
 ```
 

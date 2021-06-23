@@ -12,9 +12,10 @@ PAM can be used for both authentication as well as to tailor the environment for
 
 On Debian and Ubuntu systems RStudio does not provide an RStudio specific PAM configuration file. As a result, RStudio uses the `/etc/pam.d/other` profile, which by default inherits from a set of common configuration files:
 
-*/etc/pam.d/other*
+
 
 ```css
+/* /etc/pam.d/other */
   @include common-auth
   @include common-account
   @include common-password
@@ -27,9 +28,10 @@ If the `/etc/pam.d/other` profile reflects the authentication system and policie
 
 On RedHat, CentOS and SUSE systems applications without their own PAM profiles are denied access by default. Therefore to ensure that RStudio is running and available after installation a default PAM profile is installed at `/etc/pam.d/rstudio`. This profile is configured to require a user-id greater than 500 and to authenticate users against local system accounts:
 
-*/etc/pam.d/rstudio*
+
 
 ```bash
+; /etc/pam.d/rstudio
 auth      requisite      pam_succeed_if.so uid >= 500 quiet
 auth      required       pam_unix.so nodelay
 account   required       pam_unix.so
@@ -48,7 +50,7 @@ If you are unable to log into RStudio there may be an underlying problem with th
 The `pamtester` utility is located at `/usr/lib/rstudio-server/bin/pamtester`. To invoke it you pass several arguments indicating the PAM profile to test, the user to test for, and whether you want verbose output. For example:
 
 ```bash
-sudo /usr/lib/rstudio-server/bin/pamtester --verbose rstudio <username> authenticate
+$ sudo /usr/lib/rstudio-server/bin/pamtester --verbose rstudio <username> authenticate
 ```
 
 You can find more detailed documentation on using `pamtester` here: [http://linux.die.net/man/1/pamtester](http://linux.die.net/man/1/pamtester).

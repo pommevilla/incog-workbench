@@ -96,9 +96,10 @@ The header `X-RStudio-Root-Path` and the configuration option `www-root-path` se
 :::
 
 
-*/etc/rstudio/rserver.conf*
+
 
 ```ini
+# /etc/rstudio/rserver.conf
 www-root-path=/rstudio
 ```
 
@@ -201,9 +202,10 @@ ProxyRequests Off
 The header `X-RStudio-Root-Path` and the configuration option `www-root-path` server the same purpose. If either is set RStudio will always return cookies and redirects for the correct path, without requiring rewrite assistance from the proxy. The header value has precedence over the configuration value.
 :::
 
-*/etc/rstudio/rserver.conf*
+
 
 ```ini
+# /etc/rstudio/rserver.conf
 www-root-path=/rstudio
 ```
 

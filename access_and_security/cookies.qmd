@@ -2,9 +2,8 @@
 
 By default, when RStudio Workbench is configured with SSL, all authorization cookies are marked with the `secure` cookie attribute. If you wish to use your own SSL termination but force RStudio to mark cookies as `secure`, you can add the following configuration option:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 auth-cookies-force-secure=1
 ```
 

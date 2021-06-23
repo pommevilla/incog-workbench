@@ -26,7 +26,9 @@ Any arguments after the installation directory will be added to the `args` entry
 
 Once the installation completes, you'll need to restart the RStudio service for it to detect availability of VS Code sessions.
 
-> **Note:** You must also install code-server on all Launcher nodes (for Local or Slurm plugins) and within any containers used (if using Kubernetes).
+::: {.callout-note}
+You must also install code-server on all Launcher nodes (for Local or Slurm plugins) and within any containers used (if using Kubernetes).
+:::
 
 ### Installing the RStudio Workbench Extension
 
@@ -106,7 +108,9 @@ wget https://rsw-vscode-extension.s3.amazonaws.com/rstudio-workbench-${RSW_EXT_V
 /opt/code-server/code-server --install-extension ./rstudio-workbench-${RSW_EXT_VERSION}.vsix
 ```
 
-> **Note:** Installing the extension manually when a global installation directory is not in use will require you to repeat the operation for every user.
+::: {.callout-note} 
+Installing the extension manually when a global installation directory is not in use will require you to repeat the operation for every user.
+:::
 
 #### Manually Installing Language Extensions
 
@@ -120,7 +124,9 @@ When VS Code sessions are configured with a global extensions directory, users w
 
 2.  Download an extension in VSIX format from an online marketplace such as [Open VSX](https://open-vsx.org). Then, install it using the `--install-extension` command like the example above, passing the VSIX file path as the extension name. Note that if the latest version of the extension is incompatible with the version of `code-server`, it will fail to install. You can try using an older version of the extension in this case.
 
-> **Note:** It is against VS Code's Terms of Service to use the official Marketplace extensions with third party tools like `code-server`. We strongly recommend using a free and open source alternative like Open VSX.
+::: {.callout-note}
+It is against VS Code's Terms of Service to use the official Marketplace extensions with third party tools like `code-server`. We strongly recommend using a free and open source alternative like Open VSX.
+:::
 
 3.  Build the extension from source. There are several extensions freely available on GitHub that can be built into a VSIX file yourself and then installed via the `--install-extension` command. Building third party extensions from source is outside of the scope of this document.
 

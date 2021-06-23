@@ -14,9 +14,8 @@ For versions of R installed by system package managers this will be `/usr/lib/R`
 
 If you want to override which version of R is used then you can use the `rsession-which-r` setting. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 rsession-which-r=/usr/local/bin/R
 ```
 
@@ -30,9 +29,8 @@ The section above describes how RStudio locates the global default version of R.
 
 You can add elements to the default `LD_LIBRARY_PATH` for R sessions (as determined by the R `ldpaths` script) by adding an `rsession-ld-library-path` entry to the server config file. This might be useful for ensuring that packages can locate external library dependencies that aren't installed in the system standard library paths. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 rsession-ld-library-path=/opt/someapp/lib:/opt/anotherapp/lib
 ```
 
@@ -70,9 +68,8 @@ chmod 755 /etc/rstudio/rsession-profile
 
 In some situations, you will not want to run user shell profile scripts. This is also a good way to troubleshoot the inability for sessions to launch, as it could indicate a conflict is occurring due to environment variables being set in the shell profiles. To disable execution of the shell profiles, set the `rsession-no-profile` option to `1` in `/etc/rstudio/rserver.conf`. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 rsession-no-profile=1
 ```
 
@@ -86,9 +83,8 @@ Another source of environment variables are PAM sessions. On Debian/Ubuntu syste
 
 You may also wish to run R sessions under a program supervisor that modifies their environment or available resources. You can specify a supervisor (and the arguments which control it's behavior) using the `rsession-exec-command` setting. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 rsession-exec-command=nice -n 10
 ```
 
@@ -98,17 +94,15 @@ This example uses the `nice` command to run all R sessions with a lower scheduli
 
 RStudio Workbench allows you to launch sessions in a diagnostics mode to capture extended session launch information in the event that you run into problems when starting sessions. This mode captures the environment variables that are set by all of the profile scripts, loading of any modules, arguments passed to the session, and the exit code of the session and any stack trace information if the session crashes. To enable collection of this diagnostic data, set the `rsession-diagnostics-enabled` flag in `/etc/rstudio/rserver.conf` like below:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 rsession-diagnostics-enabled=1
 ```
 
 When this setting is enabled, all sessions that are started will create a diagnostics file that contains extended launch diagnostics under the `/tmp` directory by default. To change the location, use the `rsession-diagnostics-dir` to point to the desired directory, like so:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 rsession-diagnostics-dir=/tmp/diagnostics
 ```
 
@@ -118,9 +112,8 @@ To diagnose containerized sessions (e.g. Kubernetes) launched via the Job Launch
 
 Strace information can be included in the diagnostics file by adding the `rsession-diagnostics-strace-enabled` flag as shown below. Before using this setting, ensure that strace is installed and is available on your users' path.
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 rsession-diagnostics-enabled=1
 rsession-diagnostics-strace-enabled=1
 ```

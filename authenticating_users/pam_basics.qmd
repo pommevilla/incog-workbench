@@ -15,6 +15,6 @@ To learn more about PAM and the many options and modules available for it see th
 PAM recommendations for user provisioning:
 
 - If you are using PAM authentication to connect to an external authentication provider, you can use a PAM module like [`pam_mkhomedir`](https://linux.die.net/man/8/pam_mkhomedir) to automatically create the users' home directories on login.
-- User provisioning requires PAM sessions to be used is most cases. See the [PAM Sessions] section for details on how RStudio can be configured to use those.
+- User provisioning requires PAM sessions to be used is most cases. See the [PAM Sessions](../r_sessions/pam_sessions.qmd) section for details on how RStudio can be configured to use those.
 - If you are using SAML, OpenID or Proxied authentication and local system accounts are automatically created by `sssd`, a PAM configuration with the module [`pam_rootok`](https://linux.die.net/man/8/pam_rootok) must be used, since PAM sessions will be started by RStudio using `root` in the behalf of the actual user.
 

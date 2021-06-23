@@ -4,9 +4,8 @@
 
 By default, user authorization will expire after 60 minutes of inactivity, requiring the user to sign in again to continue using their sessions. This is configurable by changing the `auth-timeout-minutes` setting in */etc/rstudio/rserver.conf*. For example, to sign users out after 20 minutes of inactivity instead:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 auth-timeout-minutes=20
 ```
 
@@ -18,9 +17,8 @@ Whenever a user is signed out, the database will be updated to store recently lo
 
 Users have an option to stay signed in across browser sessions when using PAM or Google authentication methods. By default when choosing the stay signed in option users will remain signed in for 30 days. You can modify this behavior using the `auth-stay-signed-in-days` setting. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 auth-stay-signed-in-days=7
 ```
 
@@ -32,9 +30,8 @@ Note that for this setting to take effect, `auth-timeout-minutes` must be set to
 
 If you want to prevent users from being able to stay signed in, you can prevent the "Stay Signed In" option from being shown to them by using the `auth-stay-signed-in` setting. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 auth-stay-signed-in=0
 ```
 

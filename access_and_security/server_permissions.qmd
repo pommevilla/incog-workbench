@@ -23,9 +23,8 @@ sudo useradd --system rs-user
 
 Then edit the `/etc/rstudio/rserver.conf` configuration file as follows:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 server-user=rs-user
 ```
 
@@ -39,9 +38,8 @@ sudo rstudio-server start
 
 By default, RStudio sets its umask to `022` on startup. If you don't want this behavior, for instance because you'd prefer the server process to use the default umask set in init, it can be disabled as follows:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 server-set-umask=0
 ```
 

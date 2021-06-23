@@ -2,9 +2,8 @@
 
 To help mitigate against CSRF attacks, RStudio can automatically reject any request originating from an `Origin` or `Referer` that does not match the `Host`, `X-Forwarded-Host`, `Forwarded: host` or `X-RStudio-Request` headers. To enable this check, add the following configuration:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 www-enable-origin-check=1
 ```
 
@@ -12,9 +11,8 @@ In some cases, such as if running behind a proxy that you cannot modify, this ch
 
 You may wish to consider some origins to be safe in all cases, causing RStudio to consider such `Origin` or `Referer` values to be allowed instead of being rejected, even if they do not match a Host header. To specify such origins, add each of them as a `www-allow-origin` setting in `rserver.conf`. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 www-allow-origin=mysubdomain.mydomain.com
 www-allow-origin=*.mydomain2.com
 ``` 

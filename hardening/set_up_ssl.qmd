@@ -10,17 +10,15 @@ If your configuration of RStudio is accessed directly by end users, see the [SSL
 
 Ensure that communication with the Job Launcher is encrypted by setting `launcher-use-ssl=1` as follows:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 launcher-use-ssl=1
 ```
 
 Note that additional configuration for the Job Launcher is required to make it possible to connect to it over SSL. See [Job Launcher Configuration](../job_launcher/configuration.qmd#job-launcher-configuration) for details. Example Launcher configuration:
 
-*/etc/rstudio/launcher.conf*
-
 ```ini
+# /etc/rstudio/launcher.conf
 enable-ssl=1
 certificate-file=/var/certs/your_domain_name.crt
 certificate-key-file=/var/certs/your_domain_name.key  
@@ -30,9 +28,8 @@ certificate-key-file=/var/certs/your_domain_name.key
 
 RStudio Workbench supports many different SSL protocols for compatibility with older browsers, but several are no longer considered secure. We recommend disabling support for all SSL protocols except the most recent two, TLS 1.2 and 1.3. See the [SSL Protocols](../access_and_security/secure_sockets.qmd#ssl-protocols) section for more details.
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 ssl-protocols=TLSv1.2 TLSv1.3
 ```
 
@@ -40,9 +37,8 @@ ssl-protocols=TLSv1.2 TLSv1.3
 
 When configured with SSL, RStudio Workbench uses HTTP Strict Transport Security automatically. This is a security setting that forces the browser to always use HTTPS when connecting to RStudio Workbench. We recommend including the maximum age to 1 year, and extending coverage to subdomains. 
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 ssl-hsts-max-age=31536000
 ssl-hsts-include-subdomains=1
 ```

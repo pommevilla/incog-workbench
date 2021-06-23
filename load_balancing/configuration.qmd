@@ -36,9 +36,8 @@ The first of these defines the available nodes and load balancing strategy. The 
 
 For example, to define a cluster with two nodes that load balances based the number of actively running R sessions you could use the following configuration:
 
-**/etc/rstudio/load-balancer**
-
 ```bash
+; /etc/rstudio/load-balancer
 [config]
 
 balancer = sessions
@@ -49,9 +48,8 @@ server1.example.com
 server2.example.com
 ```
 
-**/etc/rstudio/secure-cookie-key**
-
 ```bash
+# /etc/rstudio/secure-cookie-key
 a55e5dc0-d6ae-11e3-9334-000c29635f71
 ```
 
@@ -85,16 +83,17 @@ This secure cookie key will also be used for encrypting and decrypting the Postg
 
 You may optionally change the path of the secure-cookie-key by changing the `secure-cookie-key-file` setting in `rserver.conf`, though it is not necessary. Changing the path in this manner is only recommended in very specific circumstances when running the launcher with both RStudio Workbench and Package Manager simultaneously. For example:
 
-*/etc/rstudio/rserver.conf*
 ```ini
+# /etc/rstudio/rserver.conf
 secure-cookie-key-file=/mnt/rstudio/secure-cookie-key
 ```
 
 In addition, an explicit server-wide shared storage path must be defined (this is used for inter-node synchronization). This path is defined in the `/etc/rstudio/rserver.conf` file. For example:
 
-*/etc/rstudio/rserver.conf*
+
 
 ```ini
+# /etc/rstudio/rserver.conf
 server-shared-storage-path=/shared/rstudio-server/shared-storage
 ```
 
@@ -231,9 +230,10 @@ If users are having difficulty accessing RStudio in a load balanced configuratio
 
 Some scenarios may causes RStudio to wait a long time for a node to respond due to network instability. You can limit how long is this waiting period with the `timeout` option, which is set to 10 seconds by default. This disable this timeout and use the system defaults, set it to zero.
 
-**/etc/rstudio/load-balancer**
+
 
 ```bash
+; /etc/rstudio/load-balancer
 [config]
 
 balancer = sessions
@@ -245,9 +245,10 @@ timeout = 5
 
 If one of the nodes is temporarily using a self-signed or otherwise functional but invalid certificate the load balancer may fail to use that node. You can skip SSL certificate verification by disabling the option `verify-ssl-certs`, which is only applicable if connecting over HTTPS. For production use, you should always leave the default or have this set to true, but it can be disabled for testing purposes.
 
-**/etc/rstudio/load-balancer**
+
 
 ```bash
+; /etc/rstudio/load-balancer
 [config]
 
 balancer = sessions

@@ -7,9 +7,8 @@ When RStudio Workbench is configured to use SSL the default behavior with respec
 
 However, if SSL is bound to another port (using the `www-port` option) then the automatic redirect behavior is not enabled. It's also possible to disable automatic SSL redirects entirely using the `ssl-redirect-http` option as follows:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 ssl-redirect-http=0
 ```
 
@@ -21,17 +20,15 @@ When SSL is enabled, RStudio Workbench sends an HTTP Strict Transport Security (
 
 RStudio Workbench sets this period of time to 1 day (84600 seconds) by default, because if HTTPS issues arise it can be difficult to address them when the browser is locked to HTTPS because of HSTS. Once you are confident that your HTTPS setup is correct, you can increase the period by specifying the desired number of seconds in the `ssl-hsts-max-age` option. For example, to lock browsers to HTTPS for one year:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 ssl-hsts-max-age=31536000
 ```
 
 If all subdomains of the server on which RStudio Workbench is hosted support HSTS, you can extend HSTS protection to them as well with the `ssl-hsts-include-subdomains` option. This doesn't happen by default since RStudio Workbench does not know what other services it's sharing a domain with, but it's a recommended security best practice, so you should turn it on if you can.
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 ssl-hsts-include-subdomains=1
 ```
 

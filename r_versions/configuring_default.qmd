@@ -19,9 +19,10 @@ For versions of R installed by system package managers this will be `/usr/lib/R`
 
 If you want to override which version of R is used, then you can use the `rsession-which-r` setting. For example:
 
-*/etc/rstudio/rserver.conf*
 
-```ini
+
+```bash
+# /etc/rstudio/rserver.conf
 rsession-which-r=/usr/local/lib/R
 ```
 

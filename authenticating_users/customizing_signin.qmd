@@ -6,9 +6,8 @@ You can customize the content and appearance of the RStudio sign-in page by incl
 
 - Specifying the `auth-login-page-html` option within the `rserver.conf` config file which points to an alternate location for the login HTML file. For example, the following specifies that the file located at `/opt/config/rstudio-login.html` should be included within the login page:
 
-    */etc/rstudio/rserver.conf*
-
     ```ini
+    # /etc/rstudio/rserver.conf
     auth-login-page-html=/opt/config/rstudio-login.html
     ```
 

@@ -30,7 +30,12 @@ RUN cd /tmp \
     && dpkg -i pandoc-2.5-1-amd64.deb
 
 # install devtools and bookdown
-RUN R -e 'options(download.file.method = "wget"); install.packages("devtools", repos = "https://cran.rstudio.com"); devtools::install_github("rstudio/bookdown", ref = "ff13860382ab87d70977f634884c5d6830bb59c2")'
+RUN R -e 'options(download.file.method = "wget"); install.packages("devtools", repos = "https://cran.rstudio.com")' 
+
+# download and install last tested working version of quarto
+RUN cd /tmp \
+	&& wget https://github.com/quarto-dev/quarto-cli/releases/download/v0.1.290/quarto-0.1.290-amd64.deb \
+	&& dpkg -i quarto-0.1.289-amd64.deb
 
 # set up LANG for building books; otherwise pandoc writes "C" as the language,
 # which confuses kindlegen

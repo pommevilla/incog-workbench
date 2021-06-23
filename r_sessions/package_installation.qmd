@@ -13,9 +13,8 @@ By default R packages are installed into a user-specific library based on the co
 
 It's also possible to configure an alternative default for user package installation using the `r-libs-user` setting. For example:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 r-libs-user=~/R/library/%v
 ```
 
@@ -29,17 +28,14 @@ However, if you do not use any compiled packages, you can share a library betwee
 
 #### Upgrading R
 
-You can read more about package library considerations when upgrading R in the following article:
-
-[Upgrading to a New Version of R](https://shiny.rstudio.com/articles/upgrade-R.html)
+You can read more about package library considerations when upgrading R in the following article: [Upgrading to a New Version of R](https://shiny.rstudio.com/articles/upgrade-R.html)
 
 ### Discouraging User Installations {.pro-header}
 
 It may be that you've configured RStudio Workbench with a site package library that is shared by all users. In this case you might wish to discourage users from installing their own packages by removing the package installation UI from the RStudio IDE. To do this you use the `allow-package-installation` setting. For example:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 allow-package-installation=0
 ```
 
@@ -49,17 +45,15 @@ Note that this setting merely discourages package installation by removing user-
 
 RStudio uses the RStudio CRAN mirror ([https://cran.rstudio.com](https://cran.rstudio.com)) by default. This mirror is globally distributed using Amazon S3 storage so should provide good performance for all locales. You may however wish to override the default CRAN mirror. This can be done with the `r-cran-repos` settings. For example:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 r-cran-repos=http://cran.at.r-project.org/
 ```
 
 Whatever the default CRAN mirror is, individual users are still able to set their own default. To discourage this, you can set the `allow-r-cran-repos-edit` settings. For example:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 allow-r-cran-repos-edit=0
 ```
 
@@ -67,8 +61,8 @@ Note that even with user editing turned off it's still possible for users to ins
 
 To specify a list of CRAN repos, define a `/etc/rstudio/repos.conf` file containing the primary `CRAN` repo and named secondary repos. For example:
 
-*/etc/rstudio/repos.conf*
 ```ini
+# /etc/rstudio/repos.conf
 CRAN=https://cran.rstudio.com
 Australia=https://cran.ms.unimelb.edu.au/
 Austria=https://lib.ugent.be/CRAN/

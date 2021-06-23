@@ -19,9 +19,8 @@ The `notifications.conf` file is a file consisting of multiple notification entr
 
 An example `notifications.conf` file is shown below. For more information on the formatting of each field, see the subsequent sections.
 
-*/etc/rstudio/notifications.conf*
-
 ```ini
+# /etc/rstudio/notifications.conf
 StartTime: 2017-08-30 09:00:00 -5:00
 EndTime: 2017-08-30 20:00:00 -05:00
 Message: Please remember to shut down your computers at the end of the day.
@@ -33,14 +32,12 @@ Message: This is a test notification. Notifications can span
    Empty lines are not supported!
 ```
 
-
 It is important that each entry consists of 2-3 fields as specified above (StartTime, EndTime, and Message). Each field must go on its own line. There should be no empty lines between field definitions.
 
 For example, this is okay:
 
-*/etc/rstudio/notifications.conf*
-
 ```ini
+# /etc/rstudio/notifications.conf
 StartTime: 2017-08-30 12:00:00 -5:00
 EndTime: 2017-08-30 20:00:00 -05:00
 Message: Please remember to shut down your computers at the end of the day.
@@ -48,9 +45,8 @@ Message: Please remember to shut down your computers at the end of the day.
 
 But this is not:
 
-*/etc/rstudio/notifications.conf*
-
 ```ini
+# /etc/rstudio/notifications.conf
 StartTime: 2017-08-30 12:00:00 -5:00
 
 EndTime: 2017-08-30 20:00:00 -05:00
@@ -63,9 +59,8 @@ There must be **one** empty line (2 new line characters) in between separate not
 
 For example, this is okay:
 
-*/etc/rstudio/notifications.conf*
-
 ```ini
+# /etc/rstudio/notifications.conf
 StartTime: 2017-08-30 08:00:00 -5:00
 EndTime: 2017-08-30 20:00:00 -05:00
 Message: Please remember to shut down your computers at the end of the day.
@@ -78,6 +73,7 @@ Message: Remember to drop off any borrowed equipment at Grace's office today onl
 But this is not:
 
 ```ini
+#  /etc/rstudio/notifications.con
 StartTime: 2017-08-30 12:00:00 -5:00
 EndTime: 2017-08-30 20:00:00 -05:00
 Message: Please remember to shut down your computers at the end of the day.

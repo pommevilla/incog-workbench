@@ -37,7 +37,6 @@ endif()
 
 configure_file(build-book.sh.in ${CMAKE_CURRENT_SOURCE_DIR}/build-book.sh)
 configure_file(_quarto.yml.in ${CMAKE_CURRENT_SOURCE_DIR}/_quarto.yml)
-configure_file(11-job-launcher.Rmd.in ${CMAKE_CURRENT_SOURCE_DIR}/11-job-launcher.Rmd)
 configure_file(cover.tex.in ${CMAKE_CURRENT_SOURCE_DIR}/cover.tex)
 
 # build book

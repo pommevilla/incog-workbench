@@ -22,9 +22,8 @@ RStudio cannot grant access to shared projects in arbritary locations. This woul
 
 By default only projects stored within the users' home directories can be shared. If you want share projects in a different location you can configure RStudio with an additional root directory for all users:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 server-project-sharing-root-dir=/projects
 ```
 
@@ -65,9 +64,8 @@ where `/home/user1/project` is the full path to a directory owned by `user1`, an
 
 Because many Linux systems support POSIX compatible ACLs on the native filesystem, RStudio uses them by default. You can also specify them explicitly as follows:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 nfs-acl-version=nfsv3
 ```
 
@@ -97,9 +95,8 @@ NFSv4 ACLs differ from NFSv3 ACLs in that they can associate a *domain* with eac
 
 Tell RStudio the NFSv4 domain you want to use as follows:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 nfs-acl-version=nfsv4
 nfs4-principal-type=username
 nfs4-domain=mydomain.com
@@ -120,9 +117,8 @@ Projects can only be shared with users with provisioned local system accounts un
 
 The RStudio user database is scanned to list Project Sharing users. This method of user scanning avoids making calls to the system to determine the available users, and prevents making queries to the system password database (such as LDAP). However, it only lists users who have previously logged in to RStudio. To instead show all users on the server, set the following configuration to scan the system password database:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 project-sharing-enumerate-server-users=1
 ```
 
@@ -147,9 +143,8 @@ To use Project Sharing, a directory must be specified to which all users on the 
 
 In a load-balanced configuration, however, RStudio does not provide a default, so it is necessary to provision a path both visible to and writable by all users on the system (typically on the same filesystem on which home directories are mounted). This path can be supplied to RStudio Workbench via the `server-shared-storage-path` option, for example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 server-shared-storage-path=/shared/rstudio-server/shared-storage
 ```
 
@@ -167,9 +162,8 @@ If you are running RStudio Workbench with a proxy, you'll need to make sure that
 
 Project Sharing is enabled by default however you can disable it using the `server-project-sharing` option, for example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 server-project-sharing=0
 ```
 

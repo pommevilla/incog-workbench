@@ -6,9 +6,8 @@ By default RStudio only allows normal (as opposed to system) users to successful
 
 You change the minimum user id by specifying the `auth-minimum-user-id` option. For example:
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 auth-minimum-user-id=100
 ```
 
@@ -20,17 +19,19 @@ If your users are using very large UIDs (above 1048575/0xFFFFF), it is *strongly
 
 You can specify that only users of certain groups are allowed to access RStudio. To do this you use the `auth-required-user-group` setting. For example:
 
-*/etc/rstudio/rserver.conf*
+
 
 ```ini
+# /etc/rstudio/rserver.conf
 auth-required-user-group=rstudio-users
 ```
 
 You can specify a single group as the above example does or a comma-delimited list of groups. For example:
 
-*/etc/rstudio/rserver.conf*
+
 
 ```ini
+# /etc/rstudio/rserver.conf
 auth-required-user-group=analysts,admins,rstudio-users
 ```
 

@@ -15,7 +15,7 @@ RStudio will prompt for a username and password and will authenticate access usi
 - By default on RedHat/CentOS and SLES an RStudio PAM profile (`/etc/pam.d/rstudio`) that authenticates using the system username/password database will be used (this can be customized by editing the profile as appropriate).
 - User credentials are encrypted using RSA as they travel over the network.
 
-Additional details on customizing RStudio authentication are provided in [Authenticating Users]. Details on customizing the port and enabling SSL are covered in [Access and Security].
+Additional details on customizing RStudio authentication are provided in [Authenticating Users](../authenticating_users/authenticating_users.qmd). Details on customizing the port and enabling SSL are covered in [Access and Security](../access_and_security/access_and_security.qmd).
 
 ### Troubleshooting Problems
 

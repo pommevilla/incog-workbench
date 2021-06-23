@@ -73,9 +73,8 @@ sudo rsp-license-server deactivate
 
 Once your license server is up and running, you need to tell RStudio Workbench to use floating licensing instead of traditional licensing.
 
-*/etc/rstudio/rserver.conf*
-
-```
+```bash
+# /etc/rstudio/rserver.conf
 server-license-type=remote
 ```
 
@@ -146,9 +145,8 @@ Finally, if you are connecting to a hosted license server, specify the UUID of t
 
 When using floating licenses, you can optionally determine how long the license leases last by setting the `lease length` value on the licensing server. This value is in seconds, so for instance to make license leases last 30 minutes you would use the following syntax:
 
-*/etc/rsp-license-server.conf*
-
 ```xml
+<!--/etc/rsp-license-server.conf-->
 <lease length="1800"/>
 ```
 
@@ -172,9 +170,8 @@ Under normal conditions RStudio Workbench will automatically renew its license l
 
 When RStudio Workbench cannot obtain a license lease, either because there are no leases currently available or because it can't reach the licensing server, it will begin automatically attempting to acquire a lease every 10 seconds. This interval is configurable; for instance, to retry every 30 seconds instead you would set the following value:
 
-*/etc/rstudio/rserver.conf*
-
-```
+```bash
+# /etc/rstudio/rserver.conf
 license-retry-seconds=30
 ```
 
@@ -190,9 +187,8 @@ $ sudo rsp-license-server activation-status
 
 If your server is activated but you're still having trouble with floating licensing, you can tell the RStudio Workbench License Server to emit more detailed logs. Change the log level to `notification`:
 
-*/etc/rsp-license-server.conf*
-
 ```xml
+<!--/etc/rsp-license-server.conf-->
 <log file="/var/log/rstudio-licensing.log" level="notification"/>
 ```
 

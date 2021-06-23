@@ -16,13 +16,14 @@ fileSave | contents of a file loaded in RStudio IDE were saved (including auto-s
 sessionDisconnect | connection between RStudio IDE and its rsession process was closed | {"message": "sessionDisconnect"}
 sessionSuspend | the rsession process has been suspended | {"message": "sessionSuspend"}
 
-### getState
+## getState
 
 The `getState()` method returns the path to the currently loaded .Rproj (if any) and any git remotes.
 
 The results come via the callback. Here are some examples.
 
-#### Project with remotes
+### Project with remotes
+
 ```json
 {
   "message": "getState",
@@ -44,7 +45,9 @@ The results come via the callback. Here are some examples.
   ]
 }
 ```
-#### Project with no remotes
+
+### Project with no remotes
+
 ```json
 {
   "message": "getState",
@@ -54,7 +57,7 @@ The results come via the callback. Here are some examples.
 }
 ```
 
-#### No project and no remotes
+### No project and no remotes
 ```json
 {
   "message": "getState",

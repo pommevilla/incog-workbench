@@ -10,8 +10,8 @@ RStudio uses several configuration files all located within the `/etc/rstudio` d
 | rsession.conf        | Settings related to individual R sessions |
 | notifications.conf   | Notifications to be delivered to user sessions [Pro]{.pro-feature} |
 | logging.conf         | Configuration of the logging system including logger type, location, and level |
-| crash-handler.conf   | Configuration of the crash handling system (see [Automated Crash Reporting]) |
-| database.conf        | Configuration of the database that RStudio will store data in (see [Database]) |
+| crash-handler.conf   | Configuration of the crash handling system (see [Automated Crash Reporting](automated_crash_reporting.qmd)) |
+| database.conf        | Configuration of the database that RStudio will store data in (see [Database](../database/database.qmd)) |
 | ngnix.http.conf      | Extra HTTP configuration for nginx [Pro]{.pro-feature} |
 | ngnix.server.conf    | Extra server configuration for nginx [Pro]{.pro-feature} |
 | ngnix.site           | Extra site configuration for nginx [Pro]{.pro-feature} |
@@ -108,9 +108,10 @@ The data directory defaults to `/var/run/rstudio-server` but you can change it t
 
 You can set environment variables for RStudio's server process using the `env-vars` configuration file. This is an alternative to setting the environment variables using your system's service manager. For example, to set the `HTTP_PROXY` and `XDG_DATA_HOME` environment variables for the server process:
 
-*/etc/rstudio/env-vars*
+
 
 ```ini
+# /etc/rstudio/env-vars
 # Set proxy for outbound HTTP requests
 HTTP_PROXY=http://192.168.1.1
 
@@ -140,9 +141,9 @@ During installation RStudio is automatically registered as a daemon which starts
 To manually stop, start, and restart the server you use the following commands:
 
 ```bash
-$ sudo rstudio-server stop
-$ sudo rstudio-server start
-$ sudo rstudio-server restart
+sudo rstudio-server stop
+sudo rstudio-server start
+sudo rstudio-server restart
 ```
 
 To check the current stopped/started status of the server:
@@ -228,7 +229,7 @@ Note that these commands should be exclusively reserved for situations where sus
 You can list all of the users that have signed in to RStudio Workbench by running the following command:
 
 ```bash
-sudo rstudio-server list-users
+$ sudo rstudio-server list-users
 ```
 
 ### Adding users to the user database {.pro-header}
@@ -296,21 +297,24 @@ If you perform an upgrade of RStudio and an existing version of the service is c
  
 When load balancing is configured upgrading multiple nodes may cause brief glitches if you upgrade each server one at a time. This is due to the possibility of two servers with different versions trying to coordinate. If some downtime is acceptable, we recommend taking all nodes offline before upgrading.
 
-To upgrade to a new version of RStudio you simply install the new version. For example on Debian/Ubuntu:
+To upgrade to a new version of RStudio you simply install the new version:
+
+:::{.panel-tabset}
+# Debian/Ubuntu
 
 ```bash
 $ sudo gdebi <rstudio-package.deb>
 ```
 
-For RedHat/CentOS:
+# RedHat/CentOS:
 
 ```bash
 $ sudo yum install <rstudio-package.rpm>
 ```
 
-For openSUSE / SLES:
+# openSUSE/SLES:
 
 ```bash
 $ sudo zypper install <rstudio-package.rpm>
 ```
-
+:::

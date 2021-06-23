@@ -4,9 +4,8 @@ Most browsers have adopted recently a new attribute for cookies called `SameSite
 
 For example, the value `SameSite=None` is required by certain browsers (i.e. Chrome 84+) for embedding sites into an IFrame or frameset. To ensuring the delivery of RStudio cookies in this scenario, use the value `www-same-site=none`.
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 www-same-site=none
 ```
 
@@ -18,9 +17,7 @@ Some browsers will not behave as expected in the presence of the `SameSite=None`
 
 You also can use the value `www-same-site=lax` to mark cookies as `SameSite=Lax` what effectively prohibits the use of RStudio embedded into an IFrame or frameset on compliant browsers by blocking all RStudio cookies.
 
-*/etc/rstudio/rserver.conf*
-
 ```ini
+# /etc/rstudio/rserver.conf
 www-same-site=lax
 ```
-

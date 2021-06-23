@@ -4,9 +4,7 @@ RStudio Workbench has a number of other limits that can be configured. This sect
 
 ### Disabling Access to Features
 
-Besides the limits on package installation and CRAN repository editing described in the previous section there are a number of other limits that can be specified. The following describes all of the options that can be used to limit features.
-
-*/etc/rstudio/rsession.conf*
+Besides the limits on package installation and CRAN repository editing described in the previous section there are a number of other limits that can be specified in `/etc/rstudio/rsession.conf`. The following describes all of the options that can be used in `rsession.conf` to limit features.
 
 `allow-vcs`
 
@@ -60,9 +58,8 @@ Note that these options should be specified in the `/etc/rstudio/rsession.conf` 
 
 You can limit the maximum size of a file upload by using the `limit-file-upload-size-mb` setting. For example, the following limits file uploads to 100MB:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 limit-file-upload-size-mb=100
 ```
 
@@ -72,9 +69,8 @@ The default behavior is no limit on the size of file uploads.
 
 If you want to prevent runaway computations that consume 100% of the CPU you can set the maximum number of minutes to allow top-level R computations to run for using the `limit-cpu-time-minutes` setting. For example:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 limit-cpu-time-minutes=30
 ```
 
@@ -89,9 +85,8 @@ setTimeLimit(cpu = Inf)
 
 If your system uses the XFS file system ([http://en.wikipedia.org/wiki/XFS](http://en.wikipedia.org/wiki/XFS)) then RStudio Workbench can be configured to notify users when they come close to or exceed their disk quota. You can enable this using the `limit-xfs-disk-quota` setting. For example:
 
-*/etc/rstudio/rsession.conf*
-
 ```ini
+# /etc/rstudio/rsession.conf
 limit-xfs-disk-quota=1
 ```
 

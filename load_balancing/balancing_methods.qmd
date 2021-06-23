@@ -62,8 +62,8 @@ The script should return the node to start the new session on using its standard
 
 In earlier versions of RStudio, the custom load balancing script would always be passed a list of raw IP addresses in `RSTUDIO_NODES`; now, `RSTUDIO_NODES` will contain the hosts as specified in the `load-balancer` file.  If you want to specify host names in your `load-balancer` file but work with raw IPs in your custom load balancing script, you can set the following option:
 
-*/etc/rstudio/rserver.conf*
-```
+```bash
+# /etc/rstudio/rserver.conf
 resolve-load-balancer-nodes=1
 ```
 

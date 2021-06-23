@@ -32,9 +32,8 @@ Configuration of VS Code sessions is handled via the config file `/etc/rstudio/v
 
 For example, your `vscode.conf` file might look like the following:
 
-**/etc/rstudio/vscode.conf**
-
 ``` {.ini}
+# /etc/rstudio/vscode.conf
 exe=/usr/bin/code-server
 enabled=1
 default-session-cluster=Kubernetes
@@ -49,9 +48,8 @@ If you are running VS Code in a remote cluster like Kubernetes, you will need to
 
 You can manually specify the version number like so:
 
-**/etc/rstudio/vscode.conf**
-
-``` {.ini}
+```ini
+# /etc/rstudio/vscode.conf
 version=3.9.3
 ```
 
@@ -59,9 +57,8 @@ version=3.9.3
 
 By default, `code-server` writes VS Code user settings under `~/.local/share/code-server`. This can be changed by adding the `user-data-dir` path argument to the VS Code options, like so:
 
-**/etc/rstudio/vscode.conf**
-
-``` {.ini}
+```ini
+# /etc/rstudio/vscode.conf
 exe=/usr/bin/code-server
 args=--host=0.0.0.0 --verbose
 user-data-dir=<desired user path>
@@ -73,9 +70,8 @@ Whenever a VS Code session is launched, RStudio automatically merges the user se
 
 If you installed VS Code via the `sudo rstudio-server install-vs-code` command, a simple template is created for you automatically which instructs VS Code to use the bash shell by default and to disable automatic extension updates. The generated file looks like the following:
 
-**/etc/rstudio/vscode-user-settings.json**
-
 ``` {.json}
+# /etc/rstudio/vscode-user-settings.json
 {
       "terminal.integrated.shell.linux": "/bin/bash",
       "extensions.autoUpdate": false,

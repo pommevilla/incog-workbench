@@ -46,8 +46,8 @@ try {
             }
           }
           stage('upload docs') {
-            sh "aws s3 sync docs/server/_book/ s3://docs.rstudio.com/ide/server-pro/${rstudioVersion}/"
-            sh "aws s3 sync docs/server/_book/ s3://docs.rstudio.com/ide/server-pro/latest/"
+            sh "aws s3 sync docs/server/_site/ s3://docs.rstudio.com/ide/server-pro/${rstudioVersion}/"
+            sh "aws s3 sync docs/server/_site/ s3://docs.rstudio.com/ide/server-pro/latest/"
           }
         }
         sendNotifications slack_channel: SLACK_CHANNEL, slack_message: "${messagePrefix} passed"

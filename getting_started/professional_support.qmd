@@ -7,7 +7,8 @@ RStudio support is limited to our professional products. If your question is rel
 If your question is related to RStudio Workbench, you can open a support ticket by:
 
 1. Running the diagnostics script:
-   ```
+
+   ```bash
    sudo rstudio-server run-diagnostics
    ```
    

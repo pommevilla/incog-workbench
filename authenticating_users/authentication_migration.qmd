@@ -40,7 +40,9 @@ If [Migrating from PAM], you can follow the same recommendations listed above fo
 
 Migrating from Google accounts is similar to [Migrating from PAM] to SSO, or [Migrating to PAM].
 
-**Google accounts have been deprecated and we strongly recommend against migrating to this authentication.**
+::: {.callout-important}
+**Google accounts have been deprecated** and we strongly recommend against migrating to this authentication.
+:::
 
 ::: {.callout-note}
 If you are currently using Google accounts for authentication, the migration from Google accounts to OpenID using Google itself as the OpenID provider is not yet supported. We recommend to keep using Google accounts or migrating to some other **non-Google** SSO authentication.

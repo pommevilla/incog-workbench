@@ -39,9 +39,8 @@ launcher-sessions-container-forward-groups | Whether or not to forward the user'
 
 For example, your `rserver.conf` file might look like the following:
 
-**/etc/rstudio/rserver.conf**
-
 ```ini
+# /etc/rstudio/rserver.conf
 launcher-address=localhost
 launcher-port=5559
 launcher-sessions-enabled=1
@@ -88,8 +87,6 @@ sudo chmod 0600 /etc/rstudio/secure-cookie-key
 Once this file has been created, copy it to the other node to the same location so that both services use the same key. Alternatively, you could accomplish this via a symlink to a location on a file share.
 
 The path to the `secure-cookie-key` file can be changed, but it is not recommended in most cases. If you need to change it, it can be done by adding the following line to the `/etc/rstudio/rserver.conf` and `/etc/rstudio/launcher.conf` configuration files:
-
-**/etc/rstudio/rserver.conf** and **/etc/rstudio/launcher.conf**
 
 ```bash
 secure-cookie-key-file=/path/to/secure-cookie-key
@@ -209,9 +206,8 @@ Note that for many mount types, paths may contain the special variable `{USER}` 
 
 An example `/etc/rstudio/launcher-mounts` file is shown below.
 
-*/etc/rstudio/launcher-mounts*
-
 ```ini
+# /etc/rstudio/launcher-mounts
 # User home mount - This is REQUIRED for the session to run
 MountType: NFS
 Host: nfs01
@@ -240,9 +236,8 @@ It is important that each entry consists of the fields as specified above. Each 
 
 If you choose to run your containers as root, the user home drive **must** be mapped to `/root`. For example:
 
-*/etc/rstudio/launcher-mounts*
-
 ```ini
+# /etc/rstudio/launcher-mounts
 MountType: NFS
 Host: nfs01
 Path: /home/{USER}
@@ -252,9 +247,8 @@ ReadOnly: false
 
 As noted in the [Launcher Sessions] section, it is recommended that you also mount the Shared Storage path (see [Shared Storage] for configuration) into the session container to support various RStudio features. When mounting the shared storage path, ensure that the folder is mounted to the same path within the container to ensure that the `rsession` executable will correctly find it. For example:
 
-*/etc/rstudio/launcher-mounts*
-
 ```ini
+# /etc/rstudio/launcher-mounts
 MountType: NFS
 Host: nfs01
 Path: /rstudio/shared-storage
@@ -279,9 +273,8 @@ Additionally, you can use the special `{USER}` variable to specify the value of 
 
 An example `/etc/rstudio/launcher-env` file is shown below.
 
-*/etc/rstudio/launcher-env*
-
 ```ini
+# /etc/rstudio/launcher-env
 JobType: session
 Environment: IS_LAUNCHER_SESSION=1
  IS_ADHOC_JOB=0
@@ -319,9 +312,8 @@ Ports | The ports to expose, one per line (each subsequent line must be indented
 
 An example `/etc/rstudio/launcher-ports` file is shown below.
 
-*/etc/rstudio/launcher-ports*
-
 ```ini
+# /etc/rstudio/launcher-ports
 JobType: adhoc
 Ports: 6210
  6143
@@ -336,9 +328,8 @@ Ports: 4434
 
 If you do not need to set different exposed ports for different job types or different clusters, you may simply specify port values, one per line, which will be applied to all launcher ad-hoc jobs and sessions. For example:
 
-*/etc/rstudio/launcher-ports*
-
 ```ini
+# /etc/rstudio/launcher-ports
 5873
 5874
 64234

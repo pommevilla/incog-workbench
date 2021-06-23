@@ -14,9 +14,10 @@ When an R session starts up, the following scripts are run:
 
 The very last of these provides a way to run code after the R session is fully booted and ready to use; since it only runs in RStudio it can be used to finalize R sessions in RStudio-specific ways, using for example methods in the `rstudioapi` package. Here is an example that prints the RStudio version in new R sessions:
 
-*/opt/R/version/lib64/r/etc/Rprofile.site*
+
 
 ```r
+# /opt/R/version/lib64/r/etc/Rprofile.site
 setHook("rstudio.sessionInit", function(newSession) {
   if (newSession)
     message("Welcome to RStudio ", rstudioapi::getVersion())
