@@ -2,7 +2,7 @@
 
 The following table enumerates all of the commands currently supported by RStudio. These command IDs can be used in RStudio API calls such as `rstudioapi::executeCommand`. 
 
-```{r, echo = FALSE, eval=FALSE}
+```{r, echo = FALSE}
 contents <- xml2::as_list(xml2::read_xml("../../../src/gwt/src/org/rstudio/studio/client/workbench/commands/Commands.cmd.xml"))
 
 allcommands <- contents$commands[names(contents$commands) == "cmd"]
