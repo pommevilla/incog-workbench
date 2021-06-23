@@ -21,6 +21,12 @@ jobs:
         wget -i -
 
         sudo dpkg -i $(ls quarto*deb)
+        
+    - uses: r-lib/actions/setup-r@v1
+
+    - name: "Install rmarkdown"
+      run: |
+        Rscript -e "install.packages('rmarkdown')"
 
     - name: "Quarto env"
       run: |
