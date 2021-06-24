@@ -21,6 +21,6 @@ Sessions will suspend automatically when they are idle and then be automatically
 If you wish disable support for multiple sessions you can use the `server-multiple-sessions` option. For example:
 
 ```ini
-# /etc/rstudio/rserver.conf*
+# /etc/rstudio/rserver.conf
 server-multiple-sessions=0
 ```

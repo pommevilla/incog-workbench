@@ -70,7 +70,7 @@ To specify extended format information, modify the `/etc/rstudio/r-versions` fil
 An example `/etc/rstudio/r-versions` file is shown below.
 
 ```ini
-; /etc/rstudio/r-versions
+# /etc/rstudio/r-versions
 Path: /opt/R/R-2.15.3
 Label: My special R Version
 Module: testmodule

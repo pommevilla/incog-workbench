@@ -146,7 +146,9 @@ For example, to install the `jupyterlab-kernelspy` extension using pip:
 pip install jupyterlab-kernelspy
 ```
 
-> Note: You will need to install the desired extensions on all Launcher nodes that are running JupyterLab sessions. For containerized sessions, the extension must be installed in the container image(s) that are used.
+::: {.callout-note} 
+You will need to install the desired extensions on all Launcher nodes that are running JupyterLab sessions. For containerized sessions, the extension must be installed in the container image(s) that are used.
+:::
 
 There is no need to explicitly enable or disable the extension. Once installed, active sessions can see the extension after refreshing the browser. Other extensions can be found on the [Pypi.org site](https://pypi.org).
 

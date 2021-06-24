@@ -1028,9 +1028,19 @@ Note
 <p>With the release of JupyterLab 3, it is now easier for system administrator to add extensions to Jupyter by using <code>pip</code>. Simply <code>pip install</code> the extension you want, and it will show up in JupyterLab sessions launched from RStudio Workbench.</p>
 <p>For example, to install the <code>jupyterlab-kernelspy</code> extension using pip:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyterlab-kernelspy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<blockquote class="blockquote">
-<p>Note: You will need to install the desired extensions on all Launcher nodes that are running JupyterLab sessions. For containerized sessions, the extension must be installed in the container image(s) that are used.</p>
-</blockquote>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will need to install the desired extensions on all Launcher nodes that are running JupyterLab sessions. For containerized sessions, the extension must be installed in the container image(s) that are used.</p>
+</div>
+</div>
 <p>There is no need to explicitly enable or disable the extension. Once installed, active sessions can see the extension after refreshing the browser. Other extensions can be found on the <a href="https://pypi.org">Pypi.org site</a>.</p>
 <p>In previous versions of JupyterLab, you needed to install packages from source and build them with <code>nodejs</code>. This flow is still supported, but installing prebuilt extensions via <code>pip</code> is much simpler. For more information, see the <a href="https://jupyterlab.readthedocs.io/en/stable/user/extensions.html">JupyterLab extension docs</a>.</p>
 <!-- -->
