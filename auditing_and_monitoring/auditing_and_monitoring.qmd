@@ -1,4 +1,6 @@
-# Auditing and Monitoring {.pro-header}
+# Overview
+
+## Auditing and Monitoring {.pro-header}
 
 In this section:
 

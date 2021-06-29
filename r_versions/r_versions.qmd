@@ -1,6 +1,6 @@
-# R Versions {.pro-header}
+# Overview
 
-## Overview
+## R Versions {.pro-header}
 
 RStudio Workbench enables users and administrators to have very fine-grained control over which versions of R are used in various contexts. Capabilities include:
 

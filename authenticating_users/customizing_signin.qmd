@@ -14,4 +14,3 @@ You can customize the content and appearance of the RStudio sign-in page by incl
 The contents of the specified HTML file will be included after the standard login header and login username/password form. If you want to modify the appearance of the header and/or add content above the username/password form, you can use CSS and JavaScript within your login.html file to modify the page after it loads.
 
 The same can be done to tweak the display of the sign in page for remote RDP sessions as well, with either the `/etc/rstudio/rdplogin.html` file, or the `auth-rdp-login-page-html` setting within `rserver.conf`.
-

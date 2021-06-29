@@ -13,17 +13,27 @@ site:
   site-url: https://docs.rstudio.com/ide/server-pro/
   repo-url: https://github.com/rstudio/rstudio/
 
-  sidebar:
+  navbar:
+    search: true
     logo: images/logo.png
+    right:
+      - text: "Rstudio.com"
+        url: 'https://www.rstudio.com/'
+      - text: "Release Notes"
+        url: "https://support.rstudio.com/hc/en-us/articles/200716783-RStudio-Release-History"
+      - text: "Help"
+        url: "https://support.rstudio.com/hc/en-us"
+
+  sidebar:
     style: "docked"
     background: light
-    search: true
     collapse-level: 1
     align: left
     contents:
       - section: "Getting Started"
-        href: index.qmd
         contents:
+          - text: "Introduction" 
+            url: index.qmd
           - getting_started/installation.qmd
           - getting_started/management_script.qmd
           - getting_started/activation.qmd
@@ -31,15 +41,15 @@ site:
           - getting_started/community_resources.qmd
           - getting_started/professional_support.qmd
       - section: "Server Management"
-        href: server_management/server_management.qmd
         contents:
+          - server_management/server_management.qmd 
           - server_management/core_administrative_tasks.qmd
           - server_management/logging.qmd
           - server_management/administrative_dashboard.qmd
           - server_management/automated_crash_reporting.qmd
       - section: "Authenticating Users"
-        href: authenticating_users/authenticating_users.qmd
         contents:
+          - authenticating_users/authenticating_users.qmd
           - authenticating_users/user_provisioning.qmd
           - authenticating_users/pam_basics.qmd
           - authenticating_users/authentication_migration.qmd
@@ -52,8 +62,8 @@ site:
           - authenticating_users/customizing_signin.qmd
           - authenticating_users/authorization_timeout.qmd
       - section: "Access and Security"
-        href: access_and_security/access_and_security.qmd
         contents:
+          - access_and_security/access_and_security.qmd
           - access_and_security/network_port_and_address.qmd
           - access_and_security/ip_access_rules.qmd
           - access_and_security/frame_origin.qmd
@@ -67,8 +77,8 @@ site:
           - access_and_security/server_permissions.qmd
           - access_and_security/running_with_a_proxy.qmd
       - section: "R Sessions"
-        href: r_sessions/r_sessions.qmd
         contents:
+          - r_sessions/r_sessions.qmd
           - r_sessions/r_executable_and_libraries.qmd
           - r_sessions/session_startup_scripts.qmd
           - r_sessions/user_and_group_profiles.qmd
@@ -86,29 +96,29 @@ site:
           - r_sessions/terminal_websockets.qmd
           - r_sessions/customizing_session_settings.qmd
       - section: "R Versions"
-        href: r_versions/r_versions.qmd
         contents:
+          - r_versions/r_versions.qmd
           - r_versions/installing_r.qmd
           - r_versions/configuring_default.qmd
           - r_versions/using_multiple_versions_of_r.qmd
           - r_versions/managing_upgrades.qmd
           - r_versions/session_initialization.qmd
       - section: "Load Balancing"
-        href: load_balancing/load_balancing.qmd
         contents:
+          - load_balancing/load_balancing.qmd
           - load_balancing/load_balancing_vs_job_launcher.qmd
           - load_balancing/configuration.qmd
           - load_balancing/access_and_availability.qmd
           - load_balancing/balancing_methods.qmd
       - section: "Auditing and Monitoring"
-        href: auditing_and_monitoring/auditing_and_monitoring.qmd
         contents:
+          - auditing_and_monitoring/auditing_and_monitoring.qmd
           - auditing_and_monitoring/auditing_configuration.qmd
           - auditing_and_monitoring/monitoring_configuration.qmd
           - auditing_and_monitoring/server_health_checks.qmd
       - section: "License Management"
-        href: license_management/license_management.qmd
         contents:
+          - license_management/license_management.qmd
           - license_management/product_activation.qmd
           - license_management/license_details.qmd
           - license_management/connectivity_requirements.qmd
@@ -116,46 +126,46 @@ site:
           - license_management/floating_licensing.qmd
           - license_management/userspace_licensing.qmd
       - section: "Data Connectivity"
-        href: data_connectivity/data_connectivity.qmd
         contents:
+          - data_connectivity/data_connectivity.qmd
           - data_connectivity/connectivity_using_odbc.qmd
           - data_connectivity/connectivity_using_r_packages.qmd
           - data_connectivity/snippet_files.qmd
       - section: "Job Launcher"
-        href: job_launcher/job_launcher.qmd
         contents:
+          - job_launcher/job_launcher.qmd
           - job_launcher/configuration.qmd
           - job_launcher/running_the_launcher.qmd
           - job_launcher/load_balancing.qmd
           - job_launcher/creating_plugins.qmd
           - job_launcher/troubleshooting.qmd
       - section: "Tutorial API"
-        href: tutorial_api/tutorial_api.qmd
         contents:
+          - tutorial_api/tutorial_api.qmd
           - tutorial_api/configuration.qmd
           - tutorial_api/interface.qmd
           - tutorial_api/tutorial_api_methods.qmd
           - tutorial_api/tutorial_api_callbacks.qmd
       - section: "Jupyter Sessions"
-        href: jupyter_sessions/jupyter_sessions.qmd
         contents:
+          - jupyter_sessions/jupyter_sessions.qmd
           - jupyter_sessions/configuration.qmd
           - jupyter_sessions/troubleshooting.qmd
       - section: "VS Code Sessions"
-        href: vscode_sessions/vs_code_sessions.qmd
         contents:
+          - vscode_sessions/vs_code_sessions.qmd
           - vscode_sessions/installation.qmd
           - vscode_sessions/configuration.qmd
           - vscode_sessions/multiple_sessions.qmd
           - vscode_sessions/troubleshooting.qmd
       - section: "Database"
-        href: database/database.qmd
         contents:
+          - database/database.qmd
           - database/configuration.qmd
           - database/migration.qmd
       - section: "Hardening"
-        href: hardening/hardening.qmd
         contents:
+          - hardening/hardening.qmd
           - hardening/set_up_ssl.qmd
           - hardening/browser_security.qmd
           - hardening/r_session_security.qmd
@@ -169,8 +179,8 @@ site:
       - section: "R Package Dependencies"
         href: r_package_dependencies/r_package_dependencies.qmd
       - section: "R Studio Configuration"
-        href: rstudio_server_configuration/rstudio_server_configuration.qmd
         contents:
+          - rstudio_server_configuration/rstudio_server_configuration.qmd
           - rstudio_server_configuration/rserver_conf.qmd
           - rstudio_server_configuration/rsession_conf.qmd
 

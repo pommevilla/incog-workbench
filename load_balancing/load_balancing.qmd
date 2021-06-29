@@ -1,6 +1,6 @@
-# Load Balancing {.pro-header}
+# Overview
 
-## Overview
+## Load Balancing {.pro-header}
 
 RStudio Workbench can be configured to load balance R sessions across two or more nodes within a cluster. This provides both increased capacity as well as higher availability.
 

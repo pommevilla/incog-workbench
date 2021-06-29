@@ -13,7 +13,9 @@ To enable authentication with OpenID you add the `auth-openid` option to the RSt
 auth-openid=1
 ```
 
-**Once you enable authentication with OpenID, that becomes the exclusive means of authentication (you can't concurrently use both PAM and OpenID authentication).**
+::: {.callout-important} 
+**Once you enable authentication with OpenID, that becomes the exclusive means of authentication** (you can't concurrently use both PAM and OpenID authentication).
+:::
 
 ::: {.callout-important}
 OpenID authentication still requires [PAM Sessions](../r_sessions/pam_sessions.qmd) and `sssd` to automatically create local system accounts. Without them, local system accounts have to be provisioned manually one-by-one.
@@ -158,8 +160,13 @@ HTTPS_PROXY=http://192.168.1.1:8080
 NO_PROXY=localhost,192.168.1.10
 ```
 
+### Load Balancing Considerations
+
+Because RStudio stores OpenID authentication context in server memory during the OAuth flow, the entire authentication flow must be completed on a single server. If you're using an external load balancer in front of RStudio, you will experience authentication errors if the HTTP requests associated with the authentication flow are not all routed to the same server.
+
+For this reason, you **must enable sticky sessions** in your external load balancer when using OpenID authentication. This feature is sometimes called "sticky cookies" or "session affinity". Consult the documentation for your load balancing software for details; for example if you're using the Amazon Web Services Application Load Balancer (AWS ALB), more information can be found in [Sticky Sessions for your Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html).
+
 ### Troubleshooting
 
 Additional information about the OpenID flow and the received claims may be written to the logs.
 Be sure to configure `rserver` logs to output `info` level messages in `/etc/rstudio/logging.conf` to see these entries.
-

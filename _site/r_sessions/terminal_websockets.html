@@ -41,7 +41,7 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
+  
   ga('create', 'UA-20375833-3', 'auto', {'allowLinker': true});
   ga('require', 'linker');
   ga('linker:autoLink', ['rstudio.com', 'rstudio.github.io', 'rviews.rstudio.com', 'community.rstudio.com', 'rpubs.rstudio.com', 'environments.rstudio.com', 'rstudio.org', 'dailies.rstudio.com', 'pages.rstudio.com', 'db.rstudio.com', 'solutions.rstudio.com', 'docs.rstudio.com', 'spark.rstudio.com', 'shiny.rstudio.com', 'education.rstudio.com', 'rstudio.cloud', 'shinyapps.io', 'team-admin.rstudio.com', 'blog.rstudio.com', 'support.rstudio.com', 'blogs.rstudio.com', 'keras.rstudio.com', 'swag.rstudio.com', 'tensorflow.rstudio.com', 'packagemanager.rstudio.com'] );
@@ -75,14 +75,40 @@
     }
   </style>
   <link rel="stylesheet" href="../styles/guide.css">
-<meta name="og:title" content="RStudio Workbench Administration - undefined">
-<meta name="og:site-name" content="RStudio Workbench Administration">
-<meta name="twitter:title" content="RStudio Workbench Administration - undefined">
-<meta name="twitter:card" content="summary">
 </head>
 <body>
 <div id="quarto-search-results"></div>
 <header id="quarto-header" class="headroom fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+    <div class="container-fluid">
+  <a class="navbar-brand" href="../index.html">
+    <img src="../images/logo.png" alt="">
+    RStudio Workbench Administration
+  </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="https://www.rstudio.com/" aria-current="page">
+ Rstudio.com</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://support.rstudio.com/hc/en-us/articles/200716783-RStudio-Release-History">
+ Release Notes</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://support.rstudio.com/hc/en-us">
+ Help</a>
+  </li>  
+</ul>
+          <form class="d-flex mb-0">
+  <input id="quarto-search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+      </div> <!-- /navcollapse -->
+  </div> <!-- /container-fluid -->
+</nav>
 <nav class="quarto-secondary-nav py-2 d-lg-none d-md-block " data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <div class="container-fluid d-flex justify-content-between">
     <h1 class="quarto-secondary-nav-title mb-0 fs-3 d-inline"></h1>
@@ -98,31 +124,22 @@
   <div id="quarto-sidebar" class="col col-12 col-lg-3 d-lg-flex px-0 pt-0 sidebar collapse sidebar-navigation">
     <nav class="me-lg-auto py-2 docked  overflow-scroll">
   <div class="px-3 pt-lg-2 mt-1 text-left sidebar-header">
-    <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
   </div>
-    <div class="d-flex px-3 mt-2 flex-shrink-0 align-items-center">
-      <div class="sidebar-search">
-      <form class="d-flex mb-0">
-  <input id="quarto-search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
-      </div>
-    </div>
   <div class="sidebar-menu-container"> 
   <ul class="list-unstyled mt-3 px-3">
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../index.html" class="">Getting Started</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#gettingstarted-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#gettingstarted-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">Getting Started</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="gettingstarted-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../index.html" class="">Introduction</a>
+</li>
           <li class="sidebar-item">
   <a href="../getting_started/installation.html" class="">Installation</a>
 </li>
@@ -148,17 +165,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server_management.html" class="">Server Management</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">Server Management</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="servermanagement-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../server_management/server_management.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../server_management/core_administrative_tasks.html" class="">Core Administrative Tasks</a>
 </li>
@@ -178,17 +194,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../authenticating_users/authenticating_users.html" class="">Authenticating Users</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#authenticatingusers-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#authenticatingusers-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">Authenticating Users</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="authenticatingusers-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../authenticating_users/authenticating_users.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../authenticating_users/user_provisioning.html" class="">User Provisioning</a>
 </li>
@@ -229,17 +244,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">Access and Security</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="accessandsecurity-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../access_and_security/access_and_security.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../access_and_security/network_port_and_address.html" class="">Network Port and Address</a>
 </li>
@@ -283,17 +297,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../r_sessions/r_sessions.html" class="">R Sessions</a>
-            </div>
-            <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#rsessions-collapse" aria-expanded="true">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 " data-bs-toggle="collapse" data-bs-target="#rsessions-collapse" aria-expanded="true">
+              <div class="me-auto  sidebar-section-item">R Sessions</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  show" id="rsessions-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../r_sessions/r_sessions.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../r_sessions/r_executable_and_libraries.html" class="">R Executable and Libraries</a>
 </li>
@@ -349,17 +362,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../r_versions/r_versions.html" class="">R Versions</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#rversions-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#rversions-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">R Versions</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="rversions-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../r_versions/r_versions.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../r_versions/installing_r.html" class="">Installing R</a>
 </li>
@@ -382,17 +394,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../load_balancing/load_balancing.html" class="">Load Balancing</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#loadbalancing-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#loadbalancing-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">Load Balancing</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="loadbalancing-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../load_balancing/load_balancing.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../load_balancing/load_balancing_vs_job_launcher.html" class="">Load Balancing vs. Job Launcher</a>
 </li>
@@ -412,17 +423,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../auditing_and_monitoring/auditing_and_monitoring.html" class="">Auditing and Monitoring</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#auditingandmonitoring-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#auditingandmonitoring-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">Auditing and Monitoring</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="auditingandmonitoring-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../auditing_and_monitoring/auditing_and_monitoring.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../auditing_and_monitoring/auditing_configuration.html" class="">Auditing Configuration</a>
 </li>
@@ -439,17 +449,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../license_management/license_management.html" class="">License Management</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#licensemanagement-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#licensemanagement-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">License Management</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="licensemanagement-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../license_management/license_management.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../license_management/product_activation.html" class="">Product Activation</a>
 </li>
@@ -475,17 +484,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../data_connectivity/data_connectivity.html" class="">Data Connectivity</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#dataconnectivity-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#dataconnectivity-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">Data Connectivity</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="dataconnectivity-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../data_connectivity/data_connectivity.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../data_connectivity/connectivity_using_odbc.html" class="">Connectivity using ODBC</a>
 </li>
@@ -502,17 +510,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../job_launcher/job_launcher.html" class="">Job Launcher</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#joblauncher-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#joblauncher-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">Job Launcher</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="joblauncher-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../job_launcher/job_launcher.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../job_launcher/configuration.html" class="">Configuration</a>
 </li>
@@ -535,17 +542,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../tutorial_api/tutorial_api.html" class="">Tutorial API</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#tutorialapi-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#tutorialapi-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">Tutorial API</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="tutorialapi-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../tutorial_api/tutorial_api.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../tutorial_api/configuration.html" class="">Configuration</a>
 </li>
@@ -565,17 +571,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../jupyter_sessions/jupyter_sessions.html" class="">Jupyter Sessions</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#jupytersessions-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#jupytersessions-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">Jupyter Sessions</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="jupytersessions-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../jupyter_sessions/jupyter_sessions.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../jupyter_sessions/configuration.html" class="">Configuration</a>
 </li>
@@ -589,17 +594,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../vscode_sessions/vs_code_sessions.html" class="">VS Code Sessions</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#vscodesessions-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#vscodesessions-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">VS Code Sessions</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="vscodesessions-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../vscode_sessions/vs_code_sessions.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../vscode_sessions/installation.html" class="">Installation</a>
 </li>
@@ -619,17 +623,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../database/database.html" class="">Database</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#database-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#database-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">Database</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="database-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../database/database.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../database/configuration.html" class="">Configuration</a>
 </li>
@@ -643,17 +646,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../hardening/hardening.html" class="">Hardening</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">Hardening</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../hardening/hardening.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
@@ -686,17 +688,16 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-          <div class="d-inline-flex w-100 sidebar-section-item">
-            <div class="sidebar-section-link me-auto ">
-            <a href="../rstudio_server_configuration/rstudio_server_configuration.html" class="">R Studio Configuration</a>
-            </div>
-            <a class="text-start collapsed " data-bs-toggle="collapse" data-bs-target="#rstudioconfiguration-collapse" aria-expanded="false">
-              <div><i class="bi bi-chevron-right ms-2 "></i></div>
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#rstudioconfiguration-collapse" aria-expanded="false">
+              <div class="me-auto  sidebar-section-item">R Studio Configuration</div>
+            <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
-            </div>
         </div>
       <div class="collapse  " id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rstudio_server_configuration.html" class="">Overview</a>
+</li>
           <li class="sidebar-item">
   <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
 </li>
