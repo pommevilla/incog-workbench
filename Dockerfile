@@ -32,7 +32,7 @@ RUN cd /tmp \
 # install devtools and bookdown
 RUN R -e 'options(download.file.method = "wget"); install.packages("devtools", repos = "https://cran.rstudio.com")' 
 
-# download and install last tested working version of quarto
+# install quarto manually to a known good version
 RUN cd /tmp \
 	&& wget https://github.com/quarto-dev/quarto-cli/releases/download/v0.1.290/quarto-0.1.290-amd64.deb \
 	&& dpkg -i quarto-0.1.289-amd64.deb

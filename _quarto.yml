@@ -6,11 +6,12 @@ execute:
 
 site:
   title: "RStudio Workbench Administration"
-  subtitle: "Version 23.12.5-17"
+  subtitle: "Version 6.29.2021-1406"
   downloads: [docx, pdf, epub]
   sharing: [twitter, facebook, linkedin]
   page-navigation: true
-  site-url: https://pommevilla.github.io/incog-workbench/ 
+  B
+  site-url: https://pommevilla.github.io/incog-workbench/
   repo-url: https://github.com/rstudio/rstudio/
 
   navbar:
