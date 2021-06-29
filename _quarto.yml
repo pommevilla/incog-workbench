@@ -10,7 +10,6 @@ site:
   downloads: [docx, pdf, epub]
   sharing: [twitter, facebook, linkedin]
   page-navigation: true
-  B
   site-url: https://pommevilla.github.io/incog-workbench/
   repo-url: https://github.com/rstudio/rstudio/
 
