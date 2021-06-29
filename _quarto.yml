@@ -10,7 +10,7 @@ site:
   downloads: [docx, pdf, epub]
   sharing: [twitter, facebook, linkedin]
   page-navigation: true
-  site-url: https://docs.rstudio.com/ide/server-pro/
+  site-url: https://pommevilla.github.io/incog-workbench/ 
   repo-url: https://github.com/rstudio/rstudio/
 
   navbar:
@@ -172,17 +172,16 @@ site:
           - hardening/other.qmd
           - hardening/example_secure_configuration.qmd
       - section: "---"
-      - section: "Session User Settings"
-        href: session_user_settings/session_user_settings.qmd
-      - section: "R Studio IDE Commands"
-        href: rstudio_ide_commands/rstudio_ide_commands.qmd
-      - section: "R Package Dependencies"
-        href: r_package_dependencies/r_package_dependencies.qmd
-      - section: "R Studio Configuration"
+      - section: "Appendix"
         contents:
-          - rstudio_server_configuration/rstudio_server_configuration.qmd
-          - rstudio_server_configuration/rserver_conf.qmd
-          - rstudio_server_configuration/rsession_conf.qmd
+          - session_user_settings/session_user_settings.qmd
+          - rstudio_ide_commands/rstudio_ide_commands.qmd
+          - r_package_dependencies/r_package_dependencies.qmd
+          - section: "R Studio Configuration"
+            contents:
+              - rstudio_server_configuration/rstudio_server_configuration.qmd
+              - rstudio_server_configuration/rserver_conf.qmd
+              - rstudio_server_configuration/rsession_conf.qmd
 
 
 number-depth: 2
