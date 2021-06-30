@@ -10,13 +10,13 @@ site:
   downloads: [docx, pdf, epub]
   sharing: [twitter, facebook, linkedin]
   page-navigation: true
-  site-url: https://pommevilla.github.io/
-  repo-url: https://github.com/rstudio/rstudio/
+  site-url: https://pommevilla.github.io/incog-workbench/
+  repo-url: https://github.com/pommevilla/incog-workbench
   repo-actions: [edit, issue]
 
   navbar:
     search: true
-    logo: images/Rstudio-ball.svg
+    logo: images/RStudio-ball.svg
     right:
       - text: "Rstudio.com"
         url: 'https://www.rstudio.com/'
