@@ -16,7 +16,7 @@ site:
 
   navbar:
     search: true
-    logo: images/Rstudio-ball.svg
+    logo: images/RStudio-ball.svg
     right:
       - text: "Rstudio.com"
         url: 'https://www.rstudio.com/'
