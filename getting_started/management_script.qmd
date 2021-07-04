@@ -1,4 +1,6 @@
-# Management Script
+---
+title: "Management Script"
+---
 
 RStudio management tasks are performed using the `rstudio-server` utility (installed under `/usr/sbin`). This utility enables the stopping, starting, and restarting of the server, enumeration and suspension of user sessions, taking the server offline, as well as the ability to hot upgrade a running version of the server.
 

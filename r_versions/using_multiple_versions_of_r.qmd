@@ -1,4 +1,6 @@
-# Using Multiple Versions of R Concurrently
+---
+title: "Using Multiple Versions of R Concurrently"
+---
 
 ### Determining Available Versions
 

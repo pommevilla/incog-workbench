@@ -1,4 +1,6 @@
-# Managing Upgrades of R
+---
+title: "Managing Upgrades of R"
+---
 
 There are various ways to handle upgrades to new versions of R ranging from allowing each user to control exactly when they upgrade all the way to forcing everyone to upgrade all at once. 
 

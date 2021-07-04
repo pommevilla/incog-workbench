@@ -1,4 +1,6 @@
-# Overview
+---
+title: "Overview"
+---
 
 The Tutorial API provides an interface for driving automated interactions with the RStudio IDE. The Tutorial API assumes that RStudio is hosted within an `<iframe>` with the hosting page content surrounding it (e.g. in a sidebar).
 

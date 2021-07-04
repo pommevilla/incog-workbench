@@ -1,4 +1,6 @@
-# Core Administrative Tasks
+---
+title: "Core Administrative Tasks"
+---
 
 ### Configuration Files
 

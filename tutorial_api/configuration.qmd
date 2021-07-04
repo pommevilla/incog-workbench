@@ -1,4 +1,6 @@
-# Configuration
+---
+title: "Configuration"
+---
 
 This section describes how to configure the example page, shown below. The upper-region has controls for experimenting with the Tutorial API calls, and the lower region is an `<iframe>` hosting RStudio Workbench.
 

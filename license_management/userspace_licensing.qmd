@@ -1,4 +1,6 @@
-# Userspace Licensing
+---
+title: "Userspace Licensing"
+---
 
 In a standard installation of RStudio Workbench, licensing configuration operations require elevated access (e.g. via sudo). This is appropriate given the product will normally be installed and activated by an administrator on behalf of multiple user accounts.
 

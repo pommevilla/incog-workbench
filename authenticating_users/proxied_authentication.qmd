@@ -1,4 +1,6 @@
-# Proxied Authentication {.pro-header}
+---
+title: "Proxied Authentication" {.pro-header}
+---
 
 You can configure RStudio Workbench to participate in an existing web-based single-sign-on authentication scheme using proxied authentication. In this configuration all traffic to RStudio Workbench is handled by a proxy server which also handles user authentication. 
 

@@ -1,6 +1,6 @@
-# Configuration {#lb-configuration}
-
-### Requirements
+---
+title: "Configuration"
+---
 
 There are several requirements for nodes within RStudio clusters:
 

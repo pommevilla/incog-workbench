@@ -1,4 +1,6 @@
-# Kerberos {.pro-header}
+---
+title: "Kerberos {.pro-header}""
+---
 
 You can use PAM sessions to arrange for [Kerberos](https://en.wikipedia.org/wiki/Kerberos_\(protocol\)) tickets to be made available for use by R sessions. This is accomplished using the [pam_sss](https://linux.die.net/man/8/pam_sss) PAM module. Note that you may need to install this module separately depending on which Linux distribution/version you are running.
 

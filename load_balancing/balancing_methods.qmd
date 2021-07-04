@@ -1,4 +1,6 @@
-# Balancing Methods
+---
+title: "Balancing Methods"
+---
 
 There are four methods available for balancing R sessions across a cluster. The most appropriate method is installation specific and depends on the number of users and type of workloads they create.
 

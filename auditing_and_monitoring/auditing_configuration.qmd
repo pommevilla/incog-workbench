@@ -1,4 +1,6 @@
-# Auditing Configuration
+---
+title: "Auditing Configuration"
+---
 
 ### R Console Auditing
 

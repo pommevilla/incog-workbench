@@ -1,4 +1,6 @@
-# Accessing the Server
+---
+title: "Accessing the Server"
+---
 
 ### Logging In 
 

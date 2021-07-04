@@ -1,4 +1,6 @@
-# RStudio IDE Commands
+---
+title: "RStudio IDE Commands"
+---
 
 The following table enumerates all of the commands currently supported by RStudio. These command IDs can be used in RStudio API calls such as `rstudioapi::executeCommand`. 
 

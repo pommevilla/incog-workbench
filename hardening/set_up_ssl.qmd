@@ -1,4 +1,6 @@
-# Set up SSL {.pro-header}
+---
+title: "Set Up SSL {.pro-header}"
+---
 
 A secure installation of RStudio encrypts network traffic using SSL. SSL doesn't come pre-configured since it requires certificates signed by a Certificate Authority (CA) trusted by all parties. 
 

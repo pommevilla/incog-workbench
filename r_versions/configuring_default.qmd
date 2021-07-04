@@ -1,4 +1,6 @@
-# Configuring the Default Version of R
+---
+title: "Configuring the Default Version of R"
+---
 
 When multiple versions of R are installed you will need to specify which version
 is the default one for new R sessions. This can be done automatically via the

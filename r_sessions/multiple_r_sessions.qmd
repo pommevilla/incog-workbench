@@ -1,4 +1,6 @@
-# Multiple R Sessions {.pro-header}
+---
+title: "Multiple R Sessions {.pro-header}"
+---
 
 RStudio Workbench enables users to have multiple concurrent R sessions on a single server or load balanced cluster of servers (the open-source version of RStudio Server supports only a single session at a time).
 

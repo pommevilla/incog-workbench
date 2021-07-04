@@ -1,4 +1,6 @@
-# PAM Sessions {.pro-header}
+---
+title: "PAM Sessions {.pro-header}"
+---
 
 RStudio Workbench uses PAM (Pluggable Authentication Modules) for both user authentication as well to establish the environment and resources available for R sessions. This is accomplished using the PAM session API. PAM sessions are used for a variety of purposes:
 

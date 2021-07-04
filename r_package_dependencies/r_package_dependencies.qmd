@@ -1,4 +1,6 @@
-# R Package Dependencies
+---
+title: "R Package Dependencies"
+---
 
 The following is a list of all of the R packages RStudio depends on in some way. None of these packages are necessary for the basic operation of RStudio; they all enable additional IDE functionality as noted in in *Features*.
 

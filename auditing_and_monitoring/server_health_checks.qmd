@@ -1,4 +1,6 @@
-# Server Health Checks
+---
+title: "Server Health Checks"
+---
 
 ### Enabling Health Checks
 

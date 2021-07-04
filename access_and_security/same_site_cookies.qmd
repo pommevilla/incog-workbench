@@ -1,9 +1,8 @@
 ---
+title: "Same Site Cookies"
 aliases:
   - access-and-security.html#same-site-cookies
 ---
-
-# Same Site cookies
 
 Most browsers have adopted recently a new attribute for cookies called `SameSite` which enforces additional security requirements around the cookie. RStudio does not define this attribute by default but you can use the option `www-same-site` for that purpose.
 

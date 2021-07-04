@@ -1,4 +1,6 @@
-# Product Activation
+---
+title: "Product Activation"
+---
 
 ### Activation Basics
 

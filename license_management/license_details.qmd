@@ -1,4 +1,6 @@
-# License Details
+---
+title: "License Details"
+---
 
 RStudio Workbench licenses include some details that you'll see when you run the `status` command. These are part of the license and can't be changed without purchasing a different license. They are as follows: 
 

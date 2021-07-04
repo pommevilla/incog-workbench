@@ -1,4 +1,6 @@
-# Authentication Migration
+---
+title: "Authentication Migration"
+---
 
 It is possible to migrate between the supported authentication mechanisms.
 

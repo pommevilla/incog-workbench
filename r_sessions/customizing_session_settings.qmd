@@ -1,4 +1,6 @@
-# Customizing Session Settings
+---
+title: "Customizing Sessions Settings"
+---
 
 All of the session settings file locations described in this section conform to the [XDG Base Directory Specification](https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html). They are configurable using environment variables:
 

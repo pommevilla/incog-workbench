@@ -1,4 +1,6 @@
-# Evaluations
+---
+title: "Evaluations"
+---
 
 ### Extending Evaluations
 

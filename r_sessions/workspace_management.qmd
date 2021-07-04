@@ -1,4 +1,6 @@
-# Workspace Management
+---
+title: "Workspace Management"
+---
 
 ### Default Save Action
 

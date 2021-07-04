@@ -1,4 +1,6 @@
-# Automated Crash Reporting
+---
+title: "Automated Crash Reporting"
+---
 
 RStudio allows you to automatically capture crash dumps for all RStudio processes and upload them to our crash database for easy reporting, allowing us to more easily determine the exact cause of crashes without adding administrative overhead to your team by requiring you to manually collect crash dumps. As user privacy is of utmost concern, these crash dumps **only** contain stack information, such as the names of the functions that were on the callstack at the time of the crash. **No** heap information is stored within the dumps, so no sensitive user data is captured in the crash dumps. The IP address of the machine uploading the reports is captured and used **only** to determine the unique amount of users experiencing a crash.
 

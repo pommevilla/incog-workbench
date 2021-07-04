@@ -1,4 +1,6 @@
-# Floating Licensing
+---
+title: "Floating Licensing"
+---
 
 If you stop and start RStudio Workbench instances frequently, for instance because you're running them inside virtual machines or containers, you may wish to use floating licensing instead of traditional licensing.
 

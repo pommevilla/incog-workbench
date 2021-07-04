@@ -1,4 +1,6 @@
-# Configuration {#launcher-configuration}
+---
+title: "Configuration"
+---
 
 ### Job Launcher Configuration
 

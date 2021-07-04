@@ -1,4 +1,6 @@
-# Load Balancing
+---
+title: "Load Balancing"
+---
 
 Both RStudio Workbench and the Job Launcher services can be load balanced, providing maximum scalability and redundancy. When using the RStudio Workbench load balancer with the Launcher, it is generally sufficient to simply have each Workbench node point to its own node-local Launcher service via `rserver.conf` configuration - no external load balancer needs to control access to the Launcher itself.
 

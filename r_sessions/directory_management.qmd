@@ -1,4 +1,6 @@
-# Directory Management
+---
+title: "Directory Management"
+---
 
 ### Working Directories
 

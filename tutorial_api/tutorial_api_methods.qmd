@@ -1,4 +1,6 @@
-# Tutorial API Methods
+---
+title: "Tutorial API Methods"
+---
 
 Methods are asynchronous and do not directly return a result.
 

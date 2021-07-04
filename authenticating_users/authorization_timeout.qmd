@@ -1,4 +1,6 @@
-# Authorization Timeout
+---
+title: "Authorization Timeout"
+---
 
 ### Inactivity Timeout
 

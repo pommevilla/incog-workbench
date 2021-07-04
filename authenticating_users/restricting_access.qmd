@@ -1,4 +1,6 @@
-# Restricting Access to Specific Users
+---
+title: "Restricting Access to Specific Users"
+---
 
 ### Minimum User Id
 

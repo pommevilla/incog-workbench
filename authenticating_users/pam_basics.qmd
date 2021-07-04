@@ -1,4 +1,6 @@
-# PAM Basics
+---
+title: "PAM Basics"
+---
 
 Local system accounts used by PAM must follow the system conventions for usernames. For example, usernames are case-sensitive.
 

@@ -6,12 +6,12 @@ execute:
 
 site:
   title: "RStudio Workbench Administration"
-  subtitle: "Version 7.4.2021-1000"
+  subtitle: "Version 7.4.2021-1319"
   downloads: [docx, pdf, epub]
   sharing: [twitter, facebook, linkedin]
   page-navigation: true
-  site-url: https://pommevilla.github.io/incog-workbench/
-  repo-url: https://github.com/pommevilla/incog-workbench
+  site-url: https://pommevilla.github.io/incog-workbench 
+  repo-url: https://github.com/pommevilla/incog-workbench/
   repo-actions: [edit, issue]
 
   navbar:

@@ -1,4 +1,6 @@
-# Configuration
+---
+title: "Configuration"
+---
 
 In order to set up a database connection, modify the file */etc/rstudio/database.conf*. The file contains documentation about how to use it, and you can simply uncomment any lines that are relevant to your configuration. Note that because the file can contain password data, this file must be user read/write **only** (file mask 600).
 
