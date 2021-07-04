@@ -1,4 +1,4 @@
-## rsession.conf
+# rsession.conf
 
 The following is a list of available options that can be specified in the `rsession.conf` configuration file, which controls behavior of the `rsession` process, allowing you to tune various R session parameters.
 

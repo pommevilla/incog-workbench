@@ -1,4 +1,4 @@
-## Session Startup Scripts
+# Session Startup Scripts
 
 When an R session starts up, the following scripts are run:
 

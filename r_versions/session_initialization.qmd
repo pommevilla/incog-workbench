@@ -1,4 +1,4 @@
-## Session Initialization
+# Session Initialization
 
 In the preceding sections, we described how to allow the server to discover multiple versions of R to be used by the user. The R environment is loaded before the session begins execution, and several files are executed along the way that can cause problems with your R Environment if any variables are incorrectly set.
 

@@ -1,4 +1,4 @@
-## Configuration {#launcher-configuration}
+# Configuration {#launcher-configuration}
 
 ### Job Launcher Configuration
 

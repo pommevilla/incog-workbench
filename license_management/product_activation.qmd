@@ -1,4 +1,4 @@
-## Product Activation
+# Product Activation
 
 ### Activation Basics
 

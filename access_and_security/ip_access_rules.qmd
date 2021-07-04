@@ -3,7 +3,7 @@ aliases:
   - access-and-security.html#network-port-and-address
 ---
 
-## IP Access Rules {.pro-header}
+# IP Access Rules {.pro-header}
 
 RStudio Workbench can be configured to deny access to specific IP addresses or ranges of addresses.  Access rules are defined in the configuration file `/etc/rstudio/ip-rules` 
 

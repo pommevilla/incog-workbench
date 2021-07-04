@@ -1,4 +1,4 @@
-## Installing R
+# Installing R
 
 We recommend installing multiple versions of R because an environment with multiple
 versions of R helps provide a stable, reproducible environment for your R

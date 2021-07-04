@@ -1,4 +1,4 @@
-## Tutorial API Callbacks
+# Tutorial API Callbacks
 
 As seen in the examples above, the callback returns JSON. The following are examples of calls that trigger callbacks.
 

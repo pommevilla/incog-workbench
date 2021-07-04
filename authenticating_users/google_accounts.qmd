@@ -1,4 +1,4 @@
-## Google Accounts (deprecated) {.pro-header}
+# Google Accounts (deprecated) {.pro-header}
 
 ::: {.callout-note}
 While it is still possible to configure this authentication method, note that in future releases of RStudio, this authentication method will migrate to use OpenID Connect instead; Google itself uses OpenID as an underlying authentication mechanism. Additionally, RStudio Desktop Pro clients will be unable to connect to RStudio Workbench when it is configured to use Google Authentication due to new restrictions from Google - see [Google's Notice](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html) for more information.

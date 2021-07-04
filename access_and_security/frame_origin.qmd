@@ -3,7 +3,7 @@ aliases:
   - access-and-security.html#frame-origin
 ---
 
-## Frame Origin
+# Frame Origin
 
 For security reasons, RStudio will not load inside a browser frame (such as a frameset or IFrame) by default. You can modify this behavior by using the `www-frame-origin` option. For example, if you would like to host RStudio inside a browser frame at `example.com`, you can tell RStudio to allow this as follows:
 

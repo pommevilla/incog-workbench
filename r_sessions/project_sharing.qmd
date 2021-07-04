@@ -1,4 +1,4 @@
-## Project Sharing {.pro-header}
+# Project Sharing {.pro-header}
 
 ### Overview
 

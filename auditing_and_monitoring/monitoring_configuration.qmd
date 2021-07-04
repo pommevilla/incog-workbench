@@ -1,4 +1,4 @@
-## Monitoring Configuration
+# Monitoring Configuration
 
 ### System and Per-User Resources
 

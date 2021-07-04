@@ -1,4 +1,4 @@
-## Logging
+# Logging
 
 RStudio provides the ability to change various facets of its logging functionality, such as changing the logger type (syslog vs file) on a per-binary or per-section basis. In most configurations, it is recommended that you do not change the logging configuration, but in some circumstances it is desirable to turn on debug logging to help troubleshoot issues.
 

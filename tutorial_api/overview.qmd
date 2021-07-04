@@ -1,4 +1,5 @@
-## Overview
+# Overview
+
 The Tutorial API provides an interface for driving automated interactions with the RStudio IDE. The Tutorial API assumes that RStudio is hosted within an `<iframe>` with the hosting page content surrounding it (e.g. in a sidebar).
 
 The hosting `<iframe>` must be connected to the DOM and have non-zero dimensions (including not having the `display: none` style) when the IDE is loaded into it.

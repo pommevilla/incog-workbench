@@ -1,4 +1,4 @@
-## Connectivity using ODBC
+# Connectivity using ODBC
 
 RStudio makes ODBC connections available in the Connections Pane. ODBC connections are obtained from the `odbcinst.ini` file and can be further customized using Snippet Files.
 

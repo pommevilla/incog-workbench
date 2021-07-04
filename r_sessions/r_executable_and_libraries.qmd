@@ -1,4 +1,4 @@
-## R Executable and Libraries
+# R Executable and Libraries
 
 ### Locating R
 

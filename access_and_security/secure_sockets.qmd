@@ -3,7 +3,7 @@ aliases:
   - access-and-security.html#secure-sockets-ssl
 ---
 
-## Secure Sockets (SSL) {.pro-header}
+# Secure Sockets (SSL) {.pro-header}
 
 ### SSL Configuration
 

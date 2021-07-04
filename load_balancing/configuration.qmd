@@ -1,4 +1,4 @@
-## Configuration {#lb-configuration}
+# Configuration {#lb-configuration}
 
 ### Requirements
 

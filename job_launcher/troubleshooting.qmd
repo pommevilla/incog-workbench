@@ -1,4 +1,4 @@
-## Troubleshooting {#launcher-troubleshooting}
+# Troubleshooting {#launcher-troubleshooting}
 
 If you experience issues related to running Launcher sessions, adhoc jobs, Jupyter sessions, or VS Code sessions, you can use the Launcher verification tool which will attempt to launch jobs and provide diagnostic output about what could be going wrong. To run the verification process, run the following command:
 

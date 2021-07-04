@@ -1,4 +1,4 @@
-## Example Secure Configuration
+# Example Secure Configuration
 
 This section aggregates all of the security recommendations from the above sections. Note, again, that some adjustment is likely to be necessary depending on your environment; for example, this set of configuration values presumes that SSL termination is happening in RStudio, that RStudio is the only application running on its domain, and that it is never embedded in another page.
 

@@ -1,4 +1,4 @@
-## Multiple Sessions
+# Multiple Sessions
 
 Multiple VS Code windows with distinct processes and projects can be opened within the same VS Code session in separate browser windows. Closing a VS Code session window causes the processes associated with that window to exit, while other processes associated with the same session will remain running.
 

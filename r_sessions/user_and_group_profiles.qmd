@@ -1,4 +1,4 @@
-## User and Group Profiles {.pro-header}
+# User and Group Profiles {.pro-header}
 
 User and Group Profiles enable you to tailor the behavior of sessions on a per-user or per-group basis. The following attributes of a session can be configured within a profile:
 

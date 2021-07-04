@@ -1,4 +1,3 @@
-
 # Overview
 
 ## Jupyter Sessions {.pro-header}

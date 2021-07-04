@@ -1,4 +1,4 @@
-## Server Health Checks
+# Server Health Checks
 
 ### Enabling Health Checks
 

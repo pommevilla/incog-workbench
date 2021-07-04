@@ -1,4 +1,4 @@
-## Customizing the Sign-In Page
+# Customizing the Sign-In Page
 
 You can customize the content and appearance of the RStudio sign-in page by including custom HTML within the page. This is accomplished by either:
 

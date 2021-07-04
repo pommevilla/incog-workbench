@@ -3,7 +3,7 @@ aliases:
   - access-and-security.html#running-with-a-proxy
 ---
 
-## Running with a Proxy
+# Running with a Proxy
 
 ### Overview
 

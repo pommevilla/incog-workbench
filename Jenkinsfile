@@ -41,7 +41,7 @@ try {
           }
           stage('build docs') {
             container.inside() {
-              def env = "RSTUDIO_VERSION_MAJOR=400 RSTUDIO_VERSION_MINOR=23 RSTUDIO_VERSION_PATCH=${RSTUDIO_VERSION_PATCH} RSTUDIO_VERSION_SUFFIX=${RSTUDIO_VERSION_SUFFIX}"
+              def env = "RSTUDIO_VERSION_MAJOR=${RSTUDIO_VERSION_MAJOR} RSTUDIO_VERSION_MINOR=${RSTUDIO_VERSION_MINOR} RSTUDIO_VERSION_PATCH=${RSTUDIO_VERSION_PATCH} RSTUDIO_VERSION_SUFFIX=${RSTUDIO_VERSION_SUFFIX}"
               sh "cd docs/server/ && ${env} cmake . && make && cd ../.."
             }
           }

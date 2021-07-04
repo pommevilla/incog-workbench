@@ -1,4 +1,4 @@
-## Accessing the Server
+# Accessing the Server
 
 ### Logging In 
 

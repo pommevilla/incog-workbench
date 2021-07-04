@@ -3,7 +3,7 @@ aliases:
   - access-and-security.html#network-port-and-address
 ---
 
-## Network Port and Address
+# Network Port and Address
 
 After initial installation RStudio accepts connections on port 8787. If you wish to listen on a different another port you can modify the `www-port` option. For example:
 

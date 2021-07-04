@@ -1,4 +1,4 @@
-## Terminal WebSockets
+# Terminal WebSockets
 
 The RStudio terminal pane uses WebSockets to communicate between the web browser and the session. If the attempt to connect with WebSockets fails, the terminal switches to a less responsive but generally more forgiving HTTP-based protocol.
 

@@ -1,4 +1,4 @@
-## Feature Limits {.pro-header}
+# Feature Limits {.pro-header}
 
 RStudio Workbench has a number of other limits that can be configured. This section describes these limits. Note that these settings are specified in the `/etc/rstudio/rsession.conf` file (rather than the `rserver.conf` file previously referenced).
 
