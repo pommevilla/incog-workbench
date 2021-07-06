@@ -1,5 +1,7 @@
 ---
 title: "Tutorial API Callbacks"
+aliases:
+  - /tutorial-api.html#tutorial-api-callbacks
 ---
 
 As seen in the examples above, the callback returns JSON. The following are examples of calls that trigger callbacks.

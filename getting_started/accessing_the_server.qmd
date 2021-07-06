@@ -1,5 +1,7 @@
 ---
 title: "Accessing the Server"
+aliases:
+	- /index.html#accessing-the-server
 ---
 
 ### Logging In 

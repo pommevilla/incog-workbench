@@ -1,5 +1,7 @@
 ---
 title: "rserver.conf"
+aliases:
+	- /rstudio-configuration-1.html#rserver.conf
 ---
 
 The following is a list of available options that can be specified in the `rserver.conf` configuration file, which controls behavior of the `rserver` process, allowing you to tune HTTP, authorization options, and other settings that broadly affect RStudio Server.

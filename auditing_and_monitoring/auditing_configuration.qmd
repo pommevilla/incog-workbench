@@ -1,5 +1,7 @@
 ---
 title: "Auditing Configuration"
+aliases:
+	- /auditing-and-monitoring.html#auditing-configuration
 ---
 
 ### R Console Auditing

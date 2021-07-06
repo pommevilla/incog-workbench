@@ -1,5 +1,7 @@
 ---
 title: "Tutorial API Methods"
+aliases:
+  - /tutorial-api.html#tutorial-api-methods
 ---
 
 Methods are asynchronous and do not directly return a result.

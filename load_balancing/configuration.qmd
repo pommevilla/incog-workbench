@@ -1,5 +1,7 @@
 ---
 title: "Configuration"
+aliases:
+   - /load-balancing.html#lb-configuration
 ---
 
 There are several requirements for nodes within RStudio clusters:

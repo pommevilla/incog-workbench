@@ -1,5 +1,7 @@
 ---
 title: "Overview"
+aliases:
+	- /load-balancing.html
 ---
 
 ## Load Balancing {.pro-header}

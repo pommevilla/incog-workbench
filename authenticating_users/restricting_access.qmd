@@ -1,5 +1,7 @@
 ---
 title: "Restricting Access to Specific Users"
+aliases:
+	- /authenticating-users.html#restricting-access-to-specific-users
 ---
 
 ### Minimum User Id

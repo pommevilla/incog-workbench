@@ -1,5 +1,7 @@
 ---
 title: "Activation {.pro-header}"
+aliases:
+	- /index.html#activation
 ---
 
 After completing the installation steps described in the previous section you may need to activate the product before using it. Alternatively, if you haven't previously installed RStudio Workbench on a system then it will run in evaluation mode for a period of time before requiring activation. To determine the current license status of your system you can use the following command:

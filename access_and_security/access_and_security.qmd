@@ -1,7 +1,8 @@
 ---
 title: "Overview"
 aliases:
-  - access-and-security.html#access-and-security
+  - /access-and-security.html
+  - /access-and-security.html#access-and-security
 ---
 
 In this section:

@@ -1,5 +1,7 @@
 ---
 title: "Configuring the Default Version of R"
+aliases:
+	- /r-versions-1.html#configuring-the-default-version-of-r
 ---
 
 When multiple versions of R are installed you will need to specify which version

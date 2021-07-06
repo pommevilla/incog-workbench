@@ -1,5 +1,7 @@
 ---
 title: "Evaluations"
+aliases:
+	- /license-management.html#evaluations
 ---
 
 ### Extending Evaluations

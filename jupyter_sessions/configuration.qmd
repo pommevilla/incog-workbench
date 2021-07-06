@@ -1,8 +1,8 @@
 ---
-title: "Configuration"
+title: "Jupyter Configuration"
+aliases:
+	- /jupyter-sessions.html#configuration-2
 ---
-
-### Jupyter configuration
 
 Configuration of the Jupyter feature is handled via the config file `/etc/rstudio/jupyter.conf`. Note that this file is not automatically created by RStudio, and must be created before being configured, and the Jupyter feature is disabled by default. The following table lists the various configuration options that are available to be specified in the `jupyter.conf` configuration file:
 

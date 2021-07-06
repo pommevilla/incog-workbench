@@ -1,5 +1,7 @@
 ---
 title: "Google Accounts (deprecated) {.pro-header}"
+aliases:
+    - /authenticating-users.html#google-accounts-deprecated
 ---
 
 # Google Accounts (deprecated) {.pro-header}

@@ -1,5 +1,7 @@
 ---
 title: "Snippet Files"
+aliases:
+	- /data-connectivity.html#snippet-files
 ---
 
 A Connection Snippet File is an R code snippet with additional metadata which is intended to initialize a connection. This file can be as simple as:

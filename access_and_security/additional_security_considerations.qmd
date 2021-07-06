@@ -1,7 +1,7 @@
 ---
 title: "Additional Security Considerations"
 aliases:
-  - access-and-security.html#additional-security-considerations
+  - /access-and-security.html#additional-security-considerations
 ---
 
 To help mitigate against CSRF attacks, RStudio can automatically reject any request originating from an `Origin` or `Referer` that does not match the `Host`, `X-Forwarded-Host`, `Forwarded: host` or `X-RStudio-Request` headers. To enable this check, add the following configuration:

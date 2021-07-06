@@ -1,5 +1,8 @@
 ---
 title: "Overview"
+aliases:
+  - /tutorial-api.html
+  - /tutorial-api.html#overview-6
 ---
 
 ## Tutorial API {.pro-header}

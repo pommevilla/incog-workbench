@@ -1,5 +1,7 @@
 ---
 title: "Running the Launcher"
+aliases:
+	- /job-launcher.html#running-the-launcher
 ---
 
 Once it is configured, you can run the Job Launcher by invoking the command `sudo rstudio-launcher start`, and stop it with `sudo rstudio-launcher stop`. The Job Launcher must be run with root privileges, but similar to `rstudio-server`, privileges are immediately lowered. Root privileges are used only to impersonate users as necessary.

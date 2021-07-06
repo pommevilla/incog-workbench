@@ -1,5 +1,7 @@
 ---
 title: "Core Administrative Tasks"
+aliases:
+	- /server-management.html#core-administrative-tasks
 ---
 
 ### Configuration Files

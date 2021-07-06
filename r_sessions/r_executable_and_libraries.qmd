@@ -1,5 +1,7 @@
 ---
 title: "R Executable and Libraries"
+aliases:
+    - /r-sessions.html#r-executable-and-libraries
 ---
 
 

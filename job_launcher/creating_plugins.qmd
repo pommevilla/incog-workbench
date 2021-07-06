@@ -1,8 +1,8 @@
 ---
 title: "Creating Plugins"
+aliases:
+	- /job-launcher.html#creating-plugins
 ---
-
-# Creating Plugins
 
 Plugins allow communication with specific batch cluster / container orchestration systems like Slurm and Kubernetes. However, you may be using a system that RStudio does not natively support. The [RStudio Launcher Plugin SDK](https://rstudio.com/products/launcher-plugin-sdk) can be used to quickly develop Plugins in C/C++.
 

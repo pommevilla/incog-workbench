@@ -1,5 +1,7 @@
 ---
 title: "Directory Management"
+aliases:
+	- /r-sessions.html#directory-management
 ---
 
 ### Working Directories

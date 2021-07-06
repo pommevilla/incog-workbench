@@ -1,5 +1,7 @@
 ---
 title: "Configuration"
+aliases:
+    - /vs-code-sessions.html#configuration-3
 ---
 
 ### VS Code Configuration

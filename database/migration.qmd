@@ -1,5 +1,7 @@
 ---
 title: "Migration"
+aliases:
+	- /database.html#migration
 ---
 
 When changing database providers, you **must** migrate your existing database data from your current database provider to the new provider to prevent unexpected data loss.

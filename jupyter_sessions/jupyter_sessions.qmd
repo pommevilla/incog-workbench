@@ -1,5 +1,8 @@
 ---
 title: "Overview"
+aliases:
+  - /jupyter-sessions.html
+  - /jupyter-sessions.html#overview-7
 ---
 
 ## Jupyter Sessions {.pro-header}

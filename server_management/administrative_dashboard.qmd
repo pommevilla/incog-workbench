@@ -1,5 +1,7 @@
 ---
 title: "Administrative Dashboard {.pro-header}"
+aliases:
+	- /server-management.html#administrative-dashboard
 ---
 
 RStudio Workbench includes an administrative dashboard with the following features:

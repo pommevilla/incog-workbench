@@ -1,7 +1,7 @@
 ---
 title: "Additional Headers"
 aliases:
-  - access-and-security.html#additional-headers
+  - /access-and-security.html#additional-headers
 ---
 
 In some cases, you may need to have RStudio set additional headers on client responses. To do this, simply specify `server-add-header` for each header that you need to add, in the form `Header Name:Header Value`. For example, to have the server set a few extra custom headers:

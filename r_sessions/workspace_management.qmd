@@ -1,5 +1,7 @@
 ---
 title: "Workspace Management"
+aliases:
+	- /r-sessions.html#workspace-management
 ---
 
 ### Default Save Action

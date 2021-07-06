@@ -1,5 +1,7 @@
 ---
 title: "Connectivity Requirements"
+aliases:
+	- /license-management.html#connectivity-requirements
 ---
 
 In order to activate or deactivate RStudio Workbench, internet connectivity is required for communication with the licensing server. If your server is behind an internet proxy or not connected to the Internet at all this section describes what's required to successfully activate.

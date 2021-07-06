@@ -1,5 +1,7 @@
 ---
 title: "SAML Single Sign-On Authentication {.pro-header}"
+aliases:
+	- /authenticating-users.html#saml-single-sign-on-authentication
 ---
 
 RStudio Workbench can be configured to authenticate users via SAML. This enables users to log in with their existing Single Sign-On (SSO) credentials and to be automatically authenticated to RStudio whenever they are already logged into their Identity Provider (IdP) account.

@@ -1,5 +1,7 @@
 ---
 title: "Access and Availability"
+aliases:
+  - /load-balancing.html#access-and-availability
 ---
 
 Once you've defined a cluster and brought it online you'll need to decide how the cluster should be addressed by end users. There are two distinct approaches to this:

@@ -1,5 +1,7 @@
 ---
 title: "Browser Security"
+aliases:
+	- /hardening.html#browser-security
 ---
 
 This section summarizes the recommendations in the [Access and Security](../access_and_security/access_and_security.qmd) section.

@@ -1,7 +1,7 @@
 ---
 title: "Compatibility with Safari 13+"
-alias:
-	- access-and-security.html#compatibility-with-safari-13
+aliases:
+	- /access-and-security.html#compatibility-with-safari-13
 ---
 
 Starting in Safari 13, if you are loading RStudio inside a browser frame on a completely different domain all cookies will be blocked because those will be considered third-party cookies.

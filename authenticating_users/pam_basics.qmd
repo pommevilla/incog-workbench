@@ -1,5 +1,7 @@
 ---
 title: "PAM Basics"
+aliases:
+	- /authenticating-users.html#pam-basics
 ---
 
 Local system accounts used by PAM must follow the system conventions for usernames. For example, usernames are case-sensitive.

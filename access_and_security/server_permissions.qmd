@@ -1,7 +1,7 @@
 ---
 title: "Server Permissions"
 aliases:
-  - access-and-security.html#server-permissions
+  - /access-and-security.html#server-permissions
 ---
 
 ### Server Account

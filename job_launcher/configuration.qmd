@@ -1,8 +1,8 @@
 ---
-title: "Configuration"
+title: "Job Launcher Configuration"
+aliases:
+	- /job-launcher.html#launcher-configuration
 ---
-
-### Job Launcher Configuration
 
 Before the Job Launcher can be run, it must be properly configured via the config file `/etc/rstudio/launcher.conf`; see the [Job Launcher documentation](https://docs.rstudio.com/job-launcher/1.4.1717-3/index.html) for supported configuration options. If the Launcher was installed with RStudio Workbench, a default working configuration that uses the Local plugin is installed for your convenience.
 

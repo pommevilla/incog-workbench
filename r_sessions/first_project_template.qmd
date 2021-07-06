@@ -1,5 +1,7 @@
 ---
 title: "First Project Template"
+aliases:
+	- /r-sessions.html#first-project-template
 ---
 
 

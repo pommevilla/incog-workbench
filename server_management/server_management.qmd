@@ -1,5 +1,7 @@
 ---
 title: "Overview"
+aliases:
+	- /server-management.html
 ---
 
 In this section:

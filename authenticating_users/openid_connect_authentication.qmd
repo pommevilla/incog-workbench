@@ -1,5 +1,7 @@
 ---
 title: "OpenID Connect Authentication {.pro-header}"
+aliases:
+	- /authenticating-users.html#openid-connect-authentication
 ---
 
 # OpenID Connect Authentication {.pro-header}

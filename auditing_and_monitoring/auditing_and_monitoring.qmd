@@ -1,5 +1,7 @@
 ---
 title: "Overview"
+aliases:
+	- /auditing-and-monitoring.html
 ---
 
 ## Auditing and Monitoring {.pro-header}

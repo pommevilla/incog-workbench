@@ -1,5 +1,7 @@
 ---
 title: "Installing R"
+aliases:
+	- /r-versions-1.html#installing-r
 ---
 
 We recommend installing multiple versions of R because an environment with multiple

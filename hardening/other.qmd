@@ -1,5 +1,7 @@
 ---
 title: "Other"
+aliases:
+	- /hardening.html#other
 ---
 
 ### Encrypt Database Password

@@ -1,5 +1,7 @@
 ---
 title: "Sessions Startup Scripts"
+aliases:
+  - /r-sessions.html#session-startup-scripts
 ---
 
 When an R session starts up, the following scripts are run:

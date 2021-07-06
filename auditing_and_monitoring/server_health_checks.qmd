@@ -1,5 +1,7 @@
 ---
 title: "Server Health Checks"
+aliases:
+  - /auditing-and-monitoring.html#server-health-checks
 ---
 
 ### Enabling Health Checks

@@ -1,5 +1,7 @@
 ---
 title: "Using Multiple Versions of R Concurrently"
+aliases:
+	- /r-versions-1.html#using-multiple-versions-of-r-concurrently
 ---
 
 ### Determining Available Versions

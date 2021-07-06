@@ -1,5 +1,7 @@
 ---
 title: "Product Activation"
+aliases:
+	- /license-management.html#product-activation
 ---
 
 ### Activation Basics

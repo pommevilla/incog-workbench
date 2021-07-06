@@ -1,5 +1,7 @@
 ---
 title: "Monitoring Configuration"
+aliases:
+	- /auditing-and-monitoring.html#auditing-configuration
 ---
 
 ### System and Per-User Resources

@@ -1,5 +1,7 @@
 ---
 title: "Notifications {.pro-header}"
+aliases:
+   - /r-sessions.html#notifications
 ---
 
 Administrators can broadcast notifications to user sessions in real-time using the `notifications.conf` file located at `/etc/rstudio/notifications.conf`. This file comes by default with commented out entries that you can uncomment and use, and helps show you the available time and message formats.

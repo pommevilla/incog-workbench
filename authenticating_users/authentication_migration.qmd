@@ -1,5 +1,7 @@
 ---
 title: "Authentication Migration"
+aliases:
+    - /authenticating-users.html#authentication-migration
 ---
 
 It is possible to migrate between the supported authentication mechanisms.

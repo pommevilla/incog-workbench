@@ -1,7 +1,7 @@
 ---
 title: "SSL Ports"
 aliases:
-  - access-and-security.html#ssl-ports
+  - /access-and-security.html#ssl-ports
 ---
 
 When RStudio Workbench is configured to use SSL the default behavior with respect to ports is:

@@ -1,5 +1,7 @@
 ---
 title: "Interface"
+aliases:
+   - /tutorial-api.html#interface
 ---
 
 You can access the Tutorial API by including `rstudio.js` within your host page. This will enable you to instantiate an **RStudio** object that has a connection to the RStudio IDE within an IFrame. For example, if the IDE were hosted in an IFrame as follows:

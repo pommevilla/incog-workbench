@@ -1,5 +1,7 @@
 ---
 title: "Project Sharing {.pro-header}"
+aliases:
+	- /r-sessions.html#project-sharing
 ---
 
 ### Overview

@@ -1,5 +1,7 @@
 ---
 title: "Package Installation"
+aliases:
+	- /r-sessions.html#package-installation
 ---
 
 You can customize the location of user packages installed from CRAN as well as the default CRAN repository. You can also configure the user-interface of the RStudio IDE to discourage end-user package installation in the case where packages are deployed centrally to a site library.

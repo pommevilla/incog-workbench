@@ -1,5 +1,7 @@
 ---
 title: "Overview"
+aliases:
+	- /r-sessions.html
 ---
 
 In this section:

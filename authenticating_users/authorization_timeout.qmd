@@ -1,5 +1,7 @@
 ---
 title: "Authorization Timeout"
+aliases:
+	- /authenticating-users.html#authorization-timeout
 ---
 
 ### Inactivity Timeout

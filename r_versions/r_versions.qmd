@@ -1,5 +1,7 @@
 ---
 title: "Overview"
+aliases:
+	- /r-versions-1.html
 ---
 
 ## R Versions {.pro-header}

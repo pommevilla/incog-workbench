@@ -1,5 +1,7 @@
 ---
 title: "Load Balancing vs. Job Launcher"
+aliases:
+	- /load-balancing.html#load-balancing-vs.-job-launcher
 ---
 
 The [Job Launcher](../job_launcher/job_launcher.qmd) is another method supported by RStudio Workbench to achieve **increased capacity** by allowing sessions to run using a compatible computing infrastructure (i.e. Kubernetes). However, the Job Launcher does not aim to provide **higher availability**. At least two RStudio Workbench nodes in a load balancing configuration are still required to provide service continuity in failover scenarios.

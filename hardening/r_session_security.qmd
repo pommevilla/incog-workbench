@@ -1,5 +1,7 @@
 ---
 title: "R Session Security"
+aliases:
+	- /hardening.html#r-session-security
 ---
 
 RStudio includes a number of options which can help harden the surface of the RStudio IDE itself. The settings in this section all apply to the IDE's user interface for R sessions. 

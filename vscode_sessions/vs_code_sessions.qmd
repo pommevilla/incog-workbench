@@ -1,5 +1,8 @@
 ---
 title: "Overview"
+aliases:
+  - /vs-code-sessions.html
+  - /vs-code-sessions.html#overview-8
 ---
 
 ## VS Code Sessions {.pro-header}
