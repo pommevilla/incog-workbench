@@ -34,7 +34,7 @@ site:
       - section: "Getting Started"
         contents:
           - text: "Introduction" 
-            url: index.qmd
+            url: getting_started/getting_started.qmd
           - getting_started/installation.qmd
           - getting_started/management_script.qmd
           - getting_started/activation.qmd
