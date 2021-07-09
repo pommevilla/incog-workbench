@@ -47,3 +47,30 @@ By default, RStudio sets its umask to `022` on startup. If you don't want this b
 server-set-umask=0
 ```
 
+### Running Without Permissions
+
+RStudio Workbench can run in single user mode. This is primarily useful when it is a requirement to run entirely without root privilege; privilege is required to authenticate and run code on behalf of arbitrary users as noted above, but if only a single user will access the server and they have already been authenticated via other means, root privilege is not necessary.
+
+Use a configuration like the following to run in single user mode; in this example, `rstudiouser` will be the single user:
+
+```ini
+# /etc/rstudio/rserver.conf
+# Run the server under the single user account
+server-user=rstudiouser
+
+# Disable authentication altogether, since only one user can authenticate
+auth-none=1
+
+# Disable project sharing, since adjusting file permissions requires privilege
+server-project-sharing=0
+
+# Disable PAM sessions, since privilege is required to open and close PAM sessions
+auth-pam-sessions-enabled=0
+```
+
+Finally, if you are using a service manager to invoke RStudio Workbench, you will need to configure your service manager to start RStudio Workbench under the desired account. For example, if you are using the `systemd` init system, run `sudo systemctl edit rstudio-server` and add the following directive:
+
+```ini
+[Service]
+User=rstudiouser
+```

@@ -7,10 +7,9 @@ aliases:
 The following table enumerates the settings supported in the user (or system) `rstudio-prefs.json` file, along with their type, allowable values, and defaults. 
 
 
-```{r, echo=FALSE}
+```{r, echo = FALSE}
 # Read the schema from the repo
 json <- jsonlite::read_json("../../../src/cpp/session/resources/schema/user-prefs-schema.json")
-
 # Loop over each property to form a data frame
 props <- data.frame(
   Property = names(json$properties),
@@ -33,12 +32,14 @@ props <- data.frame(
         "Empty"
       }
     }
-    else
+    else if (identical(x$type, "boolean")) {
+       # R uses "TRUE"/"FALSE" for booleans but JSON wants "true"/"false"
+       tolower(x$default)
+    } else
       as.character(x$default)
   }, ""),
   stringsAsFactors = FALSE
 )
-
 # Sort, clear row names, and display
 props <- props[order(props$Property),] 
 row.names(props) <- NULL

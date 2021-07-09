@@ -38,7 +38,7 @@ RStudio Workbench supports the OAuth2 "Authorization Code" flow with OpenID.
 
 #### OpenID URLs
 
-RStudio Workbench expects an OAuth2 callback in order to complete the OpenID authentication. The endpoint responsible for handling this callback from the OP is localted at `/openid/callback`. For example, if your RStudio Workbench server is hosted at `https://rstudio.example.com/` the callback URL will be `https://rstudio.example.com/openid/callback`. While registering RStudio Workbench on your OpenID Provider, this URL will be requested. Your server URL may also be requested as part of that setup.
+RStudio Workbench expects an OAuth2 callback in order to complete the OpenID authentication. The endpoint responsible for handling this callback from the OP is located at `/openid/callback`. For example, if your RStudio Workbench server is hosted at `https://rstudio.example.com/` the callback URL will be `https://rstudio.example.com/openid/callback`. While registering RStudio Workbench on your OpenID Provider, this URL will be requested. Your server URL may also be requested as part of that setup.
 
 #### Client Credentials
 
