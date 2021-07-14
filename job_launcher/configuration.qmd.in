@@ -4,7 +4,7 @@ aliases:
 	- /job-launcher.html#launcher-configuration
 ---
 
-Before the Job Launcher can be run, it must be properly configured via the config file `/etc/rstudio/launcher.conf`; see the [Job Launcher documentation](https://docs.rstudio.com/job-launcher/7.14.2021-1809/index.html) for supported configuration options. If the Launcher was installed with RStudio Workbench, a default working configuration that uses the Local plugin is installed for your convenience.
+Before the Job Launcher can be run, it must be properly configured via the config file `/etc/rstudio/launcher.conf`; see the [Job Launcher documentation](https://docs.rstudio.com/job-launcher/${CPACK_PACKAGE_VERSION}/index.html) for supported configuration options. If the Launcher was installed with RStudio Workbench, a default working configuration that uses the Local plugin is installed for your convenience.
 
 The Launcher configuration parameter `admin-group` should be configured to the group value of the RStudio Workbench server user, specified in the `server-user` configuration parameter in `rserver.conf` (which defaults to  rstudio-server). This makes the server user a Job Launcher admin, which is necessary to properly launch sessions on behalf of other users.
 

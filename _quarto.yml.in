@@ -1,9 +1,6 @@
 project:
   type: site
 
-execute:
-  freeze: true
-
 site:
   title: "RStudio Workbench Administration ${CPACK_PACKAGE_VERSION}"
   subtitle: "Version ${CPACK_PACKAGE_VERSION}"
