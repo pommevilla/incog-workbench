@@ -18,4 +18,3 @@ book_files <- list.files(recursive = TRUE)
 zip('../rstudio-server-pro-${CPACK_PACKAGE_VERSION}-admin-guide.zip', book_files)
 
 
-
