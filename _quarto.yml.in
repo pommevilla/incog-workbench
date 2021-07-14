@@ -5,7 +5,7 @@ execute:
   freeze: true
 
 site:
-  title: "RStudio Workbench Administration"
+  title: "RStudio Workbench Administration ${CPACK_PACKAGE_VERSION}"
   subtitle: "Version ${CPACK_PACKAGE_VERSION}"
   downloads: [docx, pdf, epub]
   sharing: [twitter, facebook, linkedin]
