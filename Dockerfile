@@ -34,8 +34,8 @@ RUN R -e 'options(download.file.method = "wget"); install.packages("devtools", r
 
 # install quarto manually to a known good version
 RUN cd /tmp \
-	&& wget https://github.com/quarto-dev/quarto-cli/releases/download/v0.1.319/quarto-0.1.319-amd64.deb \
-	&& dpkg -i quarto-0.1.319-amd64.deb 
+	&& wget -q https://github.com/quarto-dev/quarto-cli/releases/download/v0.1.367/quarto-0.1.367-amd64.deb \
+	&& dpkg -i quarto-0.1.367-amd64.deb 
 
 # set up LANG for building books; otherwise pandoc writes "C" as the language,
 # which confuses kindlegen

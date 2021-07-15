@@ -1,17 +1,16 @@
 project:
   type: site
 
-
 execute:
-  freeze: true
+  freeze
 
 site:
-  title: "RStudio Workbench Administration 7.14.2021-1809"
-  subtitle: "Version 7.14.2021-1809"
+  title: "RStudio Workbench Administration 7.15.2021-0848"
+  subtitle: "Version 7.15.2021-0848"
   downloads: [docx, pdf, epub]
   sharing: [twitter, facebook, linkedin]
   page-navigation: true
-  site-url: https://pommevilla.github.io/incog-workbench
+  site-url: https://pommevilla.github.io/incog-workbench/
   repo-url: https://github.com/pommevilla/incog-workbench
   repo-actions: [edit, issue]
 
