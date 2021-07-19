@@ -1,5 +1,5 @@
 ---
-title: "Kerberos {.pro-header}"
+title: "Kerberos [PRO]{.pro-header}"
 aliases: 
   - /r-sessions.html#kerberos
 ---

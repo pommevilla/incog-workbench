@@ -34,16 +34,19 @@ site:
             url: getting_started/getting_started.qmd
           - getting_started/installation.qmd
           - getting_started/management_script.qmd
-          - getting_started/activation.qmd
+          - text: "Activation"
+            file: getting_started/activation.qmd
           - getting_started/accessing_the_server.qmd
           - getting_started/community_resources.qmd
-          - getting_started/professional_support.qmd
+          - text: "Professional Support"
+            file: getting_started/professional_support.qmd
       - section: "Server Management"
         contents:
           - server_management/server_management.qmd 
           - server_management/core_administrative_tasks.qmd
           - server_management/logging.qmd
-          - server_management/administrative_dashboard.qmd
+          - text: "Administrative Dashboard"
+            file: server_management/administrative_dashboard.qmd
           - server_management/automated_crash_reporting.qmd
       - section: "Authenticating Users"
         contents:
@@ -53,10 +56,14 @@ site:
           - authenticating_users/authentication_migration.qmd
           - authenticating_users/pam_authentication.qmd
           - authenticating_users/restricting_access.qmd
-          - authenticating_users/saml_sso.qmd
-          - authenticating_users/openid_connect_authentication.qmd
-          - authenticating_users/proxied_authentication.qmd
-          - authenticating_users/google_accounts.qmd
+          - text: "SAML Single Sign-On (SSO) Authentication"
+            file: authenticating_users/saml_sso.qmd
+          - text: "OpenID Connect Authentication"
+            file: authenticating_users/openid_connect_authentication.qmd
+          - text: "Proxied Authentication"
+            file: authenticating_users/proxied_authentication.qmd
+          - text: "Google Accounts (deprecated)"
+            file: authenticating_users/google_accounts.qmd
           - authenticating_users/customizing_signin.qmd
           - authenticating_users/authorization_timeout.qmd
       - section: "Access and Security"
@@ -79,17 +86,24 @@ site:
           - r_sessions/r_sessions.qmd
           - r_sessions/r_executable_and_libraries.qmd
           - r_sessions/session_startup_scripts.qmd
-          - r_sessions/user_and_group_profiles.qmd
-          - r_sessions/multiple_r_sessions.qmd
-          - r_sessions/pam_sessions.qmd
-          - r_sessions/kerberos.qmd
+          - text: "User and Group Profiles"
+            file: r_sessions/user_and_group_profiles.qmd
+          - text: "Multiple R Sessions"
+            file: r_sessions/multiple_r_sessions.qmd
+          - text: "PAM Sessions"
+            file: r_sessions/pam_sessions.qmd
+          - text: "Kerberos"
+            file: r_sessions/kerberos.qmd
           - r_sessions/directory_management.qmd
           - r_sessions/workspace_management.qmd
           - r_sessions/first_project_template.qmd
-          - r_sessions/project_sharing.qmd
+          - text: "Project Sharing"
+            file: r_sessions/project_sharing.qmd
           - r_sessions/package_installation.qmd
-          - r_sessions/feature_limits.qmd
-          - r_sessions/notifications.qmd
+          - text: "Feature Limits"
+            file: r_sessions/feature_limits.qmd
+          - text: "Notifications"
+            file: r_sessions/notifications.qmd
           - r_sessions/rstudio_connect_server.qmd
           - r_sessions/terminal_websockets.qmd
           - r_sessions/customizing_session_settings.qmd
@@ -131,7 +145,8 @@ site:
           - data_connectivity/snippet_files.qmd
       - section: "Job Launcher"
         contents:
-          - job_launcher/job_launcher.qmd
+          - text: "Overview"
+            file: job_launcher/job_launcher.qmd
           - job_launcher/configuration.qmd
           - job_launcher/running_the_launcher.qmd
           - job_launcher/load_balancing.qmd
@@ -164,7 +179,8 @@ site:
       - section: "Hardening"
         contents:
           - hardening/hardening.qmd
-          - hardening/set_up_ssl.qmd
+          - text: "Set Up SSL"
+            file: hardening/set_up_ssl.qmd
           - hardening/browser_security.qmd
           - hardening/r_session_security.qmd
           - hardening/other.qmd

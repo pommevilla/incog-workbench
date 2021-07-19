@@ -1,5 +1,5 @@
 ---
-title: "SAML Single Sign-On Authentication {.pro-header}"
+title: "SAML Single Sign-On Authentication [PRO]{.pro-header}"
 aliases:
 	- /authenticating-users.html#saml-single-sign-on-authentication
 ---

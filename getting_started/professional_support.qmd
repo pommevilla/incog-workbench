@@ -1,5 +1,5 @@
 ---
-title: "Professional Support {.pro-header}"
+title: "Professional Support [PRO]{.pro-header}"
 aliases:
    - /index.html#professional-support
 ---

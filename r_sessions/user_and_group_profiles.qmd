@@ -1,5 +1,5 @@
 ---
-title: "User and Group Profiles {.pro-header}"
+title: "User and Group Profiles [PRO]{.pro-header}"
 aliases:
 	- /r-sessions.html#user-and-group-profiles
 ---

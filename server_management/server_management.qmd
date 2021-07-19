@@ -4,9 +4,4 @@ aliases:
 	- /server-management.html
 ---
 
-In this section:
-
-* [Core Administrative Tasks](core_administrative_tasks.qmd)
-* [Logging](logging.qmd)
-* [Administrative Dashboard](administrative_dashboard.qmd)
-* [Automated Crash Reporting](automated_crash_reporting.qmd)
+In this section, you’ll configure core server settings, primarily via config files.  This includes settings for Linux service configuration, specifying various directories, and instructions for basic server administration.  It also includes setting up logging, the administrative dashboard, and automated crash reporting.

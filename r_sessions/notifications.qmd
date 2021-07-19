@@ -1,5 +1,5 @@
 ---
-title: "Notifications {.pro-header}"
+title: "Notifications [PRO]{.pro-header}"
 aliases:
    - /r-sessions.html#notifications
 ---

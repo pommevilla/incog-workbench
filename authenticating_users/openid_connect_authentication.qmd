@@ -1,10 +1,8 @@
 ---
-title: "OpenID Connect Authentication {.pro-header}"
+title: "OpenID Connect Authentication [PRO]{.pro-header}"
 aliases:
 	- /authenticating-users.html#openid-connect-authentication
 ---
-
-# OpenID Connect Authentication {.pro-header}
 
 RStudio Workbench can be configured to authenticate users via OpenID Connect. This enables users to log in with their existing Single Sign-On (SSO) credentials and to be automatically authenticated to RStudio whenever they are already logged into their OpenID Provider (OP) account.
 

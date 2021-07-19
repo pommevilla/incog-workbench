@@ -1,5 +1,5 @@
 ---
-title: "Multiple R Sessions {.pro-header}"
+title: "Multiple R Sessions [PRO]{.pro-header}"
 aliases:
 	- /r-sessions.html#multiple-r-sessions
 ---

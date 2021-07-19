@@ -1,5 +1,5 @@
 ---
-title: "Administrative Dashboard {.pro-header}"
+title: "Administrative Dashboard [PRO]{.pro-header}"
 aliases:
 	- /server-management.html#administrative-dashboard
 ---

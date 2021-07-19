@@ -1,5 +1,5 @@
 ---
-title: "PAM Sessions {.pro-header}"
+title: "PAM Sessions [PRO]{.pro-header}"
 aliases:
     - /r-sessions.html#pam-sessions
 ---

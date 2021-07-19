@@ -4,8 +4,4 @@ aliases:
 	- /data-connectivity.html
 ---
 
-In this section:
-
-* [Connectivity Using ODBC](connectivity_using_odbc.qmd)
-* [Connectivity Using R Packages](connectivity_using_r_packages.qmd)
-* [Snippet Files](snippet_files.qmd)
+You can set up connections to shared data sources which will be available to users in the Connections pane of the RStudio IDE.

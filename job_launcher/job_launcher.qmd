@@ -1,5 +1,5 @@
 ---
-title: "Job Launcher {.pro-header}"
+title: "Job Launcher [PRO]{.pro-header}"
 aliases:
   - /job-launcher.html
   - /job-launcher.html#overview-5

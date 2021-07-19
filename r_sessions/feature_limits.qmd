@@ -1,5 +1,5 @@
 ---
-title: "Feature Limits {.pro-header}"
+title: "Feature Limits [PRO]{.pro-header}"
 aliases: 
 	- /r-sessions.html#feature-limits
 ---

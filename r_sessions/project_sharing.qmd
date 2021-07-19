@@ -1,5 +1,5 @@
 ---
-title: "Project Sharing {.pro-header}"
+title: "Project Sharing [PRO]{.pro-header}"
 aliases:
 	- /r-sessions.html#project-sharing
 ---

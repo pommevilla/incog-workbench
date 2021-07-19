@@ -6,8 +6,4 @@ aliases:
 
 ## Auditing and Monitoring {.pro-header}
 
-In this section:
-
-* [Auditing Configuration](auditing_configuration.qmd)
-* [Monitoring Configuration](monitoring_configuration.qmd)
-* [Server Health Checks](server_health_checks.qmd)
+RStudio Workbench can be configured to audit R console input and output for per user and session.  It can monitor runtime resource use via the Administrative Dashboard or through integration with a system like Graphite.

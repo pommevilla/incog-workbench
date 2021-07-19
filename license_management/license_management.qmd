@@ -6,11 +6,4 @@ aliases:
 
 ## License Management {.pro-header}
 
-In this section:
-
-* [Product Activation](product_activation.qmd)
-* [License Details](license_details.qmd)
-* [Connectivity Requirements](connectivity_requirements.qmd)\
-* [Evaluations](evaluations.qmd)
-* [Floating Licensing](floating_licensing.qmd)
-* [Userspace Licensing](userspace_licensing.qmd)
+RStudio Workbench uses a built-in license management system.  A license controls the number of users that can connect to the server, as well as activation of the job launcher feature and the number of concurrent sessions that can be run.  The license server supports named users as well as floating licenses.

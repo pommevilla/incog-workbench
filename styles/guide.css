@@ -1,4 +1,3 @@
-
 .sidebar-logo {
   width: 60%;
 }
@@ -6,7 +5,8 @@
 .pro-header > h1:after,
 .pro-header > h2:after,
 .pro-header > h3:after,
-.pro-header > h4:after {
+.pro-header > h4:after,
+header h1 .pro-header {
     content: 'PRO';
     margin-left: 1em;
     position: relative;
@@ -17,6 +17,7 @@
 .pro-header > h2:after,
 .pro-header > h3:after,
 .pro-header > h4:after,
+header h1 .pro-header,
 div span.pro-feature {
     display: inline-block;
     color: #909090;

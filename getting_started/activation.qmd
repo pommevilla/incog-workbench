@@ -1,5 +1,5 @@
 ---
-title: "Activation {.pro-header}"
+title: "Activation [PRO]{.pro-header}"
 aliases:
 	- /index.html#activation
 ---
