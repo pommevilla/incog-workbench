@@ -15,7 +15,7 @@ Here are some instructions to get you started working on the the docs with Quart
 
 This will serve the site to your web browser. Quarto will detect when you make changes to any of the `qmd` files and rerender that page. 
 An exception to this is if the page contains code - Quarto will not rerender this during `quarto serve`. 
-You will need to stop the server and render it manually with `quarto render file_name.qmd` (on the command line) or `quarto_render("file_name.qmd") (in R). 
+You will need to stop the server and render it manually with `quarto render file_name.qmd` (on the command line) or `quarto_render("file_name.qmd")` (in R). 
 
 Additionally, since `freeze` is set to `true` in `quarto.yml`, Quarto will not automatically re-execute any code in any of the documents.
 This means that if you make edit the code in any of the documents, you will have to manually rerender that page in order for the final site to reflect those changes.
