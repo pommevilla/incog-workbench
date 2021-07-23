@@ -8,10 +8,10 @@ site:
   sharing: [twitter, facebook, linkedin]
   page-navigation: true
   site-url: https://docs.rstudio.com/ide/server-pro/
-  repo-url: https://github.com/rstudio/rstudio/
-  repo-actions: [edit, issue]
+  repo-url: https://github.com/rstudio/rstudio-pro
 
   navbar:
+    type: light
     search: true
     logo: images/RStudio-ball.svg
     right:

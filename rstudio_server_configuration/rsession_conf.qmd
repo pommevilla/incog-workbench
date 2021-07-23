@@ -169,13 +169,13 @@ Indicates whether or not to restrict the directories that can be viewed within t
 Type: bool  
 Default: `0  `
   
-#### **directory-view-whitelist**   
+#### **directory-view-allow-list**   
 Specifies a list of directories exempt from directory view restrictions, separated by a colon character (:).  
   
 Type: string  
 Default: `<empty string>  `
   
-#### **session-env-var-save-blacklist**   
+#### **session-ephemeral-env-vars**   
 Specifies a list of environment variables that will not be saved when sessions suspend, separated by a colon character (:).  
   
 Type: string  
@@ -186,6 +186,30 @@ Specifies whether the session should be allowed to suspend when a user has enter
   
 Type: bool  
 Default: `0  `
+  
+#### **session-async-rpc-enabled**   
+Enables async responses to rpc requests to prevent connection logjams in the browser, allowing interrupt of busy sessions  
+  
+Type: bool  
+Default: `1  `
+  
+#### **session-async-rpc-timeout-ms**   
+Duration in millis before requests are converted to async - i.e. how fast will the server free up connections when it's busy  
+  
+Type: int  
+Default: `200  `
+  
+#### **session-handle-offline-enabled**   
+Enables offline request handling. When the R session is busy, some requests are allowed to run  
+  
+Type: bool  
+Default: `1  `
+  
+#### **session-handle-offline-timeout-ms**   
+Duration in millis before requests that can be handled offline are processed by the offline handler thread.  
+  
+Type: int  
+Default: `200  `
   
 
 ### *allow* Settings
@@ -526,5 +550,4 @@ Specifies the amount of hours to wait before forcefully killing a running sessio
 Type: int  
 Default: `0  `
   
-
 

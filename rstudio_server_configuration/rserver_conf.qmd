@@ -276,6 +276,12 @@ Indicates whether or not to enforce SSL certificate verification of the server w
 Type: bool  
 Default: `1  `
   
+#### **launcher-sessions-callback-timeout** {.pro-header}  
+The number of seconds to wait before timing out a connection from a Launcher session to the callback address.  
+  
+Type: int  
+Default: `10  `
+  
 #### **launcher-sessions-container-image** {.pro-header}  
 Specifies the default container image to use for Launcher sessions. Only applicable for container-based job systems (e.g. Kubernetes).  
   
@@ -946,3 +952,4 @@ Specifies the path to the shared storage directory.
 Type: string  
 Default: `/var/lib/rstudio-server/shared-storage  `
   
+

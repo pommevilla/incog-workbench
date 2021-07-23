@@ -34,11 +34,17 @@ RUN R -e 'options(download.file.method = "wget"); install.packages("devtools", r
 
 # install quarto manually to a known good version
 RUN cd /tmp \
-	&& wget -q https://github.com/quarto-dev/quarto-cli/releases/download/v0.2.13/quarto-0.2.13-amd64.deb \
-	&& dpkg -i quarto-0.2.13-amd64.deb 
+	&& wget -q https://github.com/quarto-dev/quarto-cli/releases/download/v0.2.26/quarto-0.2.26-amd64.deb \
+	&& dpkg -i quarto-0.2.26-amd64.deb 
 
 # set up LANG for building books; otherwise pandoc writes "C" as the language,
 # which confuses kindlegen
 RUN locale-gen en_US.utf8
 ENV LANG=en_US.utf8
 
+# Add Jenkins user
+ARG JENKINS_GID=999
+ARG JENKINS_UID=999
+RUN groupadd -g $JENKINS_GID jenkins && \
+    useradd -m -d /var/lib/jenkins -u $JENKINS_UID -g jenkins jenkins && \
+    echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
