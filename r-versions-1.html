@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Redirect</title>
+  <script type="text/javascript">
+    var redirects = {"session-initialization":"r_versions/session_initialization.html","managing-upgrades-of-r":"r_versions/managing_upgrades.html","configuring-the-default-version-of-r":"r_versions/configuring_default.html","installing-r":"r_versions/installing_r.html","":"r_versions/r_versions.html","using-multiple-versions-of-r-concurrently":"r_versions/using_multiple_versions_of_r.html"};
+    var hash = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : window.location.hash;
+    var redirect = redirects[hash] || redirects[""] || "/";
+    window.document.title = 'Redirect to  ' +  redirect;
+    window.location.replace(redirect);
+  </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Redirect</title>
+  <script type="text/javascript">
+    var redirects = {"administrative-dashboard":"server_management/administrative_dashboard.html","automated-crash-reporting":"server_management/automated_crash_reporting.html","logging":"server_management/logging.html","":"server_management/server_management.html","core-administrative-tasks":"server_management/core_administrative_tasks.html"};
+    var hash = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : window.location.hash;
+    var redirect = redirects[hash] || redirects[""] || "/";
+    window.document.title = 'Redirect to  ' +  redirect;
+    window.location.replace(redirect);
+  </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Redirect</title>
+  <script type="text/javascript">
+    var redirects = {"pam-sessions":"r_sessions/pam_sessions.html","terminal-websockets":"r_sessions/terminal_websockets.html","multiple-r-sessions":"r_sessions/multiple_r_sessions.html","r-executable-and-libraries":"r_sessions/r_executable_and_libraries.html","package-installation":"r_sessions/package_installation.html","rstudio-connect-server":"r_sessions/rstudio_connect_server.html","project-sharing":"r_sessions/project_sharing.html","notifications":"r_sessions/notifications.html","session-startup-scripts":"r_sessions/session_startup_scripts.html","directory-management":"r_sessions/directory_management.html","kerberos":"r_sessions/kerberos.html","first-project-template":"r_sessions/first_project_template.html","workspace-management":"r_sessions/workspace_management.html","user-and-group-profiles":"r_sessions/user_and_group_profiles.html","customizing-session-settings":"r_sessions/customizing_session_settings.html","feature-limits":"r_sessions/feature_limits.html","":"r_sessions/r_sessions.html"};
+    var hash = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : window.location.hash;
+    var redirect = redirects[hash] || redirects[""] || "/";
+    window.document.title = 'Redirect to  ' +  redirect;
+    window.location.replace(redirect);
+  </script>
+</head>
+<body>
+</body>
+</html>
