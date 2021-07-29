@@ -151,3 +151,8 @@ main > p a[href^="https://"]:is([href*="colorado.rstudio.com"]):after {
 	color: $pro-header;
 }
 
+/* Sidebar Scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
