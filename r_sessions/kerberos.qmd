@@ -102,6 +102,6 @@ sudo /usr/lib/rstudio-server/bin/pamtester --verbose \
 
 Note that you should substitute an actual local username for the `<user>` part of the command line.
 
-The specifics of both PAM configuration and Kerberos configuration can vary substantially by environment. As a result correct configuration likely requires additional entries and options which this guide isn't able to cover. Please refer to the documentation linked to in [More Resources] as well as the [pam_krb5](http://www.eyrie.org/~eagle/software/pam-krb5/pam-krb5.html) for additional details.
+The specifics of both PAM configuration and Kerberos configuration can vary substantially by environment. As a result correct configuration likely requires additional entries and options which this guide isn't able to cover. Please refer to the documentation linked to in [More Resources](../r_sessions/pam_sessions#more-resources) as well as the [pam_krb5](http://www.eyrie.org/~eagle/software/pam-krb5/pam-krb5.html) for additional details.
 
 

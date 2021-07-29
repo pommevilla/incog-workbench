@@ -77,7 +77,7 @@ Message: Remember to drop off any borrowed equipment at Grace's office today onl
 But this is not:
 
 ```ini
-#  /etc/rstudio/notifications.con
+#  /etc/rstudio/notifications.conf
 StartTime: 2017-08-30 12:00:00 -5:00
 EndTime: 2017-08-30 20:00:00 -05:00
 Message: Please remember to shut down your computers at the end of the day.

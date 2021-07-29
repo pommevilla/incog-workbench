@@ -1,0 +1,50 @@
+---
+title: "License Activation and Details"
+aliases:
+	- /license-management.html#product-activation
+	- /license-management.html#license-activation
+	- /license-management.html#license-details
+	- /index.html#activation
+---
+
+### Activation Basics
+
+When RStudio Workbench is first installed on a system it operates in evaluation mode for a period of time and then subsequently requires activation for continued use.
+
+To determine the current license status of your system you can use the following command:
+
+```bash
+$ sudo rstudio-server license-manager status
+```
+
+After purchasing a license to RStudio Workbench you'll receive a license key that can be used to activate the license on a given system.
+
+You can activate your license key with the command:
+
+```bash
+$ sudo rstudio-server license-manager activate <product-key>
+$ sudo rstudio-server restart
+```
+
+Note that you need to restart the server in order for licensing changes to take effect.
+
+If you want to move your license of RStudio Workbench to another system you should first deactivate it on the old system with the command:
+
+```bash
+$ sudo rstudio-server license-manager deactivate
+```
+
+### License Details
+
+RStudio Workbench licenses include some details that you'll see when you run the `status` command. These are part of the license and can't be changed without purchasing a different license. They are as follows: 
+
+| Value                | Meaning                                            |
+| -------------------- | -------------------------------------------------- |
+| `enable-launcher`    | Whether the Job Launcher is enabled.               |
+| `sessions`           | The maximum number of concurrent R sessions that can be run; 0 if unlimited. |
+| `users`              | The maximum number of users that can connect to the server; 0 if unlimited. |
+
+Typically, RStudio Workbench licenses either disable the Launcher but allow for unlimited local users and sessions, or enable the Launcher and provide limits on users and/or sessions. If you have questions about the best kind of license for your use case, contact <sales@rstudio.com> for help.
+
+Note that when named user licenses are in effect (`users` is greater than 0), [R Session Auditing](../auditing_and_monitoring/auditing_configuration.qmd#r-session-auditing) is enabled by default to help you keep track of which users are using the product.
+

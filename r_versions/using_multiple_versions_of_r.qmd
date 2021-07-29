@@ -151,5 +151,5 @@ If you want to prevent users from being able to change R versions entirely you c
 r-versions-multiple=0
 ```
 
-You can also configure this on a per-user or per-group basis by specifying the `r-versions-multiple` option within [User and Group Profiles].
+You can also configure this on a per-user or per-group basis by specifying the `r-versions-multiple` option within [User and Group Profiles](../r_sessions/user_and_group_profiles.qmd).
 

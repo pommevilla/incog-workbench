@@ -28,7 +28,7 @@ Note that this change will not take effect until the server is restarted.
 
 #### Using Multiple Versions of R {.pro-header}
 
-The section above describes how RStudio locates the global default version of R. It's also possible to specify alternate versions of R either by user or by group. The [R Versions] section describes this in more detail.
+The section above describes how RStudio locates the global default version of R. It's also possible to specify alternate versions of R either by user or by group. The [R Versions](../r_versions/r_versions.qmd) section describes this in more detail.
 
 ### Locating Shared Libraries
 
@@ -82,7 +82,7 @@ rsession-no-profile=1
 
 R sessions inherit environment variables that are explicitly exported from the  profile scripts described above. It's also possible to append paths to the `LD_LIBRARY_PATH` environment variable using the `rsession-ld-library-path` option (see previous section for details).
 
-Another source of environment variables are PAM sessions. On Debian/Ubuntu systems, the default PAM profile run by RStudio includes the environment variables defined in `/etc/security/pam_env.conf` and `/etc/environment`. To learn more about setting environment variables with PAM you should consult the [PAM Sessions] section as well as the documentation on the `pam_env` module here: [http://linux.die.net/man/8/pam_env](http://linux.die.net/man/8/pam_env).
+Another source of environment variables are PAM sessions. On Debian/Ubuntu systems, the default PAM profile run by RStudio includes the environment variables defined in `/etc/security/pam_env.conf` and `/etc/environment`. To learn more about setting environment variables with PAM you should consult the [PAM Sessions](../r_sessions/pam_sessions.qmd) section as well as the documentation on the `pam_env` module here: [http://linux.die.net/man/8/pam_env](http://linux.die.net/man/8/pam_env).
 
 #### Program Supervisors
 
@@ -93,7 +93,7 @@ You may also wish to run R sessions under a program supervisor that modifies the
 rsession-exec-command=nice -n 10
 ```
 
-This example uses the `nice` command to run all R sessions with a lower scheduling priority. See [http://linux.die.net/man/1/nice](http://linux.die.net/man/1/nice) for more details on `nice`. Note that for `nice` in particular it's possible to accomplish the same thing using user and group profiles (and even specify a custom priority level per user or group). See the [User and Group Profiles] section for more details.
+This example uses the `nice` command to run all R sessions with a lower scheduling priority. See [http://linux.die.net/man/1/nice](http://linux.die.net/man/1/nice) for more details on `nice`. Note that for `nice` in particular it's possible to accomplish the same thing using user and group profiles (and even specify a custom priority level per user or group). See the [User and Group Profiles](../r_sessions/user_and_group_profiles.qmd) section for more details.
 
 ### Diagnosing Session Launch Failures {.pro-header}
 

@@ -130,7 +130,7 @@ This technique cannot be used to set the specific environment variables `XDG_CON
 :::
 
 ::: {.callout-note}
-With the exception of XDG variables, environment variables set for the server process are not generally forwarded to individual R sessions. To set environment variables such as `HTTP_PROXY` for all R sessions on the server, use [Renviron.site](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Startup.html) or set them in one of the scripts executed when R sessions are initialized (see [Profile Script Execution]).
+With the exception of XDG variables, environment variables set for the server process are not generally forwarded to individual R sessions. To set environment variables such as `HTTP_PROXY` for all R sessions on the server, use [Renviron.site](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Startup.html) or set them in one of the scripts executed when R sessions are initialized (see [Profile Script Execution](../r_sessions/r_executable_and_libraries.qmd#profile-script-execution)).
 :::
 
 
@@ -145,9 +145,9 @@ During installation RStudio is automatically registered as a daemon which starts
 To manually stop, start, and restart the server you use the following commands:
 
 ```bash
-sudo rstudio-server stop
-sudo rstudio-server start
-sudo rstudio-server restart
+$ sudo rstudio-server stop
+$ sudo rstudio-server start
+$ sudo rstudio-server restart
 ```
 
 To check the current stopped/started status of the server:

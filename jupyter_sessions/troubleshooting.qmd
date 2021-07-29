@@ -1,7 +1,8 @@
 ---
-title: "Troubleshooting"
+title: "Jupyter Troubleshooting"
 aliases:
-	- /jupyter-sessions.html#troubleshooting-3
+  - /jupyter-sessions.html#troubleshooting-3
+  - /jupyter-sessions.html#jupyter-troubleshooting
 ---
 
 If you experience issues related to running Jupyter sessions, you can use the Launcher verification tool which will attempt to launch both RStudio and Jupyter launcher sessions and provide diagnostic output about what could be going wrong. For more information, see the [Troubleshooting](#launcher-troubleshooting) section for the Job Launcher integration documentation.

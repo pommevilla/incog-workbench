@@ -32,7 +32,7 @@ The schema for the JSON file can be found at:
 /usr/lib/rstudio-server/resources/schema/user-prefs-schema.json
 ```
 
-It documents all of the preferences, shows data types and allowable values, and briefly explains the usage of each. You can see a summary of this information in the [Session User Settings] appendix.
+It documents all of the preferences, shows data types and allowable values, and briefly explains the usage of each. You can see a summary of this information in the [Session User Settings](../session_user_settings/session_user_settings.qmd) appendix.
 
 #### Example
 

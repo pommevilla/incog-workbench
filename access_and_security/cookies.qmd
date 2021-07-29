@@ -2,7 +2,11 @@
 title: "Cookies"
 aliases:
   - /access-and-security.html#cookies
+  - /access-and-security.html#same-site-cookies
+  - /access-and-security.html#compatibility-with-safari-13
 ---
+
+### Secure Cookies
 
 By default, when RStudio Workbench is configured with SSL, all authorization cookies are marked with the `secure` cookie attribute. If you wish to use your own SSL termination but force RStudio to mark cookies as `secure`, you can add the following configuration option:
 
@@ -10,4 +14,40 @@ By default, when RStudio Workbench is configured with SSL, all authorization coo
 # /etc/rstudio/rserver.conf
 auth-cookies-force-secure=1
 ```
+
+### Same Site Cookies
+
+Most browsers have adopted recently a new attribute for cookies called `SameSite` which enforces additional security requirements around the cookie. RStudio does not define this attribute by default but you can use the option `www-same-site` for that purpose.
+
+For example, the value `SameSite=None` is required by certain browsers (i.e. Chrome 84+) for embedding sites into an IFrame or frameset. To ensuring the delivery of RStudio cookies in this scenario, use the value `www-same-site=none`.
+
+```ini
+# /etc/rstudio/rserver.conf
+www-same-site=none
+```
+
+::: {.callout-important}
+`SameSite=None` is insufficient without SSL enabled and may still prevent RStudio from working over non-SSL connections.
+:::
+
+Some browsers will not behave as expected in the presence of the `SameSite=None`; Safari 12 on MacOS 10.14 and iOS 12.x or older notably will not work. To workaround these limitations, RStudio will emit a pair of cookies, one with `SameSite=None` for standard-conforming browsers and a "legacy" cookie without `SameSite` for non-conforming browsers.
+
+You also can use the value `www-same-site=lax` to mark cookies as `SameSite=Lax` what effectively prohibits the use of RStudio embedded into an IFrame or frameset on compliant browsers by blocking all RStudio cookies.
+
+```ini
+# /etc/rstudio/rserver.conf
+www-same-site=lax
+```
+
+### Third-Party Cookies (Safari 13+ Compatibility)
+
+Starting in Safari 13, if you are loading RStudio inside a browser frame on a completely different domain all cookies will be blocked because those will be considered third-party cookies.
+
+Embedding RStudio in a subdomain of the main site causes its cookies to be considered first-party, allowing RStudio to work.
+
+Alternatively, you can place RStudio in the same domain as the main wrapping site but under a different URL path. This requires using a proxy in front of both the main site and RStudio. See [Running with a Proxy](running_with_a_proxy.qmd) below for more information.
+
+::: {.callout-note}
+In the near future, most browsers vendors plan to apply the same restrictions to cookies in some degree.
+:::
 

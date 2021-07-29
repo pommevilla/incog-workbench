@@ -23,7 +23,7 @@ Key characteristics of the RStudio Workbench load balancer include:
 4. Works standalone or can be integrated with other front-end load balancing environments.
 
 ::: {.callout-note}
-The standalone load balance and higher availability characteristics of RStudio Workbench are an exception among RStudio products. RStudio Connect and Shiny Server will require a front-end load balancing under the same scenarios. The use of an external load balancer can still be beneficial in a failover setup. See [External Load Balancers] below for details.
+The standalone load balance and higher availability characteristics of RStudio Workbench are an exception among RStudio products. RStudio Connect and Shiny Server will require a front-end load balancing under the same scenarios. The use of an external load balancer can still be beneficial in a failover setup. See [External Load Balancers](../load_balancing/access_and_availability#external-load-balancers) for details.
 :::
 
 

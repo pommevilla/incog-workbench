@@ -54,30 +54,30 @@ For example, to use the `www-host-name` option to define a cluster with two node
 
 On the first node, which can be reached at `server1.example.com`:
 
-**/etc/rstudio/load-balancer**
-
 ``` {.bash}
+# /etc/rstudio/load-balancer
 balancer=sessions
 www-host-name=server1.example.com
 ```
 
 On the second node, which can be reached at `server2.example.com`:
 
-**/etc/rstudio/load-balancer**
-
 ``` {.bash}
+# /etc/rstudio/load-balancer
 balancer=sessions
 www-host-name=server2.example.com
 ```
 
-```bash
+``` {.bash}
 # /etc/rstudio/secure-cookie-key
 a55e5dc0-d6ae-11e3-9334-000c29635f71
 ```
 
 The secure cookie key file above is only an example; you need to generate your own unique key to share among the nodes in your cluster.
 
-> **Note:** Previous versions of RStudio Workbench required the host name of each node be included on every active node under a [nodes] title in lieu of the `www-host-name` field, and a [config] title prior to the balancing options. This configuration will continue to work, but it is no longer the preferred configuration method. It is highly recommended that you update your config files accordingly.
+::: {.callout-note}
+Previous versions of RStudio Workbench required the host name of each node be included on every active node under a [nodes] title in lieu of the `www-host-name` field, and a [config] title prior to the balancing options. This configuration will continue to work, but it is no longer the preferred configuration method. It is highly recommended that you update your config files accordingly.
+:::
 
 ### Key File Requirements
 
@@ -93,8 +93,8 @@ The following are the requirements for the secure cookie key file:
 You can create a secure cookie key using the `uuid` utility as follows:
 
 ``` {.bash}
-sudo sh -c "echo `uuid` > /etc/rstudio/secure-cookie-key"
-sudo chmod 0600 /etc/rstudio/secure-cookie-key
+$ sudo sh -c "echo `uuid` > /etc/rstudio/secure-cookie-key"
+$ sudo chmod 0600 /etc/rstudio/secure-cookie-key
 ```
 
 This is the recommended method, but any mechanism that generates a unique, random value will work.
@@ -187,7 +187,7 @@ If you are having issues with file locking, you can set `enable-logging=1`, and 
 After creating your configuration files you should ensure that these files (along with all other configuration defined in `/etc/rstudio`) are copied to all nodes in the cluster. Assuming that the server is already installed and running on each node, you can then apply the load balancing configuration by restarting the server:
 
 ``` {.bash}
-sudo rstudio-server restart
+$ sudo rstudio-server restart
 ```
 
 #### Current Status
@@ -195,7 +195,7 @@ sudo rstudio-server restart
 Once the cluster is running you can inspect its state (which sessions are running where) using the load balancing status HTTP endpoint. For example, when running the server on the default port (8787):
 
 ``` {.bash}
-curl http://localhost:8787/load-balancer/status
+$ curl http://localhost:8787/load-balancer/status
 ```
 
 Note that the status endpoint is accessed using localhost rather than an external IP address. This is because this endpoint is IP restricted to only be accessible within the cluster, so needs to be accessed directly from one of the nodes.
@@ -224,13 +224,13 @@ An unreachable node indicates an issue connecting to it via the network. In most
 To temporarily remove a node from the cluster you can simply stop it:
 
 ``` {.bash}
-sudo rstudio-server stop
+$ sudo rstudio-server stop
 ```
 
 R sessions running on that node will be automatically moved to another active node. Note that only the session state is moved, not the running processes. To restore the node you can simply start it back up again:
 
 ``` {.bash}
-sudo rstudio-server start
+$ sudo rstudio-server start
 ```
 
 Note that removing nodes does not require changing the list of defined nodes in `/etc/rstudio/load-balancer` (traffic is automatically routed around nodes not currently running).
@@ -252,7 +252,7 @@ Some scenarios may causes RStudio to wait a long time for a node to respond due 
 
 
 ```bash
-; /etc/rstudio/load-balancer
+# /etc/rstudio/load-balancer
 [config]
 
 balancer=sessions
@@ -267,7 +267,7 @@ If one of the nodes is temporarily using a self-signed or otherwise functional b
 
 
 ```bash
-; /etc/rstudio/load-balancer
+# /etc/rstudio/load-balancer
 [config]
 
 balancer=sessions
@@ -282,7 +282,7 @@ One of the load balancing requirements is that user accounts must be accessible 
 You can determine the ID for a given username via the `id` command. For example:
 
 ``` {.bash}
-id -u jsmith
+$ id -u jsmith
 ```
 
 #### NFS Volume Mounting Problems

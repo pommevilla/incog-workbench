@@ -91,6 +91,13 @@ Once this file has been created, copy it to the other node to the same location 
 The path to the `secure-cookie-key` file can be changed, but it is not recommended in most cases. If you need to change it, it can be done by adding the following line to the `/etc/rstudio/rserver.conf` and `/etc/rstudio/launcher.conf` configuration files:
 
 ```bash
+# /etc/rstudio/rserver.conf
+secure-cookie-key-file=/path/to/secure-cookie-key
+```
+and:
+
+```bash
+# /etc/rstudio/launcher.conf
 secure-cookie-key-file=/path/to/secure-cookie-key
 ```
 
@@ -112,7 +119,7 @@ Once the files are created, simply copy them to each RStudio node in your cluste
 
 It is recommended that you configure the Shared Storage path (see [Shared Storage](../r_sessions/project_sharing.qmd#shared-storage) for configuration) in a location that will be reachable both by the RStudio Workbench instance and each Launcher Session in order to support various RStudio features. Failure to do so could cause subtle, unintended issues.
 
-See the [Launcher Mounts] section for more details about how to configure this correctly with [Containerized Sessions].
+See the [Launcher Mounts](../job_launcher/configuration.qmd#launcher-mounts) section for more details about how to configure this correctly with [Containerized Sessions](configuration.qmd#containerized-sessions).
 
 #### Containerized Sessions
 
