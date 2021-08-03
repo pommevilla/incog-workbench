@@ -13,8 +13,6 @@ User and Group Profiles enable you to tailor the behavior of sessions on a per-u
 5) R session timeouts (amount of idle time which triggers session suspend)
 6) R session kill timeouts (amount of idle time which triggers a session to be destroyed and cleaned up)
 
-Note that if launching sessions via the Job Launcher, scheduling priority and resource limits are not ignored, but these should generally be configured via the Job Launcher itself where applicable. For example, when running Kubernetes sessions, memory limits can be specified each time a session is launched, so memory limits should be configured by the Job Launcher in that case.
-
 ### Creating Profiles
 
 Profiles are defined within the file `/etc/rstudio/profiles`. Note that this file is not created by default so you'll need to create it if doesn't already exist. Profiles are divided into sections of three different type:
@@ -208,4 +206,17 @@ Note that `r-version` specifies the full path to the directory where R is instal
 See the [R Versions](../r_versions/r_versions.html) chapter for additional details on running multiple versions of R on a single server.
 
 This setting only applies to the RStudio IDE, and does not apply to Jupyter or VS Code.
+
+### Usage in Distributed Environments
+
+User profiles are still applicable when R sessions are not all co-located on the same server, but some considerations apply.
+
+#### Job Launcher 
+
+If launching sessions via the Job Launcher, scheduling priority and resource limits are not ignored, but these should generally be configured via the Job Launcher itself where applicable. For example, when running Kubernetes sessions, memory limits can be specified each time a session is launched, so memory limits should be configured by the Job Launcher in that case.
+
+#### Load Balancer
+
+When using load balancing, resource limits are applied to a session *after* it has been assigned to a server in a load-balanced cluster. So, for example, if you have `cpu-affinity` set to `1-4` for a user, then the user's session can run on cores 1 through 4 of any server in the cluster. Likewise, a session's `max-memory-mb` value will cap the memory it can use on the server on which it runs, but doesn't otherwise restrict memory usage across servers. 
+
 

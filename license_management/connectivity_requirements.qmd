@@ -25,7 +25,7 @@ http://127.0.0.1/
 http://127.0.0.1:8080/
 http://user:pass@127.0.0.1:8080/
 ```
- 
+
 If the port is not specified, the license manager will default to using port `1080`.
 
 ### Offline Activation
@@ -38,7 +38,7 @@ To activate your license offline, you first generate an offline activation reque
 $ sudo rstudio-server license-manager activate-offline-request <product-key>
 ```
 
-Executing this command will print an offline activation request to the terminal which you should copy and paste and enter into our [offline activation application](https://rs-support.shinyapps.io/offline-activation/) or send to RStudio customer support (<support@rstudio.com>). You will receive a reply with a file attachment that can be used to activate offline as follows:
+Executing this command will print an offline activation request to the terminal which you should copy and paste and enter into our [offline activation application](http://apps.rstudio.com/offline-activation) or send to RStudio customer support (<support@rstudio.com>). You will receive a reply with a file attachment that can be used to activate offline as follows:
 
 ```bash
 $ sudo rstudio-server license-manager activate-offline <activation-file>
@@ -50,7 +50,7 @@ If you are renewing your license or want to move your license of RStudio Workben
 $ sudo rstudio-server license-manager deactivate-offline
 ```
 
-Executing this command will print an offline deactivation request to the terminal which you should copy and paste and enter into the [offline activation application](https://rs-support.shinyapps.io/offline-activation/) then send to RStudio customer support (<support@rstudio.com>).
+Executing this command will print an offline deactivation request to the terminal which you should copy and paste and enter into the [offline activation application](http://apps.rstudio.com/offline-activation) then send to RStudio customer support (<support@rstudio.com>).
 
 You can also perform an offline check of your current license status using the following command:
 

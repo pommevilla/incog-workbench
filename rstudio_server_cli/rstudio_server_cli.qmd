@@ -1,0 +1,9 @@
+---
+title: "Command Line Interface"
+aliases:
+  - /rstudio-server-cli.html
+---
+
+```{r, child="../../../src/cpp/server/extras/man/rstudio-server.8.md"}
+
+```

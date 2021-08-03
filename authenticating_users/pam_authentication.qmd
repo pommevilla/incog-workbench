@@ -9,7 +9,7 @@ aliases:
 
 Local system accounts used by PAM must follow the system conventions for usernames. For example, usernames are case-sensitive.
 
-PAM profiles are are located in the `/etc/pam.d` directory. Each application can have their own profile, and there is also a default profile used for applications without one (the default profile is handled differently depending on which version of Linux you are running).
+PAM profiles are located in the `/etc/pam.d` directory. Each application can have their own profile, and there is also a default profile used for applications without one (the default profile is handled differently depending on which version of Linux you are running).
 
 To learn more about PAM and the many options and modules available for it see the following:
 
@@ -49,7 +49,7 @@ On Debian and Ubuntu systems RStudio does not provide an RStudio specific PAM co
   @include common-session
 ```
 
-If the `/etc/pam.d/other` profile reflects the authentication system and policies that you'd like RStudio to use then no further configuration is required. If you want to create a custom PAM profile for RStudio you would create a file named `/etc/pam.d/rstudio` and specify whatever settings are appropriate. 
+If the `/etc/pam.d/other` profile reflects the authentication system and policies that you'd like RStudio to use then no further configuration is required. If you want to create a custom PAM profile for RStudio you would create a file named `/etc/pam.d/rstudio` and specify whatever settings are appropriate.
 
 **RedHat / CentOS / SUSE**
 

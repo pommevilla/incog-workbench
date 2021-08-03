@@ -2,6 +2,7 @@
 title: "Session User Settings"
 aliases:
   - /session-user-settings.html
+toc: false
 ---
 
 The following table enumerates the settings supported in the user (or system) `rstudio-prefs.json` file, along with their type, allowable values, and defaults. 

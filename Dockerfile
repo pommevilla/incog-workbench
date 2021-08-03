@@ -33,9 +33,11 @@ RUN cd /tmp \
 RUN R -e 'options(download.file.method = "wget"); install.packages("devtools", repos = "https://cran.rstudio.com"); install.packages("rmarkdown", repos = "https://cran.rstudio.com")'
 
 # install quarto manually to a known good version
+ARG QUARTO_VERSION=0.2.38
+
 RUN cd /tmp \
-	&& wget -q https://github.com/quarto-dev/quarto-cli/releases/download/v0.2.26/quarto-0.2.26-amd64.deb \
-	&& dpkg -i quarto-0.2.26-amd64.deb 
+	&& wget -q https://github.com/quarto-dev/quarto-cli/releases/download/v$QUARTO_VERSION/quarto-$QUARTO_VERSION-amd64.deb \
+	&& dpkg -i quarto-$QUARTO_VERSION-amd64.deb 
 
 # set up LANG for building books; otherwise pandoc writes "C" as the language,
 # which confuses kindlegen

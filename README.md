@@ -25,6 +25,11 @@ Pages with code are:
 * [session_user_settings/session_user_settings.qmd](https://github.com/rstudio/rstudio-pro/blob/feature/quarto-docs-revision/docs/server/session_user_settings/session_user_settings.qmd)
 * [getting_started/getting_started/qmd](https://github.com/rstudio/rstudio-pro/blob/main/docs/server/getting_started/getting_started.qmd)
 
+
+## About `_quarto.yml`
+
+Note that `_quarto.yml` is an ignored file, so any changes you make to `_quarto.yml` need to be transferred over to `_quarto.yml.in`. When you do so, *make sure* that the following lines still have `${CPACK_PACKAGE_VERSION}` in them: https://github.com/rstudio/rstudio-pro/blob/747b989a271903b03c1f2ea54d49de71e80f1963/docs/server/_quarto.yml.in#L5-L6. This is where the build version goes and it won't populate if you've overwritten them.
+
 ## Testing the build locally
 
 In order to test that the Jenkinsfile build works properly, do the following.

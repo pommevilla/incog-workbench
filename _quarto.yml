@@ -2,19 +2,22 @@ project:
   type: site
 
 execute:
-  freeze: true
+  freeze:
+    true
+
 site:
-  title: "RStudio Workbench Administration 7.29.1655-0931"
-  subtitle: "Version 7.29.1655-0931"
+  title: "RStudio Workbench Administration 8.3.2021-1632"
+  subtitle: "Version 8.3.2021-1632"
   downloads: [docx, pdf, epub]
   sharing: [twitter, facebook, linkedin]
   page-navigation: true
-  site-url: https://pommevilla.github.io/incog-workbench
-  repo-url: https://github.com/pommevilla/incog-workbench
+  site-url: https://docs.rstudio.com/ide/server-pro/
+  repo-url: https://github.com/rstudio/rstudio-pro
 
   navbar:
     type: light
     search: true
+    pinned: true
     logo: images/RStudio-ball.svg
     right:
       - text: "RStudio.com"
@@ -182,6 +185,7 @@ site:
           - session_user_settings/session_user_settings.qmd
           - rstudio_ide_commands/rstudio_ide_commands.qmd
           - r_package_dependencies/r_package_dependencies.qmd
+          - rstudio_server_cli/rstudio_server_cli.qmd
           - section: "RStudio Configuration"
             contents:
               - rstudio_server_configuration/rstudio_server_configuration.qmd

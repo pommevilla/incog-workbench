@@ -25,6 +25,14 @@ There are several requirements for nodes within RStudio clusters:
 
 7. RStudio must be configured to use a [PostgreSQL](../database/configuration.qmd#postgresql) database, and an empty database must be present for RStudio to write important cross-node state. If you have previously run RStudio with a [SQLite](../database/configuration.qmd#sqlite) database, it is strongly advised that you execute the database [Migration](../database/migration.qmd#migration) to the PostgreSQL database first. For more information, see [Database](../database/database.qmd).
 
+### Defining The Cluster
+Only one load balancing cluster can exist per database, and this cluster is defined by the first node that comes online within the cluster. The cluster data contains the hash of the secure cookie key and the communication protocol (http, https, or https no verify). When each node comes online, it verifies its own secure cookie key and protocol against the cluster's data and will only come online if this data matches. There are two ways to reset the data stored in the cluster:
+
+1. Bring all nodes offline; then reconfigure each node. The first node that comes online will be able to update the cluster data.
+2. Manually reset the cluster by running `rstudio-server reset-cluster` from the command line. The next node that is started, restarted, or reloaded will update the cluster data.
+
+To view the nodes and their current statuses in the load balancer cluster, run the command `rstudio-server list-nodes`. The output contains a column 'Last Seen', which can be used to indentify nodes that have unexpectedly gone offline. When a node is online, it reguarly updates this database column with the current time (UTC) to indicate that it is Online and working as expected. When the time is displayed from the `list-nodes` command, it is displayed in the server's local time. If a node is not properly shutdown, it may have an Online Status but the 'Last Seen' column will not be recent.
+
 ### Defining Nodes
 
 To define a cluster node, two configuration files need to be provided:
