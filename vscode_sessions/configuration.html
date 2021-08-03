@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>RStudio Workbench Administration 7.29.1655-0931 – Configuration</title>
+  <title>RStudio Workbench Administration 8.3.2021-1632 – Configuration</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -80,7 +80,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-  <script src="../site_libs/quarto-nav/headroom.min.js"></script>
   <meta name="quarto:offset" content="../">
   <script src="../site_libs/quarto-search/autocomplete.min.js"></script>
   <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -119,7 +118,7 @@
     <div class="container-fluid">
   <a class="navbar-brand" href="../index.html">
     <img src="../images/RStudio-ball.svg" alt="">
-    RStudio Workbench Administration 7.29.1655-0931
+    RStudio Workbench Administration 8.3.2021-1632
   </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -699,6 +698,9 @@
           <li class="sidebar-item">
   <a href="../r_package_dependencies/r_package_dependencies.html" class="">R Package Dependencies</a>
 </li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_cli/rstudio_server_cli.html" class="">Command Line Interface</a>
+</li>
           <ul class="list-unstyled sidebar-section depth2">
     <li class="">
         <div class="me-auto ">
@@ -752,113 +754,101 @@
 <p><strong>/etc/rstudio/vscode.conf</strong></p>
 <table class="table">
 <colgroup>
-<col style="width: 5%">
-<col style="width: 84%">
-<col style="width: 8%">
-<col style="width: 1%">
+<col style="width: 45%">
+<col style="width: 27%">
+<col style="width: 27%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Config Option</th>
+<th style="text-align: center;">Config Option</th>
 <th>Description</th>
 <th>Default Value</th>
-<th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>enabled</td>
+<td style="text-align: center;">enabled</td>
 <td>Enables launching of VS Code sessions.</td>
 <td>0 (disabled)</td>
-<td></td>
 </tr>
 <tr class="even">
-<td>exe</td>
-<td>Path to the <code>code-server</code> executable. VS Code sessions rely on the open source <code>code-server</code> project. For more information, see the <a href="https://github.com/cdr/code-server">project site</a></td>
+<td style="text-align: center;">exe</td>
+<td>Path to the code-server executable. VS Code sessions rely on the open source code-server project. For more information, see the project site</td>
 <td>/opt/code-server/bin/code-server</td>
-<td></td>
 </tr>
 <tr class="odd">
-<td>version</td>
-<td>The version of VS Code <code>code-server</code> being used. If set to <code>auto</code>, the version is automatically detected by running the <code>code-server</code> version command. If VS Code is being launched via the Launcher and is not installed locally, you are strongly encouraged to set this to the version in use. Running against multiple different <code>code-server</code> versions simultaneously in different Launcher clusters is not supported - they must all be running the same version, or issues will occur.</td>
+<td style="text-align: center;">version</td>
+<td>The version of VS Code code-server being used. If set to auto, the version is automatically detected by running the code-server version command. If VS Code is being launched via the Launcher and is not installed locally, you are strongly encouraged to set this to the version in use. Running against multiple different code-server versions simultaneously in different Launcher clusters is not supported - they must all be running the same version, or issues will occur.</td>
 <td>cur. | auto</td>
-<td><pre><code>|</code></pre></td>
 </tr>
 <tr class="even">
-<td>args</td>
-<td>Arguments to be passed to the <code>code-server</code> launch command. You can supply an <code>--extensions-dir=</code> to point to previously installed extensions via this parameter. If no <code>--host</code> argument is supplied, a default of <code>--host=0.0.0.0</code> will be assumed.</td>
-<td>| | <code>--host=0.0.0.0</code></td>
-<td><pre><code>| |</code></pre></td>
+<td style="text-align: center;">args</td>
+<td>Arguments to be passed to the code-server launch command. You can supply an –extensions-dir= to point to previously installed extensions via this parameter. If no –host argument is supplied, a default of –host=0.0.0.0 will be assumed.</td>
+<td><code>–host=0.0.0.0</code></td>
 </tr>
 <tr class="odd">
-<td>session-clusters</td>
+<td style="text-align: center;">session-clusters</td>
 <td>Comma-delimited list of available Job Launcher clusters for launching VS Code sessions. Leave blank to specify all clusters.</td>
 <td></td>
-<td></td>
 </tr>
 <tr class="even">
-<td>default-session-cluster</td>
+<td style="text-align: center;">default-session-cluster</td>
 <td>The default Job Launcher cluster to use when launching a VS Code session.</td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
-<td>default-session-container-image</td>
+<td style="text-align: center;">default-session-container-image</td>
 <td>The default container image to use when launching a containerized VS Code session.</td>
 <td></td>
-<td></td>
 </tr>
 <tr class="even">
-<td>session-container-images</td>
+<td style="text-align: center;">session-container-images</td>
 <td>Comma-delimited list of images that may be used for running VS Code sessions.</td>
-<td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>vscode-session-path</td>
+<td style="text-align: center;">vscode-session-path</td>
 <td>Path to the VS Code Session launcher executable/script. It is recommended that you do not change this unless you know what you’re doing, and you need to point to a different script.</td>
 <td>/usr/lib/rstudio-server/bin/vscode-session-run</td>
-<td></td>
 </tr>
 <tr class="even">
-<td>session-no-profile</td>
+<td style="text-align: center;">session-no-profile</td>
 <td>Enables/disables running of bash profile scripts when starting VS Code sessions.</td>
 <td>0 (run profile scripts)</td>
-<td></td>
 </tr>
 </tbody>
 </table>
 <p>For example, your <code>vscode.conf</code> file might look like the following:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/vscode.conf</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">exe</span><span class="ot">=</span><span class="st">/usr/bin/code-server</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">enabled</span><span class="ot">=</span><span class="dv">1</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">default-session-cluster</span><span class="ot">=</span><span class="st">Kubernetes</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dt">default-session-container-image</span><span class="ot">=</span><span class="st">rstudio:vscode-session</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/vscode.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">exe</span><span class="ot">=</span><span class="st">/usr/bin/code-server</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">enabled</span><span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">default-session-cluster</span><span class="ot">=</span><span class="st">Kubernetes</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">default-session-container-image</span><span class="ot">=</span><span class="st">rstudio:vscode-session</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="vs-code-code-server-versions" class="level3">
 <h3 class="anchored" data-anchor-id="vs-code-code-server-versions">VS Code code-server Versions</h3>
 <p>Currently, RStudio Workbench supports <code>code-server</code> 3.9.3. Due to differences between <code>code-server</code> versions, RStudio Workbench needs to know the versions of <code>code-server</code> that is in use. It can be automatically detected by RStudio Workbench on start up by running the <code>code-server</code> command, or can be specified by using the <code>version</code> setting in <em>/etc/rstudio/vscode.conf</em>. Automatic version detection is done if the default value of <code>auto</code> is used.</p>
 <p>If you are running VS Code in a remote cluster like Kubernetes, you will need to manually specify the version of <code>code-server</code> if it is not locally installed or is not running the same version as the remote cluster. Due to version differences, running against multiple different versions of <code>code-server</code> in different Launcher clusters simultaneously is not supported - the versions must match in all clusters.</p>
 <p>You can manually specify the version number like so:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/vscode.conf</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">version</span><span class="ot">=</span><span class="st">3.9.3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/vscode.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">version</span><span class="ot">=</span><span class="st">3.9.3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="vs-code-user-settings" class="level3">
 <h3 class="anchored" data-anchor-id="vs-code-user-settings">VS Code User Settings</h3>
 <p>By default, <code>code-server</code> writes VS Code user settings under <code>~/.local/share/code-server</code>. This can be changed by adding the <code>user-data-dir</code> path argument to the VS Code options, like so:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/vscode.conf</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">exe</span><span class="ot">=</span><span class="st">/usr/bin/code-server</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">args</span><span class="ot">=</span><span class="st">--host=0.0.0.0 --verbose</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="dt">user-data-dir</span><span class="ot">=</span><span class="st">&lt;desired user path&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/vscode.conf</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">exe</span><span class="ot">=</span><span class="st">/usr/bin/code-server</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">args</span><span class="ot">=</span><span class="st">--host=0.0.0.0 --verbose</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">user-data-dir</span><span class="ot">=</span><span class="st">&lt;desired user path&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that the <desired user="" path=""> specified in the configuration can contain the <code>~</code> to represent the user’s home directory.</desired></p>
 <p>Whenever a VS Code session is launched, RStudio automatically merges the user settings template file at <code>/etc/rstudio/vscode-user-settings.json</code> with the user’s settings file. This file should be a valid JSON file that contains desired VS Code user settings. Any matching settings that already exist in the user settings file are not overridden, allowing users the freedom to customize their environment. You should use the <code>vscode-user-settings.json</code> file to provide them with a simple baseline configuration.</p>
 <p>If you installed VS Code via the <code>sudo rstudio-server install-vs-code</code> command, a simple template is created for you automatically which instructs VS Code to use the bash shell by default and to disable automatic extension updates. The generated file looks like the following:</p>
 <p><em>/etc/rstudio/vscode-user-settings.json</em></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"terminal.integrated.shell.linux"</span><span class="fu">:</span> <span class="st">"/bin/bash"</span><span class="fu">,</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"extensions.autoUpdate"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"extensions.autoCheckUpdates"</span><span class="fu">:</span> <span class="kw">false</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"terminal.integrated.shell.linux"</span><span class="fu">:</span> <span class="st">"/bin/bash"</span><span class="fu">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"extensions.autoUpdate"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"extensions.autoCheckUpdates"</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="launcher-configuration" class="level3">
 <h3 class="anchored" data-anchor-id="launcher-configuration">Launcher Configuration</h3>

@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>RStudio Workbench Administration 7.29.1655-0931 – User and Group Profiles PRO</title>
+  <title>RStudio Workbench Administration 8.3.2021-1632 – User and Group Profiles PRO</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -80,7 +80,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-  <script src="../site_libs/quarto-nav/headroom.min.js"></script>
   <meta name="quarto:offset" content="../">
   <script src="../site_libs/quarto-search/autocomplete.min.js"></script>
   <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -119,7 +118,7 @@
     <div class="container-fluid">
   <a class="navbar-brand" href="../index.html">
     <img src="../images/RStudio-ball.svg" alt="">
-    RStudio Workbench Administration 7.29.1655-0931
+    RStudio Workbench Administration 8.3.2021-1632
   </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -699,6 +698,9 @@
           <li class="sidebar-item">
   <a href="../r_package_dependencies/r_package_dependencies.html" class="">R Package Dependencies</a>
 </li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_cli/rstudio_server_cli.html" class="">Command Line Interface</a>
+</li>
           <ul class="list-unstyled sidebar-section depth2">
     <li class="">
         <div class="me-auto ">
@@ -740,6 +742,7 @@
 <li><a href="#cpu-affinity-and-scheduling-priority" class="nav-link" data-scroll-target="#cpu-affinity-and-scheduling-priority">CPU Affinity and Scheduling Priority</a></li>
 <li><a href="#resource-limits" class="nav-link" data-scroll-target="#resource-limits">Resource Limits</a></li>
 <li><a href="#using-multiple-versions-of-r" class="nav-link" data-scroll-target="#using-multiple-versions-of-r">Using Multiple Versions of R</a></li>
+<li><a href="#usage-in-distributed-environments" class="nav-link" data-scroll-target="#usage-in-distributed-environments">Usage in Distributed Environments</a></li>
 </ul>
 </nav></div>
   <div class="col mx-auto col-sm-12 col-md-9 col-lg-7 px-lg-4">
@@ -757,7 +760,6 @@
 <li>R session timeouts (amount of idle time which triggers session suspend)</li>
 <li>R session kill timeouts (amount of idle time which triggers a session to be destroyed and cleaned up)</li>
 </ol>
-<p>Note that if launching sessions via the Job Launcher, scheduling priority and resource limits are not ignored, but these should generally be configured via the Job Launcher itself where applicable. For example, when running Kubernetes sessions, memory limits can be specified each time a session is launched, so memory limits should be configured by the Job Launcher in that case.</p>
 <section id="creating-profiles" class="level3">
 <h3 class="anchored" data-anchor-id="creating-profiles">Creating Profiles</h3>
 <p>Profiles are defined within the file <code>/etc/rstudio/profiles</code>. Note that this file is not created by default so you’ll need to create it if doesn’t already exist. Profiles are divided into sections of three different type:</p>
@@ -884,7 +886,19 @@
 <p>Note that <code>r-version</code> specifies the full path to the directory where R is installed.</p>
 <p>See the <a href="../r_versions/r_versions.html">R Versions</a> chapter for additional details on running multiple versions of R on a single server.</p>
 <p>This setting only applies to the RStudio IDE, and does not apply to Jupyter or VS Code.</p>
+</section>
+<section id="usage-in-distributed-environments" class="level3">
+<h3 class="anchored" data-anchor-id="usage-in-distributed-environments">Usage in Distributed Environments</h3>
+<p>User profiles are still applicable when R sessions are not all co-located on the same server, but some considerations apply.</p>
+<section id="job-launcher" class="level4">
+<h4 class="anchored" data-anchor-id="job-launcher">Job Launcher</h4>
+<p>If launching sessions via the Job Launcher, scheduling priority and resource limits are not ignored, but these should generally be configured via the Job Launcher itself where applicable. For example, when running Kubernetes sessions, memory limits can be specified each time a session is launched, so memory limits should be configured by the Job Launcher in that case.</p>
+</section>
+<section id="load-balancer" class="level4">
+<h4 class="anchored" data-anchor-id="load-balancer">Load Balancer</h4>
+<p>When using load balancing, resource limits are applied to a session <em>after</em> it has been assigned to a server in a load-balanced cluster. So, for example, if you have <code>cpu-affinity</code> set to <code>1-4</code> for a user, then the user’s session can run on cores 1 through 4 of any server in the cluster. Likewise, a session’s <code>max-memory-mb</code> value will cap the memory it can use on the server on which it runs, but doesn’t otherwise restrict memory usage across servers.</p>
 <!-- -->
+</section>
 </section>
 </main>
 <div class="page-navigation page-navigation-docked">

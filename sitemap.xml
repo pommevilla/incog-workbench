@@ -1,495 +1,499 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/access_and_security/additional_headers.html</loc>
-    <lastmod>2021-07-29T23:36:24.735Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/additional_headers.html</loc>
+    <lastmod>2021-08-03T22:24:02.525Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/access_and_security/secure_sockets.html</loc>
-    <lastmod>2021-07-29T23:36:25.287Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/secure_sockets.html</loc>
+    <lastmod>2021-08-03T22:24:03.101Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/access_and_security/compatibility_with_safari.html</loc>
-    <lastmod>2021-07-29T23:36:25.571Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/compatibility_with_safari.html</loc>
+    <lastmod>2021-08-03T22:24:03.397Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/access_and_security/ssl_ports.html</loc>
-    <lastmod>2021-07-29T23:36:25.899Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/ssl_ports.html</loc>
+    <lastmod>2021-08-03T22:24:03.737Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/access_and_security/access_and_security.html</loc>
-    <lastmod>2021-07-29T23:36:26.171Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/access_and_security.html</loc>
+    <lastmod>2021-08-03T22:24:04.021Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/access_and_security/frame_origin.html</loc>
-    <lastmod>2021-07-29T23:36:26.519Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/frame_origin.html</loc>
+    <lastmod>2021-08-03T22:24:04.377Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/access_and_security/network_port_and_address.html</loc>
-    <lastmod>2021-07-29T23:36:26.823Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/network_port_and_address.html</loc>
+    <lastmod>2021-08-03T22:24:04.721Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/access_and_security/additional_security_considerations.html</loc>
-    <lastmod>2021-07-29T23:36:27.159Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/additional_security_considerations.html</loc>
+    <lastmod>2021-08-03T22:24:05.057Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/access_and_security/running_with_a_proxy.html</loc>
-    <lastmod>2021-07-29T23:36:27.679Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/running_with_a_proxy.html</loc>
+    <lastmod>2021-08-03T22:24:05.585Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/access_and_security/server_permissions.html</loc>
-    <lastmod>2021-07-29T23:36:28.011Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/server_permissions.html</loc>
+    <lastmod>2021-08-03T22:24:05.929Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/access_and_security/cookies.html</loc>
-    <lastmod>2021-07-29T23:36:28.343Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/cookies.html</loc>
+    <lastmod>2021-08-03T22:24:06.265Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/access_and_security/ip_access_rules.html</loc>
-    <lastmod>2021-07-29T23:36:28.663Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/ip_access_rules.html</loc>
+    <lastmod>2021-08-03T22:24:06.597Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/access_and_security/same_site_cookies.html</loc>
-    <lastmod>2021-07-29T23:36:28.999Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/same_site_cookies.html</loc>
+    <lastmod>2021-08-03T22:24:06.933Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/access_and_security/security_considerations.html</loc>
-    <lastmod>2021-07-29T23:36:29.343Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/security_considerations.html</loc>
+    <lastmod>2021-08-03T22:24:07.301Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/index.html</loc>
-    <lastmod>2021-07-29T23:36:29.639Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/index.html</loc>
+    <lastmod>2021-08-03T22:24:07.609Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/server_management/administrative_dashboard.html</loc>
-    <lastmod>2021-07-29T23:36:29.987Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/server_management/administrative_dashboard.html</loc>
+    <lastmod>2021-08-03T22:24:07.981Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/server_management/automated_crash_reporting.html</loc>
-    <lastmod>2021-07-29T23:36:30.339Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/server_management/automated_crash_reporting.html</loc>
+    <lastmod>2021-08-03T22:24:08.337Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/server_management/logging.html</loc>
-    <lastmod>2021-07-29T23:36:30.687Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/server_management/logging.html</loc>
+    <lastmod>2021-08-03T22:24:08.721Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/server_management/server_management.html</loc>
-    <lastmod>2021-07-29T23:36:30.951Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/server_management/server_management.html</loc>
+    <lastmod>2021-08-03T22:24:08.993Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/server_management/core_administrative_tasks.html</loc>
-    <lastmod>2021-07-29T23:36:31.551Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/server_management/core_administrative_tasks.html</loc>
+    <lastmod>2021-08-03T22:24:09.601Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/getting_started/getting_started.html</loc>
-    <lastmod>2021-07-29T23:36:31.847Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/getting_started.html</loc>
+    <lastmod>2021-08-03T22:24:09.905Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/getting_started/installation.html</loc>
-    <lastmod>2021-07-29T23:36:32.143Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/installation.html</loc>
+    <lastmod>2021-08-03T22:24:10.225Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/getting_started/introduction.html</loc>
-    <lastmod>2021-07-29T23:36:32.431Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/introduction.html</loc>
+    <lastmod>2021-08-03T22:24:10.553Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/getting_started/management_script.html</loc>
-    <lastmod>2021-07-29T23:36:32.707Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/management_script.html</loc>
+    <lastmod>2021-08-03T22:24:10.849Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/getting_started/professional_support.html</loc>
-    <lastmod>2021-07-29T23:36:32.983Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/professional_support.html</loc>
+    <lastmod>2021-08-03T22:24:11.145Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/getting_started/support.html</loc>
-    <lastmod>2021-07-29T23:36:33.295Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/support.html</loc>
+    <lastmod>2021-08-03T22:24:11.457Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/getting_started/community_resources.html</loc>
-    <lastmod>2021-07-29T23:36:33.551Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/community_resources.html</loc>
+    <lastmod>2021-08-03T22:24:11.749Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/getting_started/activation.html</loc>
-    <lastmod>2021-07-29T23:36:33.823Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/activation.html</loc>
+    <lastmod>2021-08-03T22:24:12.025Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/getting_started/accessing_the_server.html</loc>
-    <lastmod>2021-07-29T23:36:34.111Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/accessing_the_server.html</loc>
+    <lastmod>2021-08-03T22:24:12.317Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/pam_sessions.html</loc>
-    <lastmod>2021-07-29T23:36:34.563Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/pam_sessions.html</loc>
+    <lastmod>2021-08-03T22:24:12.781Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/terminal_websockets.html</loc>
-    <lastmod>2021-07-29T23:36:34.855Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/terminal_websockets.html</loc>
+    <lastmod>2021-08-03T22:24:13.081Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/multiple_r_sessions.html</loc>
-    <lastmod>2021-07-29T23:36:35.175Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/multiple_r_sessions.html</loc>
+    <lastmod>2021-08-03T22:24:13.417Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/r_executable_and_libraries.html</loc>
-    <lastmod>2021-07-29T23:36:35.571Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/r_executable_and_libraries.html</loc>
+    <lastmod>2021-08-03T22:24:13.825Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/package_installation.html</loc>
-    <lastmod>2021-07-29T23:36:35.951Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/package_installation.html</loc>
+    <lastmod>2021-08-03T22:24:14.201Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/rstudio_connect_server.html</loc>
-    <lastmod>2021-07-29T23:36:36.267Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/rstudio_connect_server.html</loc>
+    <lastmod>2021-08-03T22:24:14.537Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/project_sharing.html</loc>
-    <lastmod>2021-07-29T23:36:36.687Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/project_sharing.html</loc>
+    <lastmod>2021-08-03T22:24:14.953Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/notifications.html</loc>
-    <lastmod>2021-07-29T23:36:37.063Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/notifications.html</loc>
+    <lastmod>2021-08-03T22:24:15.333Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/session_startup_scripts.html</loc>
-    <lastmod>2021-07-29T23:36:37.447Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/session_startup_scripts.html</loc>
+    <lastmod>2021-08-03T22:24:15.761Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/directory_management.html</loc>
-    <lastmod>2021-07-29T23:36:37.791Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/directory_management.html</loc>
+    <lastmod>2021-08-03T22:24:16.101Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/kerberos.html</loc>
-    <lastmod>2021-07-29T23:36:38.147Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/kerberos.html</loc>
+    <lastmod>2021-08-03T22:24:16.493Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/first_project_template.html</loc>
-    <lastmod>2021-07-29T23:36:38.487Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/first_project_template.html</loc>
+    <lastmod>2021-08-03T22:24:16.849Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/workspace_management.html</loc>
-    <lastmod>2021-07-29T23:36:39.019Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/workspace_management.html</loc>
+    <lastmod>2021-08-03T22:24:17.425Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/user_and_group_profiles.html</loc>
-    <lastmod>2021-07-29T23:36:39.435Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/user_and_group_profiles.html</loc>
+    <lastmod>2021-08-03T22:24:17.897Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/customizing_session_settings.html</loc>
-    <lastmod>2021-07-29T23:36:39.847Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/customizing_session_settings.html</loc>
+    <lastmod>2021-08-03T22:24:18.397Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/feature_limits.html</loc>
-    <lastmod>2021-07-29T23:36:40.279Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/feature_limits.html</loc>
+    <lastmod>2021-08-03T22:24:18.825Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_sessions/r_sessions.html</loc>
-    <lastmod>2021-07-29T23:36:40.551Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/r_sessions.html</loc>
+    <lastmod>2021-08-03T22:24:19.113Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/tutorial_api/interface.html</loc>
-    <lastmod>2021-07-29T23:36:40.987Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/tutorial_api/interface.html</loc>
+    <lastmod>2021-08-03T22:24:19.557Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/tutorial_api/tutorial_api_callbacks.html</loc>
-    <lastmod>2021-07-29T23:36:41.291Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/tutorial_api/tutorial_api_callbacks.html</loc>
+    <lastmod>2021-08-03T22:24:19.857Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/tutorial_api/configuration.html</loc>
-    <lastmod>2021-07-29T23:36:41.635Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/tutorial_api/configuration.html</loc>
+    <lastmod>2021-08-03T22:24:20.233Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/tutorial_api/tutorial_api_methods.html</loc>
-    <lastmod>2021-07-29T23:36:42.083Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/tutorial_api/tutorial_api_methods.html</loc>
+    <lastmod>2021-08-03T22:24:20.721Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/tutorial_api/tutorial_api.html</loc>
-    <lastmod>2021-07-29T23:36:42.379Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/tutorial_api/tutorial_api.html</loc>
+    <lastmod>2021-08-03T22:24:21.009Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/tutorial_api/overview.html</loc>
-    <lastmod>2021-07-29T23:36:42.663Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/tutorial_api/overview.html</loc>
+    <lastmod>2021-08-03T22:24:21.309Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/authenticating_users/pam_basics.html</loc>
-    <lastmod>2021-07-29T23:36:42.979Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/pam_basics.html</loc>
+    <lastmod>2021-08-03T22:24:21.617Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/authenticating_users/proxied_authentication.html</loc>
-    <lastmod>2021-07-29T23:36:43.395Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/proxied_authentication.html</loc>
+    <lastmod>2021-08-03T22:24:22.077Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/authenticating_users/saml_sso.html</loc>
-    <lastmod>2021-07-29T23:36:43.939Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/saml_sso.html</loc>
+    <lastmod>2021-08-03T22:24:22.633Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/authenticating_users/pam_authentication.html</loc>
-    <lastmod>2021-07-29T23:36:44.383Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/pam_authentication.html</loc>
+    <lastmod>2021-08-03T22:24:23.069Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/authenticating_users/openid_connect_authentication.html</loc>
-    <lastmod>2021-07-29T23:36:44.823Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/openid_connect_authentication.html</loc>
+    <lastmod>2021-08-03T22:24:23.537Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/authenticating_users/authorization_timeout.html</loc>
-    <lastmod>2021-07-29T23:36:45.139Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/authorization_timeout.html</loc>
+    <lastmod>2021-08-03T22:24:23.865Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/authenticating_users/authentication_migration.html</loc>
-    <lastmod>2021-07-29T23:36:45.431Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/authentication_migration.html</loc>
+    <lastmod>2021-08-03T22:24:24.193Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/authenticating_users/restricting_access.html</loc>
-    <lastmod>2021-07-29T23:36:45.731Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/restricting_access.html</loc>
+    <lastmod>2021-08-03T22:24:24.541Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/authenticating_users/authenticating_users.html</loc>
-    <lastmod>2021-07-29T23:36:46.015Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/authenticating_users.html</loc>
+    <lastmod>2021-08-03T22:24:24.849Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/authenticating_users/customizing_signin.html</loc>
-    <lastmod>2021-07-29T23:36:46.331Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/customizing_signin.html</loc>
+    <lastmod>2021-08-03T22:24:25.169Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/authenticating_users/user_provisioning.html</loc>
-    <lastmod>2021-07-29T23:36:46.607Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/user_provisioning.html</loc>
+    <lastmod>2021-08-03T22:24:25.449Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/authenticating_users/google_accounts.html</loc>
-    <lastmod>2021-07-29T23:36:46.987Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/google_accounts.html</loc>
+    <lastmod>2021-08-03T22:24:25.845Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/load_balancing/configuration.html</loc>
-    <lastmod>2021-07-29T23:36:47.491Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/load_balancing/configuration.html</loc>
+    <lastmod>2021-08-03T22:24:26.449Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/load_balancing/balancing_methods.html</loc>
-    <lastmod>2021-07-29T23:36:47.811Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/load_balancing/balancing_methods.html</loc>
+    <lastmod>2021-08-03T22:24:26.793Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/load_balancing/load_balancing.html</loc>
-    <lastmod>2021-07-29T23:36:48.091Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/load_balancing/load_balancing.html</loc>
+    <lastmod>2021-08-03T22:24:27.093Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/load_balancing/overview.html</loc>
-    <lastmod>2021-07-29T23:36:48.367Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/load_balancing/overview.html</loc>
+    <lastmod>2021-08-03T22:24:27.401Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/load_balancing/load_balancing_vs_job_launcher.html</loc>
-    <lastmod>2021-07-29T23:36:48.623Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/load_balancing/load_balancing_vs_job_launcher.html</loc>
+    <lastmod>2021-08-03T22:24:27.681Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/load_balancing/access_and_availability.html</loc>
-    <lastmod>2021-07-29T23:36:48.947Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/load_balancing/access_and_availability.html</loc>
+    <lastmod>2021-08-03T22:24:28.053Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/data_connectivity/connectivity_using_odbc.html</loc>
-    <lastmod>2021-07-29T23:36:49.215Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/data_connectivity/connectivity_using_odbc.html</loc>
+    <lastmod>2021-08-03T22:24:28.321Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/data_connectivity/snippet_files.html</loc>
-    <lastmod>2021-07-29T23:36:49.603Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/data_connectivity/snippet_files.html</loc>
+    <lastmod>2021-08-03T22:24:28.737Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/data_connectivity/data_connectivity.html</loc>
-    <lastmod>2021-07-29T23:36:49.851Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/data_connectivity/data_connectivity.html</loc>
+    <lastmod>2021-08-03T22:24:29.009Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/data_connectivity/connectivity_using_r_packages.html</loc>
-    <lastmod>2021-07-29T23:36:50.239Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/data_connectivity/connectivity_using_r_packages.html</loc>
+    <lastmod>2021-08-03T22:24:29.289Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/job_launcher/configuration.html</loc>
-    <lastmod>2021-07-29T23:36:50.875Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/job_launcher/configuration.html</loc>
+    <lastmod>2021-08-03T22:24:29.965Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/job_launcher/load_balancing.html</loc>
-    <lastmod>2021-07-29T23:36:51.143Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/job_launcher/load_balancing.html</loc>
+    <lastmod>2021-08-03T22:24:30.257Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/job_launcher/troubleshooting.html</loc>
-    <lastmod>2021-07-29T23:36:51.455Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/job_launcher/troubleshooting.html</loc>
+    <lastmod>2021-08-03T22:24:30.589Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/job_launcher/overview.html</loc>
-    <lastmod>2021-07-29T23:36:51.719Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/job_launcher/overview.html</loc>
+    <lastmod>2021-08-03T22:24:30.865Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/job_launcher/creating_plugins.html</loc>
-    <lastmod>2021-07-29T23:36:51.987Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/job_launcher/creating_plugins.html</loc>
+    <lastmod>2021-08-03T22:24:31.133Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/job_launcher/running_the_launcher.html</loc>
-    <lastmod>2021-07-29T23:36:52.255Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/job_launcher/running_the_launcher.html</loc>
+    <lastmod>2021-08-03T22:24:31.405Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/job_launcher/job_launcher.html</loc>
-    <lastmod>2021-07-29T23:36:52.531Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/job_launcher/job_launcher.html</loc>
+    <lastmod>2021-08-03T22:24:31.697Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/database/database.html</loc>
-    <lastmod>2021-07-29T23:36:52.799Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/database/database.html</loc>
+    <lastmod>2021-08-03T22:24:31.977Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/database/configuration.html</loc>
-    <lastmod>2021-07-29T23:36:53.187Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/database/configuration.html</loc>
+    <lastmod>2021-08-03T22:24:32.377Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/database/migration.html</loc>
-    <lastmod>2021-07-29T23:36:53.467Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/database/migration.html</loc>
+    <lastmod>2021-08-03T22:24:32.669Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/vscode_sessions/vs_code_sessions.html</loc>
-    <lastmod>2021-07-29T23:36:53.751Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/vscode_sessions/vs_code_sessions.html</loc>
+    <lastmod>2021-08-03T22:24:32.981Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/vscode_sessions/configuration.html</loc>
-    <lastmod>2021-07-29T23:36:54.123Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/vscode_sessions/configuration.html</loc>
+    <lastmod>2021-08-03T22:24:33.369Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/vscode_sessions/installation.html</loc>
-    <lastmod>2021-07-29T23:36:54.475Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/vscode_sessions/installation.html</loc>
+    <lastmod>2021-08-03T22:24:33.729Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/vscode_sessions/multiple_sessions.html</loc>
-    <lastmod>2021-07-29T23:36:54.739Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/vscode_sessions/multiple_sessions.html</loc>
+    <lastmod>2021-08-03T22:24:34.009Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/vscode_sessions/troubleshooting.html</loc>
-    <lastmod>2021-07-29T23:36:55.015Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/vscode_sessions/troubleshooting.html</loc>
+    <lastmod>2021-08-03T22:24:34.293Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/auditing_and_monitoring/monitoring_configuration.html</loc>
-    <lastmod>2021-07-29T23:36:55.603Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/auditing_and_monitoring/monitoring_configuration.html</loc>
+    <lastmod>2021-08-03T22:24:34.913Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/auditing_and_monitoring/server_health_checks.html</loc>
-    <lastmod>2021-07-29T23:36:55.955Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/auditing_and_monitoring/server_health_checks.html</loc>
+    <lastmod>2021-08-03T22:24:35.261Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/auditing_and_monitoring/auditing_configuration.html</loc>
-    <lastmod>2021-07-29T23:36:56.371Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/auditing_and_monitoring/auditing_configuration.html</loc>
+    <lastmod>2021-08-03T22:24:35.701Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/auditing_and_monitoring/auditing_and_monitoring.html</loc>
-    <lastmod>2021-07-29T23:36:56.623Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/auditing_and_monitoring/auditing_and_monitoring.html</loc>
+    <lastmod>2021-08-03T22:24:35.973Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/session_user_settings/session_user_settings.html</loc>
-    <lastmod>2021-07-29T23:36:57.895Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html</loc>
+    <lastmod>2021-08-03T22:24:37.645Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/rstudio_server_configuration/rsession_conf.html</loc>
-    <lastmod>2021-07-29T23:36:58.343Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/rstudio_server_configuration/rsession_conf.html</loc>
+    <lastmod>2021-08-03T22:24:38.101Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/rstudio_server_configuration/rserver_conf.html</loc>
-    <lastmod>2021-07-29T23:36:59.003Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/rstudio_server_configuration/rserver_conf.html</loc>
+    <lastmod>2021-08-03T22:24:38.769Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/rstudio_server_configuration/rstudio_server_configuration.html</loc>
-    <lastmod>2021-07-29T23:36:59.267Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/rstudio_server_configuration/rstudio_server_configuration.html</loc>
+    <lastmod>2021-08-03T22:24:39.041Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/jupyter_sessions/jupyter_sessions.html</loc>
-    <lastmod>2021-07-29T23:36:59.527Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/jupyter_sessions/jupyter_sessions.html</loc>
+    <lastmod>2021-08-03T22:24:39.329Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/jupyter_sessions/configuration.html</loc>
-    <lastmod>2021-07-29T23:37:00.007Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/jupyter_sessions/configuration.html</loc>
+    <lastmod>2021-08-03T22:24:39.809Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/jupyter_sessions/troubleshooting.html</loc>
-    <lastmod>2021-07-29T23:37:00.287Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/jupyter_sessions/troubleshooting.html</loc>
+    <lastmod>2021-08-03T22:24:40.093Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/rstudio_ide_commands/rstudio_ide_commands.html</loc>
-    <lastmod>2021-07-29T23:37:01.519Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/rstudio_ide_commands/rstudio_ide_commands.html</loc>
+    <lastmod>2021-08-03T22:24:41.597Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/hardening/other.html</loc>
-    <lastmod>2021-07-29T23:37:01.815Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/hardening/other.html</loc>
+    <lastmod>2021-08-03T22:24:41.917Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/hardening/hardening.html</loc>
-    <lastmod>2021-07-29T23:37:02.071Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/hardening/hardening.html</loc>
+    <lastmod>2021-08-03T22:24:42.221Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/hardening/r_session_security.html</loc>
-    <lastmod>2021-07-29T23:37:02.383Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/hardening/r_session_security.html</loc>
+    <lastmod>2021-08-03T22:24:42.561Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/hardening/example_secure_configuration.html</loc>
-    <lastmod>2021-07-29T23:37:02.712Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/hardening/example_secure_configuration.html</loc>
+    <lastmod>2021-08-03T22:24:42.898Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/hardening/set_up_ssl.html</loc>
-    <lastmod>2021-07-29T23:37:03.040Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/hardening/set_up_ssl.html</loc>
+    <lastmod>2021-08-03T22:24:43.258Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/hardening/browser_security.html</loc>
-    <lastmod>2021-07-29T23:37:03.376Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/hardening/browser_security.html</loc>
+    <lastmod>2021-08-03T22:24:43.594Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_versions/session_initialization.html</loc>
-    <lastmod>2021-07-29T23:37:03.632Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_versions/session_initialization.html</loc>
+    <lastmod>2021-08-03T22:24:43.906Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_versions/managing_upgrades.html</loc>
-    <lastmod>2021-07-29T23:37:03.916Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_versions/managing_upgrades.html</loc>
+    <lastmod>2021-08-03T22:24:44.198Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_versions/configuring_default.html</loc>
-    <lastmod>2021-07-29T23:37:04.224Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_versions/configuring_default.html</loc>
+    <lastmod>2021-08-03T22:24:44.546Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_versions/installing_r.html</loc>
-    <lastmod>2021-07-29T23:37:04.516Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_versions/installing_r.html</loc>
+    <lastmod>2021-08-03T22:24:44.850Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_versions/overview.html</loc>
-    <lastmod>2021-07-29T23:37:04.776Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_versions/overview.html</loc>
+    <lastmod>2021-08-03T22:24:45.122Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_versions/r_versions.html</loc>
-    <lastmod>2021-07-29T23:37:05.024Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_versions/r_versions.html</loc>
+    <lastmod>2021-08-03T22:24:45.406Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_versions/using_multiple_versions_of_r.html</loc>
-    <lastmod>2021-07-29T23:37:05.400Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_versions/using_multiple_versions_of_r.html</loc>
+    <lastmod>2021-08-03T22:24:45.826Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/r_package_dependencies/r_package_dependencies.html</loc>
-    <lastmod>2021-07-29T23:37:05.760Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/r_package_dependencies/r_package_dependencies.html</loc>
+    <lastmod>2021-08-03T22:24:46.258Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/license_management/evaluations.html</loc>
-    <lastmod>2021-07-29T23:37:06.072Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/rstudio_server_cli/rstudio_server_cli.html</loc>
+    <lastmod>2021-08-03T22:24:46.670Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/license_management/license_details.html</loc>
-    <lastmod>2021-07-29T23:37:06.348Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/license_management/evaluations.html</loc>
+    <lastmod>2021-08-03T22:24:46.994Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/license_management/floating_licensing.html</loc>
-    <lastmod>2021-07-29T23:37:06.752Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/license_management/license_details.html</loc>
+    <lastmod>2021-08-03T22:24:47.278Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/license_management/license_management.html</loc>
-    <lastmod>2021-07-29T23:37:07.024Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/license_management/floating_licensing.html</loc>
+    <lastmod>2021-08-03T22:24:47.706Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/license_management/connectivity_requirements.html</loc>
-    <lastmod>2021-07-29T23:37:07.328Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/license_management/license_management.html</loc>
+    <lastmod>2021-08-03T22:24:47.986Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/license_management/userspace_licensing.html</loc>
-    <lastmod>2021-07-29T23:37:07.624Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/license_management/connectivity_requirements.html</loc>
+    <lastmod>2021-08-03T22:24:48.314Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/license_management/license_activation_and_details.html</loc>
-    <lastmod>2021-07-29T23:37:07.908Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/license_management/userspace_licensing.html</loc>
+    <lastmod>2021-08-03T22:24:48.598Z</lastmod>
   </url>
   <url>
-    <loc>https:/pommevilla.github.io/incog-workbench/license_management/product_activation.html</loc>
-    <lastmod>2021-07-29T23:37:08.196Z</lastmod>
+    <loc>https:/docs.rstudio.com/ide/server-pro/license_management/license_activation_and_details.html</loc>
+    <lastmod>2021-08-03T22:24:48.902Z</lastmod>
+  </url>
+  <url>
+    <loc>https:/docs.rstudio.com/ide/server-pro/license_management/product_activation.html</loc>
+    <lastmod>2021-08-03T22:24:49.202Z</lastmod>
   </url>
 </urlset>

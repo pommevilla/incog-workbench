@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>RStudio Workbench Administration 8.3.2021-1632 – Overview</title>
+  <title>RStudio Workbench Administration 8.3.2021-1632 – Command Line Interface</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,8 +21,8 @@
   <script src="../site_libs/quarto-search/autocomplete.min.js"></script>
   <script src="../site_libs/quarto-search/fuse.min.js"></script>
   <script src="../site_libs/quarto-search/quarto-search.js"></script>
-  <link href="../auditing_and_monitoring/auditing_configuration.html" rel="next">
-  <link href="../load_balancing/balancing_methods.html" rel="prev">
+  <link href="../rstudio_server_configuration/rstudio_server_configuration.html" rel="next">
+  <link href="../r_package_dependencies/r_package_dependencies.html" rel="prev">
   <script src="../site_libs/quarto-html/quarto.js"></script>
   <script src="../site_libs/quarto-html/popper.min.js"></script>
   <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +83,7 @@
 </nav>
 <nav class="quarto-secondary-nav py-2 d-lg-none d-md-block " data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <div class="container-fluid d-flex justify-content-between">
-    <h1 class="quarto-secondary-nav-title mb-0 fs-3 d-inline">Overview</h1>
+    <h1 class="quarto-secondary-nav-title mb-0 fs-3 d-inline">Command Line Interface</h1>
     <button type="button" class="quarto-btn-toggle btn d-lg-none py-0 px-1 d-inline-block border-0 ">
       <i class="bi bi-chevron-right"></i>
     </button>
@@ -366,15 +366,15 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-            <a class="sidebar-section-item d-inline-flex text-start w-100 " data-bs-toggle="collapse" data-bs-target="#auditingandmonitoring-collapse" aria-expanded="true">
+            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#auditingandmonitoring-collapse" aria-expanded="false">
               <div class="me-auto  sidebar-section-item">Auditing and Monitoring</div>
             <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
         </div>
-      <div class="collapse  show" id="auditingandmonitoring-collapse">
+      <div class="collapse  " id="auditingandmonitoring-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../auditing_and_monitoring/auditing_and_monitoring.html" class="active">Overview</a>
+  <a href="../auditing_and_monitoring/auditing_and_monitoring.html" class="">Overview</a>
 </li>
           <li class="sidebar-item">
   <a href="../auditing_and_monitoring/auditing_configuration.html" class="">Auditing Configuration</a>
@@ -619,12 +619,12 @@
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
-            <a class="sidebar-section-item d-inline-flex text-start w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#appendix-collapse" aria-expanded="false">
+            <a class="sidebar-section-item d-inline-flex text-start w-100 " data-bs-toggle="collapse" data-bs-target="#appendix-collapse" aria-expanded="true">
               <div class="me-auto  sidebar-section-item">Appendix</div>
             <div><i class="bi bi-chevron-right ms-2 "></i></div>
             </a>
         </div>
-      <div class="collapse  " id="appendix-collapse">
+      <div class="collapse  show" id="appendix-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
@@ -636,7 +636,7 @@
   <a href="../r_package_dependencies/r_package_dependencies.html" class="">R Package Dependencies</a>
 </li>
           <li class="sidebar-item">
-  <a href="../rstudio_server_cli/rstudio_server_cli.html" class="">Command Line Interface</a>
+  <a href="../rstudio_server_cli/rstudio_server_cli.html" class="active">Command Line Interface</a>
 </li>
           <ul class="list-unstyled sidebar-section depth2">
     <li class="">
@@ -672,30 +672,235 @@
   <div id="quarto-toc-sidebar" class="col col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-toc order-last"><nav id="TOC" role="doc-toc">
 <h2 id="toc-title">On this page</h2>
 <ul>
-<li><a href="#auditing-and-monitoring" class="nav-link active" data-scroll-target="#auditing-and-monitoring">Auditing and Monitoring</a></li>
+<li><a href="#name" class="nav-link active" data-scroll-target="#name">NAME</a></li>
+<li><a href="#synopsis" class="nav-link" data-scroll-target="#synopsis">SYNOPSIS</a></li>
+<li><a href="#description" class="nav-link" data-scroll-target="#description">DESCRIPTION</a></li>
+<li><a href="#commands" class="nav-link" data-scroll-target="#commands">COMMANDS</a>
+<ul class="collapse">
+<li><a href="#server-management" class="nav-link" data-scroll-target="#server-management">SERVER MANAGEMENT</a></li>
+<li><a href="#user-management" class="nav-link" data-scroll-target="#user-management">USER MANAGEMENT</a></li>
+<li><a href="#load-balancing" class="nav-link" data-scroll-target="#load-balancing">LOAD BALANCING</a></li>
+<li><a href="#session-management" class="nav-link" data-scroll-target="#session-management">SESSION MANAGEMENT</a></li>
+<li><a href="#license-management" class="nav-link" data-scroll-target="#license-management">LICENSE MANAGEMENT</a></li>
+<li><a href="#diagnostics" class="nav-link" data-scroll-target="#diagnostics">DIAGNOSTICS</a></li>
+<li><a href="#vs-code" class="nav-link" data-scroll-target="#vs-code">VS CODE</a></li>
+<li><a href="#database" class="nav-link" data-scroll-target="#database">DATABASE</a></li>
+</ul></li>
 </ul>
 </nav></div>
   <div class="col mx-auto col-sm-12 col-md-9 col-lg-7 px-lg-4">
 <main>
 <header id="title-block-header">
-<h1 class="title d-none d-lg-block display-7">Overview</h1>
+<h1 class="title d-none d-lg-block display-7">Command Line Interface</h1>
 </header>
 
-<section id="auditing-and-monitoring" class="level2 pro-header">
-<h2 class="pro-header anchored" data-anchor-id="auditing-and-monitoring">Auditing and Monitoring</h2>
-<p>RStudio Workbench can be configured to audit R console input and output for per user and session. It can monitor runtime resource use via the Administrative Dashboard or through integration with a system like Graphite.</p>
+<section id="name" class="level1">
+<h1>NAME</h1>
+<p>rstudio-server - a command-line interface for administering an RStudio server.</p>
+</section>
+<section id="synopsis" class="level1">
+<h1>SYNOPSIS</h1>
+<p><strong>rstudio-server</strong> COMMAND [ARGS…]</p>
+</section>
+<section id="description" class="level1">
+<h1>DESCRIPTION</h1>
+<p>rstudio-server is a utility script containing a collection of subcommands for performing administrative actions on an RStudio Workbench instance.</p>
+</section>
+<section id="commands" class="level1">
+<h1>COMMANDS</h1>
+<section id="server-management" class="level2">
+<h2 class="anchored" data-anchor-id="server-management">SERVER MANAGEMENT</h2>
+<dl>
+<dt><strong>offline</strong></dt>
+<dd>Takes the server offline. Users who attempt to access the server while it is offline will see a friendly message indicating that the server is currently offline, rather than the generic HTTP error they would see if the server is fully stopped.
+</dd>
+<dt><strong>online</strong></dt>
+<dd>Brings the server back online after the <strong>offline</strong> command was used.
+</dd>
+<dt><strong>reload</strong></dt>
+<dd>Reloads the server’s configuration without starting or stopping it. Only some configuration values are affected; others cannot be reloaded in place and require a full restart. Consult the administration guide for information on specific values.
+</dd>
+<dt><strong>restart</strong></dt>
+<dd>Restarts the server, similar to a stop followed by a start. Useful for applying configuration changes.
+</dd>
+<dt><strong>start</strong></dt>
+<dd>Start the server, if it is currently stopped.
+</dd>
+<dt><strong>status</strong></dt>
+<dd>Report the status of the server according to the service manager, for instance whether it is stopped, starting, or running
+</dd>
+<dt><strong>stop</strong></dt>
+<dd>Stop the server. Also stops all R sessions running locally on the server.
+</dd>
+</dl>
+</section>
+<section id="user-management" class="level2">
+<h2 class="anchored" data-anchor-id="user-management">USER MANAGEMENT</h2>
+<dl>
+<dt><strong>add-user</strong> <code>NAME [0|1]</code></dt>
+<dd>Adds the user NAME to the list of licensed users. This is useful for allocating license seats; note however that it does not create Linux users or other system resources. The second argument, which is optional, indicates whether to create an ordinary user (0) or administrator (1).
+</dd>
+<dt><strong>list-users</strong></dt>
+<dd>Lists all the users, their license status (active or locked), and whether or not they are administrators.
+</dd>
+<dt><strong>lock-user</strong> <code>NAME</code></dt>
+<dd>Locks a user. Locked users cannot log in and don’t count against the licensing seat limit.
+</dd>
+<dt><strong>set-admin</strong> <code>NAME 0|1</code></dt>
+<dd>Sets the user NAME to either be an administrator (as in <code>set-admin johndoe 1</code>) or an ordinary user (0).
+</dd>
+<dt><strong>unlock-user</strong> <code>NAME</code></dt>
+<dd>Unlocks a previously locked user.
+</dd>
+</dl>
+</section>
+<section id="load-balancing" class="level2">
+<h2 class="anchored" data-anchor-id="load-balancing">LOAD BALANCING</h2>
+<dl>
+<dt><strong>list-nodes</strong></dt>
+<dd>Lists all active nodes in the load balancing cluster, along with the status of each.
+</dd>
+<dt><strong>reset-cluster</strong></dt>
+<dd>Clears the internal load balancing state. This is used to reset the secure cookie key hash and transfer protocol used by the load balancing cluster.
+</dd>
+</dl>
+</section>
+<section id="session-management" class="level2">
+<h2 class="anchored" data-anchor-id="session-management">SESSION MANAGEMENT</h2>
+<dl>
+<dt><strong>active-sessions</strong></dt>
+<dd>Lists all currently active sessions. Only lists local R sessions; sessions running on other nodes or via the Job Launcher are not included.
+</dd>
+<dt><strong>force-suspend-all</strong></dt>
+<dd>Forcefully suspends all R sessions at once; doesn’t give users an opportunity to save their work. For a gentler alternative, use <strong>suspend-all</strong>.
+</dd>
+<dt><strong>force-suspend-session</strong> <code>ID|PID</code></dt>
+<dd>Forcefully suspends one specific session. If using a session controlled by the Job Launcher, its ID should be supplied (the eight characters at the end of its URL). Otherwise, supply the ID of session’s process ID (PID), which you can obtain via <code>Sys.getpid()</code> inside the session or by inspecting the process ID of the <code>rsession</code> process with <code>ps</code>.
+</dd>
+<dt><strong>kill-all</strong> <code>ID|PID</code></dt>
+<dd>Kills all sessions. This uses <code>SIGKILL</code> or the equivalent, so the session will not shut down gracefully and work can be lost. When the user next attempts to use the session, R will report it as having crashed.
+</dd>
+<dt><strong>kill-session</strong> <code>ID|PID</code></dt>
+<dd>Kills one specific session. If using a session controlled by the Job Launcher, its ID should be supplied (the eight characters at the end of its URL). Otherwise, supply the ID of session’s process ID (PID), which you can obtain via <code>Sys.getpid()</code> inside the session or by inspecting the process ID of the <code>rsession</code> process with <code>ps</code>.
+</dd>
+<dt><strong>suspend-all</strong></dt>
+<dd>Suspends all R sessions at once.
+</dd>
+<dt><strong>suspend-session</strong> <code>ID|PID</code></dt>
+<dd>Suspends one specific session. If using a session controlled by the Job Launcher, its ID should be supplied (the eight characters at the end of its URL). Otherwise, supply the ID of session’s process ID (PID), which you can obtain via <code>Sys.getpid()</code> inside the session or by inspecting the process ID of the <code>rsession</code> process with <code>ps</code>.
+</dd>
+</dl>
+</section>
+<section id="license-management" class="level2">
+<h2 class="anchored" data-anchor-id="license-management">LICENSE MANAGEMENT</h2>
+<p>The server’s license can be managed through the <strong>license-manager</strong> command, which has an extensive set of subcommands. Most of these subcommands accept the <code>--output</code> option, which can be used to set the output format to either <code>text</code> (the default when connected to a terminal) or <code>json</code>, which is useful for scripting or machine readability.</p>
+<dl>
+<dt><strong>license-manager activate</strong> <code>[--proxy=PROXY] PRODUCT-KEY</code></dt>
+<dd>Attempts to activate the server with the given product key. If successful, the server uses one “activation” of the product key and becomes fully licensed. It is not necessary to restart the server after activating it; the license will take effect immediately. Requires an Internet connection; use the <code>--proxy</code> option to specify a proxy URL.
+</dd>
+<dt><strong>license-manager activate-file</strong> <code>LICENSE-FILE</code></dt>
+<dd>Attempts to activate the server with the given license file. License files take precedence over other types of licensing.
+</dd>
+<dt><strong>license-manager activate-offline</strong> <code>ACTIVATION-FILE</code></dt>
+<dd>Applies an activation file from RStudio Support to the server.
+</dd>
+<dt><strong>license-manager activate-offline-request</strong></dt>
+<dd>Starts the process of requesting a offline activation and generates a file you can send to RStudio to complete the activation.
+</dd>
+<dt><strong>license-manager acquire-lease-verbose</strong></dt>
+<dd>Attempts to acquire a lease on a floating license, printing diagnostic information while doing so. Not useful except as a troubleshooting tool; RStudio automatically acquires and releases leases during the normal course of operation, and also acquires a temporary lease while executing the <strong>status</strong> command.
+</dd>
+<dt><strong>license-manager begin-evaluation-offline</strong> <code>EVALUATION-FILE</code></dt>
+<dd>Begins the evaluation period, using an evaluation file supplied by RStudio Support.
+</dd>
+<dt><strong>license-manager begin-evaluation-request</strong></dt>
+<dd>Starts the process of requesting an evaluation period and generates a file you can send to RStudio. This typically isn’t necessary except on air-gapped machines which can’t automatically connect to the Internet to start an evaluation.
+</dd>
+<dt><strong>license-manager deactivate</strong> <code>[--proxy=PROXY]</code></dt>
+<dd>Deactivates the current license, making it available so that it can be used on another server. If successful, removes one “activation” of the product key. Requires an Internet connection; use the <code>--proxy</code> option to specify a proxy URL.
+</dd>
+<dt><strong>license-manager clear-license-server</strong></dt>
+<dd>Clears a license server previously set with the <strong>license-server</strong> command. Used to switch from floating licensing to traditional key-based licensing.
+</dd>
+<dt><strong>license-manager deactivate-offline</strong></dt>
+<dd>Deactivates the current license and prints an offline deactivation request; the license won’t be fully deactivated until you send the request to RStudio for processing.
+</dd>
+<dt><strong>license-manager extend-evaluation</strong> <code>EVALUATION-KEY</code></dt>
+<dd>Extends the evaluation period with an evaluation key supplied by RStudio Support. Requires an Internet connection.
+</dd>
+<dt><strong>license-manager extend-evaluation-offline</strong> <code>EVALUATION-FILE</code></dt>
+<dd>Extends the evaluation period with an evaluation file supplied by RStudio Support.
+</dd>
+<dt><strong>license-manager initialize</strong> <code>[--userspace]</code></dt>
+<dd>Initializes the licensing system. This is normally done during installation, so only needs to be performed manually when using alternative installation methods or switching to userspace licensing with the <code>--userspace</code> flag (see administration guide).
+</dd>
+<dt><strong>license-manager license-server</strong> <code>HOSTNAME|URL</code></dt>
+<dd>Sets the host (e.g.&nbsp;<code>license.corp.com:8989</code>) or URL (e.g.&nbsp;<code>https://license.corp.com/</code>) to use for floating licensing. Note that this has no effect unless RStudio is configured to use floating licensing; see documentation for <code>server-license-type</code>.
+</dd>
+<dt><strong>license-manager verify</strong></dt>
+<dd>Verifies that the current license is valid; prints basic information about the license and exits. Typically <strong>status</strong> will give you richer information.
+</dd>
+<dt><strong>license-manager status</strong></dt>
+<dd>Prints detailed information about the current status of the licensing system: whether the license is currently valid, what licensing mode is in use (trial, key, floating), etc.
+</dd>
+</dl>
+</section>
+<section id="diagnostics" class="level2">
+<h2 class="anchored" data-anchor-id="diagnostics">DIAGNOSTICS</h2>
+<dl>
+<dt><strong>run-diagnostics</strong> <code>[--output-file=PATH]</code></dt>
+<dd>Prepares an extensive diagnostics report containing configuration files, logs, system information, and other output useful to help troubleshoot errors and problems. The report is placed in <code>/tmp/rstudio-diagnostics</code> by default, but you can specify any other path using the <code>--output-file</code> option.
+</dd>
+<dt><strong>test-config</strong></dt>
+<dd>Tests the server’s configuration for validity.
+</dd>
+<dt><strong>upload-minidump</strong> <code>MINIDUMP</code></dt>
+<dd>Uploads a previously collected crash dump file (.dmp) to RStudio’s crash reporting service. Requires an active Internet connection. Crash dump files can be found in the <code>crash-db-path</code> path set in your <code>crash-handler.conf</code> file.
+</dd>
+<dt><strong>verify-installation</strong></dt>
+<dd>Performs a variety of tests to ensure that the server is installed and working correctly, including starting an R session, launching a trial job (if the Job Launcher is configured), etc.
+</dd>
+<dd>Note that the server must be stopped in order for these tests to run, so use the <strong>stop</strong> command first if your server is running.
+</dd>
+<dt><strong>version</strong></dt>
+<dd>Reports the current version of the server and exits.
+</dd>
+</dl>
+</section>
+<section id="vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code">VS CODE</h2>
+<dl>
+<dt><strong>install-vs-code</strong> <code>DIRECTORY</code></dt>
+<dd>Installs the open source VS Code server (<code>code-server</code>) into the given <code>DIRECTORY</code>. The VS Code server must be installed if you plan to use VS Code with RStudio Workbench.
+</dd>
+<dt><strong>install-vs-code-ext</strong> <code>[-d DIRECTORY] [-l] [-v VERSION]</code></dt>
+<dd>Installs RStudio’s VS Code extension, which enables integration between VS Code and RStudio Workbench. Pass <code>-d</code> with the VS Code Server’s installation directory to optionally upgrade the VS Code Server if required; you may also specify <code>-l</code> to install locally (only for the current user) and <code>-v</code> to install a specific version of the extension (advanced usage only).
+</dd>
+</dl>
+</section>
+<section id="database" class="level2">
+<h2 class="anchored" data-anchor-id="database">DATABASE</h2>
+<dl>
+<dt><strong>encrypt-password</strong></dt>
+<dd>Encrypts a password. Doesn’t take any arguments; will prompt you for the password to encrypt and then emit the encrypted password. This utility is useful to encrypt the password used to access the database.
+</dd>
+<dt><strong>migrate-db</strong></dt>
+<dd>Migrates the internal database from a SQLite database to a PostgreSQL database. Useful when transitioning from a single-server to a multiple-server configuration.
+</dd>
+</dl>
 <!-- -->
+</section>
 </section>
 </main>
 <div class="page-navigation page-navigation-docked">
   <div class="nav-page nav-page-previous">
-      <a href="../load_balancing/balancing_methods.html">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Balancing Methods</span>
+      <a href="../r_package_dependencies/r_package_dependencies.html">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R Package Dependencies</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../auditing_and_monitoring/auditing_configuration.html">
-        <span class="nav-page-text">Auditing Configuration</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../rstudio_server_configuration/rstudio_server_configuration.html">
+        <span class="nav-page-text">Overview</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </div>

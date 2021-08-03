@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>RStudio Workbench Administration 7.29.1655-0931 – Load Balancing</title>
+  <title>RStudio Workbench Administration 8.3.2021-1632 – Load Balancing</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -17,7 +17,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-  <script src="../site_libs/quarto-nav/headroom.min.js"></script>
   <meta name="quarto:offset" content="../">
   <script src="../site_libs/quarto-search/autocomplete.min.js"></script>
   <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -56,7 +55,7 @@
     <div class="container-fluid">
   <a class="navbar-brand" href="../index.html">
     <img src="../images/RStudio-ball.svg" alt="">
-    RStudio Workbench Administration 7.29.1655-0931
+    RStudio Workbench Administration 8.3.2021-1632
   </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -636,6 +635,9 @@
           <li class="sidebar-item">
   <a href="../r_package_dependencies/r_package_dependencies.html" class="">R Package Dependencies</a>
 </li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_cli/rstudio_server_cli.html" class="">Command Line Interface</a>
+</li>
           <ul class="list-unstyled sidebar-section depth2">
     <li class="">
         <div class="me-auto ">
@@ -687,7 +689,7 @@ Note
 <p>In this mode, when using the local Launcher, sessions will be balanced according to the setting you have defined under <code>balancer</code> in <em>/etc/rstudio/load-balancer</em>.</p>
 </div>
 </div>
-<p>However, in some cases, you may want to scale the Job Launcher separately from RStudio Workbench. For example, if your Launcher cluster needs to exist in a different network for security reasons, such as to limit node connectivity to backend services (e.g., Kubernetes). In such cases, you will need to scale the Job Launcher separately via an external load balancer, and Workbench should be configured to point to this load balanced instance of the Job Launcher. In most cases, the external load balancer should be configured for sticky sessions, which will ensure that each instance of Workbench connects to just one Job Launcher node, providing the most consistent view of the current job state. For more information on configuring the Job Launcher for load balancing, see the <a href="https://docs.rstudio.com/job-launcher/7.29.1655-0931/index.html">Job Launcher documentation</a>.</p>
+<p>However, in some cases, you may want to scale the Job Launcher separately from RStudio Workbench. For example, if your Launcher cluster needs to exist in a different network for security reasons, such as to limit node connectivity to backend services (e.g., Kubernetes). In such cases, you will need to scale the Job Launcher separately via an external load balancer, and Workbench should be configured to point to this load balanced instance of the Job Launcher. In most cases, the external load balancer should be configured for sticky sessions, which will ensure that each instance of Workbench connects to just one Job Launcher node, providing the most consistent view of the current job state. For more information on configuring the Job Launcher for load balancing, see the <a href="https://docs.rstudio.com/job-launcher/8.3.2021-1632/index.html">Job Launcher documentation</a>.</p>
 <p>It should be noted that in most cases, load balancing is not needed for performance reasons, and is generally used for redundancy purposes.</p>
 <!-- -->
 </main>

@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>RStudio Workbench Administration 7.29.1655-0931 – Session User Settings</title>
+  <title>RStudio Workbench Administration 8.3.2021-1632 – Session User Settings</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -17,7 +17,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-  <script src="../site_libs/quarto-nav/headroom.min.js"></script>
   <meta name="quarto:offset" content="../">
   <script src="../site_libs/quarto-search/autocomplete.min.js"></script>
   <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -55,7 +54,7 @@
     <div class="container-fluid">
   <a class="navbar-brand" href="../index.html">
     <img src="../images/RStudio-ball.svg" alt="">
-    RStudio Workbench Administration 7.29.1655-0931
+    RStudio Workbench Administration 8.3.2021-1632
   </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -635,6 +634,9 @@
           <li class="sidebar-item">
   <a href="../r_package_dependencies/r_package_dependencies.html" class="">R Package Dependencies</a>
 </li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_cli/rstudio_server_cli.html" class="">Command Line Interface</a>
+</li>
           <ul class="list-unstyled sidebar-section depth2">
     <li class="">
         <div class="me-auto ">
@@ -666,14 +668,14 @@
   </div>
 </nav>
   </div>
-  <div id="quarto-toc-sidebar" class="col col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-toc order-last"></div>
-  <div class="col mx-auto col-sm-12 col-md-9 col-lg-7 px-lg-4">
+  <div class="col mx-auto col-sm-12 col-md-11 col-lg-9 px-lg-4">
 <main>
 <header id="title-block-header">
 <h1 class="title d-none d-lg-block display-7">Session User Settings</h1>
 </header>
 <p>The following table enumerates the settings supported in the user (or system) <code>rstudio-prefs.json</code> file, along with their type, allowable values, and defaults.</p>
 <div class="cell">
+<div class="cell-output-display">
 <table class="table">
 <colgroup>
 <col style="width: 7%">
@@ -813,12 +815,12 @@
 <tr class="odd">
 <td style="text-align: left;">busy_detection</td>
 <td style="text-align: left;">How to detect busy status in the Terminal.</td>
-<td style="text-align: left;">string (always, never, whitelist)</td>
+<td style="text-align: left;">string (always, never, list)</td>
 <td style="text-align: left;">always</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">busy_whitelist</td>
-<td style="text-align: left;">A whitelist of apps that should not be considered busy in the Terminal.</td>
+<td style="text-align: left;">busy_exclusion_list</td>
+<td style="text-align: left;">A list of apps that should not be considered busy in the Terminal.</td>
 <td style="text-align: left;">array</td>
 <td style="text-align: left;">tmux, screen</td>
 </tr>
@@ -2036,6 +2038,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 <!-- -->
 </main>

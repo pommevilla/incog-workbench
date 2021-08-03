@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>RStudio Workbench Administration 7.29.1655-0931 – Configuration</title>
+  <title>RStudio Workbench Administration 8.3.2021-1632 – Configuration</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -80,7 +80,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-  <script src="../site_libs/quarto-nav/headroom.min.js"></script>
   <meta name="quarto:offset" content="../">
   <script src="../site_libs/quarto-search/autocomplete.min.js"></script>
   <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -119,7 +118,7 @@
     <div class="container-fluid">
   <a class="navbar-brand" href="../index.html">
     <img src="../images/RStudio-ball.svg" alt="">
-    RStudio Workbench Administration 7.29.1655-0931
+    RStudio Workbench Administration 8.3.2021-1632
   </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -699,6 +698,9 @@
           <li class="sidebar-item">
   <a href="../r_package_dependencies/r_package_dependencies.html" class="">R Package Dependencies</a>
 </li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_cli/rstudio_server_cli.html" class="">Command Line Interface</a>
+</li>
           <ul class="list-unstyled sidebar-section depth2">
     <li class="">
         <div class="me-auto ">
@@ -733,7 +735,8 @@
   <div id="quarto-toc-sidebar" class="col col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-toc order-last"><nav id="TOC" role="doc-toc">
 <h2 id="toc-title">On this page</h2>
 <ul>
-<li><a href="#defining-nodes" class="nav-link active" data-scroll-target="#defining-nodes">Defining Nodes</a></li>
+<li><a href="#defining-the-cluster" class="nav-link active" data-scroll-target="#defining-the-cluster">Defining The Cluster</a></li>
+<li><a href="#defining-nodes" class="nav-link" data-scroll-target="#defining-nodes">Defining Nodes</a></li>
 <li><a href="#key-file-requirements" class="nav-link" data-scroll-target="#key-file-requirements">Key File Requirements</a></li>
 <li><a href="#generating-a-key" class="nav-link" data-scroll-target="#generating-a-key">Generating a Key</a></li>
 <li><a href="#launcher-considerations" class="nav-link" data-scroll-target="#launcher-considerations">Launcher Considerations</a></li>
@@ -771,6 +774,15 @@ Note
 <li><p>An explicit server-wide shared storage path also must be defined. See the <a href="../r_sessions/project_sharing.html#shared-storage">Shared Storage</a> section for additional details.</p></li>
 <li><p>RStudio must be configured to use a <a href="../database/configuration.html#postgresql">PostgreSQL</a> database, and an empty database must be present for RStudio to write important cross-node state. If you have previously run RStudio with a <a href="../database/configuration.html#sqlite">SQLite</a> database, it is strongly advised that you execute the database <a href="../database/migration.html#migration">Migration</a> to the PostgreSQL database first. For more information, see <a href="../database/database.html">Database</a>.</p></li>
 </ol>
+<section id="defining-the-cluster" class="level3">
+<h3 class="anchored" data-anchor-id="defining-the-cluster">Defining The Cluster</h3>
+<p>Only one load balancing cluster can exist per database, and this cluster is defined by the first node that comes online within the cluster. The cluster data contains the hash of the secure cookie key and the communication protocol (http, https, or https no verify). When each node comes online, it verifies its own secure cookie key and protocol against the cluster’s data and will only come online if this data matches. There are two ways to reset the data stored in the cluster:</p>
+<ol type="1">
+<li>Bring all nodes offline; then reconfigure each node. The first node that comes online will be able to update the cluster data.</li>
+<li>Manually reset the cluster by running <code>rstudio-server reset-cluster</code> from the command line. The next node that is started, restarted, or reloaded will update the cluster data.</li>
+</ol>
+<p>To view the nodes and their current statuses in the load balancer cluster, run the command <code>rstudio-server list-nodes</code>. The output contains a column ‘Last Seen’, which can be used to indentify nodes that have unexpectedly gone offline. When a node is online, it reguarly updates this database column with the current time (UTC) to indicate that it is Online and working as expected. When the time is displayed from the <code>list-nodes</code> command, it is displayed in the server’s local time. If a node is not properly shutdown, it may have an Online Status but the ‘Last Seen’ column will not be recent.</p>
+</section>
 <section id="defining-nodes" class="level3">
 <h3 class="anchored" data-anchor-id="defining-nodes">Defining Nodes</h3>
 <p>To define a cluster node, two configuration files need to be provided:</p>
