@@ -2,12 +2,11 @@ project:
   type: site
 
 execute:
-  freeze:
-    true
+  freeze: true
 
 site:
-  title: "RStudio Workbench Administration 8.3.2021-1632"
-  subtitle: "Version 8.3.2021-1632"
+  title: "RStudio Workbench Administration 8.4.2021-1909"
+  subtitle: "Version 8.4.2021-1909"
   downloads: [docx, pdf, epub]
   sharing: [twitter, facebook, linkedin]
   page-navigation: true

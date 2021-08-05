@@ -18,9 +18,9 @@ $pro-header-border: lighten($pro-header, 50%);
 
 /*-- scss:rules --*/
 
-/* color bullets rstudio blue */
-ul li::marker {
-  color: $primary;
+/* all code blocks scroll */
+pre > code {
+  white-space: pre;
 }
 
 /*-- the following all aim to increase visible whitespace *--/
@@ -129,7 +129,7 @@ div span.pro-feature {
 main > p a[href^="http://"]:not([href*="test.rstudio.com"]):after,
 main > p a[href^="https://"]:not([href*="test.rstudio.com"]):after,
 main > p a[href^="//"]:not([href*="test.rstudio.com"]) {
-    content: url(images/box-arrow-up-right.svg);
+    content: url(./images/box-arrow-up-right.svg);
     vertical-align: 0%;
     display: inline;
     text-decoration: none;

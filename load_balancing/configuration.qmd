@@ -235,19 +235,43 @@ To temporarily remove a node from the cluster you can simply stop it:
 $ sudo rstudio-server stop
 ```
 
-R sessions running on that node will be automatically moved to another active node. Note that only the session state is moved, not the running processes. To restore the node you can simply start it back up again:
+R sessions running on that node will be automatically moved to another active node. Note that only the session state is moved, not the running processes. The node will now appear in the `list-nodes` command with an offline status. To restore the node you can simply start it back up again:
 
 ``` {.bash}
 $ sudo rstudio-server start
 ```
 
-Note that removing nodes does not require changing the list of defined nodes in `/etc/rstudio/load-balancer` (traffic is automatically routed around nodes not currently running).
+To add a new node, create the file `/etc/rstudio/load-balancer`. Leave it empty for default settings. When the rstudio-server is restarted, it will broadcast its arrival to the other online nodes in the cluster. They do not have to be restarted or reloaded. All nodes sharing a database will be part of the same cluster.
 
-To add new nodes, simply add the nodes to the `/etc/rstudio/load-balancer` configuration file and send the `SIGHUP` signal to the `rserver` process (e.g., via `sudo rstudio-server reload`). It is recommended that this should be done to all nodes in the cluster, but depending on your routing configuration, at a minimum the node selected as the "main" node MUST be updated and signaled to start routing traffic to the new node(s).
-
-When removing nodes from the configuration file via the `SIGHUP` signal, you must ensure that any removed nodes have their processes stopped by running `sudo rstudio-server stop` on that node. Alternatively, you can suspend any actively running sessions by running `sudo rstudio-server suspend-all` on the node to be removed. Failure to do this will cause existing sessions running on the removed node to be stuck in an inaccessible state, and users will not be able to connect to those sessions.
+You can suspend any actively running sessions by running `sudo rstudio-server suspend-all` on the node to be removed. 
 
 Reloading the load balancer configuration will also cause the `rserver-http` proxy configuration to be updated as well, which affects the RStudio's running HTTP server. It is recommended that you do not make any other HTTP-related changes when updating the load balancer configuration unless you are aware of the potential side-effects!
+
+To permanently remove a node from the database, first stop rstudio server on that node. From an active node, retrieve the to-be-deleted node's ID, then pass it to the `delete-node` command. For example, your commands may look like the following:
+
+``` {.bash}
+$ sudo rstudio-server list-nodes
+Cluster
+-------
+Protocol
+Http
+
+Nodes
+-----
+ID  Host                          IPv4            Port    Status
+1   rsw-primaryyy                                 8787    Failed to resolve
+2   rsw-secondary                 123.456.78.100  8787    Online
+3   rsw-primary                   123.456.78.101  8787    Online                     
+
+$ sudo rstudio-server delete-node 1
+Node 1 deleted.
+```
+
+::: {.callout-note}
+The output from the `rstudio-server list-nodes` command above was shortened to improve readability.
+:::
+
+When the command is run, the node's database status will shortly change to 'Deleting' and then the node will be removed from the database. All other nodes in the cluster will be notified that this node has been removed and stop routing messages to it.
 
 ### Troubleshooting
 
