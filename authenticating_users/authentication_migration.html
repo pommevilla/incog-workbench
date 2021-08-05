@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>RStudio Workbench Administration 8.3.2021-1632 – Authentication Migration</title>
+  <title>RStudio Workbench Administration 8.4.2021-1909 – Authentication Migration</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -55,7 +55,7 @@
     <div class="container-fluid">
   <a class="navbar-brand" href="../index.html">
     <img src="../images/RStudio-ball.svg" alt="">
-    RStudio Workbench Administration 8.3.2021-1632
+    RStudio Workbench Administration 8.4.2021-1909
   </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -690,7 +690,7 @@
 <h3 class="anchored" data-anchor-id="migrating-from-pam">Migrating from PAM</h3>
 <p>Your local system accounts currently used with PAM can be used for Single Sing-On (SSO) authentication with SAML or OpenID. Ensure that:</p>
 <ul>
-<li>The existing PAM configuration is configured for <a href="../authenticating_users/pam_basics.html#pam-provisioning">PAM &amp; Provisioning</a>, as suggested above.</li>
+<li>The existing PAM configuration is configured for <a href="pam_basics.qmd#pam-provisioning">PAM &amp; Provisioning</a>, as suggested above.</li>
 <li>RStudio is configured with <a href="../r_sessions/pam_sessions.html">PAM Sessions</a> if your local system accounts are maintained by <code>sssd</code>.</li>
 <li>RStudio is configured with the appropriate SSO authentication mechanism.</li>
 <li>The configured SAML attribute or OpenID claim for username from your Identity Management system matches the names of your <strong>existing</strong> local system accounts.</li>

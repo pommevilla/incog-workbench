@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>RStudio Workbench Administration 8.3.2021-1632 – Configuration</title>
+  <title>RStudio Workbench Administration 8.4.2021-1909 – Configuration</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@
     <div class="container-fluid">
   <a class="navbar-brand" href="../index.html">
     <img src="../images/RStudio-ball.svg" alt="">
-    RStudio Workbench Administration 8.3.2021-1632
+    RStudio Workbench Administration 8.4.2021-1909
   </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -758,7 +758,7 @@
 </div>
 <section id="allow-iframe" class="level3">
 <h3 class="anchored" data-anchor-id="allow-iframe">Allow IFrame</h3>
-<p>For security reasons, RStudio will not load inside a browser frame (such as an IFrame) by default. You can modify this behavior by using the <code>www-frame-origin</code> option. See <a href="../access_and_security/frame_origin.html">Frame Origin</a> for full details.</p>
+<p>For security reasons, RStudio will not load inside a browser frame (such as an IFrame) by default. You can modify this behavior by using the <code>www-frame-origin</code> option. See <a href="../access_and_security/frame_origin.qmd">Frame Origin</a> for full details.</p>
 <p>To enable the Tutorial API example page to host RStudio Workbench on a <strong>non-production localhost server</strong>, do the following:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">www-frame-origin</span><span class="ot">=</span><span class="st">http://localhost:8080</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

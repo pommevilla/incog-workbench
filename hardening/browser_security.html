@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>RStudio Workbench Administration 8.3.2021-1632 – Browser Security</title>
+  <title>RStudio Workbench Administration 8.4.2021-1909 – Browser Security</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@
     <div class="container-fluid">
   <a class="navbar-brand" href="../index.html">
     <img src="../images/RStudio-ball.svg" alt="">
-    RStudio Workbench Administration 8.3.2021-1632
+    RStudio Workbench Administration 8.4.2021-1909
   </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -753,7 +753,7 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">www-enable-origin-check</span><span class="ot">=</span><span class="dv">1</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">www-allow-origin</span><span class="ot">=</span><span class="st">mysubdomain.mydomain.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The <code>www-allow-origin</code> setting is optional, but is helpful when RStudio is running behind a proxy. See <a href="../access_and_security/additional_security_considerations.html">Additional Security Considerations</a> for details.</p>
+<p>The <code>www-allow-origin</code> setting is optional, but is helpful when RStudio is running behind a proxy. See <a href="../access_and_security/additional_security_considerations.qmd">Additional Security Considerations</a> for details.</p>
 </section>
 <section id="disable-frame-embedding" class="level3">
 <h3 class="anchored" data-anchor-id="disable-frame-embedding">Disable Frame Embedding</h3>
@@ -763,7 +763,7 @@
 </section>
 <section id="set-samesite-cookie-header" class="level3">
 <h3 class="anchored" data-anchor-id="set-samesite-cookie-header">Set SameSite Cookie Header</h3>
-<p>RStudio does not set the <code>SameSite</code> cookie header by default (see <a href="../access_and_security/same_site_cookies.html">Same Site cookies</a> for details). We recommend setting it explicitly.</p>
+<p>RStudio does not set the <code>SameSite</code> cookie header by default (see <a href="../access_and_security/same_site_cookies.qmd">Same Site cookies</a> for details). We recommend setting it explicitly.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">www-same-site</span><span class="ot">=</span><span class="st">lax</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- -->

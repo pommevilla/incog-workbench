@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>RStudio Workbench Administration 8.3.2021-1632 – Job Launcher Configuration</title>
+  <title>RStudio Workbench Administration 8.4.2021-1909 – Job Launcher Configuration</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@
     <div class="container-fluid">
   <a class="navbar-brand" href="../index.html">
     <img src="../images/RStudio-ball.svg" alt="">
-    RStudio Workbench Administration 8.3.2021-1632
+    RStudio Workbench Administration 8.4.2021-1909
   </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -744,7 +744,7 @@
 <h1 class="title d-none d-lg-block display-7">Job Launcher Configuration</h1>
 </header>
 
-<p>Before the Job Launcher can be run, it must be properly configured via the config file <code>/etc/rstudio/launcher.conf</code>; see the <a href="https://docs.rstudio.com/job-launcher/8.3.2021-1632/index.html">Job Launcher documentation</a> for supported configuration options. If the Launcher was installed with RStudio Workbench, a default working configuration that uses the Local plugin is installed for your convenience.</p>
+<p>Before the Job Launcher can be run, it must be properly configured via the config file <code>/etc/rstudio/launcher.conf</code>; see the <a href="https://docs.rstudio.com/job-launcher/8.4.2021-1909/index.html">Job Launcher documentation</a> for supported configuration options. If the Launcher was installed with RStudio Workbench, a default working configuration that uses the Local plugin is installed for your convenience.</p>
 <p>The Launcher configuration parameter <code>admin-group</code> should be configured to the group value of the RStudio Workbench server user, specified in the <code>server-user</code> configuration parameter in <code>rserver.conf</code> (which defaults to rstudio-server). This makes the server user a Job Launcher admin, which is necessary to properly launch sessions on behalf of other users.</p>
 <section id="rstudio-workbench-integration" class="level3">
 <h3 class="anchored" data-anchor-id="rstudio-workbench-integration">RStudio Workbench Integration</h3>
