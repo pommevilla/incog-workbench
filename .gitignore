@@ -15,7 +15,6 @@ rstudio-server-pro-*-admin-guide.*
 _main.html
 *.zip
 
-.quarto/
-*_cache/
-_site
+_variables.yml
+_site/
 /.quarto/

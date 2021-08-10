@@ -4,4 +4,6 @@ aliases:
 	- /r-sessions.html
 ---
 
+## R Sessions
+
 RStudio Workbench’s primary role is to launch and manage sessions for users.  An R Session is a session configured with R and various shared libraries and R packages which the user accesses through the browser as the RStudio IDE.  If using the job launcher, sessions can be launched with environments for R, Jupyter, Jupyter Lab, and VS Code.  Without the job launcher, Workbench is limited to launching R Sessions.  This section explains how R Sessions are configured.

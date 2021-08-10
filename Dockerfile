@@ -33,7 +33,7 @@ RUN cd /tmp \
 RUN R -e 'options(download.file.method = "wget"); install.packages("devtools", repos = "https://cran.rstudio.com"); install.packages("rmarkdown", repos = "https://cran.rstudio.com")'
 
 # install quarto manually to a known good version
-ARG QUARTO_VERSION=0.2.38
+ARG QUARTO_VERSION=0.2.69
 
 RUN cd /tmp \
 	&& wget -q https://github.com/quarto-dev/quarto-cli/releases/download/v$QUARTO_VERSION/quarto-$QUARTO_VERSION-amd64.deb \

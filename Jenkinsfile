@@ -41,7 +41,13 @@ try {
           }
           stage('build docs') {
             container.inside() {
-              def env = "RSTUDIO_VERSION_MAJOR=${RSTUDIO_VERSION_MAJOR} RSTUDIO_VERSION_MINOR=${RSTUDIO_VERSION_MINOR} RSTUDIO_VERSION_PATCH=${RSTUDIO_VERSION_PATCH} RSTUDIO_VERSION_SUFFIX=${RSTUDIO_VERSION_SUFFIX}"
+
+              def buildType = sh (
+                script: "cat BUILDTYPE",
+                returnStdout: true
+              ).trim().toLowerCase()
+
+              def env = "RSTUDIO_BUILD_TYPE=${buildType} RSTUDIO_VERSION_MAJOR=${RSTUDIO_VERSION_MAJOR} RSTUDIO_VERSION_MINOR=${RSTUDIO_VERSION_MINOR} RSTUDIO_VERSION_PATCH=${RSTUDIO_VERSION_PATCH} RSTUDIO_VERSION_SUFFIX=${RSTUDIO_VERSION_SUFFIX}"
               sh "cd docs/server/ && ${env} cmake . && make && cd ../.."
             }
           }

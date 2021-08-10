@@ -4,6 +4,8 @@ aliases:
   - /authenticating-users.html
 ---
 
+## Authenticating Users
+
 **R users require local system accounts regardless of what RStudio authentication method you use.** You must set up local system accounts manually or programmatically and then map authenticating users to these accounts.
 
 For user identification, authentication, and authorization using local system accounts, RStudio relies heavily on Linux [Pluggable Authentication Module (PAM)](http://en.wikipedia.org/wiki/Pluggable_authentication_module). PAM can be used by itself to authenticate users or along with other external authentication mechanisms (e.g., Web Single Sign-On) to authorize existing local system accounts.

@@ -1,0 +1,101 @@
+---
+title: "Data Dictionary"
+aliases:
+	- /data-dictionary.html
+---
+
+This appendix describes the tables and columns in RStudio Workbench's internal database. Note that this database is intended for internal product usage only; the schema and columns can be changed between releases of RStudio Workbench.
+
+::: callout-note
+The fields which have the `Integer/Boolean` field are `Integer` type if SQLite is used and `Boolean` type if PostgreSQL is used, due to differences in the two database systems.
+:::
+
+## cluster
+
+The `cluster` table stores information about a cluster in a load-balanced configuration.
+
+This table is only available in PostgreSQL, since SQLite cannot be used in load-balanced configurations.
+
++-------------+--------+---------------------------------------------------------------------------------------------------------------------+
+| Column Name | Type   | Description                                                                                                         |
++=============+========+=====================================================================================================================+
+| id          | Text   | A unique ID representing the cluster.                                                                               |
++-------------+--------+---------------------------------------------------------------------------------------------------------------------+
+| key_hash    | Text   | A hash of the cluster's `secure-cookie-key` value. Used to ensure that all nodes in the cluster have matching keys. |
++-------------+--------+---------------------------------------------------------------------------------------------------------------------+
+| protocol    | Text   | The protocol used to communicate among nodes in the cluster. Must be one of `http`, `https`, or `https no verify`.  |
++-------------+--------+---------------------------------------------------------------------------------------------------------------------+
+
+## licensed_users
+
+The `licensed_users` table tracks the last sign in time of every user of RStudio Workbench. It also keeps track of whether a particular user has administrator privileges, and whether a user is locked from the system.
+
++--------------+-----------------+---------------------------------------------------------------+
+| Column Name  | Type            | Description                                                   |
++==============+=================+===============================================================+
+| user_name    | Text            | The username associated with the user.                        |
++--------------+-----------------+---------------------------------------------------------------+
+| locked       | Integer/Boolean | Whether or not the user is locked (disabled from signing in). |
++--------------+-----------------+---------------------------------------------------------------+
+| last_sign_in | Text            | The date time when the user last signed in.                   |
++--------------+-----------------+---------------------------------------------------------------+
+| is_admin     | Integer/Boolean | Indicates if the user is an admin.                            |
++--------------+-----------------+---------------------------------------------------------------+
+
+## licensed_users_metadata
+
+The `licensed_users_metadata` table tracks a hashed version of the user ID, used for quickly looking up known users.
+
++-------------+-----------+------------------------------------------------------------------------+
+| Column Name | Type      | Description                                                            |
++=============+===========+========================================================================+
+| uid         | Text      | Randomly generated unique ID associated with the current locked users. |
++-------------+-----------+------------------------------------------------------------------------+
+
+## node
+
+The `node` table stores information about a single node in a load-balanced cluster.
+
+This table is only available in PostgreSQL, since SQLite cannot be used in load-balanced configurations.
+
++-------------+------------+----------------------------------------------------------------------------------------------------+
+| Column Name | Type       | Description                                                                                        |
++=============+============+====================================================================================================+
+| id          | Text       | A unique ID representing the node.                                                                 |
++-------------+------------+----------------------------------------------------------------------------------------------------+
+| cluster_id  | Text       | The ID of the cluster to which the node belongs.                                                   |
++-------------+------------+----------------------------------------------------------------------------------------------------+
+| host        | Text       | The node's hostname, or its raw IP address.                                                        |
++-------------+------------+----------------------------------------------------------------------------------------------------+
+| port        | Text       | The port to connect to; defaults to `443` for https and `8787` for http.                           |
++-------------+------------+----------------------------------------------------------------------------------------------------+
+| ipv4        | Text       | The resolved IPv4 address of the host, if applicable.                                              |
++-------------+------------+----------------------------------------------------------------------------------------------------+
+| last_seen   | Text       | The date and time the node was last seen; the node updates this every 5 minutes when it's healthy. |
++-------------+------------+----------------------------------------------------------------------------------------------------+
+| status      | Text       | The node's status; `starting`, `online`, `offline`, etc.                                           |
++-------------+------------+----------------------------------------------------------------------------------------------------+
+
+## revoked_cookie
+
+The `revoked_cookie` table tracks authentication cookies which have been revoked before they expire. Authentication cookies are revoked before expiry when a user logs out of RStudio.
+
++-------------+--------+------------------------------------------------------------------------------------------------------------------+
+| Column Name | Type   | Description                                                                                                      |
++=============+========+==================================================================================================================+
+| expiration  | Text   | The expiration date string at which this cookie expires. Derivative of the CookieData used for sorting purposes. |
++-------------+--------+------------------------------------------------------------------------------------------------------------------+
+| cookie_data | Text   | The actual cookie data.                                                                                          |
++-------------+--------+------------------------------------------------------------------------------------------------------------------+
+
+## schema_version
+
+The `schema_version` table is used to keep track of the version of the database schema currently in use, for the purposes of managing changes to the database schema over time.
+
++-----------------+----------+--------------------------------------------------------------------------------------+
+| Column Name     | Type     | Description                                                                          |
++=================+==========+======================================================================================+
+| current_version | Text     | The schema version, which is derived from the date and time on which it was created. |
++-----------------+----------+--------------------------------------------------------------------------------------+
+| release_name    | Text     | The code name of the release to which this version of the schema belongs.            |
++-----------------+----------+--------------------------------------------------------------------------------------+

@@ -4,4 +4,6 @@ aliases:
 	- /data-connectivity.html
 ---
 
+## Data Connectivity
+
 You can set up connections to shared data sources which will be available to users in the Connections pane of the RStudio IDE.
