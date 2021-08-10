@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><head>
   <meta charset="utf-8">
-  <meta name="generator" content="quarto-0.2.55">
+  <meta name="generator" content="quarto-0.2.72">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>RStudio Workbench Administration 8.4.2021-1909 – Load Balancing</title>
   <style>
@@ -55,7 +55,7 @@
     <div class="container-fluid">
   <a class="navbar-brand" href="../index.html">
     <img src="../images/RStudio-ball.svg" alt="">
-    RStudio Workbench Administration 8.4.2021-1909
+    <span class="navbar-title">RStudio Workbench Administration 8.4.2021-1909</span>
   </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -63,16 +63,13 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://www.rstudio.com/">
- RStudio.com</a>
+    <a class="nav-link" href="https://www.rstudio.com/">RStudio.com</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://support.rstudio.com/hc/en-us/articles/200716783-RStudio-Release-History">
- Release Notes</a>
+    <a class="nav-link" href="https://support.rstudio.com/hc/en-us/articles/200716783-RStudio-Release-History">Release Notes</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://support.rstudio.com/hc/en-us">
- Help</a>
+    <a class="nav-link" href="https://support.rstudio.com/hc/en-us">Help</a>
   </li>  
 </ul>
           <form class="d-flex mb-0">
@@ -96,7 +93,7 @@
   <div id="quarto-sidebar" class="col col-12 col-lg-3 d-lg-flex px-0 pt-0 sidebar collapse sidebar-navigation">
     <nav class="me-lg-auto py-2 docked  overflow-scroll">
   <div class="sidebar-menu-container"> 
-  <ul class="list-unstyled mt-3 px-3">
+  <ul class="list-unstyled mt-1 px-3">
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
@@ -348,7 +345,7 @@
   <a href="../load_balancing/load_balancing.html" class="">Overview</a>
 </li>
           <li class="sidebar-item">
-  <a href="../load_balancing/load_balancing_vs_job_launcher.html" class="">Load Balancing vs. Job Launcher</a>
+  <a href="../load_balancing/load_balancing_vs_job_launcher.html" class="">Load Balancing vs.&nbsp;Job Launcher</a>
 </li>
           <li class="sidebar-item">
   <a href="../load_balancing/configuration.html" class="">Configuration</a>
@@ -691,18 +688,15 @@ Note
 </div>
 <p>However, in some cases, you may want to scale the Job Launcher separately from RStudio Workbench. For example, if your Launcher cluster needs to exist in a different network for security reasons, such as to limit node connectivity to backend services (e.g., Kubernetes). In such cases, you will need to scale the Job Launcher separately via an external load balancer, and Workbench should be configured to point to this load balanced instance of the Job Launcher. In most cases, the external load balancer should be configured for sticky sessions, which will ensure that each instance of Workbench connects to just one Job Launcher node, providing the most consistent view of the current job state. For more information on configuring the Job Launcher for load balancing, see the <a href="https://docs.rstudio.com/job-launcher/8.4.2021-1909/index.html">Job Launcher documentation</a>.</p>
 <p>It should be noted that in most cases, load balancing is not needed for performance reasons, and is generally used for redundancy purposes.</p>
+
 <!-- -->
 </main>
 <div class="page-navigation page-navigation-docked">
   <div class="nav-page nav-page-previous">
-      <a href="../job_launcher/running_the_launcher.html">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Running the Launcher</span>
-      </a>          
+      <a href="../job_launcher/running_the_launcher.html">Running the Launcher</a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../job_launcher/creating_plugins.html">
-        <span class="nav-page-text">Creating Plugins</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
+      <a href="../job_launcher/creating_plugins.html">Creating Plugins</a>
   </div>
 </div>
 </div> <!-- /main column -->

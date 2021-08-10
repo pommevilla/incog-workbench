@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><head>
   <meta charset="utf-8">
-  <meta name="generator" content="quarto-0.2.55">
+  <meta name="generator" content="quarto-0.2.72">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>RStudio Workbench Administration 8.4.2021-1909 – Floating Licensing</title>
   <style>
@@ -118,7 +118,7 @@
     <div class="container-fluid">
   <a class="navbar-brand" href="../index.html">
     <img src="../images/RStudio-ball.svg" alt="">
-    RStudio Workbench Administration 8.4.2021-1909
+    <span class="navbar-title">RStudio Workbench Administration 8.4.2021-1909</span>
   </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -126,16 +126,13 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://www.rstudio.com/">
- RStudio.com</a>
+    <a class="nav-link" href="https://www.rstudio.com/">RStudio.com</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://support.rstudio.com/hc/en-us/articles/200716783-RStudio-Release-History">
- Release Notes</a>
+    <a class="nav-link" href="https://support.rstudio.com/hc/en-us/articles/200716783-RStudio-Release-History">Release Notes</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://support.rstudio.com/hc/en-us">
- Help</a>
+    <a class="nav-link" href="https://support.rstudio.com/hc/en-us">Help</a>
   </li>  
 </ul>
           <form class="d-flex mb-0">
@@ -159,7 +156,7 @@
   <div id="quarto-sidebar" class="col col-12 col-lg-3 d-lg-flex px-0 pt-0 sidebar collapse sidebar-navigation">
     <nav class="me-lg-auto py-2 docked  overflow-scroll">
   <div class="sidebar-menu-container"> 
-  <ul class="list-unstyled mt-3 px-3">
+  <ul class="list-unstyled mt-1 px-3">
       <ul class="list-unstyled sidebar-section depth1">
     <li class="">
         <div class="me-auto ">
@@ -411,7 +408,7 @@
   <a href="../load_balancing/load_balancing.html" class="">Overview</a>
 </li>
           <li class="sidebar-item">
-  <a href="../load_balancing/load_balancing_vs_job_launcher.html" class="">Load Balancing vs. Job Launcher</a>
+  <a href="../load_balancing/load_balancing_vs_job_launcher.html" class="">Load Balancing vs.&nbsp;Job Launcher</a>
 </li>
           <li class="sidebar-item">
   <a href="../load_balancing/configuration.html" class="">Configuration</a>
@@ -881,19 +878,16 @@
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo rsp-license-server restart</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tail <span class="at">-f</span> /var/log/rstudio-licensing.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>At the <code>notification</code> level, the licensing log will tell you the total number of licenses associated with your key, and how many are currently in use. It will also notify you when RStudio Workbench instances acquire leases, and when those leases are released, renewed, or expired. No rotation is done for this log, so it’s recommended to use the <code>warning</code> level in production.</p>
+
 <!-- -->
 </section>
 </main>
 <div class="page-navigation page-navigation-docked">
   <div class="nav-page nav-page-previous">
-      <a href="../license_management/evaluations.html">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Evaluations</span>
-      </a>          
+      <a href="../license_management/evaluations.html">Evaluations</a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../license_management/userspace_licensing.html">
-        <span class="nav-page-text">Userspace Licensing</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
+      <a href="../license_management/userspace_licensing.html">Userspace Licensing</a>
   </div>
 </div>
 </div> <!-- /main column -->
