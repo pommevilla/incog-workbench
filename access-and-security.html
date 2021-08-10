@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Redirect</title>
+  <script type="text/javascript">
+    var redirects = {"":"access_and_security/access_and_security.html","access-and-security":"access_and_security/access_and_security.html","network-port-and-address":"access_and_security/network_port_and_address.html","additional-security-considerations":"access_and_security/security_considerations.html","security-considerations":"access_and_security/security_considerations.html","ip-access-rules":"access_and_security/security_considerations.html","frame-origin":"access_and_security/security_considerations.html","additional-headers":"access_and_security/security_considerations.html","secure-sockets-ssl":"access_and_security/secure_sockets.html","ssl-ports":"access_and_security/secure_sockets.html","cookies":"access_and_security/cookies.html","same-site-cookies":"access_and_security/cookies.html","compatibility-with-safari-13":"access_and_security/cookies.html","server-permissions":"access_and_security/server_permissions.html","running-with-a-proxy":"access_and_security/running_with_a_proxy.html"};
+    var hash = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : window.location.hash;
+    var redirect = redirects[hash] || redirects[""] || "/";
+    window.document.title = 'Redirect to  ' +  redirect;
+    window.location.replace(redirect);
+  </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Redirect</title>
+  <script type="text/javascript">
+    var redirects = {"":"tutorial_api/tutorial_api.html","overview-6":"tutorial_api/tutorial_api.html","configuration-1":"tutorial_api/configuration.html","interface":"tutorial_api/interface.html","tutorial-api-methods":"tutorial_api/tutorial_api_methods.html","tutorial-api-callbacks":"tutorial_api/tutorial_api_callbacks.html"};
+    var hash = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : window.location.hash;
+    var redirect = redirects[hash] || redirects[""] || "/";
+    window.document.title = 'Redirect to  ' +  redirect;
+    window.location.replace(redirect);
+  </script>
+</head>
+<body>
+</body>
+</html>
