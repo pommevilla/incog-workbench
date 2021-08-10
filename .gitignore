@@ -4,6 +4,7 @@
 .DS_Store
 kindlegen*
 rsconnect
+_book
 CMake*
 Makefile
 _bookdown.yml
