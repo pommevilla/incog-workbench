@@ -3,7 +3,6 @@
 .RData
 .DS_Store
 kindlegen*
-_book
 rsconnect
 CMake*
 Makefile

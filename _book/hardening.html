@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Redirect</title>
+  <script type="text/javascript">
+    var redirects = {"":"hardening\\hardening.html","set-up-ssl":"hardening\\set_up_ssl.html","browser-security":"hardening\\browser_security.html","r-session-security":"hardening\\r_session_security.html","database":"hardening\\database.html","other":"hardening\\other.html","example-secure-configuration":"hardening\\example_secure_configuration.html"};
+    var hash = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : window.location.hash;
+    var redirect = redirects[hash] || redirects[""] || "/";
+    window.document.title = 'Redirect to  ' +  redirect;
+    window.location.replace(redirect);
+  </script>
+</head>
+<body>
+</body>
+</html>

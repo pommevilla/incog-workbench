@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Redirect</title>
+  <script type="text/javascript">
+    var redirects = {"":"jupyter_sessions\\jupyter_sessions.html","overview-7":"jupyter_sessions\\jupyter_sessions.html","configuration-2":"jupyter_sessions\\configuration.html","troubleshooting-3":"jupyter_sessions\\troubleshooting.html","jupyter-troubleshooting":"jupyter_sessions\\troubleshooting.html"};
+    var hash = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : window.location.hash;
+    var redirect = redirects[hash] || redirects[""] || "/";
+    window.document.title = 'Redirect to  ' +  redirect;
+    window.location.replace(redirect);
+  </script>
+</head>
+<body>
+</body>
+</html>
